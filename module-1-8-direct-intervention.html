@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module 1.8 — Direct Intervention · Nishkam Teaching Excellence Programme</title>
+<meta name="description" content="Direct Intervention at Nishkam School — the formal warning ladder used when the pre-warning strategies of Module 1.7 have been exhausted. Five graduated steps from named warning to escalation off-classroom." />
+<style>
+:root {
+  --cream: #F7F2E8; --surface: #FFFDF7; --ink: #1F2A37; --ink-soft: #4B5563;
+  --rust: #7A3B1D; --rust-soft: #C98E60; --gold: #B8893A;
+  --highlight: #FFF4DD; --practice: #EEF3EC; --practice-ink: #2D6A3E; --practice-rule: #8FAB87;
+  --pitfall: #FBEEE5; --pitfall-bar: #C25B3F; --pitfall-ink: #8B3A2E;
+  --rule: #D8CFB9; --serif: Georgia, 'Times New Roman', serif; --sans: Calibri, 'Trebuchet MS', sans-serif;
+  --accent: var(--rust);
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
+a { color: var(--rust); }
+
+.hero { background: var(--cream); padding: 56px 32px 40px; border-bottom: 1px solid var(--rule); }
+.hero-inner { max-width: 1080px; margin: 0 auto; }
+.pillar-tag { display: inline-block; font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 18px; }
+.module-number { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink-soft); margin-bottom: 10px; }
+.title { font-family: var(--serif); font-size: 56px; font-weight: 700; color: var(--ink); margin: 0 0 14px; line-height: 1.05; }
+.title em { font-style: italic; color: var(--rust); }
+.lede { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--ink-soft); margin: 0 0 28px; line-height: 1.45; max-width: 760px; }
+
+.checklist-strip { background: var(--highlight); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.checklist-strip .label { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; margin-right: 8px; }
+.checklist-strip a.cl-tag { font-family: var(--serif); font-weight: 700; font-size: 13px; background: var(--highlight); color: var(--accent); padding: 5px 11px; border-radius: 100px; text-decoration: none; border: 1px solid transparent; transition: border-color 0.15s; }
+.checklist-strip a.cl-tag:hover { border-color: var(--accent); }
+.checklist-strip a.cl-tag.outcome { background: var(--cream); border: 1px solid var(--gold); color: var(--gold); font-style: italic; }
+.checklist-strip .secondary { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 14px; margin-left: auto; }
+
+.meta-row { display: flex; flex-wrap: wrap; gap: 30px; padding-top: 8px; }
+.meta { display: flex; flex-direction: column; gap: 4px; }
+.meta .label { font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; }
+.meta .value { font-family: var(--sans); font-size: 16px; font-weight: 700; color: var(--ink); }
+.audience-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.audience-tags .tag { font-size: 12px; background: var(--surface); border: 1px solid var(--rule); padding: 3px 9px; border-radius: 100px; color: var(--ink); font-weight: 600; }
+
+.layout { max-width: 1080px; margin: 0 auto; padding: 40px 32px; display: grid; grid-template-columns: 220px 1fr; gap: 56px; }
+.toc { position: sticky; top: 28px; align-self: start; }
+.toc h4 { font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px; }
+.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; font-size: 14px; }
+.toc li { padding: 5px 0; border-top: 1px solid var(--rule); counter-increment: toc; }
+.toc li:first-child { border-top: none; }
+.toc li::before { content: counter(toc, decimal-leading-zero) " · "; color: var(--rust); font-family: var(--serif); font-style: italic; }
+.toc a { color: var(--ink); text-decoration: none; }
+.toc a:hover { color: var(--rust); }
+
+article { min-width: 0; }
+section { margin: 0 0 56px; }
+.section-eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; margin: 0 0 8px; }
+h2 { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--ink); margin: 0 0 14px; line-height: 1.15; }
+.section-intro { font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--ink-soft); margin: 0 0 24px; line-height: 1.45; }
+p { margin: 0 0 18px; line-height: 1.65; }
+
+/* Warning ladder — vertical, escalating */
+.ladder { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 24px 26px; margin: 24px 0 16px; }
+.ladder-orientation { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; text-align: center; margin: 0 0 18px; }
+.ladder-grid { display: flex; flex-direction: column; gap: 0; }
+.ladder-step { display: grid; grid-template-columns: 80px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px dashed var(--rule); }
+.ladder-step:last-child { border-bottom: none; }
+.ladder-step .step-marker { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ladder-step .step-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--rust); color: var(--surface); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 700; font-size: 22px; }
+.ladder-step.s5 .step-circle { background: var(--pitfall-bar); }
+.ladder-step .step-content h3 { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.ladder-step .step-content .step-meta { font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.ladder-step .step-content p { font-family: var(--sans); font-size: 14px; color: var(--ink); margin: 0; line-height: 1.55; }
+
+/* Step detail blocks */
+.step { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 24px 26px; margin: 0 0 22px; }
+.step-header { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 14px; }
+.step-num-tile { background: var(--rust); color: var(--surface); font-family: var(--serif); font-weight: 700; font-size: 28px; padding: 14px 18px; border-radius: 6px; min-width: 64px; text-align: center; flex-shrink: 0; line-height: 1; }
+.step-num-tile.escalate { background: var(--pitfall-bar); }
+.step-title-block { flex: 1; min-width: 0; }
+.step-tag { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.step-title { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); margin: 0; }
+.step-weight { font-family: var(--serif); font-style: italic; color: var(--rust); font-size: 14px; padding-top: 6px; flex-shrink: 0; }
+.step p { margin: 0 0 14px; font-size: 15px; line-height: 1.65; }
+
+.technique, .when, .script { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 18px; margin: 12px 0; }
+.technique .label, .when .label, .script .label { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 6px; }
+.script { background: var(--highlight); }
+.script p { font-style: italic; color: var(--ink); }
+
+.practice { background: var(--practice); border: 1px solid var(--practice-rule); border-left: 5px solid var(--practice-ink); border-radius: 6px; padding: 18px 20px; margin: 14px 0; }
+.practice .label { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 12px; }
+.practice .label span:first-child { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--practice-ink); text-transform: uppercase; letter-spacing: 3px; }
+.practice .timer { font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--practice-ink); }
+.practice ol { margin: 0; padding-left: 22px; }
+.practice li { margin: 0 0 8px; line-height: 1.55; font-size: 14px; }
+.coach-prompt { font-family: var(--sans); font-size: 13px; color: var(--ink); margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--practice-rule); font-style: italic; }
+.coach-prompt strong { font-style: normal; color: var(--practice-ink); }
+
+.pitfall { background: var(--pitfall); border: 1px solid var(--rule); border-left: 5px solid var(--pitfall-bar); border-radius: 6px; padding: 14px 18px; margin: 0 0 12px; }
+.pitfall strong { color: var(--pitfall-ink); display: inline; }
+.pitfall .pf-cl { display: inline-block; font-family: var(--sans); font-size: 11px; font-weight: 700; font-style: italic; color: var(--pitfall-ink); margin-left: 8px; }
+.pitfall p { margin: 6px 0 0; font-size: 14px; line-height: 1.6; color: var(--ink); }
+
+.audit { width: 100%; border-collapse: collapse; margin: 18px 0 8px; font-size: 14px; background: var(--surface); border-radius: 6px; overflow: hidden; }
+.audit thead th { background: var(--ink); color: var(--surface); font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 12px 14px; text-align: left; }
+.audit td { padding: 14px; border-top: 1px solid var(--rule); vertical-align: middle; }
+.audit td.id { font-family: var(--serif); font-weight: 700; color: var(--rust); width: 12%; }
+.audit-section-divider { background: var(--gold); color: var(--surface); font-family: var(--sans); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 3px; padding: 8px 14px; margin-top: 6px; border-radius: 6px 6px 0 0; }
+.audit .outcome-row { background: #FAF3E3; }
+.audit .outcome-row td.id { color: var(--gold); font-style: italic; }
+.rag { display: inline-flex; gap: 4px; }
+.rag span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--rule); display: inline-block; }
+.rag .r { background: #C25B3F33; } .rag .a { background: #C9933F33; } .rag .g { background: #5B8B5933; }
+
+.ai-tool { background: #1F2A37; color: #EAE3D0; padding: 28px 30px; border-radius: 10px; margin: 22px 0; }
+.ai-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--rust-soft); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.ai-tool h3 { font-family: var(--serif); font-weight: 700; font-size: 24px; color: var(--surface); margin: 0 0 16px; }
+.ai-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 14px; }
+.ai-demo .label { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--rust-soft); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.ai-demo .scenario, .ai-demo .response { background: #0E141C; border: 1px solid #2A3340; border-radius: 6px; padding: 14px 16px; font-size: 13px; line-height: 1.6; }
+.ai-demo .scenario { font-style: italic; }
+.ai-demo .response p { margin: 0 0 10px; font-size: 13px; }
+.ai-demo .response p:last-child { margin: 0; }
+.ai-demo .response strong { color: var(--rust-soft); font-style: normal; }
+.ai-demo .response ol { margin: 0 0 10px; padding-left: 18px; }
+.ai-demo .response li { margin-bottom: 6px; }
+.ai-cta { display: inline-block; background: var(--rust-soft); color: var(--ink); font-family: var(--sans); font-weight: 700; padding: 10px 18px; border-radius: 6px; text-decoration: none; }
+
+.downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 18px 0 8px; }
+.download-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--ink); }
+.download-card:hover { border-color: var(--rust); }
+.download-card .type { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; }
+.download-card .name { font-family: var(--serif); font-weight: 700; font-size: 17px; color: var(--ink); }
+.download-card .size { font-family: var(--sans); font-size: 12px; color: var(--ink-soft); }
+
+.module-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0 12px; padding-top: 24px; border-top: 1px solid var(--rule); }
+.module-nav a { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 18px; text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 4px; }
+.module-nav a.next { text-align: right; }
+.module-nav a:hover { border-color: var(--rust); }
+.module-nav .dir { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; }
+.module-nav .label { font-family: var(--serif); font-weight: 700; font-size: 17px; }
+
+.module-footer { background: var(--ink); color: var(--cream); padding: 36px 32px; text-align: center; margin-top: 30px; }
+.module-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--rust-soft); margin-bottom: 6px; }
+.module-footer a { color: var(--rust-soft); }
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 24px 18px; }
+  .toc { position: static; }
+  .ai-demo { grid-template-columns: 1fr; }
+  .downloads { grid-template-columns: 1fr; }
+  .title { font-size: 36px; }
+  .step-header { flex-direction: column; align-items: flex-start; }
+  .ladder-step { grid-template-columns: 1fr; }
+}
+
+/* ====== shared six-pillar nav spine ====== */
+.pillar-spine { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.pillar-spine-summary {
+  list-style: none; cursor: pointer; padding: 14px 24px;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  max-width: 1080px; margin: 0 auto;
+}
+.pillar-spine-summary::-webkit-details-marker { display: none; }
+.pillar-spine-summary::marker { content: ""; }
+.pillar-spine-summary .ps-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.pillar-spine-summary .ps-current {
+  font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 15px;
+}
+.pillar-spine-summary .ps-current strong { font-style: normal; color: var(--accent); font-weight: 600; }
+.pillar-spine-summary .ps-toggle {
+  margin-left: auto; color: var(--accent); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.06em;
+}
+.pillar-spine-summary .ps-toggle::after { content: " ↓"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle::after { content: " ↑"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-show { display: none; }
+.pillar-spine .pillar-spine-summary .ps-toggle .ps-hide { display: none; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-hide { display: inline; }
+
+.pillar-spine-grid {
+  max-width: 1080px; margin: 0 auto; padding: 4px 24px 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px;
+}
+@media (max-width: 880px) { .pillar-spine-grid { grid-template-columns: 1fr; padding-bottom: 18px; } }
+
+.ps-pillar { border-top: 1px solid var(--rule); padding: 14px 0 4px; }
+.ps-pillar-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.ps-num {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700;
+}
+.ps-name {
+  font-family: var(--serif); font-size: 16px; color: var(--ink); font-weight: 600;
+  line-height: 1.25;
+}
+.ps-modules { list-style: none; padding: 0; margin: 0; }
+.ps-modules li { padding: 2px 0; font-size: 13.5px; line-height: 1.5; }
+.ps-modules a { color: var(--ink); text-decoration: none; }
+.ps-modules a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ps-modules a.ps-current { color: var(--accent); font-weight: 700; }
+.ps-modules a.ps-current::before { content: "● "; color: var(--accent); font-size: 10px; vertical-align: 2px; }
+
+.ps-pillar.ps-coming .ps-num,
+.ps-pillar.ps-coming .ps-name { color: var(--ink-soft); }
+.ps-pillar.ps-coming .ps-name { opacity: 0.7; }
+.ps-pillar.ps-coming .ps-coming-note {
+  font-size: 12.5px; color: var(--ink-soft); font-style: italic;
+  margin: 4px 0 0; opacity: 0.75;
+}
+.ps-pending { color: var(--ink-soft); opacity: 0.65; display: flex; align-items: baseline; gap: 8px; }
+.ps-pending .ps-tag {
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 1px 7px; border-radius: 100px; font-style: normal; font-weight: 600;
+}
+  .ps-pending .ps-tag.ps-tag-deferred {
+  color: var(--ink-soft); border-color: var(--rule);
+}
+/* ====== /shared six-pillar nav spine ====== */
+
+  .download-card.download-soon { opacity: 0.6; cursor: default; position: relative; }
+  .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
+  .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+</style>
+</head>
+<body data-current="1-8">
+
+<details class="pillar-spine">
+  <summary class="pillar-spine-summary">
+    <span class="ps-label">Six pillars</span>
+    <span class="ps-current">You are here: <strong>Pillar 1 · 1.8 Direct Intervention</strong></span>
+    <span class="ps-toggle"><span class="ps-show">Show all modules</span><span class="ps-hide">Hide</span></span>
+  </summary>
+  <div class="pillar-spine-grid">
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 1</span>
+        <span class="ps-name">Behaviour & Climate</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-1-1-language-of-virtues.html">1.1 Language of Virtues</a></li>
+        <li><a href="./module-1-2-lesson-starts.html">1.2 Lesson Starts</a></li>
+        <li><a href="./module-1-3-diligence-routine.html">1.3 Diligence Routine</a></li>
+        <li><a href="./module-1-4-30-second-reflection.html">1.4 30-Second Reflection</a></li>
+        <li><a href="./module-1-5-bfl-in-class.html">1.5 Behaviour for Learning in Class</a></li>
+        <li><a href="./module-1-6-pre-lesson-strategies.html">1.6 Pre-Lesson Strategies</a></li>
+        <li><a href="./module-1-7-in-lesson-strategies.html">1.7 In-Lesson Strategies</a></li>
+        <li><a class="ps-current" href="./module-1-8-direct-intervention.html">1.8 Direct Intervention</a></li>
+        <li><a href="./module-1-9-lesson-endings.html">1.9 Lesson Endings</a></li>
+        <li><a href="./module-1-10-other-routines.html">1.10 Other Routines</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 2</span>
+        <span class="ps-name">Adaptive Teaching & Inclusion</span>
+      </div>
+      <p class="ps-coming-note">Coming. SEND families to follow.</p>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 3</span>
+        <span class="ps-name">Instruction & Modelling</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-3-1-explain-clearly.html">3.1 Explain Clearly</a></li>
+        <li><a href="./module-3-2-explain-interactively.html">3.2 Explain Interactively</a></li>
+        <li><a href="./module-3-3-explain-with-visuals.html">3.3 Explain with Visuals</a></li>
+        <li><a href="./module-3-4-explain-with-examples.html">3.4 Explain with Examples</a></li>
+        <li><a href="./module-3-5-economy-of-language.html">3.5 Economy of Language</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 4</span>
+        <span class="ps-name">Checking for Understanding</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-4-1-mini-whiteboards.html">4.1 Mini-Whiteboards</a></li>
+        <li><a href="./module-4-2-circulating-checking-support.html">4.2 Circulating &amp; Checking Support</a></li>
+        <li class="ps-pending ps-deferred"><span>4.3 Explicit Vocabulary Teaching</span><span class="ps-tag ps-tag-deferred">primary</span></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 5</span>
+        <span class="ps-name">Questioning & Classroom Dialogue</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-5-1-cold-calling.html">5.1 Cold-Calling</a></li>
+        <li><a href="./module-5-2-probing-questions.html">5.2 Probing Questions</a></li>
+        <li><a href="./module-5-3-think-pair-share.html">5.3 Think, Pair, Share</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 6</span>
+        <span class="ps-name">Standards & Curriculum</span>
+      </div>
+      <p class="ps-coming-note">Coming. Primary-phase focus.</p>
+    </div>
+  </div>
+</details>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="pillar-tag">Pillar 1 · Behaviour for Learning</span>
+    <div class="module-number">Module 1.8</div>
+    <h1 class="title">Direct <em>Intervention</em>.</h1>
+    <p class="lede">The formal warning ladder. The five graduated steps the teacher uses where the pre-warning strategies of Module 1.7 have not produced a reset, ordered from named first warning through to escalation off-classroom.</p>
+
+    <div class="checklist-strip">
+      <span class="label">Checklist coverage</span>
+      <a href="#audit" class="cl-tag">BFL7</a>
+      <a href="#audit" class="cl-tag outcome">BFL-O2</a>
+      <span class="secondary">Streamlined wording in use · sanctions framework</span>
+    </div>
+
+    <div class="meta-row">
+      <div class="meta"><span class="label">Time</span><span class="value">60 minutes</span></div>
+      <div class="meta"><span class="label">Format</span><span class="value">Independent · Coaching · Department</span></div>
+      <div class="meta"><span class="label">Audience</span><div class="audience-tags"><span class="tag">All staff</span><span class="tag">New teachers</span></div></div>
+      <div class="meta"><span class="label">Prerequisites</span><span class="value">Modules 1.3, 1.7</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h4>In this module</h4>
+    <ol>
+      <li><a href="#why">Why this matters</a></li>
+      <li><a href="#ladder">The warning ladder</a></li>
+      <li><a href="#step-1">1 · Named first warning</a></li>
+      <li><a href="#step-2">2 · Final warning</a></li>
+      <li><a href="#step-3">3 · Move seat</a></li>
+      <li><a href="#step-4">4 · Time outside</a></li>
+      <li><a href="#step-5">5 · Escalation off-classroom</a></li>
+      <li><a href="#delivery">Delivering the technique</a></li>
+      <li><a href="#pitfalls">Pitfalls</a></li>
+      <li><a href="#audit">Self-audit</a></li>
+      <li><a href="#ai-tool">AI scenario tester</a></li>
+      <li><a href="#downloads">Downloads</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="why">
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>The territory beyond Module 1.7.</h2>
+      <p class="section-intro">Module 1.7 covered the pre-warning strategies — the five rungs of positioning, proximity, eye-meet, strong-position reset, and named virtue. Module 1.8 begins where Module 1.7 ends. Where the named virtue of Rung 5 has not produced a reset, or where the behaviour observed crosses into deliberate disruption, the teacher moves into the formal warning ladder this module covers.</p>
+
+      <p>The warning ladder is the school's consequence system. Where Module 1.7's ladder is silent and graduated by visibility, Module 1.8's ladder is named, recorded, and graduated by the size of the consequence each step carries. Each step is delivered with a specific phrasing, recorded against the pupil's name, and communicated home through the school's standard channels. The school's formal sanctions framework — detentions, internal exclusions, parental contact — sits at the higher rungs and is initiated through the steps below.</p>
+
+      <p>The diagnostic value of separating Module 1.8 from Module 1.7 is that it makes visible how often the warning ladder is being used. A teacher whose lessons rely on Module 1.7 alone produces a different set of behaviour records from a teacher whose lessons routinely reach the second or third step of Module 1.8. The pattern across the term is itself a coaching prompt: where the warning ladder is being used frequently, the question is whether the pre-warning strategies of Module 1.7 are being deployed early enough.</p>
+
+      <p>This module assumes the teacher has completed Modules 1.3 and 1.7. The Diligence Routine and the pre-warning ladder are the routines the warning ladder follows; without those in place, the warning ladder operates in a vacuum and is largely ineffective.</p>
+    </section>
+
+    <section id="ladder">
+      <div class="section-eyebrow">02 · The warning ladder</div>
+      <h2>Five graduated steps, named and recorded.</h2>
+      <p class="section-intro">Each step is heavier than the one above and carries a larger consequence. The teacher delivers the steps in order and does not skip ahead unless the behaviour observed warrants direct escalation (covered in section 03 below).</p>
+
+      <div class="ladder">
+        <p class="ladder-orientation">↓ Increasing consequence and formality ↓</p>
+        <div class="ladder-grid">
+          <div class="ladder-step">
+            <div class="step-marker"><div class="step-circle">1</div></div>
+            <div class="step-content">
+              <div class="step-meta">First warning · named, recorded</div>
+              <h3>Named first warning.</h3>
+              <p>The pupil is named; the behaviour is named; the warning is recorded against the pupil's name in the lesson record. No other consequence at this point.</p>
+            </div>
+          </div>
+          <div class="ladder-step">
+            <div class="step-marker"><div class="step-circle">2</div></div>
+            <div class="step-content">
+              <div class="step-meta">Final warning · detention attached</div>
+              <h3>Final warning.</h3>
+              <p>The pupil is named again; the next breach produces an automatic detention. The recording moves to the second tier of the school's behaviour system.</p>
+            </div>
+          </div>
+          <div class="ladder-step">
+            <div class="step-marker"><div class="step-circle">3</div></div>
+            <div class="step-content">
+              <div class="step-meta">Move seat · in-room sanction</div>
+              <h3>Move seat.</h3>
+              <p>The pupil is moved to a designated seat at the front of the room. The detention attached at Step 2 stands; the seat-move is the in-lesson resolution.</p>
+            </div>
+          </div>
+          <div class="ladder-step">
+            <div class="step-marker"><div class="step-circle">4</div></div>
+            <div class="step-content">
+              <div class="step-meta">Time outside · brief reset</div>
+              <h3>Brief time outside the room.</h3>
+              <p>The pupil is asked to step outside the classroom for a short reset, addressed at the door, and returned to the lesson. The interaction is brief and is followed by parental contact later in the day.</p>
+            </div>
+          </div>
+          <div class="ladder-step s5">
+            <div class="step-marker"><div class="step-circle">5</div></div>
+            <div class="step-content">
+              <div class="step-meta">Escalation · off-classroom</div>
+              <h3>Escalation off-classroom.</h3>
+              <p>The pupil is removed from the lesson and sent to the on-call duty room or equivalent. The school's behaviour system takes over; the teacher's lesson resumes and the incident is followed up later.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>The exact phrasing, recording mechanism, and consequence attached at each step varies by school within the Trust and is set by the school's behaviour policy. The five-step structure described here is the operational shape; the specific names of detentions, the duty-room procedure, and the parental-contact protocol are detailed in the school's behaviour policy and are referred to alongside this module.</p>
+
+      <p>Steps 1 and 2 are routine and are used several times in a typical lesson with most year groups. Step 3 is used occasionally. Steps 4 and 5 are used rarely; their use is itself a signal that something further is required, either a coaching conversation about the pre-warning strategies that should have prevented the escalation, or a pastoral conversation about the pupil whose behaviour has reached that level.</p>
+    </section>
+
+    <section id="step-1">
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num-tile">1</div>
+          <div class="step-title-block">
+            <div class="step-tag">First warning · named, recorded</div>
+            <h3 class="step-title">The named first warning.</h3>
+          </div>
+          <div class="step-weight">light · public</div>
+        </div>
+
+        <p>The first warning is the entry point to the formal ladder. The teacher names the pupil, names the specific behaviour, and states that this is a first warning. The whole exchange is brief — typically five to seven seconds — and uses the wording the school's behaviour policy specifies.</p>
+
+        <p>The naming of the behaviour matters. The teacher does not deliver "[Pupil], that's a first warning" without saying what the warning is for; without the named behaviour, the pupil cannot adjust their conduct to avoid the next step. The named behaviour is also what is recorded against the pupil's name in the lesson record, which is why the wording is precise rather than general.</p>
+
+        <div class="when"><div class="label">When to use</div>Where Module 1.7's Rung 5 (named virtue) has not produced a reset, or where the behaviour observed is deliberate rather than drift. Persistent talking after a virtue-named reset, deliberate refusal of a teacher instruction, and equipment misuse are the typical entry points.</div>
+
+        <div class="technique"><div class="label">The technique</div>The teacher names the pupil at normal volume, names the specific behaviour, and states the warning. The phrasing is short and uses the school's standard wording. The teacher does not engage in negotiation about whether the warning is fair; the warning is recorded and the lesson continues.</div>
+
+        <div class="script"><span class="label">Scripted language — example</span><p>"[Pupil], talking over the instruction. That's a first warning."</p></div>
+
+        <div class="practice">
+          <div class="label"><span>Deliberate practice</span><span class="timer">5 minutes · in pairs</span></div>
+          <ol>
+            <li>The partner generates three plausible behaviour scenarios warranting a first warning — a sustained side conversation after a Rung 5 reset, a refused instruction, a phone visible during independent work.</li>
+            <li>The teacher delivers the warning using the school's standard wording, naming the pupil and the specific behaviour.</li>
+            <li>The partner reports whether the warning named the behaviour clearly, and whether the delivery sounded settled rather than escalating in volume.</li>
+          </ol>
+          <div class="coach-prompt"><strong>Coach prompt:</strong> Did the warning name the specific behaviour, or just the pupil? Was the volume the same as for the rest of the lesson, or did it rise?</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="step-2">
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num-tile">2</div>
+          <div class="step-title-block">
+            <div class="step-tag">Final warning · detention attached</div>
+            <h3 class="step-title">The final warning.</h3>
+          </div>
+          <div class="step-weight">heavier · public</div>
+        </div>
+
+        <p>The final warning is delivered where the same pupil has continued the same behaviour after a first warning, or where a separate behaviour has reached a threshold the school's policy specifies as warranting a final warning directly. The recording moves up a tier in the school's behaviour system, and a detention is automatically attached to any further breach.</p>
+
+        <p>The final warning is named explicitly as a final warning, in the same phrasing pattern as the first. The pupil is told the consequence of the next breach: a detention. The named consequence is what makes the warning operative; an unnamed consequence is a request rather than a warning.</p>
+
+        <div class="when"><div class="label">When to use</div>Where the same behaviour has continued after a first warning has been delivered to the same pupil, or where the behaviour observed (deliberate disruption to other pupils, equipment damage, refusal of repeated instructions) warrants a direct second-step entry under the school's policy.</div>
+
+        <div class="technique"><div class="label">The technique</div>The teacher names the pupil, names the continued behaviour, and states the final warning with the consequence attached. The phrasing pattern matches the first warning; only the level and the consequence change.</div>
+
+        <div class="script"><span class="label">Scripted language — example</span><p>"[Pupil], still talking after the first warning. Final warning. Next step is a detention."</p></div>
+      </div>
+    </section>
+
+    <section id="step-3">
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num-tile">3</div>
+          <div class="step-title-block">
+            <div class="step-tag">Move seat · in-room sanction</div>
+            <h3 class="step-title">Move seat.</h3>
+          </div>
+          <div class="step-weight">in-lesson · structural</div>
+        </div>
+
+        <p>The seat-move is the in-lesson resolution where the pupil has continued after a final warning. A designated seat at the front of the room — typically next to the teacher's lectern, with no peer immediately adjacent — is held for this purpose. The pupil moves their equipment, sits in the new seat, and continues the lesson from there.</p>
+
+        <p>The seat-move is structural rather than punitive in its purpose: it removes the social conditions (peer audience, conversation partner) that have sustained the disruption, while keeping the pupil in the lesson. The detention attached at Step 2 stands; the seat-move is in addition rather than instead.</p>
+
+        <div class="when"><div class="label">When to use</div>After Step 2 has been delivered and the same behaviour has continued. The seat-move follows immediately on the next breach; it is not delayed to the end of the lesson.</div>
+
+        <div class="technique"><div class="label">The technique</div>The teacher names the pupil and names the move. The phrasing is brief and unambiguous. The teacher does not negotiate about which seat or about whether the move is necessary; the move is the consequence of the previous breach. The pupil moves their equipment in approximately fifteen seconds, and the lesson continues.</div>
+
+        <div class="script"><span class="label">Scripted language — example</span><p>"[Pupil], move to the front seat, please. Bring your book and pen."</p></div>
+      </div>
+    </section>
+
+    <section id="step-4">
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num-tile">4</div>
+          <div class="step-title-block">
+            <div class="step-tag">Time outside · brief reset</div>
+            <h3 class="step-title">Brief time outside the room.</h3>
+          </div>
+          <div class="step-weight">heavier · pastoral</div>
+        </div>
+
+        <p>Step 4 is reached infrequently. The pupil is asked to step outside the classroom for a brief reset; the teacher addresses them at the door once the lesson has been resumed for the rest of the class. The exchange at the door is short — typically thirty seconds to a minute — and is followed by the pupil returning to the lesson, or by escalation to Step 5 if the conditions for return are not met.</p>
+
+        <p>The purpose of the time outside is pastoral as much as disciplinary: the pupil who has reached this point in the ladder is typically in a state where remaining in the room is not productive for them or for the rest of the class. A brief reset outside the room, followed by a settled return, often resolves the situation without requiring escalation off-classroom.</p>
+
+        <div class="when"><div class="label">When to use</div>After Step 3 has been delivered and the behaviour has continued, or where a single behaviour (a refusal to comply with a clear safety instruction, for example) warrants direct entry at this step under the school's policy.</div>
+
+        <div class="technique"><div class="label">The technique</div>The teacher names the pupil and asks them to step outside, briefly. The lesson is then resumed for the rest of the class — typically with a return to the Diligence Routine to re-establish the room — before the teacher walks to the door to address the pupil. The exchange at the door is short, focused on whether the pupil is ready to return, and ends with either the pupil's return to their seat or with escalation to Step 5.</div>
+      </div>
+    </section>
+
+    <section id="step-5">
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num-tile escalate">5</div>
+          <div class="step-title-block">
+            <div class="step-tag">Escalation off-classroom</div>
+            <h3 class="step-title">Escalation off-classroom.</h3>
+          </div>
+          <div class="step-weight">heaviest · system</div>
+        </div>
+
+        <p>Step 5 is the escalation point. The pupil is removed from the lesson and sent to the on-call duty room, the relevant Head of Year office, or whichever location the school's policy specifies. From this point the school's wider behaviour system takes over; the teacher's responsibility for the immediate incident transfers to the duty staff.</p>
+
+        <p>The teacher's role at Step 5 is to deliver the pupil safely off the classroom and to record the incident in the school's behaviour system promptly afterwards. The follow-up — pastoral conversation, parental contact, restorative work — is handled by the appropriate staff according to the school's policy. A coaching conversation between the teacher and their line manager typically follows within the next day, both to support the teacher and to identify any pattern across the term.</p>
+
+        <div class="when"><div class="label">When to use</div>Where the conditions for return after Step 4 are not met, or where the behaviour observed (a fight, a serious refusal of a safety instruction, language that requires immediate response) warrants direct entry at this step under the school's policy.</div>
+
+        <div class="technique"><div class="label">The technique</div>The teacher follows the school's on-call procedure. The pupil is told briefly that they are being removed and to whom they are going; the teacher does not engage in extended negotiation at this point. Once the pupil has been collected or has left for the designated location, the teacher returns to the lesson and re-establishes the room using the Diligence Routine. The incident is recorded in full in the school's behaviour system before the end of the school day.</div>
+      </div>
+    </section>
+
+    <section id="delivery">
+      <div class="section-eyebrow">03 · Delivering the technique</div>
+      <h2>Three principles for the warning ladder.</h2>
+      <p class="section-intro">The shape of the ladder is described above. The principles below cover how each step is delivered in the moment, and how the ladder is used over the course of a term.</p>
+
+      <div class="practice">
+        <div class="label"><span>Featured practice · Ladder rehearsal</span><span class="timer">10 minutes · in trios</span></div>
+        <p style="font-size: 14px; margin: 0 0 10px;">The trio rehearses a single behaviour scenario through Steps 1, 2, and 3 in sequence, switching teacher and pupil roles after each full sequence.</p>
+        <ol>
+          <li>The trio agrees a behaviour scenario — a pupil who continues a side conversation after Rung 5 of Module 1.7.</li>
+          <li>The teacher delivers Step 1 using the school's standard phrasing. The pupil continues the behaviour.</li>
+          <li>The teacher delivers Step 2 with the detention named. The pupil continues.</li>
+          <li>The teacher delivers Step 3 (move seat). The pupil moves to the designated front seat.</li>
+          <li>The observer reports on the consistency of phrasing across the three steps, and on whether the volume or tone shifted between them.</li>
+          <li>Roles rotate and the sequence is run twice more.</li>
+        </ol>
+        <div class="coach-prompt"><strong>Coach prompt:</strong> Did each step name the specific behaviour, or did the wording become more general at the higher steps? Was the consequence at Step 2 named explicitly?</div>
+      </div>
+
+      <p><strong>Principle 1 · Name the behaviour, not the pupil's character.</strong> Each step in the ladder names the specific behaviour the warning is for ("talking over the instruction", "out of seat", "phone visible") rather than the pupil's character ("disruptive", "lazy"). The named behaviour is what is recorded; it is also what the pupil can adjust. Character labels are not corrigible and do not belong in the formal record.</p>
+
+      <p><strong>Principle 2 · Maintain volume across the ladder.</strong> The volume at which Step 1 is delivered is the volume at which Steps 2, 3, 4 and 5 are also delivered. Rising volume across the steps teaches the room that the standard is set by the teacher's emotional state rather than by the rules of the warning system, and produces an expectation that earlier steps can be ignored because the teacher will eventually shout. The technique is settled, professional delivery at every step.</p>
+
+      <p><strong>Principle 3 · Re-establish the room after each step.</strong> Each step in the ladder is, by definition, a public intervention that the rest of the class has registered. After delivering the step, the teacher returns to the Diligence Routine briefly — a single "diligence" trigger and a three-second pause — to re-establish the lesson before continuing. Without the re-establishment, the warning has cost the room two or three minutes of focus that the routine recovers.</p>
+    </section>
+
+    <section id="pitfalls">
+      <div class="section-eyebrow">04 · Common pitfalls</div>
+      <h2>Where the warning ladder is misused.</h2>
+      <p class="section-intro">Each pitfall below describes a teacher behaviour that reduces the effectiveness of the warning ladder over time. Each is tagged with the item it puts at risk.</p>
+
+      <div class="pitfall"><strong>Skipping the pre-warning strategies.</strong><span class="pf-cl">Risks BFL-O2</span><p>The teacher reaches for Step 1 of the warning ladder before any of the five rungs of Module 1.7 have been deployed. The room is taught that drift is met with formal warnings rather than with light, frequent, low-key correction. Over a half-term, the rate at which the warning ladder is used rises sharply and the rate at which Module 1.7 is used falls.</p></div>
+
+      <div class="pitfall"><strong>Repeated warnings without escalation.</strong><span class="pf-cl">Risks BFL7, BFL-O2</span><p>The teacher delivers a first warning, then a second first warning, then a third first warning to the same pupil for the same behaviour. The warning ladder is not being used; the pupil has registered that warnings carry no consequence and the disruption continues. The technique is to escalate to Step 2 on the next breach, not to redeliver Step 1.</p></div>
+
+      <div class="pitfall"><strong>Negotiating at the higher steps.</strong><span class="pf-cl">Risks BFL-O2</span><p>The teacher delivers Step 3 (move seat) and then engages with the pupil's response of "but I wasn't doing anything". Each second of negotiation costs the rest of the class focus and teaches the pupil that the consequence is negotiable. The technique is to deliver the step, expect compliance, and re-establish the room.</p></div>
+
+      <div class="pitfall"><strong>Public delivery at the lower steps where private would have worked.</strong><span class="pf-cl">Risks BFL-O2</span><p>The teacher delivers a Step 1 warning across the room when proximity (Module 1.7 Rung 2) would have addressed the same behaviour. The warning is now public to thirty pupils where it could have been private to one, and the rest of the class has had its lesson interrupted. The technique is to remain in Module 1.7 territory wherever possible and enter Module 1.8 only when Rung 5 has not produced a reset.</p></div>
+
+      <div class="pitfall"><strong>Shouted delivery.</strong><span class="pf-cl">Risks BFL-O2</span><p>The volume of warnings escalates with the step number. By Step 4 the teacher is shouting. The room reads that the standard is the teacher's emotional state, and the warning system is consequently weaker on the next occasion. The technique is settled volume across all five steps.</p></div>
+
+      <div class="pitfall"><strong>Saving up incidents for one large warning.</strong><span class="pf-cl">Risks BFL7, BFL-O2</span><p>The teacher notices three small breaches during the body of the lesson, decides not to interrupt, and delivers a single Step 2 warning at the end. The room has spent the lesson registering that the breaches went unaddressed, and the late warning carries less weight than three small interventions earlier would have. The technique is immediate response at the lowest available step.</p></div>
+
+      <div class="pitfall"><strong>Failure to record the warnings.</strong><span class="pf-cl">Risks BFL-O2</span><p>The teacher delivers Step 1 verbally but does not record the warning in the lesson tracker. On the next breach there is no record of the previous warning, the pupil claims this is the first time the issue has come up, and the warning ladder restarts from Step 1. The recording is part of the technique; an unrecorded warning is half a warning.</p></div>
+    </section>
+
+    <section id="audit">
+      <div class="section-eyebrow">05 · Self-audit · BFL7, BFL-O2</div>
+      <h2>The canonical checklist.</h2>
+      <p class="section-intro">Module 1.8 does not own a primary BFL action item; it operates as the consequence system that the BFL items rely on for their effect. The audit below records the items the warning ladder most directly affects, alongside an audit of the teacher's use of the ladder over the previous half-term.</p>
+
+      <table class="audit">
+        <thead>
+          <tr><th style="width: 12%;">ID</th><th style="width: 52%;">Statement</th><th style="width: 16%;">RAG</th><th style="width: 20%;">Date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="id">BFL7</td><td>Pupils remain seated without explicit permission.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <div class="audit-section-divider">OUTCOME ITEM — DOWNSTREAM SIGNAL</div>
+      <table class="audit" style="margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;">
+        <tbody>
+          <tr class="outcome-row"><td class="id" style="width: 12%;">BFL-O2</td><td style="width: 52%;">Pupils focused on the task throughout.</td><td style="width: 16%;"><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td style="width: 20%;">—</td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size: 14px; color: var(--ink-soft); margin-top: 16px;"><strong>Term-pattern review.</strong> In addition to the standard BFL audit, the teacher reviews the rate at which the warning ladder has been used across the half-term. A high rate of Step 1 warnings combined with a low rate of Module 1.7 deployments suggests the pre-warning strategies are being skipped. A high rate at Steps 4 and 5 suggests either a class with significant pastoral need (which is a Head of Year conversation rather than a teaching one) or a teacher who is reaching escalation through structural rather than behavioural causes (which is a coaching conversation about the early steps).</p>
+    </section>
+
+    <section id="ai-tool">
+      <div class="section-eyebrow">06 · AI scenario tester</div>
+      <h2>Worked example of a tool response.</h2>
+      <p class="section-intro">The full live tool will accept any scenario the teacher describes. The worked example below shows the shape of a typical response.</p>
+
+      <div class="ai-tool">
+        <div class="ai-eyebrow">Worked example</div>
+        <h3>Warning-ladder pattern review</h3>
+
+        <div class="ai-demo">
+          <div class="label">Teacher submits</div>
+          <div class="scenario">"I've reviewed my behaviour records for this half-term. With Year 8 Period 4, I've issued sixty-three first warnings, fourteen final warnings, four seat-moves, and one off-classroom escalation. The warnings haven't reduced over the half-term — last week was as high as the first week. I'm starting to wonder if the warning system isn't working with this group."</div>
+
+          <div class="label">Tool responds</div>
+          <div class="response">
+            <p><strong>Items at risk:</strong> BFL-O2 (the rate is high enough that the lesson focus is being interrupted by the warnings themselves) and the pre-warning strategies of Module 1.7 (the rate suggests they may not be operating).</p>
+
+            <p><strong>What is happening:</strong> sixty-three first warnings across roughly twenty-five lessons is two and a half per lesson. That rate, sustained across the half-term without reduction, suggests the warnings are being heard as routine rather than as warnings — they are being delivered, registered, and discounted. The ratio of first to final warnings (63:14) is approximately 4:1, which is within the normal range; the issue is the absolute rate at the entry step rather than the conversion rate up the ladder.</p>
+
+            <p><strong>The diagnostic question:</strong> are the first warnings replacing or supplementing Module 1.7? Where the warning is being delivered for behaviour that proximity or eye-meet would have addressed, the warning is doing work the lighter rungs were designed for. The rate then becomes self-sustaining: pupils habituate to first warnings, so the teacher delivers more of them; and the absence of the lighter rungs means low-level drift goes unaddressed until it has grown to warning-level, which produces another first warning.</p>
+
+            <p><strong>Sequence to review:</strong></p>
+            <ol>
+              <li>Across one lesson next week, the teacher counts both Module 1.7 deployments and Module 1.8 step deliveries. The expectation across a typical Year 8 lesson is several Module 1.7 interventions per minute and one or two Module 1.8 first warnings per lesson. A reversal of that ratio is the diagnostic finding.</li>
+              <li>Where Module 1.7 is being underused, the teacher's deliberate practice for the following week is the silent-rungs drill from Module 1.7 (Rungs 1, 2, and 3 in sequence) rather than the warning-ladder drill from this module.</li>
+              <li>The warning rate is reviewed again at the end of the following half-term. A reduction in the rate is the expected outcome where Module 1.7 has been brought back into use.</li>
+            </ol>
+
+            <p><strong>What to avoid:</strong> tightening the warning ladder itself in this case — issuing earlier or more often — would compound the problem rather than resolve it. The warnings are not the lever; the lighter rungs above are.</p>
+          </div>
+        </div>
+
+        <a class="ai-cta" href="#">Live tool — coming soon</a>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="section-eyebrow">07 · Downloads</div>
+      <h2>Module materials.</h2>
+      <p class="section-intro">The module is published in three formats — the printable booklet, the slide deck for the 60-minute session, and a one-page reference card carrying the warning ladder — each adapted for its medium.</p>
+      <div class="downloads">
+        <span class="download-card download-soon"><div class="type">CPD Booklet</div><div class="name">Module 1.8 Booklet</div><div class="size">.docx · printable</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">Slide Deck</div><div class="name">Module 1.8 Slides</div><div class="size">.pptx · 60-min session</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">One-pager</div><div class="name">Warning Ladder Reference Card</div><div class="size">PDF · pin to lectern</div><div class="dl-soon">Coming soon</div></span>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="#" class="prev"><span class="dir">← Previous module</span><span class="label">1.7 · In-Lesson Strategies</span></a>
+      <a href="#" class="next"><span class="dir">Next module →</span><span class="label">1.9 · Lesson Endings</span></a>
+    </nav>
+  </article>
+</div>
+
+<footer class="module-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Pillar 1 · Module 1.8</div>
+  <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./matrix.html">Matrix</a></div>
+</footer>
+</body>
+</html>

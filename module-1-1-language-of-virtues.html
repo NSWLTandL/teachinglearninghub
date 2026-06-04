@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module 1.1 — The Language of Virtues | T&amp;L Excellence Programme</title>
+<meta name="description" content="The Language of Virtues — the foundational module of the Behaviour for Learning pillar. Why we name virtues, how we use them in classroom dialogue, and the scripted language for praise, correction and reflection." />
+<style>
+  :root {
+    --bg: #f7f2e8;
+    --surface: #fffdf7;
+    --ink: #1f2a37;
+    --ink-soft: #4b5563;
+    --rule: #d8cfb9;
+    --accent: #7a3b1d;       /* warm rust — for primary actions and pillar identity */
+    --accent-soft: #c98e60;
+    --gold: #b8893a;
+    --highlight: #fff4dd;
+    --code: #2a2a2a;
+    --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    background: var(--ink);
+    color: #fff;
+    padding: 14px 24px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+  .topbar a:hover { opacity: 1; }
+  .topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 64px 24px 48px;
+    border-bottom: 1px solid var(--rule);
+    background:
+      radial-gradient(circle at 85% 20%, rgba(184, 137, 58, 0.10), transparent 50%),
+      var(--bg);
+  }
+  .hero-inner { max-width: 1080px; margin: 0 auto; }
+  .pillar-tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .module-number {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  h1.title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1;
+    margin: 0 0 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  h1.title em { font-style: italic; color: var(--accent); }
+  .lede {
+    font-size: 20px;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin: 0 0 32px;
+    line-height: 1.5;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .meta { display: flex; flex-direction: column; gap: 4px; }
+  .meta .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+  .meta .value { font-weight: 600; font-size: 15px; }
+  .audience-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+  .tag {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Layout ---------- */
+  .layout {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 56px;
+    padding: 56px 24px 80px;
+  }
+  @media (max-width: 880px) { .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 20px 60px; } }
+
+  nav.toc {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  nav.toc h4 {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  nav.toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc;
+  }
+  nav.toc li { counter-increment: toc; padding: 6px 0; border-left: 2px solid transparent; padding-left: 12px; margin-left: -2px; }
+  nav.toc li::before { content: counter(toc, decimal-leading-zero) "  "; color: var(--accent-soft); font-variant-numeric: tabular-nums; }
+  nav.toc a { color: var(--ink); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  @media (max-width: 880px) { nav.toc { display: none; } }
+
+  /* ---------- Content sections ---------- */
+  article > section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  article h2 {
+    font-family: var(--serif);
+    font-size: 32px;
+    margin: 0 0 8px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  article .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  article .section-intro {
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    max-width: 660px;
+  }
+  article h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    margin: 32px 0 12px;
+    font-weight: 600;
+  }
+  article p { margin: 0 0 16px; }
+  article ul, article ol { padding-left: 22px; margin: 0 0 18px; }
+  article li { margin-bottom: 8px; }
+
+  /* ---------- Pull quote ---------- */
+  blockquote.pull {
+    margin: 32px 0;
+    padding: 28px 32px;
+    border-left: 4px solid var(--accent);
+    background: var(--surface);
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--ink);
+    font-style: italic;
+  }
+  blockquote.pull cite {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 16px;
+  }
+
+  /* ---------- Cards / step-by-step ---------- */
+  .step-list { display: flex; flex-direction: column; gap: 16px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  .step-list li {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 20px 24px 20px 64px;
+    position: relative;
+    counter-increment: step;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 20px;
+    top: 18px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .step-list h4 { margin: 0 0 6px; font-size: 16px; font-weight: 700; color: var(--ink); font-family: var(--sans); }
+  .step-list p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+  .script {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--highlight);
+    border-radius: 6px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  /* ---------- Two-column comparison ---------- */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  @media (max-width: 600px) { .compare { grid-template-columns: 1fr; } }
+  .compare-col {
+    padding: 20px 22px;
+    border-radius: 10px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .compare-col h4 { margin: 0 0 10px; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .compare-col.bad h4 { color: #8b3a2e; }
+  .compare-col.good h4 { color: #2d6a3e; }
+  .compare-col p { margin: 0; font-size: 15px; color: var(--ink); }
+  .compare-col .note { color: var(--ink-soft); font-size: 13px; margin-top: 8px; font-style: italic; }
+
+  /* ---------- Pitfall callout ---------- */
+  .pitfall {
+    border-left: 4px solid #c25b3f;
+    background: #fbeee5;
+    padding: 16px 22px;
+    border-radius: 0 8px 8px 0;
+    margin: 24px 0;
+  }
+  .pitfall strong { color: #8b3a2e; }
+
+  /* ---------- Coaching panel ---------- */
+  .coach-panel {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 24px;
+    background: var(--surface);
+  }
+  .coach-panel h4 { margin: 0 0 12px; font-family: var(--serif); font-size: 18px; }
+  .coach-roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .coach-roles { grid-template-columns: 1fr; } }
+  .coach-roles div {
+    background: var(--bg);
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  .coach-roles strong { display: block; margin-bottom: 4px; color: var(--accent); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ---------- Self-audit ---------- */
+  table.audit {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--surface);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  table.audit th, table.audit td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+    vertical-align: top;
+  }
+  table.audit th {
+    background: var(--ink);
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  table.audit tr:last-child td { border-bottom: none; }
+  table.audit .rag {
+    display: inline-flex;
+    gap: 4px;
+  }
+  table.audit .rag span {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    cursor: pointer;
+  }
+  .rag .r { background: #e8c0b6; }
+  .rag .a { background: #f3dfa8; }
+  .rag .g { background: #b8d4ba; }
+
+  /* ---------- AI tool ---------- */
+  .ai-tool {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1f2a37 100%);
+    color: #f5f2eb;
+    padding: 32px;
+    border-radius: 12px;
+    margin: 24px 0;
+  }
+  .ai-tool h3 { color: #fff; margin: 0 0 8px; font-family: var(--serif); }
+  .ai-tool .ai-eyebrow { color: var(--accent-soft); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; }
+  .ai-tool p { color: rgba(255,255,255,0.75); }
+  .ai-demo {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .ai-demo .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 6px; font-weight: 600; }
+  .ai-demo .scenario { font-style: italic; color: rgba(255,255,255,0.85); padding: 12px 14px; background: rgba(0,0,0,0.2); border-radius: 6px; margin-bottom: 16px; font-family: var(--serif); font-size: 15px; }
+  .ai-demo .response { font-size: 15px; line-height: 1.6; }
+  .ai-demo .response strong { color: var(--accent-soft); }
+  .ai-demo .response ol { margin: 8px 0; padding-left: 20px; }
+  .ai-cta {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 18px;
+    border: 1px solid var(--accent-soft);
+    color: var(--accent-soft);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  /* ---------- Downloads ---------- */
+  .downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 700px) { .downloads { grid-template-columns: 1fr; } }
+  .download-card {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--surface);
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.2s, transform 0.2s;
+    display: block;
+  }
+  .download-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .download-card .type { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .download-card .name { font-weight: 600; margin-top: 6px; font-size: 16px; font-family: var(--serif); }
+  .download-card .size { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+
+  /* ---------- Linked modules ---------- */
+  .linked-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 700px) { .linked-list { grid-template-columns: 1fr; } }
+  .linked-card {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 18px 22px;
+    background: var(--surface);
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .linked-card:hover { border-color: var(--accent); }
+  .linked-card .num { font-size: 12px; color: var(--accent); font-weight: 700; letter-spacing: 0.06em; }
+  .linked-card .title { font-family: var(--serif); font-size: 17px; }
+  .linked-card .desc { font-size: 13px; color: var(--ink-soft); }
+
+  /* ---------- Video placeholder ---------- */
+  .video-placeholder {
+    background: #2a2a2a;
+    border-radius: 10px;
+    padding: 60px 24px;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    margin: 16px 0;
+  }
+  .video-placeholder .icon { font-size: 36px; opacity: 0.5; margin-bottom: 12px; }
+  .video-placeholder .label { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .video-placeholder .desc { font-size: 14px; margin-top: 8px; opacity: 0.7; font-style: italic; }
+
+  /* ---------- Footer ---------- */
+  footer.module-footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer.module-footer a { color: rgba(255,255,255,0.9); }
+  footer.module-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+
+  /* ---------- Bottom-of-page navigation ---------- */
+  .module-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+    margin-top: 40px;
+  }
+  .module-nav a { text-decoration: none; flex: 1; max-width: 320px; padding: 16px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); transition: border-color 0.2s; }
+  .module-nav a:hover { border-color: var(--accent); }
+  .module-nav .dir { font-size: 11px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+  .module-nav .label { display: block; margin-top: 4px; font-family: var(--serif); font-size: 17px; color: var(--ink); }
+  .module-nav .next { text-align: right; }
+
+/* ====== shared six-pillar nav spine ====== */
+.pillar-spine { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.pillar-spine-summary {
+  list-style: none; cursor: pointer; padding: 14px 24px;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  max-width: 1080px; margin: 0 auto;
+}
+.pillar-spine-summary::-webkit-details-marker { display: none; }
+.pillar-spine-summary::marker { content: ""; }
+.pillar-spine-summary .ps-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.pillar-spine-summary .ps-current {
+  font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 15px;
+}
+.pillar-spine-summary .ps-current strong { font-style: normal; color: var(--accent); font-weight: 600; }
+.pillar-spine-summary .ps-toggle {
+  margin-left: auto; color: var(--accent); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.06em;
+}
+.pillar-spine-summary .ps-toggle::after { content: " ↓"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle::after { content: " ↑"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-show { display: none; }
+.pillar-spine .pillar-spine-summary .ps-toggle .ps-hide { display: none; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-hide { display: inline; }
+
+.pillar-spine-grid {
+  max-width: 1080px; margin: 0 auto; padding: 4px 24px 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px;
+}
+@media (max-width: 880px) { .pillar-spine-grid { grid-template-columns: 1fr; padding-bottom: 18px; } }
+
+.ps-pillar { border-top: 1px solid var(--rule); padding: 14px 0 4px; }
+.ps-pillar-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.ps-num {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700;
+}
+.ps-name {
+  font-family: var(--serif); font-size: 16px; color: var(--ink); font-weight: 600;
+  line-height: 1.25;
+}
+.ps-modules { list-style: none; padding: 0; margin: 0; }
+.ps-modules li { padding: 2px 0; font-size: 13.5px; line-height: 1.5; }
+.ps-modules a { color: var(--ink); text-decoration: none; }
+.ps-modules a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ps-modules a.ps-current { color: var(--accent); font-weight: 700; }
+.ps-modules a.ps-current::before { content: "● "; color: var(--accent); font-size: 10px; vertical-align: 2px; }
+
+.ps-pillar.ps-coming .ps-num,
+.ps-pillar.ps-coming .ps-name { color: var(--ink-soft); }
+.ps-pillar.ps-coming .ps-name { opacity: 0.7; }
+.ps-pillar.ps-coming .ps-coming-note {
+  font-size: 12.5px; color: var(--ink-soft); font-style: italic;
+  margin: 4px 0 0; opacity: 0.75;
+}
+.ps-pending { color: var(--ink-soft); opacity: 0.65; display: flex; align-items: baseline; gap: 8px; }
+.ps-pending .ps-tag {
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 1px 7px; border-radius: 100px; font-style: normal; font-weight: 600;
+}
+  .ps-pending .ps-tag.ps-tag-deferred {
+  color: var(--ink-soft); border-color: var(--rule);
+}
+/* ====== /shared six-pillar nav spine ====== */
+
+  .download-card.download-soon { opacity: 0.6; cursor: default; position: relative; }
+  .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
+  .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+</style>
+</head>
+<body data-current="1-1">
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a>
+    <span>›</span>
+    <a href="./tl-programme.html">T&amp;L Excellence</a>
+    <span>›</span>
+    <a href="./index.html">Behaviour for Learning</a>
+    <span>›</span>
+    Module 1.1
+  </div>
+  <div>Module 1.1 of 10</div>
+</div>
+
+<details class="pillar-spine">
+  <summary class="pillar-spine-summary">
+    <span class="ps-label">Six pillars</span>
+    <span class="ps-current">You are here: <strong>Pillar 1 · 1.1 Language of Virtues</strong></span>
+    <span class="ps-toggle"><span class="ps-show">Show all modules</span><span class="ps-hide">Hide</span></span>
+  </summary>
+  <div class="pillar-spine-grid">
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 1</span>
+        <span class="ps-name">Behaviour & Climate</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a class="ps-current" href="./module-1-1-language-of-virtues.html">1.1 Language of Virtues</a></li>
+        <li><a href="./module-1-2-lesson-starts.html">1.2 Lesson Starts</a></li>
+        <li><a href="./module-1-3-diligence-routine.html">1.3 Diligence Routine</a></li>
+        <li><a href="./module-1-4-30-second-reflection.html">1.4 30-Second Reflection</a></li>
+        <li><a href="./module-1-5-bfl-in-class.html">1.5 Behaviour for Learning in Class</a></li>
+        <li><a href="./module-1-6-pre-lesson-strategies.html">1.6 Pre-Lesson Strategies</a></li>
+        <li><a href="./module-1-7-in-lesson-strategies.html">1.7 In-Lesson Strategies</a></li>
+        <li><a href="./module-1-8-direct-intervention.html">1.8 Direct Intervention</a></li>
+        <li><a href="./module-1-9-lesson-endings.html">1.9 Lesson Endings</a></li>
+        <li><a href="./module-1-10-other-routines.html">1.10 Other Routines</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 2</span>
+        <span class="ps-name">Adaptive Teaching & Inclusion</span>
+      </div>
+      <p class="ps-coming-note">Coming. SEND families to follow.</p>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 3</span>
+        <span class="ps-name">Instruction & Modelling</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-3-1-explain-clearly.html">3.1 Explain Clearly</a></li>
+        <li><a href="./module-3-2-explain-interactively.html">3.2 Explain Interactively</a></li>
+        <li><a href="./module-3-3-explain-with-visuals.html">3.3 Explain with Visuals</a></li>
+        <li><a href="./module-3-4-explain-with-examples.html">3.4 Explain with Examples</a></li>
+        <li><a href="./module-3-5-economy-of-language.html">3.5 Economy of Language</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 4</span>
+        <span class="ps-name">Checking for Understanding</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-4-1-mini-whiteboards.html">4.1 Mini-Whiteboards</a></li>
+        <li><a href="./module-4-2-circulating-checking-support.html">4.2 Circulating &amp; Checking Support</a></li>
+        <li class="ps-pending ps-deferred"><span>4.3 Explicit Vocabulary Teaching</span><span class="ps-tag ps-tag-deferred">primary</span></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 5</span>
+        <span class="ps-name">Questioning & Classroom Dialogue</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-5-1-cold-calling.html">5.1 Cold-Calling</a></li>
+        <li><a href="./module-5-2-probing-questions.html">5.2 Probing Questions</a></li>
+        <li><a href="./module-5-3-think-pair-share.html">5.3 Think, Pair, Share</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 6</span>
+        <span class="ps-name">Standards & Curriculum</span>
+      </div>
+      <p class="ps-coming-note">Coming. Primary-phase focus.</p>
+    </div>
+  </div>
+</details>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="pillar-tag">Pillar 1 · Behaviour for Learning</span>
+    <div class="module-number">Module 1.1</div>
+    <h1 class="title">The Language of <em>Virtues</em>.</h1>
+    <p class="lede">The foundational module of the Behaviour for Learning pillar. Why we name virtues, how we use them in classroom dialogue, and the scripted language for praise, correction, and reflection.</p>
+    <div class="meta-row">
+      <div class="meta">
+        <span class="label">Time</span>
+        <span class="value">60 minutes</span>
+      </div>
+      <div class="meta">
+        <span class="label">Format</span>
+        <span class="value">Independent · Coaching · Department</span>
+      </div>
+      <div class="meta">
+        <span class="label">Audience</span>
+        <div class="audience-tags">
+          <span class="tag">New teachers</span>
+          <span class="tag">All staff</span>
+          <span class="tag">External CPD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="toc">
+    <h4>In this module</h4>
+    <ol>
+      <li><a href="#why">Why this matters</a></li>
+      <li><a href="#research">The research</a></li>
+      <li><a href="#virtues">The named virtues</a></li>
+      <li><a href="#step">Step-by-step</a></li>
+      <li><a href="#looks-like">What it looks like</a></li>
+      <li><a href="#pitfalls">Common pitfalls</a></li>
+      <li><a href="#coaching">Coaching this routine</a></li>
+      <li><a href="#audit">Self-audit checklist</a></li>
+      <li><a href="#ai-tool">AI scenario tester</a></li>
+      <li><a href="#downloads">Downloads</a></li>
+      <li><a href="#linked">Linked modules</a></li>
+    </ol>
+  </nav>
+
+  <article>
+
+    <!-- 1. WHY -->
+    <section id="why">
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>The words we choose become the culture they create.</h2>
+      <p class="section-intro">A school that names virtues, day in and day out, builds a different kind of classroom from one that simply asks pupils to "behave."</p>
+
+      <p>When a teacher says <em>"stop talking"</em>, the pupil hears an instruction. When the teacher says <em>"show me peacefulness"</em>, the pupil hears who they are being asked to be. The first ends a behaviour. The second names an identity worth growing into.</p>
+
+      <p>This is the heart of the [School] approach. We do not manage behaviour through a transactional vocabulary of warnings, demands and consequences. We build it through a shared, repeated, virtues-based language that pupils encounter from the first lesson of Year 7 to their last assembly in Year 13. The words become predictable. The expectations become internal. And — over time — the pupil who has been named as <em>diligent</em> a thousand times begins, quietly, to believe it.</p>
+
+      <blockquote class="pull">
+        To empower children with virtues that enable them to excel academically and spiritually, inspiring them to serve humanity selflessly — with an abundance of love, compassion and forgiveness.
+        <cite>Mission Statement</cite>
+      </blockquote>
+
+      <p>The Language of Virtues is not a script we deliver while teaching — it is the medium through which everything else is taught. Every routine in this Pillar (the Diligence mantra, the 30-Second Reflection, the lesson start, the warning ladder) presupposes that the teacher and the pupil share this vocabulary. Get this module right, and the rest of the Pillar lands. Skip it, and the routines feel imposed rather than inhabited.</p>
+    </section>
+
+    <!-- 2. RESEARCH -->
+    <section id="research">
+      <div class="section-eyebrow">02 · The research</div>
+      <h2>Why naming the virtue works.</h2>
+      <p class="section-intro">This is not soft pedagogy. The case for virtue-language is supported by behavioural research, cognitive psychology, and decades of classroom observation.</p>
+
+      <h3>Identity-based framing changes behaviour</h3>
+      <p>Research into <strong>identity-based motivation</strong> (Oyserman, 2015) shows that children behave in ways consistent with the identities they are repeatedly assigned. Telling a pupil they <em>are</em> diligent is more durable than telling them to <em>be</em> diligent. This is why we say <em>"thank you for showing peacefulness"</em> rather than <em>"thank you for being quiet."</em></p>
+
+      <h3>Predictability reduces cognitive load</h3>
+      <p>A consistent vocabulary removes the moment-to-moment guesswork about what the teacher wants. Sweller's <strong>Cognitive Load Theory</strong> (1988) tells us that every novel signal a pupil has to decode steals capacity from learning. When <em>"diligence"</em> always means the same thing, in every classroom, from every adult, the pupil's working memory is freed for the lesson.</p>
+
+      <h3>Warm-strict language preserves the relationship</h3>
+      <p>Doug Lemov's <em>Teach Like a Champion</em> describes <strong>strict warmth</strong> as the most powerful posture a teacher can adopt. Virtues language enables this naturally: <em>"I am asking for diligence because I respect you enough to expect it"</em> is qualitatively different from <em>"stop messing about."</em> The first says <em>I see who you can become</em>. The second says <em>I am annoyed</em>.</p>
+
+      <h3>Tom Bennett's behavioural toolkit</h3>
+      <p>Bennett's work for the DfE on behaviour in schools repeatedly returns to the same finding: <em>consistency of language across all adults</em> is one of the strongest predictors of school-wide behaviour. A virtues vocabulary, used by every teacher, every TA, every leader, every assembly, is precisely the kind of consistency he describes.</p>
+    </section>
+
+    <!-- 3. THE VIRTUES -->
+    <section id="virtues">
+      <div class="section-eyebrow">03 · The named virtues</div>
+      <h2>The vocabulary we share.</h2>
+      <p class="section-intro">These are the virtues we name aloud, daily. They function as a public moral grammar. Each has a definition pupils have heard since induction.</p>
+
+      <h3>The three classroom virtues</h3>
+      <p>These three are spoken constantly. They appear in the lesson-start mantra, in praise, in correction, and in reflection.</p>
+
+      <ul class="step-list">
+        <li>
+          <h4>Peacefulness</h4>
+          <p>An inner sense of calm. The capacity to be still, to listen, to wait. <em>Peacefulness in the body, peacefulness in the room.</em></p>
+        </li>
+        <li>
+          <h4>Diligence</h4>
+          <p>Sustained, careful effort. Pens down, arms folded, eyes on the teacher when asked. Pens moving, eyes on the page, when working. The opposite of distraction.</p>
+        </li>
+        <li>
+          <h4>Determination</h4>
+          <p>The will to keep going when work is hard. The pupil who tries again is showing determination. The pupil who gives up is being given the chance to grow into it.</p>
+        </li>
+      </ul>
+
+      <h3>The wider virtues</h3>
+      <p>Used in pastoral conversation, restorative justice, assemblies, and reports. The Pillar makes use of these as needed — when a particular virtue (or its absence) is the precise word for the moment.</p>
+      <ul>
+        <li><strong>Respect</strong> — for adults, peers, the building, the work itself.</li>
+        <li><strong>Honesty</strong> — naming what happened without embellishment or excuse.</li>
+        <li><strong>Kindness</strong> — small acts that make others' lives easier.</li>
+        <li><strong>Compassion</strong> — feeling for someone, then acting on that feeling.</li>
+        <li><strong>Forgiveness</strong> — releasing a grievance after restoration.</li>
+        <li><strong>Trust</strong> — the foundation of every productive relationship.</li>
+        <li><strong>Service</strong> — using one's gifts for others.</li>
+      </ul>
+
+      <h3>The vices we name</h3>
+      <p>For the language to mean anything, we must also be willing to name what virtues are <em>not</em>. The virtue is paired with a vice, and pupils know both.</p>
+      <div class="compare">
+        <div class="compare-col good"><h4>Virtue</h4><p>Peacefulness · Diligence · Determination · Respect · Honesty</p></div>
+        <div class="compare-col bad"><h4>Vice (named when needed)</h4><p>Disturbance · Idleness · Resignation · Disrespect · Dishonesty</p></div>
+      </div>
+      <p>We do not avoid these words. We use them rarely, and precisely. <em>"That was not honest, and I think you know it"</em> lands more cleanly than <em>"you lied."</em></p>
+    </section>
+
+    <!-- 4. STEP-BY-STEP -->
+    <section id="step">
+      <div class="section-eyebrow">04 · The [School] way</div>
+      <h2>How to use virtues language in a lesson.</h2>
+      <p class="section-intro">There are four moments in every lesson where virtues language is your primary tool: praise, correction, reflection, and reset. Each has a scripted approach. Practise these until they are second nature.</p>
+
+      <ol class="step-list">
+        <li>
+          <h4>Open with virtues</h4>
+          <p>Within the first minute of the lesson, the words <em>peacefulness</em>, <em>diligence</em>, or <em>determination</em> should leave your mouth. Most often as part of the lesson-start mantra. The pupils should hear a virtue named before they hear an instruction.</p>
+          <div class="script">"Peacefulness, diligence, and determination in 5, 4, 3, 2, 1."</div>
+        </li>
+
+        <li>
+          <h4>Praise by naming</h4>
+          <p>When a pupil does the right thing, name the virtue they showed — not the behaviour. Behaviour praise teaches pupils what you want today. Virtue praise teaches them who they are becoming.</p>
+          <div class="compare">
+            <div class="compare-col bad"><h4>Behaviour praise</h4><p>"Good, you got started quickly."</p></div>
+            <div class="compare-col good"><h4>Virtue praise</h4><p>"Positive for [Pupil] — that's diligence the moment you walked in."</p></div>
+          </div>
+        </li>
+
+        <li>
+          <h4>Correct by asking</h4>
+          <p>When a pupil falls short, do not narrate the failure. Ask the question that invites them back. The virtue does the corrective work. Your tone stays warm.</p>
+          <div class="script">"[Pupil], are you currently showing me the virtue of diligence?"</div>
+          <p>Almost every pupil answers honestly. The few who argue are answered with: <em>"Not to the level we ask for here."</em> — said quietly, and without debate.</p>
+        </li>
+
+        <li>
+          <h4>Reflect with silence</h4>
+          <p>The 30-Second Reflection at the start of every lesson asks pupils to consider a single virtue and where they might live it that day. The teacher names the virtue; the room goes silent; pupils sit with it. (Module 1.4 covers this routine in full.)</p>
+          <div class="script">"Heads bowed, pens down. Today, the virtue is determination. Where will you need it most this lesson?"</div>
+        </li>
+
+        <li>
+          <h4>Reset by returning</h4>
+          <p>When a class drifts mid-lesson, do not raise your voice. Return to your strong position, name the virtue you want, and wait.</p>
+          <div class="script">"Let's bring back peacefulness. Pens down, please. Thank you."</div>
+          <p>The reset works because the language is shared. You are not introducing a rule — you are calling the room back to a standard everyone already knows.</p>
+        </li>
+
+        <li>
+          <h4>Close with a thank-you</h4>
+          <p>End the lesson by naming what the class showed. This is the last impression they leave the room with — and the first one they bring to the next lesson.</p>
+          <div class="script">"Thank you, [Class]. That was a lesson of real determination. I'll see you tomorrow."</div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 5. WHAT IT LOOKS LIKE -->
+    <section id="looks-like">
+      <div class="section-eyebrow">05 · What it looks like</div>
+      <h2>Virtues language in practice.</h2>
+      <p class="section-intro">Two short videos and a transcript. Watch first, read second. Notice what the teacher <em>doesn't</em> say.</p>
+
+      <h3>Video 1 — Lesson start, Year 8 mathematics</h3>
+      <div class="video-placeholder">
+        <div class="icon">▶</div>
+        <div class="label">In-house masterclass video — to be added</div>
+        <div class="desc">Showing the lesson-start mantra and 30-Second Reflection in a Year 8 maths classroom.</div>
+      </div>
+
+      <h3>Video 2 — Mid-lesson reset, Year 10 English</h3>
+      <div class="video-placeholder">
+        <div class="icon">▶</div>
+        <div class="label">In-house masterclass video — to be added</div>
+        <div class="desc">A teacher returns to strong position, names the virtue, waits for compliance, and continues without raising voice.</div>
+      </div>
+
+      <h3>Annotated transcript — first 90 seconds of a lesson</h3>
+      <div style="background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 24px; margin: 16px 0;">
+        <p><strong>Teacher (at door):</strong> "Morning. Title's on the board. Straight in." <em style="color: var(--ink-soft); font-size: 14px;">— No virtue named yet; that comes once the room is settled.</em></p>
+        <p><strong>Teacher (after 50% in):</strong> "You have ten seconds to be ready for learning. Thank you, [Pupil] — already working." <em style="color: var(--ink-soft); font-size: 14px;">— Praise targets a specific pupil to anchor the standard.</em></p>
+        <p><strong>Teacher (at the lectern):</strong> "Peacefulness, diligence, determination in 5, 4, 3, 2, 1." <em style="color: var(--ink-soft); font-size: 14px;">— The mantra. Same words, every lesson, every classroom.</em></p>
+        <p><strong>Teacher (head bowed):</strong> "Time for reflection. Today's virtue is determination. Where will you need it?" <em style="color: var(--ink-soft); font-size: 14px;">— 30 seconds. No exceptions.</em></p>
+        <p><strong>Teacher (after 30 seconds):</strong> "Eyes this way." <em style="color: var(--ink-soft); font-size: 14px;">— No second mantra. The first one is doing the work.</em></p>
+      </div>
+    </section>
+
+    <!-- 6. PITFALLS -->
+    <section id="pitfalls">
+      <div class="section-eyebrow">06 · Common pitfalls</div>
+      <h2>Where the language breaks down.</h2>
+      <p class="section-intro">The vocabulary only works if it is used precisely. These are the misuses we see most often, and how to avoid them.</p>
+
+      <div class="pitfall">
+        <strong>Using virtue-words as a substitute for control.</strong>
+        <p>Saying <em>"peacefulness"</em> to a chaotic room while standing at your computer will not produce peacefulness. The word is not a spell. The routine — strong position, scan, pause, reset — produces the calm. The word names it.</p>
+      </div>
+
+      <div class="pitfall">
+        <strong>Overusing the language.</strong>
+        <p>If every sentence contains a virtue, the words go stale. Use them at the high-leverage moments: opening, praise, correction, reflection, reset, close. In between, talk like a normal teacher.</p>
+      </div>
+
+      <div class="pitfall">
+        <strong>Naming the vice loudly and the virtue quietly.</strong>
+        <p>If pupils only hear the virtue at the start of the year and the vice every Monday, the framing tilts negative. Praise should outweigh correction — and praise must name a virtue to count.</p>
+      </div>
+
+      <div class="pitfall">
+        <strong>Staff inconsistency.</strong>
+        <p>The single biggest threat to this system is not the pupils — it is colleagues using <em>"peacefulness"</em> in one room and <em>"shut up"</em> in the next. Coach colleagues into the language. Refer them back to this module if needed. The Pillar collapses without consistency.</p>
+      </div>
+
+      <div class="pitfall">
+        <strong>Sarcasm.</strong>
+        <p><em>"Oh, very diligent of you"</em> said witheringly destroys the language for everyone in the room. The vocabulary only works if it is used sincerely. If you cannot say a virtue without irony, do not say it.</p>
+      </div>
+    </section>
+
+    <!-- 7. COACHING -->
+    <section id="coaching">
+      <div class="section-eyebrow">07 · Coaching this routine</div>
+      <h2>How to coach a colleague through virtues language.</h2>
+      <p class="section-intro">A coaching quartet protocol. Use in pairs or fours. 15 minutes per round. Rotate roles.</p>
+
+      <div class="coach-panel">
+        <h4>Roles</h4>
+        <div class="coach-roles">
+          <div><strong>Teacher</strong>Delivers a 90-second lesson opening using the full virtues script.</div>
+          <div><strong>Pupils (×2)</strong>One compliant, one mildly off-task (slow to settle, fidgeting).</div>
+          <div><strong>Coach</strong>Observes silently and uses the questions below.</div>
+        </div>
+
+        <h4>Coaching questions (in order)</h4>
+        <ol>
+          <li>Did you name a virtue within the first 60 seconds?</li>
+          <li>Was your praise targeted at a specific pupil and a specific virtue?</li>
+          <li>When you corrected, did you ask a question rather than narrate the problem?</li>
+          <li>Did the 30-second reflection actually last 30 seconds?</li>
+          <li>What was your tone? Warm? Strict? Both?</li>
+          <li>If a colleague were watching, would they have heard the [School] vocabulary, or generic teacher-talk?</li>
+        </ol>
+
+        <h4>Reflection prompt for the teacher</h4>
+        <p>Write three sentences:</p>
+        <ol>
+          <li>One thing you said that landed.</li>
+          <li>One word you used that you'd swap next time.</li>
+          <li>One moment you fell back into generic talk.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 8. SELF-AUDIT -->
+    <section id="audit">
+      <div class="section-eyebrow">08 · Self-audit checklist</div>
+      <h2>Where am I with the language of virtues?</h2>
+      <p class="section-intro">RAG-rate each statement. Date your response. Revisit in six weeks. Click a circle to mark.</p>
+
+      <table class="audit">
+        <thead>
+          <tr>
+            <th style="width: 60%;">Statement</th>
+            <th style="width: 20%;">RAG</th>
+            <th style="width: 20%;">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>I can name the three core classroom virtues without hesitation.</td>
+            <td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>I open every lesson with a virtue named in the first 60 seconds.</td>
+            <td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>My praise targets virtues, not behaviours ("that's diligence" not "good work").</td>
+            <td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>I correct by asking ("are you showing diligence?") rather than narrating the failure.</td>
+            <td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>I run the 30-Second Reflection every lesson. The full thirty seconds.</td>
+            <td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>I close lessons by thanking the class for the virtue they showed.</td>
+            <td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>I never use a virtue word sarcastically.</td>
+            <td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>I would be confident coaching a new colleague through this routine.</td>
+            <td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 9. AI TOOL -->
+    <section id="ai-tool">
+      <div class="section-eyebrow">09 · AI scenario tester</div>
+      <h2>Try a real classroom moment.</h2>
+      <p class="section-intro">Describe a behaviour scenario in your own words. The tool will rephrase your likely response in virtues language and explain why each change matters. Below is a worked example.</p>
+
+      <div class="ai-tool">
+        <div class="ai-eyebrow">Worked example</div>
+        <h3>Scenario tester</h3>
+        <p>The full live tool will accept any classroom scenario you describe. For now, here is one worked example so you can see the shape of what the tool produces.</p>
+
+        <div class="ai-demo">
+          <div class="label">Teacher submits</div>
+          <div class="scenario">"It's minute 8 of the lesson. Three pupils are still chatting at the back. I've already said 'be quiet' twice and they've stopped, then started again. I'm losing the rest of the class. I want to say something firm but I don't want to escalate to a warning yet."</div>
+
+          <div class="label">Tool responds</div>
+          <div class="response">
+            <p><strong>What you said:</strong> "Be quiet" — twice. The repetition is the problem. A second "be quiet" tells the room that the first one was optional.</p>
+
+            <p><strong>What to say instead, in this order:</strong></p>
+            <ol>
+              <li>Return to your strong position. Stop talking. Wait.</li>
+              <li>"Peacefulness, please. Pens down, eyes this way." (Said calmly, once.)</li>
+              <li>Pause. Scan. Be seen looking. Do not continue until 100% compliance.</li>
+              <li>To the three pupils, quietly: "Are we showing the virtue of peacefulness right now?"</li>
+              <li>Praise the rest of the class for the diligence they are showing.</li>
+            </ol>
+
+            <p><strong>Why this works:</strong> "Be quiet" is a behavioural demand without a standard attached. "Show peacefulness" names the standard the pupils have heard since Year 7. The question form ("are we showing...") gives them the chance to correct themselves rather than being corrected by you — which preserves the relationship. Praising the compliant majority weights the room's social pressure on your side.</p>
+
+            <p><strong>If they still don't comply:</strong> You're now at the warning stage. See <a href="#" style="color: var(--accent-soft);">Module 1.8 — Direct Intervention</a>.</p>
+          </div>
+        </div>
+
+        <a class="ai-cta" href="#">Live tool — coming soon</a>
+      </div>
+    </section>
+
+    <!-- 10. DOWNLOADS -->
+    <section id="downloads">
+      <div class="section-eyebrow">10 · Downloads</div>
+      <h2>Take it with you.</h2>
+      <p class="section-intro">Three formats. Same content, shaped for the medium. Print the booklet, project the deck, pin the one-pager.</p>
+
+      <div class="downloads">
+        <span class="download-card download-soon">
+          <div class="type">CPD Booklet</div>
+          <div class="name">Module 1.1 Booklet</div>
+          <div class="size">.docx · 12 pages · facilitator-led</div>
+        <div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon">
+          <div class="type">Slide Deck</div>
+          <div class="name">Module 1.1 Slides</div>
+          <div class="size">.pptx · 18 slides · 60-min session</div>
+        <div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon">
+          <div class="type">One-pager</div>
+          <div class="name">Virtues Reference Card</div>
+          <div class="size">PDF · 1 page · pin to lectern</div>
+        <div class="dl-soon">Coming soon</div></span>
+      </div>
+    </section>
+
+    <!-- 11. LINKED -->
+    <section id="linked">
+      <div class="section-eyebrow">11 · Linked modules</div>
+      <h2>Where to go next.</h2>
+      <p class="section-intro">The Language of Virtues is the foundation. These three modules apply it directly.</p>
+
+      <div class="linked-list">
+        <a class="linked-card" href="#">
+          <span class="num">Module 1.2</span>
+          <span class="title">Lesson Starts</span>
+          <span class="desc">Corridor presence, entry, the countdown mantra, and how the first three minutes set the rest.</span>
+        </a>
+        <a class="linked-card" href="#">
+          <span class="num">Module 1.3</span>
+          <span class="title">The Diligence Routine</span>
+          <span class="desc">Pens down, arms folded, eyes on me. The single most-used routine in the school.</span>
+        </a>
+        <a class="linked-card" href="#">
+          <span class="num">Module 1.4</span>
+          <span class="title">The 30-Second Reflection</span>
+          <span class="desc">Why the silence matters. How to run it. What to do when pupils struggle with it.</span>
+        </a>
+        <a class="linked-card" href="#">
+          <span class="num">Module 1.8</span>
+          <span class="title">Direct Intervention</span>
+          <span class="desc">Warning, Level 2, Removal — and how virtues language sits inside the warning ladder.</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Bottom nav -->
+    <nav class="module-nav">
+      <a href="./index.html">
+        <span class="dir">← Pillar home</span>
+        <span class="label">Behaviour for Learning</span>
+      </a>
+      <a href="#" class="next">
+        <span class="dir">Next module →</span>
+        <span class="label">1.2 · Lesson Starts</span>
+      </a>
+    </nav>
+
+  </article>
+</div>
+
+<footer class="module-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Pillar 1 · Module 1.1</div>
+  <div style="margin-top: 8px;">
+    <a href="./index.html">Hub</a> ·
+    <a href="./tl-programme.html">T&amp;L Excellence</a> ·
+    <a href="./index.html">Behaviour for Learning</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module 5.1 — Cold-Calling | T&amp;L Excellence Programme</title>
+<meta name="description" content="Cold-calling at Nishkam School — the questioning technique that brings every pupil into the answer. Whole-class question, held thinking time, named individual response. Anchored to CC1–CC14 and CC-O1." />
+<style>
+/* Pillar 5 — Questioning · shared stylesheet */
+:root {
+  --bg: #f7f2e8; --surface: #fffdf7; --ink: #1f2a37; --ink-soft: #4b5563;
+  --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
+  --highlight: #fff4dd; --practice: #eef3ec; --practice-rule: #b6c8b1; --practice-ink: #2d6a3e;
+  --pause: #faf3e3; --pause-ink: #8a6611;
+  --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+.topbar { background: var(--ink); color: #fff; padding: 14px 24px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+.topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+.topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+.hero { padding: 56px 24px 40px; border-bottom: 1px solid var(--rule); background: radial-gradient(circle at 85% 20%, rgba(184, 137, 58, 0.10), transparent 50%), var(--bg); }
+.hero-inner { max-width: 1080px; margin: 0 auto; }
+.pillar-tag { display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; font-weight: 600; }
+.module-number { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 18px; margin-bottom: 8px; }
+h1.title { font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); line-height: 1.1; margin: 0 0 18px; font-weight: 600; letter-spacing: -0.01em; }
+h1.title em { font-style: italic; color: var(--accent); }
+.lede { font-size: 19px; color: var(--ink-soft); max-width: 720px; margin: 0 0 24px; line-height: 1.5; }
+
+.checklist-strip { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 20px; margin: 18px 0 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.checklist-strip .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-right: 6px; }
+.checklist-strip a.cl-tag, .checklist-strip span.cl-tag { font-family: var(--serif); font-weight: 700; font-size: 13px; background: var(--highlight); color: var(--accent); padding: 4px 10px; border-radius: 100px; text-decoration: none; }
+.checklist-strip .cl-tag.outcome { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-style: italic; }
+.checklist-strip .secondary { font-size: 11px; color: var(--ink-soft); font-style: italic; margin-left: 6px; }
+
+.meta-row { display: flex; flex-wrap: wrap; gap: 24px; padding-top: 20px; border-top: 1px solid var(--rule); }
+.meta { display: flex; flex-direction: column; gap: 4px; }
+.meta .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.meta .value { font-weight: 600; font-size: 15px; }
+
+.layout { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 44px 24px 60px; }
+@media (max-width: 880px) { .layout { grid-template-columns: 1fr; gap: 0; padding: 28px 20px 56px; } }
+
+nav.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; line-height: 1.5; }
+nav.toc h4 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 12px; font-weight: 600; }
+nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+nav.toc li { counter-increment: toc; padding: 5px 0 5px 12px; }
+nav.toc li::before { content: counter(toc, decimal-leading-zero) "  "; color: var(--accent-soft); }
+nav.toc a { color: var(--ink); text-decoration: none; }
+nav.toc a:hover { color: var(--accent); }
+@media (max-width: 880px) { nav.toc { display: none; } }
+
+article > section { margin-bottom: 44px; scroll-margin-top: 24px; }
+article h2 { font-family: var(--serif); font-size: 28px; margin: 0 0 8px; font-weight: 600; }
+.section-eyebrow { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 6px; }
+.section-intro { font-size: 17px; color: var(--ink-soft); margin: 0 0 18px; max-width: 660px; }
+article p { margin: 0 0 14px; }
+article ol { padding-left: 22px; margin: 0 0 14px; }
+
+/* Routines orientation table */
+.orient { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--surface); border-radius: 8px; overflow: hidden; font-size: 13px; }
+.orient th, .orient td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.orient th { background: var(--ink); color: #fff; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.orient td:first-child { font-family: var(--serif); font-weight: 700; color: var(--accent); white-space: nowrap; }
+.orient tr.this-module td { background: var(--highlight); }
+
+/* Beat strip (signature visual for sequenced techniques) */
+.beat-strip { margin: 22px 0; padding: 22px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.beat-orient { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; text-align: center; margin-bottom: 14px; }
+.beat-grid { display: grid; gap: 6px; }
+.beat-grid.cols-6 { grid-template-columns: repeat(6, 1fr); }
+.beat-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+.beat-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 880px) { .beat-grid { grid-template-columns: 1fr 1fr !important; gap: 8px; } }
+.beat { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 10px; text-align: center; min-height: 140px; display: flex; flex-direction: column; }
+.beat.pause-beat { background: var(--pause); border-color: var(--gold); }
+.beat .beat-num { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 20px; color: var(--accent); margin-bottom: 4px; }
+.beat.pause-beat .beat-num { color: var(--pause-ink); }
+.beat .beat-name { font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.2; }
+.beat .beat-detail { font-size: 11px; color: var(--ink-soft); line-height: 1.35; flex: 1; }
+.beat .beat-cl { margin-top: 6px; font-family: var(--serif); font-weight: 700; font-size: 11px; color: var(--accent); }
+.beat.pause-beat .beat-cl { color: var(--pause-ink); }
+
+/* Step cards */
+.step-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 20px 24px; margin: 16px 0; scroll-margin-top: 24px; }
+.step-header { display: flex; align-items: center; gap: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); margin-bottom: 12px; }
+.step-num { width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 16px; font-family: var(--serif); }
+.step-num.pause { background: var(--gold); }
+.step-title-block { flex: 1; }
+.step-title-block h3 { margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 600; }
+.step-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.step-tag.pause { color: var(--pause-ink); }
+.step-cl { display: flex; flex-wrap: wrap; gap: 5px; flex-shrink: 0; }
+.cl-pill { background: var(--highlight); color: var(--accent); font-family: var(--serif); font-weight: 700; font-size: 11px; padding: 3px 9px; border-radius: 100px; }
+.cl-pill.outcome { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-style: italic; }
+
+.script { margin: 12px 0; padding: 12px 16px; background: var(--highlight); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink); }
+.script .label { display: block; font-family: var(--sans); font-style: normal; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+.script .pause-marker { font-family: var(--sans); font-style: normal; font-weight: 700; color: var(--pause-ink); background: var(--pause); padding: 1px 6px; border-radius: 3px; font-size: 11px; letter-spacing: 0.04em; }
+
+.pause-note { background: var(--pause); border-left: 3px solid var(--gold); padding: 10px 14px; margin: 10px 0; font-size: 13px; color: var(--pause-ink); border-radius: 0 4px 4px 0; }
+.pause-note strong { color: var(--pause-ink); }
+
+.practice { background: var(--practice); border: 1px solid var(--practice-rule); border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
+.practice .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--practice-ink); font-weight: 700; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.practice .timer { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 13px; text-transform: none; letter-spacing: 0; }
+.practice ol { padding-left: 22px; margin: 0; }
+.practice ol li { margin-bottom: 3px; font-size: 14px; }
+.coach-prompt { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--practice-rule); font-size: 13px; color: var(--ink-soft); }
+.coach-prompt strong { color: var(--practice-ink); }
+
+.pitfall { border-left: 4px solid #c25b3f; background: #fbeee5; padding: 12px 18px; border-radius: 0 6px 6px 0; margin: 14px 0; font-size: 14px; }
+.pitfall strong { color: #8b3a2e; }
+.pf-cl { display: inline-block; font-family: var(--serif); font-weight: 700; font-size: 11px; color: #8b3a2e; background: #fff; padding: 2px 8px; border-radius: 100px; margin-left: 6px; vertical-align: middle; }
+
+table.audit { width: 100%; border-collapse: collapse; margin: 16px 0; background: var(--surface); border-radius: 10px; overflow: hidden; font-size: 13px; }
+table.audit th, table.audit td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.audit th { background: var(--ink); color: #fff; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+table.audit tr:last-child td { border-bottom: none; }
+table.audit tr.outcome-row td { background: #faf3e3; }
+table.audit tr.outcome-row .id { color: var(--gold); }
+table.audit .id { font-family: var(--serif); font-weight: 700; color: var(--accent); white-space: nowrap; }
+table.audit .rag { display: inline-flex; gap: 4px; }
+table.audit .rag span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--rule); }
+.rag .r { background: #e8c0b6; } .rag .a { background: #f3dfa8; } .rag .g { background: #b8d4ba; }
+.audit-section-divider { background: var(--gold); color: #fff; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 7px 14px; }
+
+.ai-tool { background: linear-gradient(135deg, #2a2a2a 0%, #1f2a37 100%); color: #f5f2eb; padding: 26px; border-radius: 10px; margin: 22px 0; }
+.ai-tool h3 { color: #fff; margin: 0 0 6px; font-family: var(--serif); }
+.ai-tool .ai-eyebrow { color: var(--accent-soft); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; }
+.ai-tool p { color: rgba(255,255,255,0.75); }
+.ai-demo { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 18px; margin-top: 16px; }
+.ai-demo .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 5px; font-weight: 600; }
+.ai-demo .scenario { font-style: italic; color: rgba(255,255,255,0.85); padding: 11px 13px; background: rgba(0,0,0,0.2); border-radius: 6px; margin-bottom: 14px; font-family: var(--serif); font-size: 14px; }
+.ai-demo .response { font-size: 14px; line-height: 1.55; }
+.ai-demo .response strong { color: var(--accent-soft); }
+.ai-demo .response ol { margin: 6px 0; padding-left: 20px; }
+.ai-cta { display: inline-block; margin-top: 14px; padding: 9px 16px; border: 1px solid var(--accent-soft); color: var(--accent-soft); border-radius: 6px; text-decoration: none; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: not-allowed; opacity: 0.7; }
+
+.downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+@media (max-width: 700px) { .downloads { grid-template-columns: 1fr; } }
+.download-card { border: 1px solid var(--rule); border-radius: 10px; padding: 18px; background: var(--surface); text-decoration: none; color: var(--ink); transition: all 0.2s; display: block; }
+.download-card:hover { border-color: var(--accent); }
+.download-card .type { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.download-card .name { font-weight: 600; margin-top: 5px; font-size: 15px; font-family: var(--serif); }
+.download-card .size { font-size: 11px; color: var(--ink-soft); margin-top: 4px; }
+
+footer.module-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 36px 24px; text-align: center; font-size: 13px; }
+footer.module-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+
+.module-nav { display: flex; justify-content: space-between; gap: 16px; padding: 28px 0; border-top: 1px solid var(--rule); margin-top: 32px; }
+.module-nav a { text-decoration: none; flex: 1; max-width: 320px; padding: 14px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); }
+.module-nav .dir { font-size: 11px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+.module-nav .label { display: block; margin-top: 4px; font-family: var(--serif); font-size: 16px; color: var(--ink); }
+.module-nav .next { text-align: right; }
+
+/* Routine cycle visual (used in 2.4 Pair-share + Sequencing) */
+.cycle { display: grid; grid-template-columns: repeat(5, 1fr) auto; gap: 6px; align-items: stretch; margin: 22px 0; }
+@media (max-width: 880px) { .cycle { grid-template-columns: 1fr 1fr; } }
+.cycle-stage { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 10px; text-align: center; min-height: 130px; display: flex; flex-direction: column; }
+.cycle-stage.this-module { background: var(--highlight); border-color: var(--accent-soft); }
+.cycle-stage .stage-letter { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--accent); font-weight: 700; }
+.cycle-stage .stage-name { font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--ink); margin: 4px 0; line-height: 1.2; }
+.cycle-stage .stage-purpose { font-size: 11px; color: var(--ink-soft); line-height: 1.35; flex: 1; }
+.cycle-stage .stage-mod { margin-top: 6px; font-family: var(--serif); font-style: italic; font-size: 10px; color: var(--accent); }
+.cycle-arrow { display: flex; align-items: center; color: var(--accent-soft); font-size: 18px; }
+@media (max-width: 880px) { .cycle-arrow { display: none; } }
+
+.long-quote { margin: 20px 0; padding: 16px 22px; border-left: 3px solid var(--gold); background: var(--surface); font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--ink-soft); font-style: italic; }
+.long-quote cite { display: block; font-family: var(--sans); font-style: normal; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-top: 10px; font-weight: 600; }
+
+
+/* ====== shared six-pillar nav spine ====== */
+.pillar-spine { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.pillar-spine-summary {
+  list-style: none; cursor: pointer; padding: 14px 24px;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  max-width: 1080px; margin: 0 auto;
+}
+.pillar-spine-summary::-webkit-details-marker { display: none; }
+.pillar-spine-summary::marker { content: ""; }
+.pillar-spine-summary .ps-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.pillar-spine-summary .ps-current {
+  font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 15px;
+}
+.pillar-spine-summary .ps-current strong { font-style: normal; color: var(--accent); font-weight: 600; }
+.pillar-spine-summary .ps-toggle {
+  margin-left: auto; color: var(--accent); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.06em;
+}
+.pillar-spine-summary .ps-toggle::after { content: " ↓"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle::after { content: " ↑"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-show { display: none; }
+.pillar-spine .pillar-spine-summary .ps-toggle .ps-hide { display: none; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-hide { display: inline; }
+
+.pillar-spine-grid {
+  max-width: 1080px; margin: 0 auto; padding: 4px 24px 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px;
+}
+@media (max-width: 880px) { .pillar-spine-grid { grid-template-columns: 1fr; padding-bottom: 18px; } }
+
+.ps-pillar { border-top: 1px solid var(--rule); padding: 14px 0 4px; }
+.ps-pillar-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.ps-num {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700;
+}
+.ps-name {
+  font-family: var(--serif); font-size: 16px; color: var(--ink); font-weight: 600;
+  line-height: 1.25;
+}
+.ps-modules { list-style: none; padding: 0; margin: 0; }
+.ps-modules li { padding: 2px 0; font-size: 13.5px; line-height: 1.5; }
+.ps-modules a { color: var(--ink); text-decoration: none; }
+.ps-modules a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ps-modules a.ps-current { color: var(--accent); font-weight: 700; }
+.ps-modules a.ps-current::before { content: "● "; color: var(--accent); font-size: 10px; vertical-align: 2px; }
+
+.ps-pillar.ps-coming .ps-num,
+.ps-pillar.ps-coming .ps-name { color: var(--ink-soft); }
+.ps-pillar.ps-coming .ps-name { opacity: 0.7; }
+.ps-pillar.ps-coming .ps-coming-note {
+  font-size: 12.5px; color: var(--ink-soft); font-style: italic;
+  margin: 4px 0 0; opacity: 0.75;
+}
+.ps-pending { color: var(--ink-soft); opacity: 0.65; display: flex; align-items: baseline; gap: 8px; }
+.ps-pending .ps-tag {
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 1px 7px; border-radius: 100px; font-style: normal; font-weight: 600;
+}
+  .ps-pending .ps-tag.ps-tag-deferred {
+  color: var(--ink-soft); border-color: var(--rule);
+}
+/* ====== /shared six-pillar nav spine ====== */
+
+  .download-card.download-soon { opacity: 0.6; cursor: default; position: relative; }
+  .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
+  .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+</style>
+</head>
+<body data-current="5-1">
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a><span>›</span>
+    <a href="./programme-index.html">Questioning</a><span>›</span>
+    Module 5.1
+  </div>
+  <div>Module 5.1 of 5 · Pillar 5</div>
+</div>
+
+<details class="pillar-spine">
+  <summary class="pillar-spine-summary">
+    <span class="ps-label">Six pillars</span>
+    <span class="ps-current">You are here: <strong>Pillar 5 · 5.1 Cold-Calling</strong></span>
+    <span class="ps-toggle"><span class="ps-show">Show all modules</span><span class="ps-hide">Hide</span></span>
+  </summary>
+  <div class="pillar-spine-grid">
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 1</span>
+        <span class="ps-name">Behaviour & Climate</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-1-1-language-of-virtues.html">1.1 Language of Virtues</a></li>
+        <li><a href="./module-1-2-lesson-starts.html">1.2 Lesson Starts</a></li>
+        <li><a href="./module-1-3-diligence-routine.html">1.3 Diligence Routine</a></li>
+        <li><a href="./module-1-4-30-second-reflection.html">1.4 30-Second Reflection</a></li>
+        <li><a href="./module-1-5-bfl-in-class.html">1.5 Behaviour for Learning in Class</a></li>
+        <li><a href="./module-1-6-pre-lesson-strategies.html">1.6 Pre-Lesson Strategies</a></li>
+        <li><a href="./module-1-7-in-lesson-strategies.html">1.7 In-Lesson Strategies</a></li>
+        <li><a href="./module-1-8-direct-intervention.html">1.8 Direct Intervention</a></li>
+        <li><a href="./module-1-9-lesson-endings.html">1.9 Lesson Endings</a></li>
+        <li><a href="./module-1-10-other-routines.html">1.10 Other Routines</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 2</span>
+        <span class="ps-name">Adaptive Teaching & Inclusion</span>
+      </div>
+      <p class="ps-coming-note">Coming. SEND families to follow.</p>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 3</span>
+        <span class="ps-name">Instruction & Modelling</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-3-1-explain-clearly.html">3.1 Explain Clearly</a></li>
+        <li><a href="./module-3-2-explain-interactively.html">3.2 Explain Interactively</a></li>
+        <li><a href="./module-3-3-explain-with-visuals.html">3.3 Explain with Visuals</a></li>
+        <li><a href="./module-3-4-explain-with-examples.html">3.4 Explain with Examples</a></li>
+        <li><a href="./module-3-5-economy-of-language.html">3.5 Economy of Language</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 4</span>
+        <span class="ps-name">Checking for Understanding</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-4-1-mini-whiteboards.html">4.1 Mini-Whiteboards</a></li>
+        <li><a href="./module-4-2-circulating-checking-support.html">4.2 Circulating &amp; Checking Support</a></li>
+        <li class="ps-pending ps-deferred"><span>4.3 Explicit Vocabulary Teaching</span><span class="ps-tag ps-tag-deferred">primary</span></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 5</span>
+        <span class="ps-name">Questioning & Classroom Dialogue</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a class="ps-current" href="./module-5-1-cold-calling.html">5.1 Cold-Calling</a></li>
+        <li><a href="./module-5-2-probing-questions.html">5.2 Probing Questions</a></li>
+        <li><a href="./module-5-3-think-pair-share.html">5.3 Think, Pair, Share</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 6</span>
+        <span class="ps-name">Standards & Curriculum</span>
+      </div>
+      <p class="ps-coming-note">Coming. Primary-phase focus.</p>
+    </div>
+  </div>
+</details>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="pillar-tag">Pillar 5 · Questioning</span>
+    <div class="module-number">Module 5.1</div>
+    <h1 class="title"><em>Cold-Calling.</em></h1>
+    <p class="lede">The questioning technique that brings every pupil into the answer. Whole-class question, held pause, named individual response — every step linked to a CC checklist item.</p>
+
+    <div class="checklist-strip">
+      <span class="label">Checklist coverage</span>
+      <a href="#audit" class="cl-tag">CC1</a><a href="#audit" class="cl-tag">CC3</a><a href="#audit" class="cl-tag">CC4</a><a href="#audit" class="cl-tag">CC5</a><a href="#audit" class="cl-tag">CC6</a><a href="#audit" class="cl-tag">CC8</a><a href="#audit" class="cl-tag">CC9</a><a href="#audit" class="cl-tag">CC11</a><a href="#audit" class="cl-tag">CC13</a><a href="#audit" class="cl-tag">CC14</a>
+      <span class="secondary">also:</span><a href="#audit" class="cl-tag outcome">CC-O1</a>
+    </div>
+
+    <div class="meta-row">
+      <div class="meta"><span class="label">Time</span><span class="value">25 minutes</span></div>
+      <div class="meta"><span class="label">Format</span><span class="value">Independent · Coaching · Department</span></div>
+      <div class="meta"><span class="label">Prerequisite</span><span class="value">Modules 1.3, 1.4</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h4>In this module</h4>
+    <ol>
+      <li><a href="#orient">Five routines, one purpose</a></li>
+      <li><a href="#why">Why this matters</a></li>
+      <li><a href="#sequence">The cold-call sequence</a></li>
+      <li><a href="#step-1">Step 1 · Set the room</a></li>
+      <li><a href="#step-2">Step 2 · Ask the whole class</a></li>
+      <li><a href="#step-3">Step 3 · Hold the pause</a></li>
+      <li><a href="#step-4">Step 4 · Name the pupil</a></li>
+      <li><a href="#step-5">Step 5 · Acknowledge &amp; extend</a></li>
+      <li><a href="#step-6">Step 6 · Adapt</a></li>
+      <li><a href="#pitfalls">Pitfalls</a></li>
+      <li><a href="#audit">Self-audit</a></li>
+      <li><a href="#ai-tool">AI scenario tester</a></li>
+      <li><a href="#downloads">Downloads</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="orient">
+      <div class="section-eyebrow">Orientation</div>
+      <h2>Five routines, one purpose.</h2>
+      <p class="section-intro">Pillar 5 covers three questioning routines used at Nishkam School: cold-calling, probing questions, and think-pair-share. These combine with choral response (taught in Pillar 3) and mini-whiteboards (Pillar 4) to form the Choral → MWB → Pair → Cold-call → Probe sequence used to build, check, and develop pupil thinking. This module covers cold-calling.</p>
+
+      <table class="orient">
+        <thead><tr><th>Routine</th><th>Use it when</th><th>Looks like</th><th>Module</th></tr></thead>
+        <tbody>
+          <tr><td>Choral response</td><td>Check listening; harness attention.</td><td>Quick verbal recall in unison.</td><td>3.2</td></tr>
+          <tr><td>Mini-whiteboards</td><td>Check understanding from the whole class.</td><td>Whole-class silent response on a board.</td><td>4.1</td></tr>
+          <tr><td>Pair-share</td><td>Allow rehearsal of an answer before saying it aloud.</td><td>Brief talk in twos before the teacher selects.</td><td>5.3</td></tr>
+          <tr class="this-module"><td>Cold-calling</td><td>Target named pupils; build accountability.</td><td>Whole-class question, pause, then named pupil.</td><td>5.1</td></tr>
+          <tr><td>Probing questions</td><td>Develop deeper thinking and expertise.</td><td>Follow-up that asks why, how, evidence, alternatives.</td><td>5.2</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="why">
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>Cold-calling is an expectation, not a trap.</h2>
+      <p class="section-intro">Cold-calling is the technique of asking a question to the whole class, holding thinking time, then naming an individual to answer — without hands up. Used consistently, it raises the proportion of pupils thinking at any one moment from a small group to the whole class.</p>
+
+      <p>Two pieces of evidence shape the technique. Mary Budd Rowe's research on wait time shows that most classroom questions are answered in under one second, but holding three seconds for a recall question and ten or more for a higher-order question produces measurably better, more thoughtful responses. Doug Lemov's work shows that hands-up routines limit participation to a confident minority, and that "the magic lies in the pause": held thinking time creates anticipation and signals that thinking is expected of everyone.</p>
+
+      <div class="long-quote">Cold-calling should not feel like a trap. It should feel like an expectation. In a high-functioning classroom, all students expect to be called on because thinking is expected of everyone.<cite>Doug Lemov · Teach Like a Champion</cite></div>
+
+      <p>The cold-call sequence below is delivered in the same order every time. The order is what makes it work: question first, pause second, name third. Reversed, the technique is hands-up by another route.</p>
+    </section>
+
+    <section id="sequence">
+      <div class="section-eyebrow">02 · The cold-call sequence</div>
+      <h2>Six beats. The pause is the third.</h2>
+      <p class="section-intro">The strip below shows the technique end-to-end. Beats highlighted in gold are the held pauses — the parts most often skipped, and the parts that produce the technique's effect.</p>
+
+      <div class="beat-strip">
+        <div class="beat-orient">WHOLE-CLASS QUESTION → HELD PAUSE → NAMED PUPIL → BUILD</div>
+        <div class="beat-grid cols-6">
+          <div class="beat"><div class="beat-num">1</div><div class="beat-name">Set the room</div><div class="beat-detail">Strong position, peacefulness, diligence.</div><div class="beat-cl">CC1</div></div>
+          <div class="beat"><div class="beat-num">2</div><div class="beat-name">Ask the whole class</div><div class="beat-detail">No name attached. Question first.</div><div class="beat-cl">CC3, CC4</div></div>
+          <div class="beat pause-beat"><div class="beat-num">3</div><div class="beat-name">Hold the pause</div><div class="beat-detail">3s recall, 10s+ thinking. Scan the room.</div><div class="beat-cl">CC5</div></div>
+          <div class="beat"><div class="beat-num">4</div><div class="beat-name">Name the pupil</div><div class="beat-detail">Direct the question to one named pupil.</div><div class="beat-cl">CC6</div></div>
+          <div class="beat"><div class="beat-num">5</div><div class="beat-name">Acknowledge &amp; extend</div><div class="beat-detail">Affirm or probe. Invite others.</div><div class="beat-cl">CC8, CC9</div></div>
+          <div class="beat"><div class="beat-num">6</div><div class="beat-name">Adapt</div><div class="beat-detail">Address misconceptions. Reteach or move on.</div><div class="beat-cl">CC11, CC13, CC14</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="step-1"><div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title-block">
+          <div class="step-tag">Step 1 · Set the room</div>
+          <h3>Strong position. Diligence triggered.</h3>
+        </div>
+        <div class="step-cl"><span class="cl-pill">CC1</span></div>
+      </div>
+      <p>The teacher takes the strong position — front-centre, body still — and triggers diligence using the Module 1.3 routine. Pens down, equipment down, eyes on the teacher. The whole class is attentive before the first question is asked.</p>
+      <p>Cold-calling delivered into a half-attentive class produces half-attentive answers. The two seconds spent on the diligence trigger here are recovered five times over in the quality of thinking the pupils then bring to the question.</p>
+      <div class="script"><span class="label">Scripted language</span>"Peacefulness, diligence — pens down, eyes on me, in three, two, one." <span class="pause-marker">PAUSE · SCAN</span></div>
+      <div class="pause-note"><strong>Wait for the room.</strong> The cold-call sequence runs from a settled room or it does not run. Do not begin the question until every pupil is in the diligent state.</div>
+    </div></section>
+
+    <section id="step-2"><div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title-block">
+          <div class="step-tag">Step 2 · Ask the whole class</div>
+          <h3>Question first. No name.</h3>
+        </div>
+        <div class="step-cl"><span class="cl-pill">CC3</span><span class="cl-pill">CC4</span></div>
+      </div>
+      <p>The question is posed to the whole class with no name attached. The phrasing is brief and unambiguous. The teacher does not say "I'm going to ask someone in a moment" or "anyone?" — these phrasings convert the cold-call back into a hands-up question by signalling that an individual is being identified up front.</p>
+      <p>Clarity and economy of language are the standards. A long, qualified question loses pupils before they can begin thinking; a short, direct question gives every pupil access to the same thinking task.</p>
+      <div class="script"><span class="label">Scripted language</span>"What is the first phase of mitosis?"</div>
+      <div class="pause-note"><strong>No name yet.</strong> CC4 is explicit: no name attached to the initial question. The pupil is selected only after the pause.</div>
+    </div></section>
+
+    <section id="step-3"><div class="step-card">
+      <div class="step-header">
+        <div class="step-num pause">3</div>
+        <div class="step-title-block">
+          <div class="step-tag pause">Step 3 · Hold the pause · the technique</div>
+          <h3>Hold the pause. Scan the room.</h3>
+        </div>
+        <div class="step-cl"><span class="cl-pill">CC5</span></div>
+      </div>
+      <p>The pause is the technique. Three seconds for a recall question; ten seconds or more for a higher-order question. The teacher holds the pause without filling it — no rephrasing, no clarification, no "anyone?". The room is scanned during the pause to check that pupils are thinking, not just looking.</p>
+      <p>CC5 specifies that the duration of the pause is gauged for the purpose of the question. Recall questions take three seconds because the answer is being retrieved from memory; higher-order questions take longer because the answer is being constructed. A teacher whose pauses are uniformly short is asking only recall questions, regardless of how the questions are worded.</p>
+      <div class="script"><span class="label">Scripted language</span>( silence — 3 seconds for recall · 10 seconds for higher-order ) <span class="pause-marker">SCAN · WAIT</span></div>
+      <div class="pause-note"><strong>The pause is held without filling it.</strong> The room is scanned. Pupils who are not thinking are noticed silently for later attention; the silence is not broken to address them.</div>
+
+      <div class="practice">
+        <div class="label"><span>Coaching moment</span><span class="timer">3 minutes · in pairs</span></div>
+        <ol>
+          <li>The partner generates one recall question and one higher-order question on a topic the teacher knows.</li>
+          <li>The teacher delivers each in full, holding three seconds for the first and ten for the second. The partner times silently with a watch.</li>
+          <li>The partner reports whether the pauses were held to length and whether the teacher's body language remained settled across the pause.</li>
+        </ol>
+        <div class="coach-prompt"><strong>Coach prompt:</strong> Did the teacher fill the silence with rephrasing or filler words? Did the body language read as calm thinking time, or as awkward waiting?</div>
+      </div>
+    </div></section>
+
+    <section id="step-4"><div class="step-card">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title-block">
+          <div class="step-tag">Step 4 · Name the pupil</div>
+          <h3>One pupil. Briefly named.</h3>
+        </div>
+        <div class="step-cl"><span class="cl-pill">CC6</span></div>
+      </div>
+      <p>After the pause, the teacher names a single pupil and directs the question to them. The naming is brief and unambiguous: "[Pupil]." The question is not re-asked unless the pupil indicates they did not hear it.</p>
+      <p>The choice of pupil is not random. Across a half-term, the teacher tracks who has been called on and aims for an even distribution. A pupil who has not been called on in three lessons is more likely to be called on next; a pupil who has answered correctly in the previous question is unlikely to be called on for the immediate next one.</p>
+      <div class="script"><span class="label">Scripted language</span>( name only ) "[Pupil]."</div>
+    </div></section>
+
+    <section id="step-5"><div class="step-card">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div class="step-title-block">
+          <div class="step-tag">Step 5 · Acknowledge &amp; extend</div>
+          <h3>Acknowledge the answer. Build on it.</h3>
+        </div>
+        <div class="step-cl"><span class="cl-pill">CC8</span><span class="cl-pill">CC9</span></div>
+      </div>
+      <p>The pupil's answer is acknowledged briefly — affirmed where correct, rephrased where partially correct, probed where requiring more detail. The teacher does not move immediately to the next question; the answer is engaged with before the lesson advances.</p>
+      <p>Two extensions are routine. CC9: ask the same pupil for more detail or for the reasoning behind the answer ("How did you reach that?"). CC10: invite a second pupil to extend, build on, or challenge the first pupil's answer ("[Second pupil], can you add to that?"). Module 5.2 covers the probing follow-up sequence in full.</p>
+      <div class="script"><span class="label">Scripted language</span>"Good — that's prophase. <span class="pause-marker">PAUSE</span> How did you remember that one? <span class="pause-marker">PAUSE</span> [Second pupil], can you add the next phase?"</div>
+    </div></section>
+
+    <section id="step-6"><div class="step-card">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div class="step-title-block">
+          <div class="step-tag">Step 6 · Adapt</div>
+          <h3>Adapt teaching based on the response.</h3>
+        </div>
+        <div class="step-cl"><span class="cl-pill">CC11</span><span class="cl-pill">CC13</span><span class="cl-pill">CC14</span></div>
+      </div>
+      <p>The cold-call sequence ends in a teaching decision: move on, reteach, or run a probing follow-up. Misconceptions revealed by the pupil's answer are addressed at the point of the misconception rather than later. Where the pupil's answer reveals that the misconception is shared by the class, a brief reteach precedes the next question.</p>
+      <p>CC14 is the bridge to Module 5.2. Where the pupil has given a correct answer at surface level, the teacher continues with probing questions to extend the response and to surface the underlying reasoning. Cold-calling delivers the answer; probing develops the thinking.</p>
+      <div class="pause-note"><strong>Read the room before the next question.</strong> If three pupils in a row have given partial or incorrect answers to similar questions, the issue is the teaching, not the pupils. Reteach before the next question.</div>
+
+      <div class="practice">
+        <div class="label"><span>Coaching moment · full sequence</span><span class="timer">5 minutes · in trios</span></div>
+        <ol>
+          <li>The trio agrees a topic and two questions: one recall, one higher-order.</li>
+          <li>The teacher runs the full six-step sequence end-to-end on each question.</li>
+          <li>The observer holds the CC checklist open and ticks each item as it lands. The "pupil" answers with one slight error to give the teacher something to acknowledge and probe.</li>
+          <li>Roles rotate after each full sequence.</li>
+        </ol>
+        <div class="coach-prompt"><strong>Coach prompt:</strong> Were Steps 3 and 5 — the held pause and the acknowledgement — given the time they need, or were they rushed past?</div>
+      </div>
+    </div></section>
+
+    <section id="pitfalls">
+      <div class="section-eyebrow">03 · Pitfalls</div>
+      <h2>Where the cold-call breaks.</h2>
+      <p class="section-intro">Each pitfall is tagged with the checklist item it puts at risk.</p>
+
+      <div class="pitfall"><strong>Naming the pupil before the pause.</strong><span class="pf-cl">Risks CC4, CC5</span><p>"[Pupil], what is…" — the rest of the class is now off the hook because the question is not for them. The technique is question first, pause, name third. The order is non-negotiable.</p></div>
+
+      <div class="pitfall"><strong>Filling the pause.</strong><span class="pf-cl">Risks CC5</span><p>The teacher rephrases the question or adds "anyone?" during the pause. The thinking time is destroyed. Three seconds in silence produce more thinking than thirty seconds of teacher talk.</p></div>
+
+      <div class="pitfall"><strong>Same pause length for every question.</strong><span class="pf-cl">Risks CC5</span><p>Three seconds for both recall and higher-order. The higher-order questions are answered as if they were recall, and the deeper thinking the question was designed to elicit does not occur.</p></div>
+
+      <div class="pitfall"><strong>Calling on the same pupils.</strong><span class="pf-cl">Risks CC-O1</span><p>The teacher returns to a small group of pupils whose hands would otherwise have been up. The remaining 80 per cent of the class registers that cold-calling is selective and stops thinking. The technique requires a tracked spread across the class.</p></div>
+
+      <div class="pitfall"><strong>Dropping the answer.</strong><span class="pf-cl">Risks CC8, CC9</span><p>The pupil answers; the teacher says "good" and moves to the next question. The answer has been received but not engaged with, and the pupil registers that the contribution was not valued. Acknowledge briefly, then either probe or move to a second pupil.</p></div>
+
+      <div class="pitfall"><strong>Cold-calling into chaos.</strong><span class="pf-cl">Risks CC1</span><p>The teacher launches a cold-call sequence while the room is still settling. The first pupil is named while half the class is not yet listening. The diligence trigger is run first.</p></div>
+    </section>
+
+    <section id="audit">
+      <div class="section-eyebrow">04 · Self-audit</div>
+      <h2>The canonical checklist.</h2>
+      <p class="section-intro">Streamlined wording. The six steps map to thirteen action items and one outcome item.</p>
+
+      <table class="audit">
+        <thead><tr><th style="width: 10%;">ID</th><th style="width: 56%;">Statement</th><th style="width: 14%;">RAG</th><th style="width: 20%;">Date</th></tr></thead>
+        <tbody>
+          <tr><td class="id">CC1</td><td>Teacher in strong position.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">CC3</td><td>Question posed to the whole class first.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">CC4</td><td>No name attached to the initial question.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">CC5</td><td>Thinking time held before naming a pupil.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">CC6</td><td>Question directed to a named pupil.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">CC8</td><td>Response acknowledged with affirmation or probe.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">CC9</td><td>Pupil asked to elaborate or explain reasoning.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">CC11</td><td>Misconceptions identified and addressed.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">CC13</td><td>Teaching adapted based on response pattern.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">CC14</td><td>Builds toward probing questioning.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <div class="audit-section-divider">OUTCOME ITEM — DOWNSTREAM SIGNAL</div>
+      <table class="audit" style="margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;">
+        <tbody>
+          <tr class="outcome-row"><td class="id" style="width: 10%;">CC-O1</td><td style="width: 56%;">Other pupils attentive to the response.</td><td style="width: 14%;"><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td style="width: 20%;">—</td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size: 13px; color: var(--ink-soft); margin-top: 14px;">CC-O1 is the downstream signal. Where pupils are thinking through the question alongside the named pupil — rather than waiting to be released — CC-O1 rates green. A green on CC1–CC14 with amber on CC-O1 typically points to over-predictable pupil selection.</p>
+    </section>
+
+    <section id="ai-tool">
+      <div class="section-eyebrow">05 · AI scenario tester</div>
+      <h2>Worked example.</h2>
+      <p class="section-intro">The full live tool will accept any scenario the teacher describes. The example below shows the shape of a typical response.</p>
+
+      <div class="ai-tool">
+        <div class="ai-eyebrow">Worked example</div>
+        <h3>Scenario tester</h3>
+
+        <div class="ai-demo">
+          <div class="label">Teacher submits</div>
+          <div class="scenario">"My [Year 10] class — the same five pupils answer everything. I've started cold-calling but I'm reaching for the same names. When I do call on a quiet pupil they say 'I don't know'. I move on to one of the usual five and the lesson runs but it feels like the cold-call is a formality."</div>
+
+          <div class="label">Tool responds</div>
+          <div class="response">
+            <p><strong>Items at risk:</strong> CC4 (likely no genuine pause; pupil identified mentally before question is asked), CC5 (pause may be uniformly short — three seconds for everything), CC-O1 (selection is predictable, so pupils not on the teacher's list disengage).</p>
+
+            <p><strong>What is happening:</strong> the cold-call is being run as hands-up with the names selected silently rather than by the pupils. The "I don't know" response from quiet pupils is the pattern of pupils who have not been thinking because they have learned that selection is not random.</p>
+
+            <p><strong>Across the next two weeks:</strong></p>
+            <ol>
+              <li>Track who has been called on. Print a class list; tick once per question. Aim for every pupil ticked at least twice across each lesson.</li>
+              <li>Lengthen Step 3. Time the pause on a watch — three seconds for recall, ten for higher-order. The pupils who currently say "I don't know" need the longer pause to retrieve.</li>
+              <li>For the "I don't know" response, do not move on. Use the no-opt-out sequence: ask a second pupil for the answer, then return to the original pupil and ask them to repeat it. The original pupil now has the answer and has been heard giving it. The norm shifts within a fortnight.</li>
+              <li>Plan the questions in advance — set pieces, not improvised. Where each cold-call has a planned target pupil and a planned probing follow-up, the technique runs more reliably.</li>
+            </ol>
+
+            <p><strong>To avoid:</strong> giving up on cold-calling because the early attempts feel uncomfortable. The "I don't know" response is part of the embedding period, not a failure of the technique.</p>
+          </div>
+        </div>
+
+        <a class="ai-cta" href="#">Live tool — coming soon</a>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="section-eyebrow">06 · Downloads</div>
+      <h2>Module materials.</h2>
+      <p class="section-intro">Three formats — the printable booklet, the slide deck for the 25-minute session, and a one-page reference card carrying the six-beat sequence.</p>
+      <div class="downloads">
+        <span class="download-card download-soon"><div class="type">CPD Booklet</div><div class="name">Module 5.1 Booklet</div><div class="size">.docx · printable</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">Slide Deck</div><div class="name">Module 5.1 Slides</div><div class="size">.pptx · 25-min session</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">One-pager</div><div class="name">Cold-Call Reference Card</div><div class="size">PDF · pin to lectern</div><div class="dl-soon">Coming soon</div></span>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="./index.html" class="prev"><span class="dir">← Hub</span><span class="label">Pillar 5 · Questioning</span></a>
+      <a href="./module-4-1-mini-whiteboards.html" class="next"><span class="dir">Next module →</span><span class="label">4.1 · Mini-Whiteboards</span></a>
+    </nav>
+  </article>
+</div>
+
+<footer class="module-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Pillar 5 · Module 5.1</div>
+  <div style="margin-top: 8px;"><a href="./index.html" style="color: rgba(255,255,255,0.9);">Hub</a> · <a href="./index.html" style="color: rgba(255,255,255,0.9);">Questioning</a></div>
+</footer>
+</body>
+</html>

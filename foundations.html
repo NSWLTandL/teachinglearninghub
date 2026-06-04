@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Foundations | T&amp;L Excellence Programme</title>
+<meta name="description" content="The Foundations strand — five self-directed reading units on the dispositions that underlie classroom practice: assertiveness, presence, professional conduct, voice, and composure." />
+<style>
+  :root {
+    --bg: #f7f2e8; --surface: #fffdf7; --ink: #1f2a37; --ink-soft: #4b5563;
+    --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
+    --highlight: #fff4dd; --practice: #eef3ec;
+    --foundations: #5c4a7a;        /* Distinct strand colour — a deep slate plum */
+    --foundations-soft: #8b78a8;
+    --foundations-bg: #ece8f1;
+    --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .topbar { background: var(--ink); color: #fff; padding: 14px 24px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+  .topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+  .topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+  /* Hero — visually distinct from Pillar 1 modules. Foundations purple, no checklist strip. */
+  .hero { padding: 72px 24px 56px; border-bottom: 1px solid var(--rule); background: linear-gradient(135deg, var(--foundations-bg) 0%, var(--bg) 80%); position: relative; overflow: hidden; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(92, 74, 122, 0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 880px; margin: 0 auto; position: relative; }
+  .strand-tag { display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); border: 1px solid var(--foundations); padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; font-weight: 600; background: var(--surface); }
+  .unit-number { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 18px; margin-bottom: 8px; }
+  h1.title { font-family: var(--serif); font-size: clamp(40px, 5vw, 60px); line-height: 1.1; margin: 0 0 24px; font-weight: 600; letter-spacing: -0.01em; }
+  h1.title em { font-style: italic; color: var(--foundations); }
+  .lede { font-size: 20px; color: var(--ink-soft); max-width: 680px; margin: 0 0 40px; line-height: 1.5; }
+
+  /* Reading meta — replaces the checklist strip; emphasises the unit format */
+  .reading-meta { background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--foundations); border-radius: 8px; padding: 20px 26px; margin: 24px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  @media (max-width: 720px) { .reading-meta { grid-template-columns: 1fr 1fr; gap: 16px; } }
+  .reading-meta .item .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 4px; }
+  .reading-meta .item .value { font-weight: 600; font-size: 14px; color: var(--ink); }
+  .reading-meta .item .note { font-size: 12px; color: var(--ink-soft); font-style: italic; margin-top: 2px; }
+
+  /* Main layout — no left-rail TOC for this unit. The format is "read in a single sitting", so the page should flow continuously without sticky nav. */
+  .layout { max-width: 760px; margin: 0 auto; padding: 64px 24px 80px; }
+
+  article > section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  article h2 { font-family: var(--serif); font-size: 30px; margin: 0 0 8px; font-weight: 600; line-height: 1.2; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .section-intro { font-size: 18px; color: var(--ink-soft); margin: 0 0 28px; line-height: 1.5; }
+  article p { margin: 0 0 18px; }
+
+  /* Pattern callouts — three failure modes. Reduced visual weight from a "pitfall" block; here they're three short essay subsections with a coloured marker. */
+  .pattern { margin: 32px 0; padding: 24px 28px 24px 32px; background: var(--surface); border-left: 3px solid var(--accent-soft); border-radius: 0 8px 8px 0; }
+  .pattern-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+  .pattern h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .pattern p { margin: 0 0 12px; }
+  .pattern p:last-child { margin-bottom: 0; }
+  .pattern .corrective { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--rule); font-size: 15px; color: var(--ink); }
+  .pattern .corrective strong { color: var(--accent); font-weight: 700; }
+
+  /* Principle list — numbered, with the principle name in serif and the explanation in body text. Reads as a piece of professional writing, not a checklist. */
+  .principles { counter-reset: principle; margin: 24px 0; }
+  .principle { counter-increment: principle; display: grid; grid-template-columns: 56px 1fr; gap: 4px; margin-bottom: 32px; align-items: start; }
+  .principle::before {
+    content: counter(principle, decimal-leading-zero);
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--foundations);
+    font-style: italic;
+  }
+  .principle-body h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--ink); }
+  .principle-body p { margin: 0 0 10px; line-height: 1.6; }
+  .principle-body p:last-child { margin-bottom: 0; }
+
+  /* Scripted phrases inline — short instructional examples. Uses serif italic for the actual words a teacher would say. */
+  .said { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 600; }
+
+  /* Corridor section — given visual emphasis as a distinct sub-environment. */
+  .corridor { margin: 32px 0; padding: 28px 32px; background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); border: 1px solid var(--rule); border-radius: 10px; }
+  .corridor-marker { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .corridor h3 { margin: 0 0 16px; font-family: var(--serif); font-size: 26px; font-weight: 600; }
+  .corridor p { margin: 0 0 14px; }
+  .corridor p:last-child { margin-bottom: 0; }
+
+  /* The demand protocol — numbered steps, but rendered as a structured small reference block rather than a deliberate-practice cycle */
+  .protocol { background: var(--foundations-bg); border: 1px solid var(--foundations-soft); border-radius: 10px; padding: 28px 32px; margin: 32px 0; }
+  .protocol-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .protocol h3 { margin: 0 0 18px; font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--ink); }
+  .protocol-steps { counter-reset: step; padding: 0; margin: 0; list-style: none; }
+  .protocol-step { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 18px; }
+  .protocol-step::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--foundations);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+  }
+  .protocol-step strong { color: var(--ink); font-weight: 700; }
+  .protocol-step p { margin: 0 0 4px; }
+
+  /* Reflective prompt — closes the unit. Calmer treatment than a deliberate-practice block; this is for the reader to take away. */
+  .reflective { margin: 40px 0; padding: 28px 32px; background: var(--surface); border: 2px solid var(--foundations-soft); border-radius: 10px; }
+  .reflective-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 12px; }
+  .reflective h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 24px; font-weight: 600; }
+  .reflective p { margin: 0 0 12px; }
+  .reflective p:last-child { margin-bottom: 0; }
+
+  /* Reading next — links to the modules this unit underlies. Replaces the downloads cards of a pillar module. */
+  .read-next { margin: 48px 0 0; padding: 32px 0 0; border-top: 1px solid var(--rule); }
+  .read-next h2 { margin: 0 0 8px; }
+  .read-next-intro { color: var(--ink-soft); font-size: 16px; margin-bottom: 24px; }
+  .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 600px) { .modules-grid { grid-template-columns: 1fr; } }
+  .module-link { display: block; padding: 18px 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; text-decoration: none; color: var(--ink); transition: all 0.2s; }
+  .module-link:hover { border-color: var(--foundations); transform: translateY(-1px); }
+  .module-link .tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--foundations); font-weight: 700; }
+  .module-link .name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-top: 4px; }
+  .module-link .why { font-size: 13px; color: var(--ink-soft); margin-top: 4px; font-style: italic; }
+
+  /* Closing note */
+  .closing-note { margin: 56px 0 0; padding: 24px 0; border-top: 1px solid var(--rule); text-align: center; font-style: italic; color: var(--ink-soft); font-size: 15px; font-family: var(--serif); }
+
+  /* Footer */
+  footer.unit-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 24px; text-align: center; font-size: 13px; margin-top: 80px; }
+  footer.unit-footer a { color: rgba(255,255,255,0.9); }
+  footer.unit-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+</style>
+<style>
+  .fi-wrap { max-width: 860px; margin: 0 auto; padding: 16px 28px 90px; }
+  .fi-hero { max-width: 860px; margin: 0 auto; padding: 64px 28px 28px; }
+  .fi-hero .strand-tag { display:inline-block; }
+  .fi-hero h1 { font-family: var(--serif); font-size: clamp(36px,5vw,54px); line-height:1.05; font-weight:600; margin:14px 0 16px; }
+  .fi-hero h1 em { font-style: italic; color: var(--accent); }
+  .fi-hero .lede { font-size:19px; color:var(--ink-soft); max-width:600px; line-height:1.5; margin:0; }
+  .f-grid { display:flex; flex-direction:column; gap:12px; margin-top:24px; }
+  .f-card { display:block; padding:22px 24px; background:var(--surface); border:1px solid var(--rule); border-left:4px solid var(--accent); border-radius:12px; text-decoration:none; color:var(--ink); transition:transform .15s, box-shadow .15s; }
+  .f-card:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,0.06); text-decoration:none; }
+  .f-unit { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); font-weight:700; }
+  .f-name { font-family:var(--serif); font-size:22px; font-weight:600; margin:4px 0 6px; }
+  .f-desc { font-size:14.5px; color:var(--ink-soft); line-height:1.45; }
+  .fi-intro { border-left:3px solid var(--accent); padding:14px 20px; background:var(--surface); border-radius:0 8px 8px 0; font-size:15.5px; color:var(--ink-soft); margin-top:8px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a><span>›</span>
+    <a href="./tl-programme.html">T&amp;L Excellence</a><span>›</span>
+    Foundations
+  </div>
+  <div>Foundations · Self-Directed Reading</div>
+</div>
+
+<header class="fi-hero">
+  <span class="strand-tag">Foundations · Self-Directed Reading</span>
+  <h1>The <em>Foundations.</em></h1>
+  <p class="lede">Five short reading units on the things every routine rests on — how you carry yourself, how you speak, how you conduct yourself, and how you hold steady. Read each in a single sitting, and return to them across the year.</p>
+</header>
+
+<div class="fi-wrap">
+  <div class="fi-intro">These units are reflective rather than observable — there is no checklist and no coaching partner needed. They sit beneath the six pillars of the programme, and are worth reading before, and alongside, the modules themselves.</div>
+  <div class="f-grid">
+      <a class="f-card" href="./foundations-1-assertiveness.html">
+        <div class="f-unit">Unit 1</div>
+        <div class="f-name">Assertiveness</div>
+        <div class="f-desc">Carrying authority calmly — giving an instruction and holding the line without escalation.</div>
+      </a>
+      <a class="f-card" href="./foundations-2-presence.html">
+        <div class="f-unit">Unit 2</div>
+        <div class="f-name">Presence</div>
+        <div class="f-desc">What the room reads before a word is spoken: position, stillness, gaze, and pace.</div>
+      </a>
+      <a class="f-card" href="./foundations-3-professional-conduct.html">
+        <div class="f-unit">Unit 3</div>
+        <div class="f-name">Professional Conduct</div>
+        <div class="f-desc">The basics of conduct, professionalism, and co-working that hold the school together.</div>
+      </a>
+      <a class="f-card" href="./foundations-4-voice.html">
+        <div class="f-unit">Unit 4</div>
+        <div class="f-name">Voice</div>
+        <div class="f-desc">The instrument you use most — projection over volume, silence as a tool, and looking after it.</div>
+      </a>
+      <a class="f-card" href="./foundations-5-composure.html">
+        <div class="f-unit">Unit 5</div>
+        <div class="f-name">Composure</div>
+        <div class="f-desc">Staying measured when a moment invites otherwise: the pause between provocation and response.</div>
+      </a>
+  </div>
+</div>
+
+<footer class="unit-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Foundations</div>
+  <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./programme-index.html">Programme</a></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Foundations · Professional Conduct | T&amp;L Excellence Programme</title>
+<meta name="description" content="Professional conduct at Nishkam School — the basics of conduct, professionalism, and co-working, from dress and the working day to conduct with pupils and support between colleagues. Self-directed reading unit, 35 minutes." />
+<style>
+  :root {
+    --bg: #f7f2e8; --surface: #fffdf7; --ink: #1f2a37; --ink-soft: #4b5563;
+    --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
+    --highlight: #fff4dd; --practice: #eef3ec;
+    --foundations: #5c4a7a;        /* Distinct strand colour — a deep slate plum */
+    --foundations-soft: #8b78a8;
+    --foundations-bg: #ece8f1;
+    --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .topbar { background: var(--ink); color: #fff; padding: 14px 24px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+  .topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+  .topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+  /* Hero — visually distinct from Pillar 1 modules. Foundations purple, no checklist strip. */
+  .hero { padding: 72px 24px 56px; border-bottom: 1px solid var(--rule); background: linear-gradient(135deg, var(--foundations-bg) 0%, var(--bg) 80%); position: relative; overflow: hidden; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(92, 74, 122, 0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 880px; margin: 0 auto; position: relative; }
+  .strand-tag { display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); border: 1px solid var(--foundations); padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; font-weight: 600; background: var(--surface); }
+  .unit-number { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 18px; margin-bottom: 8px; }
+  h1.title { font-family: var(--serif); font-size: clamp(40px, 5vw, 60px); line-height: 1.1; margin: 0 0 24px; font-weight: 600; letter-spacing: -0.01em; }
+  h1.title em { font-style: italic; color: var(--foundations); }
+  .lede { font-size: 20px; color: var(--ink-soft); max-width: 680px; margin: 0 0 40px; line-height: 1.5; }
+
+  /* Reading meta — replaces the checklist strip; emphasises the unit format */
+  .reading-meta { background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--foundations); border-radius: 8px; padding: 20px 26px; margin: 24px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  @media (max-width: 720px) { .reading-meta { grid-template-columns: 1fr 1fr; gap: 16px; } }
+  .reading-meta .item .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 4px; }
+  .reading-meta .item .value { font-weight: 600; font-size: 14px; color: var(--ink); }
+  .reading-meta .item .note { font-size: 12px; color: var(--ink-soft); font-style: italic; margin-top: 2px; }
+
+  /* Main layout — no left-rail TOC for this unit. The format is "read in a single sitting", so the page should flow continuously without sticky nav. */
+  .layout { max-width: 760px; margin: 0 auto; padding: 64px 24px 80px; }
+
+  article > section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  article h2 { font-family: var(--serif); font-size: 30px; margin: 0 0 8px; font-weight: 600; line-height: 1.2; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .section-intro { font-size: 18px; color: var(--ink-soft); margin: 0 0 28px; line-height: 1.5; }
+  article p { margin: 0 0 18px; }
+
+  /* Pattern callouts — three failure modes. Reduced visual weight from a "pitfall" block; here they're three short essay subsections with a coloured marker. */
+  .pattern { margin: 32px 0; padding: 24px 28px 24px 32px; background: var(--surface); border-left: 3px solid var(--accent-soft); border-radius: 0 8px 8px 0; }
+  .pattern-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+  .pattern h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .pattern p { margin: 0 0 12px; }
+  .pattern p:last-child { margin-bottom: 0; }
+  .pattern .corrective { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--rule); font-size: 15px; color: var(--ink); }
+  .pattern .corrective strong { color: var(--accent); font-weight: 700; }
+
+  /* Principle list — numbered, with the principle name in serif and the explanation in body text. Reads as a piece of professional writing, not a checklist. */
+  .principles { counter-reset: principle; margin: 24px 0; }
+  .principle { counter-increment: principle; display: grid; grid-template-columns: 56px 1fr; gap: 4px; margin-bottom: 32px; align-items: start; }
+  .principle::before {
+    content: counter(principle, decimal-leading-zero);
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--foundations);
+    font-style: italic;
+  }
+  .principle-body h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--ink); }
+  .principle-body p { margin: 0 0 10px; line-height: 1.6; }
+  .principle-body p:last-child { margin-bottom: 0; }
+
+  /* Scripted phrases inline — short instructional examples. Uses serif italic for the actual words a teacher would say. */
+  .said { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 600; }
+
+  /* Corridor section — given visual emphasis as a distinct sub-environment. */
+  .corridor { margin: 32px 0; padding: 28px 32px; background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); border: 1px solid var(--rule); border-radius: 10px; }
+  .corridor-marker { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .corridor h3 { margin: 0 0 16px; font-family: var(--serif); font-size: 26px; font-weight: 600; }
+  .corridor p { margin: 0 0 14px; }
+  .corridor p:last-child { margin-bottom: 0; }
+
+  /* The demand protocol — numbered steps, but rendered as a structured small reference block rather than a deliberate-practice cycle */
+  .protocol { background: var(--foundations-bg); border: 1px solid var(--foundations-soft); border-radius: 10px; padding: 28px 32px; margin: 32px 0; }
+  .protocol-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .protocol h3 { margin: 0 0 18px; font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--ink); }
+  .protocol-steps { counter-reset: step; padding: 0; margin: 0; list-style: none; }
+  .protocol-step { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 18px; }
+  .protocol-step::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--foundations);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+  }
+  .protocol-step strong { color: var(--ink); font-weight: 700; }
+  .protocol-step p { margin: 0 0 4px; }
+
+  /* Reflective prompt — closes the unit. Calmer treatment than a deliberate-practice block; this is for the reader to take away. */
+  .reflective { margin: 40px 0; padding: 28px 32px; background: var(--surface); border: 2px solid var(--foundations-soft); border-radius: 10px; }
+  .reflective-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 12px; }
+  .reflective h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 24px; font-weight: 600; }
+  .reflective p { margin: 0 0 12px; }
+  .reflective p:last-child { margin-bottom: 0; }
+
+  /* Reading next — links to the modules this unit underlies. Replaces the downloads cards of a pillar module. */
+  .read-next { margin: 48px 0 0; padding: 32px 0 0; border-top: 1px solid var(--rule); }
+  .read-next h2 { margin: 0 0 8px; }
+  .read-next-intro { color: var(--ink-soft); font-size: 16px; margin-bottom: 24px; }
+  .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 600px) { .modules-grid { grid-template-columns: 1fr; } }
+  .module-link { display: block; padding: 18px 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; text-decoration: none; color: var(--ink); transition: all 0.2s; }
+  .module-link:hover { border-color: var(--foundations); transform: translateY(-1px); }
+  .module-link .tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--foundations); font-weight: 700; }
+  .module-link .name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-top: 4px; }
+  .module-link .why { font-size: 13px; color: var(--ink-soft); margin-top: 4px; font-style: italic; }
+
+  /* Closing note */
+  .closing-note { margin: 56px 0 0; padding: 24px 0; border-top: 1px solid var(--rule); text-align: center; font-style: italic; color: var(--ink-soft); font-size: 15px; font-family: var(--serif); }
+
+  /* Footer */
+  footer.unit-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 24px; text-align: center; font-size: 13px; margin-top: 80px; }
+  footer.unit-footer a { color: rgba(255,255,255,0.9); }
+  footer.unit-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a><span>›</span>
+    <a href="./tl-programme.html">T&amp;L Excellence</a><span>›</span>
+    <a href="./foundations.html">Foundations</a><span>›</span>
+    Professional <em>Conduct.</em>
+  </div>
+  <div>Foundations · Unit 3</div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="strand-tag">Foundations · Self-Directed Reading</span>
+    <div class="unit-number">Unit 3</div>
+    <h1 class="title">Professional <em>Conduct.</em></h1>
+    <p class="lede">The basics of conduct, professionalism, and co-working at Nishkam. The standard the staff body holds in every space pupils can and cannot see.</p>
+
+    <div class="reading-meta">
+      <div class="item">
+        <div class="label">Format</div>
+        <div class="value">Self-directed reading</div>
+        <div class="note">Read alongside the staff handbook</div>
+      </div>
+      <div class="item">
+        <div class="label">Time</div>
+        <div class="value">35 minutes</div>
+        <div class="note">A single sitting</div>
+      </div>
+      <div class="item">
+        <div class="label">Audit</div>
+        <div class="value">None</div>
+        <div class="note">Professional expectation, not observable lesson criterion</div>
+      </div>
+      <div class="item">
+        <div class="label">Re-read</div>
+        <div class="value">At induction</div>
+        <div class="note">And at the start of each year</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <article>
+
+    <section>
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>The conduct that makes the school work.</h2>
+      <p class="section-intro">Nishkam means selflessness. The school works for others, considers others in everything it does, and approaches the work with optimism and a search for joy — what Sikh tradition calls Chardi Kala, the aspiration to a state of eternal resilience, optimism, and joy. Professional conduct is that disposition made concrete in the hundred small decisions of a working day.</p>
+
+      <p>This unit sets out the basics of conduct, professionalism, and co-working at Nishkam. None of it is complicated, and most of it is the ordinary courtesy of a busy, shared workplace. But the standard a school holds in its corridors, its staff room, and its dealings between colleagues is the same standard it holds in its classrooms, and pupils read the consistency. A school whose adults model the virtues at all times is a school whose pupils are asked, credibly, to do the same.</p>
+
+      <p>Nishkam is a friendly and open workplace where colleagues treat each other with respect and decency. Everyone is busy; there are pinch points across the year; and respect is shown in part by not adding unnecessarily to the workload of others. Colleagues are acknowledged in the corridors — all primary and support staff included — names are learned, and everyone is treated as an equal regardless of job title or apparent status.</p>
+
+      <p>This unit is for self-directed reading and is best read alongside the staff handbook, which carries the full detail of the procedures referred to here. It is reflective rather than observable: the aim is that the expectations below become second nature, not that they are checked.</p>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">02 · Three patterns to recognise</div>
+      <h2>What unprofessional conduct looks like.</h2>
+      <p class="section-intro">Lapses in professional conduct are rarely deliberate. They are habits that creep in under pressure or familiarity. Three patterns account for most of them, and naming them is the first step to avoiding them.</p>
+
+      <div class="pattern">
+        <div class="pattern-label">Pattern One</div>
+        <h3>The staff-room lapse.</h3>
+        <p>Conduct relaxes in the spaces pupils cannot see, and the relaxation leaks. Gossiping with colleagues, discussing a pupil's performance or conduct in public spaces including the staff room, ignoring or whispering past colleagues while others are close by — each erodes the professional culture the school depends on. The staff room is also a workroom; conversations there belong at a volume that respects those who are working.</p>
+        <div class="corrective"><strong>The corrective.</strong> Hold the same standard in private as in public. Pupil matters are discussed in the right place, with the right people, never in shared or public spaces.</div>
+      </div>
+
+      <div class="pattern">
+        <div class="pattern-label">Pattern Two</div>
+        <h3>Conduct in the lesson itself.</h3>
+        <p>A set of small habits undermines professional bearing in the classroom: sitting on desks or at the computer while teaching, drinking tea or coffee during a lesson, eating in front of a class, chewing gum. Each is minor in isolation; together they communicate that the lesson is a casual space rather than a purposeful one, and pupils calibrate their own conduct to the teacher's.</p>
+        <div class="corrective"><strong>The corrective.</strong> Teach on your feet, hands free, fully attentive to the room. The teacher's physical conduct sets the register for the pupils' own.</div>
+      </div>
+
+      <div class="pattern">
+        <div class="pattern-label">Pattern Three</div>
+        <h3>Undermining the school in passing.</h3>
+        <p>A school's standards are eroded as much by quiet complaint as by open breach. Denigrating or questioning school policies in front of children, or informally with colleagues; showing outward annoyance or frustration with a colleague in front of pupils; revealing personal details about other staff to children — each chips at the collective authority every teacher relies on.</p>
+        <div class="corrective"><strong>The corrective.</strong> Raise genuine concerns through the line-management system, which exists to listen and to help where it can. In front of pupils, the staff body speaks and acts as one.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">03 · The expectations</div>
+      <h2>The basics, set out plainly.</h2>
+      <p class="section-intro">The everyday expectations of working at Nishkam, each treated in turn below. None is onerous; together they are the fabric of a professional, considerate workplace.</p>
+
+      <div class="principles">
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Dress and decorum.</h3>
+            <p>Smart business attire whenever pupils are present. Training days are dress-down and smart-casual — though still no flip-flops, shorts, or vests. As a faith school, decorum is shown at all times: consideration is given to clothing style, to the covering of tattoos and body adornments, and to footwear, with no open toes.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>The working day.</h3>
+            <p>Aim to be on site by 8am, and expect to stay until prepared for the next day — most staff do not leave until after 4pm. Work–life balance matters: non-contact time is used precisely so that work does not run late into the night at home. Emails to colleagues are avoided after 6pm and before 7am. A team WhatsApp group is a reasonable request from a curriculum leader, but messages on it are subject to the same terms as email.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Social media.</h3>
+            <p>Under no circumstances is any pupil befriended on any platform; pupil requests are ignored, including from former pupils. Profiles are set to private and settings checked. Be alert to cloned profiles: when a colleague appears to send a friend request, verify it verbally, since a cloned account can give pupils access to private information.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Shared spaces.</h3>
+            <p>The staff room is a workroom; conversation is kept to a volume that respects those working. Nothing is left in the sink at any time, and no plates or cups are left for others — the cleaners are not there to clean up after staff. The fridge is shared; food is collected and not left. Loud conversation in corridors and public areas is kept to a minimum.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Photocopiers.</h3>
+            <p>Most photocopying is done well ahead of time; last-minute jobs raise everyone's anxiety when machines are in demand. Large jobs go to the librarian with at least three weeks' notice. Skipping or cancelling another person's print job is passive-aggressive and, in practice, increases the chance of a malfunction that affects everyone. Big jobs are saved for the end of the day, never the vital pre-period-one morning session, and print is limited when classes are using the library as a quiet learning space.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Attendance and punctuality.</h3>
+            <p>Turn up, and be on time. Teaching carries a particular commitment to the cause: the profession serves its community, the holidays are long and well-earned, and so term-time attendance needs to be near-perfect. Staff are encouraged to attend even when not at full fitness, recovering during the holidays, because a single day's absence sets cover for a colleague, draws several staff into covering lessons in their non-contact time, leaves pupils without a subject specialist, and is hard to pick up from on return. Where genuine reasons make attendance impossible, the school is an understanding employer — but the teacher works with the school to manage the situation.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Reporting absence.</h3>
+            <p>It is a professional duty to report absence by the school's procedures, set out in the handbook. Honesty is the policy: the true reason for an absence must be given, and a reason later revealed to be untrue could be treated as gross misconduct. For lateness, both the cover manager and the line manager are informed, because of the staffing knock-on effects that require logistical arrangement.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Co-working and communication.</h3>
+            <p>Emails are acknowledged; a Teams message gets at least a thumbs-up to show it has been read. A clear-desk standard is kept when working in common areas or another teacher's classroom. Pens and equipment are not taken from another teacher's desk without being returned. Computers are left signed out. When socialising, the school is left at the door.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">04 · Around school</div>
+      <h2>Conduct beyond the classroom.</h2>
+      <p class="section-intro">A teacher's authority does not stop at the classroom door. The corridors, the duty points, and the shared spaces are where the school's standard is most visibly upheld or eroded, and where every member of staff contributes to a single collective signal.</p>
+
+      <div class="corridor">
+        <div class="corridor-marker">Around school</div>
+        <h3>On duty, be active. Everywhere, be present.</h3>
+
+        <p>On duty, the teacher is active: walking, approaching pupils, separating larger groups, directing pupils to sit or to play sport with no in-between. Boisterousness is reduced, physical contact is stopped, and screaming, screeching, yelling, sports-arena whooping, or hollering is questioned and reprimanded. The phrase that names the standard is the same one every time: <span class="said">"That's not who we are at Nishkam."</span></p>
+
+        <p>Pupils are moved on from congregating — there is never a need for pupils to stand still in pairs or groups in corridors or stairwells. Every teacher contributes to the left-hand-side, single-file expectation at each changeover and whenever moving between rooms. Every pupil out of lessons when learning should be taking place is stopped and questioned, even when the reason looks obvious: professional curiosity is itself part of the standard.</p>
+
+        <p>The principle beneath all of this is consistency. A pupil who passes three teachers without being addressed learns that the rule is optional; a pupil addressed by the first teacher they pass learns the opposite. Every teacher who upholds the standard strengthens the school-wide signal; every teacher who walks past weakens it. The breach is never personal — the pupil is not breaking an individual teacher's rule but the school's.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">05 · Conduct with pupils</div>
+      <h2>Polite, professional, definitive.</h2>
+      <p class="section-intro">The boundary between teacher and pupil is the foundation of safe, professional practice. It is held not by coldness but by clarity. The relationship is teacher–pupil, never peer, and the conduct below keeps it so.</p>
+
+      <div class="protocol">
+        <div class="protocol-label">The boundary in practice</div>
+        <h3>Holding the professional line.</h3>
+
+        <ol class="protocol-steps">
+          <li class="protocol-step">
+            <p><strong>Keep lesson talk on the lesson.</strong></p>
+            <p>No social, silly, or unproductive conversation during lesson time; pupils will try to divert from the goal. Diversion may win popularity, but it costs effectiveness.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>Make one-to-one contact safe and visible.</strong></p>
+            <p>Avoid one-to-one sessions where possible. When they are necessary, inform a colleague, keep the door open, and work in an observable classroom. Small groups at lunch or after school sit at desks while the teacher teaches or models; pupils do not sit on or gather around the teacher's desk. Unsolicited visits are limited — <span class="said">"It's my break. We have lesson time to go over this"</span> — or redirected to a dedicated catch-up slot. The impromptu is avoided.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>Keep personal life private.</strong></p>
+            <p>Pupils should not know personal details about the teacher. The relationship is teacher–pupil, never peer.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>Maintain physical and verbal boundaries.</strong></p>
+            <p>No fist-bumps, high-fives, handshakes, hugs, or head pats. No name-calling. No mention of families — no sibling comparisons, no reference to parental disappointment.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>When in doubt, stop and log.</strong></p>
+            <p>If a behaviour is uncertain, stop it and log it; standards are kept high. Success is celebrated and the focus returned to next steps. Particular awareness is kept for vulnerable or looked-after children.</p>
+          </li>
+        </ol>
+      </div>
+
+      <p>One further courtesy holds the professional register in front of pupils: teachers are called by their surnames within earshot of children, and the personal circumstances of other staff — that a colleague is on leave, or unwell — are never disclosed to pupils.</p>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">06 · Supporting colleagues</div>
+      <h2>The school stands together.</h2>
+      <p class="section-intro">Professional conduct is, finally, a collective act. The standard is held by colleagues supporting one another, visibly and as a matter of course.</p>
+
+      <p>Colleagues are supported by standing with them — agreeing with their judgements when challenged by pupils, following the school's systems, and adding a calming presence when passing an excitable or boisterous classroom. Duty is reached on time, or early when free beforehand. When a teacher seems to be running late or is not yet present, a passing colleague walks into the classroom, gets pupils off the corridor, settles the room, and then emails for any removal needed.</p>
+
+      <p>This unit is reflective rather than a checklist. The closing suggestion is reflective in kind.</p>
+
+      <div class="reflective">
+        <div class="reflective-label">For the reader</div>
+        <h3>A prompt to take into the week.</h3>
+        <p>Over the coming week, the teacher might notice the moments where conduct most easily relaxes — the staff-room conversation, the corridor walked past, the policy quietly questioned — and consider what upholding the standard in that moment would have looked like.</p>
+        <p>The detail of every procedure referred to here lives in the staff handbook; this unit is the disposition behind the detail.</p>
+      </div>
+    </section>
+
+
+    <section class="read-next">
+      <h2>Where to read next.</h2>
+      <p class="read-next-intro">The disposition described in this unit underlies the routines that follow.</p>
+
+      <div class="modules-grid">
+        <a class="module-link" href="./module-1-1-language-of-virtues.html">
+          <div class="tag">Module 1.1</div>
+          <div class="name">The Language of Virtues</div>
+          <div class="why">The virtues the staff body models at all times.</div>
+        </a>
+        <a class="module-link" href="./module-1-10-other-routines.html">
+          <div class="tag">Module 1.10</div>
+          <div class="name">Other Routines</div>
+          <div class="why">The whole-school routines conduct around school upholds.</div>
+        </a>
+        <a class="module-link" href="./foundations-1-assertiveness.html">
+          <div class="tag">Foundations · Unit 1</div>
+          <div class="name">Assertiveness</div>
+          <div class="why">Carrying authority without escalation.</div>
+        </a>
+        <a class="module-link" href="./foundations-2-presence.html">
+          <div class="tag">Foundations · Unit 2</div>
+          <div class="name">Presence</div>
+          <div class="why">What the room reads before a word is spoken.</div>
+        </a>
+      </div>
+
+      <div class="closing-note">
+        The unit is read at induction, kept alongside the staff handbook, and revisited at the start of each year.
+      </div>
+    </section>
+
+  </article>
+</div>
+
+<footer class="unit-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Foundations · Unit 3</div>
+  <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./foundations.html">Foundations</a></div>
+</footer>
+</body>
+</html>

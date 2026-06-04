@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Foundations · Presence | T&amp;L Excellence Programme</title>
+<meta name="description" content="Presence at Nishkam School — the signals of posture, position, pace, and gaze that establish a teacher's authority before any instruction is given. Self-directed reading unit, 30 minutes." />
+<style>
+  :root {
+    --bg: #f7f2e8; --surface: #fffdf7; --ink: #1f2a37; --ink-soft: #4b5563;
+    --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
+    --highlight: #fff4dd; --practice: #eef3ec;
+    --foundations: #5c4a7a;        /* Distinct strand colour — a deep slate plum */
+    --foundations-soft: #8b78a8;
+    --foundations-bg: #ece8f1;
+    --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .topbar { background: var(--ink); color: #fff; padding: 14px 24px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+  .topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+  .topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+  /* Hero — visually distinct from Pillar 1 modules. Foundations purple, no checklist strip. */
+  .hero { padding: 72px 24px 56px; border-bottom: 1px solid var(--rule); background: linear-gradient(135deg, var(--foundations-bg) 0%, var(--bg) 80%); position: relative; overflow: hidden; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(92, 74, 122, 0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 880px; margin: 0 auto; position: relative; }
+  .strand-tag { display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); border: 1px solid var(--foundations); padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; font-weight: 600; background: var(--surface); }
+  .unit-number { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 18px; margin-bottom: 8px; }
+  h1.title { font-family: var(--serif); font-size: clamp(40px, 5vw, 60px); line-height: 1.1; margin: 0 0 24px; font-weight: 600; letter-spacing: -0.01em; }
+  h1.title em { font-style: italic; color: var(--foundations); }
+  .lede { font-size: 20px; color: var(--ink-soft); max-width: 680px; margin: 0 0 40px; line-height: 1.5; }
+
+  /* Reading meta — replaces the checklist strip; emphasises the unit format */
+  .reading-meta { background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--foundations); border-radius: 8px; padding: 20px 26px; margin: 24px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  @media (max-width: 720px) { .reading-meta { grid-template-columns: 1fr 1fr; gap: 16px; } }
+  .reading-meta .item .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 4px; }
+  .reading-meta .item .value { font-weight: 600; font-size: 14px; color: var(--ink); }
+  .reading-meta .item .note { font-size: 12px; color: var(--ink-soft); font-style: italic; margin-top: 2px; }
+
+  /* Main layout — no left-rail TOC for this unit. The format is "read in a single sitting", so the page should flow continuously without sticky nav. */
+  .layout { max-width: 760px; margin: 0 auto; padding: 64px 24px 80px; }
+
+  article > section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  article h2 { font-family: var(--serif); font-size: 30px; margin: 0 0 8px; font-weight: 600; line-height: 1.2; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .section-intro { font-size: 18px; color: var(--ink-soft); margin: 0 0 28px; line-height: 1.5; }
+  article p { margin: 0 0 18px; }
+
+  /* Pattern callouts — three failure modes. Reduced visual weight from a "pitfall" block; here they're three short essay subsections with a coloured marker. */
+  .pattern { margin: 32px 0; padding: 24px 28px 24px 32px; background: var(--surface); border-left: 3px solid var(--accent-soft); border-radius: 0 8px 8px 0; }
+  .pattern-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+  .pattern h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .pattern p { margin: 0 0 12px; }
+  .pattern p:last-child { margin-bottom: 0; }
+  .pattern .corrective { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--rule); font-size: 15px; color: var(--ink); }
+  .pattern .corrective strong { color: var(--accent); font-weight: 700; }
+
+  /* Principle list — numbered, with the principle name in serif and the explanation in body text. Reads as a piece of professional writing, not a checklist. */
+  .principles { counter-reset: principle; margin: 24px 0; }
+  .principle { counter-increment: principle; display: grid; grid-template-columns: 56px 1fr; gap: 4px; margin-bottom: 32px; align-items: start; }
+  .principle::before {
+    content: counter(principle, decimal-leading-zero);
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--foundations);
+    font-style: italic;
+  }
+  .principle-body h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--ink); }
+  .principle-body p { margin: 0 0 10px; line-height: 1.6; }
+  .principle-body p:last-child { margin-bottom: 0; }
+
+  /* Scripted phrases inline — short instructional examples. Uses serif italic for the actual words a teacher would say. */
+  .said { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 600; }
+
+  /* Corridor section — given visual emphasis as a distinct sub-environment. */
+  .corridor { margin: 32px 0; padding: 28px 32px; background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); border: 1px solid var(--rule); border-radius: 10px; }
+  .corridor-marker { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .corridor h3 { margin: 0 0 16px; font-family: var(--serif); font-size: 26px; font-weight: 600; }
+  .corridor p { margin: 0 0 14px; }
+  .corridor p:last-child { margin-bottom: 0; }
+
+  /* The demand protocol — numbered steps, but rendered as a structured small reference block rather than a deliberate-practice cycle */
+  .protocol { background: var(--foundations-bg); border: 1px solid var(--foundations-soft); border-radius: 10px; padding: 28px 32px; margin: 32px 0; }
+  .protocol-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .protocol h3 { margin: 0 0 18px; font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--ink); }
+  .protocol-steps { counter-reset: step; padding: 0; margin: 0; list-style: none; }
+  .protocol-step { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 18px; }
+  .protocol-step::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--foundations);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+  }
+  .protocol-step strong { color: var(--ink); font-weight: 700; }
+  .protocol-step p { margin: 0 0 4px; }
+
+  /* Reflective prompt — closes the unit. Calmer treatment than a deliberate-practice block; this is for the reader to take away. */
+  .reflective { margin: 40px 0; padding: 28px 32px; background: var(--surface); border: 2px solid var(--foundations-soft); border-radius: 10px; }
+  .reflective-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 12px; }
+  .reflective h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 24px; font-weight: 600; }
+  .reflective p { margin: 0 0 12px; }
+  .reflective p:last-child { margin-bottom: 0; }
+
+  /* Reading next — links to the modules this unit underlies. Replaces the downloads cards of a pillar module. */
+  .read-next { margin: 48px 0 0; padding: 32px 0 0; border-top: 1px solid var(--rule); }
+  .read-next h2 { margin: 0 0 8px; }
+  .read-next-intro { color: var(--ink-soft); font-size: 16px; margin-bottom: 24px; }
+  .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 600px) { .modules-grid { grid-template-columns: 1fr; } }
+  .module-link { display: block; padding: 18px 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; text-decoration: none; color: var(--ink); transition: all 0.2s; }
+  .module-link:hover { border-color: var(--foundations); transform: translateY(-1px); }
+  .module-link .tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--foundations); font-weight: 700; }
+  .module-link .name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-top: 4px; }
+  .module-link .why { font-size: 13px; color: var(--ink-soft); margin-top: 4px; font-style: italic; }
+
+  /* Closing note */
+  .closing-note { margin: 56px 0 0; padding: 24px 0; border-top: 1px solid var(--rule); text-align: center; font-style: italic; color: var(--ink-soft); font-size: 15px; font-family: var(--serif); }
+
+  /* Footer */
+  footer.unit-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 24px; text-align: center; font-size: 13px; margin-top: 80px; }
+  footer.unit-footer a { color: rgba(255,255,255,0.9); }
+  footer.unit-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a><span>›</span>
+    <a href="./tl-programme.html">T&amp;L Excellence</a><span>›</span>
+    <a href="./foundations.html">Foundations</a><span>›</span>
+    <em>Presence.</em>
+  </div>
+  <div>Foundations · Unit 2</div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="strand-tag">Foundations · Self-Directed Reading</span>
+    <div class="unit-number">Unit 2</div>
+    <h1 class="title"><em>Presence.</em></h1>
+    <p class="lede">What the room reads before a word is spoken. The signals of posture, position, and gaze that establish authority at the start of a lesson.</p>
+
+    <div class="reading-meta">
+      <div class="item">
+        <div class="label">Format</div>
+        <div class="value">Self-directed reading</div>
+        <div class="note">No coaching partner required</div>
+      </div>
+      <div class="item">
+        <div class="label">Time</div>
+        <div class="value">30 minutes</div>
+        <div class="note">A single sitting</div>
+      </div>
+      <div class="item">
+        <div class="label">Audit</div>
+        <div class="value">None</div>
+        <div class="note">Reflective, not observable</div>
+      </div>
+      <div class="item">
+        <div class="label">Re-read</div>
+        <div class="value">Mid half-term</div>
+        <div class="note">And at the start of each year</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <article>
+
+    <section>
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>The room reads the teacher before a word is said.</h2>
+      <p class="section-intro">Presence is what a class registers in the first few seconds, before any instruction is given. It is the set of signals — posture, position, pace, gaze — that tell a room whether the person at the front expects to be in charge of it.</p>
+
+      <p>A teacher with presence does not need to announce that the lesson has begun; the room senses it and settles. A teacher without it can give the correct instruction, in the correct words, and find that the room does not respond, because the signals underneath the words said something different. Pupils are expert readers of these signals. They have spent years calibrating to adults, and they read a teacher's certainty or uncertainty long before they process the sentence being spoken.</p>
+
+      <p>Presence is not personality. It is not reserved for the naturally charismatic or the physically imposing. It is a set of observable behaviours — where the teacher stands, how still they are, how they move, where they look — and like any behaviour it can be learned, practised, and made habitual. This unit names those behaviours so that a teacher can recognise which they already hold and which they need to build.</p>
+
+      <p>This unit is intended for self-directed reading. There is no checklist and no coaching protocol. By the end of thirty minutes the reader should be able to recognise the signals their own presence sends in the first minute of a lesson, and what a deliberate adjustment to those signals would look like.</p>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">02 · Three patterns to recognise</div>
+      <h2>How presence is commonly lost.</h2>
+      <p class="section-intro">Most teachers, when presence falters, do so in one of three ways. None is a character failing; each is a habit formed under pressure, and naming it is the first step to replacing it.</p>
+
+      <div class="pattern">
+        <div class="pattern-label">Pattern One</div>
+        <h3>The busy entrance.</h3>
+        <p>The teacher enters already talking, already moving, arms full of resources, attention on the laptop rather than the room. The lesson begins in a flurry of activity that signals, without intending to, that the teacher is not yet ready and the room need not be either. Pupils take the cue and continue their own conversations.</p>
+        <p>The opening of a lesson is the moment a teacher's presence is most visible and most easily surrendered. A busy, distracted entrance gives the moment away before it begins.</p>
+        <div class="corrective"><strong>The corrective.</strong> Arrive settled. Stand at the threshold or the front, still, and let the room register that the teacher is ready and waiting before a word is spoken. The stillness is the instruction.</div>
+      </div>
+
+      <div class="pattern">
+        <div class="pattern-label">Pattern Two</div>
+        <h3>Constant motion.</h3>
+        <p>The teacher never stops moving — pacing the front, circling the room, shifting weight, fiddling with a pen. The movement reads as nervous energy rather than purpose, and a room calibrates to it, becoming restless in turn. The teacher who cannot be still cannot signal that they expect stillness from others.</p>
+        <p>There is purposeful movement, taught in the circulation of Module 4.2, and there is anxious movement. The room can tell them apart instantly.</p>
+        <div class="corrective"><strong>The corrective.</strong> Learn to hold a strong position and be still in it. Move with purpose when there is a reason to move, and return to stillness when there is not.</div>
+      </div>
+
+      <div class="pattern">
+        <div class="pattern-label">Pattern Three</div>
+        <h3>The averted gaze.</h3>
+        <p>The teacher looks at the board, the laptop, the worksheet — anywhere but the faces in the room. Eye contact is brief and quickly withdrawn. The room reads the averted gaze as a reluctance to engage, and a class that is not being looked at quickly concludes that it is not being watched.</p>
+        <p>A teacher who scans the room steadily, meeting eyes without urgency, communicates that the whole room is held in attention. Nothing is happening that the teacher has not seen.</p>
+        <div class="corrective"><strong>The corrective.</strong> Look at the room. Scan slowly across faces, hold brief eye contact, and let pupils feel they are seen. The steady gaze is among the strongest presence signals there is.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">03 · What presence looks like</div>
+      <h2>Six features of the disposition.</h2>
+      <p class="section-intro">There are six features of a strong teaching presence, each treated in turn below. None is a trick. They are observable behaviours that, held consistently, communicate authority before any instruction is given.</p>
+
+      <div class="principles">
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>The strong position, held.</h3>
+            <p>Weight even on both feet, body squared to the room, hands free and still, shoulders down. This is the physical signature of a teacher in command of the space, and pupils respond to it before they respond to anything said. A teacher who can stand in a strong position and stay there has already communicated most of what presence communicates.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Stillness before the instruction.</h3>
+            <p>The teacher who pauses, holds a strong position, and waits for quiet before speaking teaches a room that instructions are given once, into silence, and are worth attending to. Speaking over a room that is not yet listening teaches the opposite — that the teacher's voice is part of the background noise.</p>
+            <p>The wait is the same disposition that underlies the Diligence Routine in Module 1.3: the teacher does not begin until the room is ready, and the room learns to become ready quickly.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>The slow scan.</h3>
+            <p>Before and during an instruction, the teacher's eyes move steadily across the room, resting briefly on individuals, taking in the whole class. The scan is unhurried. It communicates that the teacher sees everything and is in no anxiety about any of it. A rushed, darting gaze communicates the reverse.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Movement with purpose.</h3>
+            <p>When the teacher moves, the movement has a reason — to stand near a pupil who needs proximity, to reach a part of the room, to circulate during practice. Purposeful movement reads as authority; aimless movement reads as nerves. The teacher who has learned to be still can then move deliberately, and the deliberate movement carries weight precisely because it is not constant.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>The unhurried pace.</h3>
+            <p>Presence is communicated through pace as much as posture. The teacher who moves, speaks, and transitions at an unhurried pace signals control of time itself. Rushing — through instructions, through transitions, through the lesson — signals that events are happening to the teacher rather than being directed by them. Slowing the pace is among the most reliable ways to recover presence in a wavering moment.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Composure under challenge.</h3>
+            <p>Presence is tested at the moment of low-level challenge — the muttered comment, the slow compliance, the testing question. The teacher who holds their position, keeps their pace, and responds without a change of register passes the test. The teacher whose presence collapses into a flurry of movement or a raised voice at the first challenge teaches the room that presence can be dislodged, and the room will try to dislodge it again.</p>
+            <p>This composure is the subject of its own unit; here it is named only as the point at which presence is most visibly held or lost.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">04 · The threshold</div>
+      <h2>The first sixty seconds at the door.</h2>
+      <p class="section-intro">The strongest single opportunity to establish presence is the threshold — the doorway, as pupils enter. It is where the standard for the lesson is set, before the lesson has formally begun.</p>
+
+      <div class="corridor">
+        <div class="corridor-marker">Threshold practice</div>
+        <h3>The lesson begins at the door, not at the desk.</h3>
+
+        <p>The teacher who stands at the threshold as pupils arrive — visible, settled, greeting the class — establishes presence in the most economical way available. The pupils pass a teacher who is ready, and they read the readiness. The teacher who is still at the laptop when pupils enter surrenders the same moment, and the room fills with the energy of the corridor rather than the calm of the lesson.</p>
+
+        <p>At the threshold the teacher is doing several things at once, all of them quiet. They are seen to be present and ready. They are scanning each pupil as they enter — uniform, mood, energy — and registering who may need attention. They are setting the tone with a brief, consistent greeting rather than a conversation. And they are signalling that entry to the room is entry to a different environment from the corridor, controlled and steadfast, with no slack between the two.</p>
+
+        <p>The threshold greeting is brief and the same each time. <span class="said">"Good morning. Planner out, title underlined."</span> The instruction that meets a pupil at the door is the instruction that begins the lesson, and a class that is given it on entry is already working when the bell goes. The teacher who establishes presence at the threshold rarely has to recover it later in the lesson.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">05 · Establishing presence</div>
+      <h2>The five-step pattern for the first minute.</h2>
+      <p class="section-intro">The mechanics of establishing presence at the start of a lesson follow a five-step pattern. Practised consciously for two or three weeks, it usually becomes the natural way a lesson opens.</p>
+
+      <div class="protocol">
+        <div class="protocol-label">The five-step pattern</div>
+        <h3>From entry to a settled room.</h3>
+
+        <ol class="protocol-steps">
+          <li class="protocol-step">
+            <p><strong>Be ready before they arrive.</strong></p>
+            <p>Resources prepared, board set, laptop sorted, so that when pupils enter the teacher's attention is free for the room and not the equipment.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>Take the threshold.</strong></p>
+            <p>Stand where entering pupils pass, settled and visible. Greet briefly and consistently. Scan each pupil as they enter.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>Hold a strong position and wait.</strong></p>
+            <p>Once the class is in, take a strong position at the front, be still, and wait for quiet rather than speaking over the settling room.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>Scan before speaking.</strong></p>
+            <p>A slow scan across the room. The scan tells the class the teacher is ready and watching; it also tells the teacher who is settled and who is not.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>Give the first instruction into silence.</strong></p>
+            <p>Brief, declarative, unhurried. The first instruction of the lesson, delivered from stillness into a quiet room, sets the register for everything that follows. If the room is not quiet, the teacher waits longer rather than speaking louder.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">06 · When presence lapses</div>
+      <h2>Fatigue, and what to do about it.</h2>
+      <p class="section-intro">No teacher holds full presence across every lesson of a week. Presence is physical, and it draws on energy that is lowest at the end of the day and the end of the term.</p>
+
+      <p>The remedy when presence is low is not to perform more — not bigger gestures or a louder voice, which read as strain. The remedy is to return to the simplest signals: stand still, slow the pace, scan the room, and shorten the instructions. These cost little energy and recover most of what flagging presence loses. A still, slow, brief teacher at three o'clock on a Friday holds a room better than an animated one.</p>
+
+      <p>This unit is reflective rather than observable. The closing suggestion is reflective in kind.</p>
+
+      <div class="reflective">
+        <div class="reflective-label">For the reader</div>
+        <h3>A prompt to take into the week.</h3>
+        <p>Over the next week, the teacher should attend to the first sixty seconds of one lesson each day — where they are standing, whether they are still, where they are looking, and what the room does in response. Which of the three patterns — the busy entrance, constant motion, the averted gaze — appears when attention slips?</p>
+        <p>Recognising the signal is most of the work. The adjustment follows from the recognition.</p>
+      </div>
+    </section>
+
+
+    <section class="read-next">
+      <h2>Where to read next.</h2>
+      <p class="read-next-intro">The disposition described in this unit underlies the routines that follow.</p>
+
+      <div class="modules-grid">
+        <a class="module-link" href="./module-1-2-lesson-starts.html">
+          <div class="tag">Module 1.2</div>
+          <div class="name">Lesson Starts</div>
+          <div class="why">The opening sequence presence makes possible.</div>
+        </a>
+        <a class="module-link" href="./module-1-3-diligence-routine.html">
+          <div class="tag">Module 1.3</div>
+          <div class="name">The Diligence Routine</div>
+          <div class="why">The routine that depends on a settled, attentive room.</div>
+        </a>
+        <a class="module-link" href="./module-1-7-in-lesson-strategies.html">
+          <div class="tag">Module 1.7</div>
+          <div class="name">In-Lesson Strategies</div>
+          <div class="why">The strategy ladder for when presence alone does not settle the room.</div>
+        </a>
+        <a class="module-link" href="./module-4-2-circulating-checking-support.html">
+          <div class="tag">Module 4.2</div>
+          <div class="name">Circulating &amp; Checking Support</div>
+          <div class="why">Purposeful movement as an expression of presence.</div>
+        </a>
+      </div>
+
+      <div class="closing-note">
+        The unit is intended to be read once, returned to in the first half-term, and revisited at the start of each subsequent year.
+      </div>
+    </section>
+
+  </article>
+</div>
+
+<footer class="unit-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Foundations · Unit 2</div>
+  <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./foundations.html">Foundations</a></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module 1.5 — Behaviour for Learning in Class · Nishkam Teaching Excellence Programme</title>
+<meta name="description" content="Behaviour for Learning in Class at Nishkam School — the daily classroom climate that the techniques of Pillar 1 produce, measured against BFL7, BFL-O1, and BFL-O2." />
+<style>
+:root {
+  --cream: #F7F2E8;
+  --surface: #FFFDF7;
+  --ink: #1F2A37;
+  --ink-soft: #4B5563;
+  --rust: #7A3B1D;
+  --rust-soft: #C98E60;
+  --gold: #B8893A;
+  --highlight: #FFF4DD;
+  --practice: #EEF3EC;
+  --practice-ink: #2D6A3E;
+  --practice-rule: #8FAB87;
+  --pitfall: #FBEEE5;
+  --pitfall-bar: #C25B3F;
+  --pitfall-ink: #8B3A2E;
+  --rule: #D8CFB9;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: Calibri, 'Trebuchet MS', sans-serif;
+  --accent: var(--rust);
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
+a { color: var(--rust); }
+
+.hero { background: var(--cream); padding: 56px 32px 40px; border-bottom: 1px solid var(--rule); }
+.hero-inner { max-width: 1080px; margin: 0 auto; }
+.pillar-tag { display: inline-block; font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 18px; }
+.module-number { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink-soft); margin-bottom: 10px; }
+.title { font-family: var(--serif); font-size: 56px; font-weight: 700; color: var(--ink); margin: 0 0 14px; line-height: 1.05; }
+.title em { font-style: italic; color: var(--rust); }
+.lede { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--ink-soft); margin: 0 0 28px; line-height: 1.45; max-width: 760px; }
+
+.checklist-strip { background: var(--highlight); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.checklist-strip .label { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; margin-right: 8px; }
+.checklist-strip a.cl-tag { font-family: var(--serif); font-weight: 700; font-size: 13px; background: var(--highlight); color: var(--accent); padding: 5px 11px; border-radius: 100px; text-decoration: none; border: 1px solid transparent; transition: border-color 0.15s; }
+.checklist-strip a.cl-tag:hover { border-color: var(--accent); }
+.checklist-strip a.cl-tag.outcome { background: var(--cream); border: 1px solid var(--gold); color: var(--gold); font-style: italic; }
+.checklist-strip .secondary { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 14px; margin-left: auto; }
+
+.meta-row { display: flex; flex-wrap: wrap; gap: 30px; padding-top: 8px; }
+.meta { display: flex; flex-direction: column; gap: 4px; }
+.meta .label { font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; }
+.meta .value { font-family: var(--sans); font-size: 16px; font-weight: 700; color: var(--ink); }
+.audience-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.audience-tags .tag { font-size: 12px; background: var(--surface); border: 1px solid var(--rule); padding: 3px 9px; border-radius: 100px; color: var(--ink); font-weight: 600; }
+
+.layout { max-width: 1080px; margin: 0 auto; padding: 40px 32px; display: grid; grid-template-columns: 220px 1fr; gap: 56px; }
+.toc { position: sticky; top: 28px; align-self: start; }
+.toc h4 { font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px; }
+.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; font-size: 14px; }
+.toc li { padding: 5px 0; border-top: 1px solid var(--rule); counter-increment: toc; }
+.toc li:first-child { border-top: none; }
+.toc li::before { content: counter(toc, decimal-leading-zero) " · "; color: var(--rust); font-family: var(--serif); font-style: italic; }
+.toc a { color: var(--ink); text-decoration: none; }
+.toc a:hover { color: var(--rust); }
+
+article { min-width: 0; }
+section { margin: 0 0 56px; }
+.section-eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; margin: 0 0 8px; }
+h2 { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--ink); margin: 0 0 14px; line-height: 1.15; }
+.section-intro { font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--ink-soft); margin: 0 0 24px; line-height: 1.45; }
+p { margin: 0 0 18px; line-height: 1.65; }
+em { font-style: italic; }
+
+/* Climate diagram — the signature visual */
+.climate { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 14px; align-items: stretch; margin: 28px 0 12px; }
+.climate-stage { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+.climate-stage .stage-label { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; }
+.climate-stage .cl-pill { display: inline-block; font-family: var(--serif); font-weight: 700; font-size: 14px; padding: 3px 10px; border-radius: 100px; align-self: flex-start; }
+.climate-stage .cl-pill.outcome { background: var(--cream); border: 1px solid var(--gold); color: var(--gold); font-style: italic; }
+.climate-stage .cl-pill.action { background: var(--highlight); color: var(--rust); }
+.climate-stage h3 { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); margin: 0; line-height: 1.25; }
+.climate-stage p { font-family: var(--sans); font-size: 13px; color: var(--ink-soft); margin: 0; line-height: 1.45; }
+.climate-arrow { display: flex; align-items: center; color: var(--rust-soft); font-size: 24px; font-family: var(--serif); }
+.climate-orientation { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 3px; text-align: center; margin: 16px 0 0; }
+
+/* Item detail blocks */
+.item { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 24px 26px; margin: 0 0 22px; }
+.item-header { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 14px; }
+.item-id-tile { background: var(--rust); color: var(--surface); font-family: var(--serif); font-weight: 700; font-size: 22px; padding: 12px 16px; border-radius: 6px; min-width: 72px; text-align: center; flex-shrink: 0; line-height: 1; }
+.item-id-tile.outcome { background: var(--gold); }
+.item-title-block { flex: 1; min-width: 0; }
+.item-tag { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.item-tag.outcome { color: var(--gold); }
+.item-title { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); margin: 0; }
+.item p { margin: 0 0 14px; font-size: 15px; line-height: 1.65; }
+
+.technique, .when, .script { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 18px; margin: 12px 0; }
+.technique .label, .when .label, .script .label { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 6px; }
+.script { background: var(--highlight); }
+.script p { font-style: italic; color: var(--ink); }
+
+/* Practice block */
+.practice { background: var(--practice); border: 1px solid var(--practice-rule); border-left: 5px solid var(--practice-ink); border-radius: 6px; padding: 18px 20px; margin: 14px 0; }
+.practice .label { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 12px; }
+.practice .label span:first-child { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--practice-ink); text-transform: uppercase; letter-spacing: 3px; }
+.practice .timer { font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--practice-ink); }
+.practice ol { margin: 0; padding-left: 22px; }
+.practice li { margin: 0 0 8px; line-height: 1.55; font-size: 14px; }
+.coach-prompt { font-family: var(--sans); font-size: 13px; color: var(--ink); margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--practice-rule); font-style: italic; }
+.coach-prompt strong { font-style: normal; color: var(--practice-ink); }
+
+/* Pitfalls */
+.pitfall { background: var(--pitfall); border: 1px solid var(--rule); border-left: 5px solid var(--pitfall-bar); border-radius: 6px; padding: 14px 18px; margin: 0 0 12px; }
+.pitfall strong { color: var(--pitfall-ink); display: inline; }
+.pitfall .pf-cl { display: inline-block; font-family: var(--sans); font-size: 11px; font-weight: 700; font-style: italic; color: var(--pitfall-ink); margin-left: 8px; }
+.pitfall p { margin: 6px 0 0; font-size: 14px; line-height: 1.6; color: var(--ink); }
+
+/* Audit table */
+.audit { width: 100%; border-collapse: collapse; margin: 18px 0 8px; font-size: 14px; background: var(--surface); border-radius: 6px; overflow: hidden; }
+.audit thead th { background: var(--ink); color: var(--surface); font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 12px 14px; text-align: left; }
+.audit td { padding: 14px; border-top: 1px solid var(--rule); vertical-align: middle; }
+.audit td.id { font-family: var(--serif); font-weight: 700; color: var(--rust); width: 12%; }
+.audit-section-divider { background: var(--gold); color: var(--surface); font-family: var(--sans); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 3px; padding: 8px 14px; margin-top: 6px; border-radius: 6px 6px 0 0; }
+.audit .outcome-row { background: #FAF3E3; }
+.audit .outcome-row td.id { color: var(--gold); font-style: italic; }
+.rag { display: inline-flex; gap: 4px; }
+.rag span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--rule); display: inline-block; }
+.rag .r { background: #C25B3F33; }
+.rag .a { background: #C9933F33; }
+.rag .g { background: #5B8B5933; }
+
+/* AI tool */
+.ai-tool { background: #1F2A37; color: #EAE3D0; padding: 28px 30px; border-radius: 10px; margin: 22px 0; }
+.ai-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--rust-soft); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.ai-tool h3 { font-family: var(--serif); font-weight: 700; font-size: 24px; color: var(--surface); margin: 0 0 16px; }
+.ai-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 14px; }
+.ai-demo .label { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--rust-soft); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.ai-demo .scenario, .ai-demo .response { background: #0E141C; border: 1px solid #2A3340; border-radius: 6px; padding: 14px 16px; font-size: 13px; line-height: 1.6; }
+.ai-demo .scenario { font-style: italic; }
+.ai-demo .response p { margin: 0 0 10px; font-size: 13px; }
+.ai-demo .response p:last-child { margin: 0; }
+.ai-demo .response strong { color: var(--rust-soft); font-style: normal; }
+.ai-demo .response ol { margin: 0 0 10px; padding-left: 18px; }
+.ai-demo .response li { margin-bottom: 6px; }
+.ai-cta { display: inline-block; background: var(--rust-soft); color: var(--ink); font-family: var(--sans); font-weight: 700; padding: 10px 18px; border-radius: 6px; text-decoration: none; }
+
+/* Downloads */
+.downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 18px 0 8px; }
+.download-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--ink); }
+.download-card:hover { border-color: var(--rust); }
+.download-card .type { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; }
+.download-card .name { font-family: var(--serif); font-weight: 700; font-size: 17px; color: var(--ink); }
+.download-card .size { font-family: var(--sans); font-size: 12px; color: var(--ink-soft); }
+
+/* Module nav */
+.module-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0 12px; padding-top: 24px; border-top: 1px solid var(--rule); }
+.module-nav a { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 18px; text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 4px; }
+.module-nav a.next { text-align: right; }
+.module-nav a:hover { border-color: var(--rust); }
+.module-nav .dir { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; }
+.module-nav .label { font-family: var(--serif); font-weight: 700; font-size: 17px; }
+
+/* Footer */
+.module-footer { background: var(--ink); color: var(--cream); padding: 36px 32px; text-align: center; margin-top: 30px; }
+.module-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--rust-soft); margin-bottom: 6px; }
+.module-footer a { color: var(--rust-soft); }
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 24px 18px; }
+  .toc { position: static; }
+  .climate { grid-template-columns: 1fr; }
+  .climate-arrow { justify-content: center; transform: rotate(90deg); }
+  .ai-demo { grid-template-columns: 1fr; }
+  .downloads { grid-template-columns: 1fr; }
+  .title { font-size: 36px; }
+  .item-header { flex-direction: column; align-items: flex-start; }
+}
+
+/* ====== shared six-pillar nav spine ====== */
+.pillar-spine { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.pillar-spine-summary {
+  list-style: none; cursor: pointer; padding: 14px 24px;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  max-width: 1080px; margin: 0 auto;
+}
+.pillar-spine-summary::-webkit-details-marker { display: none; }
+.pillar-spine-summary::marker { content: ""; }
+.pillar-spine-summary .ps-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.pillar-spine-summary .ps-current {
+  font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 15px;
+}
+.pillar-spine-summary .ps-current strong { font-style: normal; color: var(--accent); font-weight: 600; }
+.pillar-spine-summary .ps-toggle {
+  margin-left: auto; color: var(--accent); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.06em;
+}
+.pillar-spine-summary .ps-toggle::after { content: " ↓"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle::after { content: " ↑"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-show { display: none; }
+.pillar-spine .pillar-spine-summary .ps-toggle .ps-hide { display: none; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-hide { display: inline; }
+
+.pillar-spine-grid {
+  max-width: 1080px; margin: 0 auto; padding: 4px 24px 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px;
+}
+@media (max-width: 880px) { .pillar-spine-grid { grid-template-columns: 1fr; padding-bottom: 18px; } }
+
+.ps-pillar { border-top: 1px solid var(--rule); padding: 14px 0 4px; }
+.ps-pillar-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.ps-num {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700;
+}
+.ps-name {
+  font-family: var(--serif); font-size: 16px; color: var(--ink); font-weight: 600;
+  line-height: 1.25;
+}
+.ps-modules { list-style: none; padding: 0; margin: 0; }
+.ps-modules li { padding: 2px 0; font-size: 13.5px; line-height: 1.5; }
+.ps-modules a { color: var(--ink); text-decoration: none; }
+.ps-modules a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ps-modules a.ps-current { color: var(--accent); font-weight: 700; }
+.ps-modules a.ps-current::before { content: "● "; color: var(--accent); font-size: 10px; vertical-align: 2px; }
+
+.ps-pillar.ps-coming .ps-num,
+.ps-pillar.ps-coming .ps-name { color: var(--ink-soft); }
+.ps-pillar.ps-coming .ps-name { opacity: 0.7; }
+.ps-pillar.ps-coming .ps-coming-note {
+  font-size: 12.5px; color: var(--ink-soft); font-style: italic;
+  margin: 4px 0 0; opacity: 0.75;
+}
+.ps-pending { color: var(--ink-soft); opacity: 0.65; display: flex; align-items: baseline; gap: 8px; }
+.ps-pending .ps-tag {
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 1px 7px; border-radius: 100px; font-style: normal; font-weight: 600;
+}
+  .ps-pending .ps-tag.ps-tag-deferred {
+  color: var(--ink-soft); border-color: var(--rule);
+}
+/* ====== /shared six-pillar nav spine ====== */
+
+  .download-card.download-soon { opacity: 0.6; cursor: default; position: relative; }
+  .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
+  .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+</style>
+</head>
+<body data-current="1-5">
+
+<details class="pillar-spine">
+  <summary class="pillar-spine-summary">
+    <span class="ps-label">Six pillars</span>
+    <span class="ps-current">You are here: <strong>Pillar 1 · 1.5 Behaviour for Learning in Class</strong></span>
+    <span class="ps-toggle"><span class="ps-show">Show all modules</span><span class="ps-hide">Hide</span></span>
+  </summary>
+  <div class="pillar-spine-grid">
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 1</span>
+        <span class="ps-name">Behaviour & Climate</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-1-1-language-of-virtues.html">1.1 Language of Virtues</a></li>
+        <li><a href="./module-1-2-lesson-starts.html">1.2 Lesson Starts</a></li>
+        <li><a href="./module-1-3-diligence-routine.html">1.3 Diligence Routine</a></li>
+        <li><a href="./module-1-4-30-second-reflection.html">1.4 30-Second Reflection</a></li>
+        <li><a class="ps-current" href="./module-1-5-bfl-in-class.html">1.5 Behaviour for Learning in Class</a></li>
+        <li><a href="./module-1-6-pre-lesson-strategies.html">1.6 Pre-Lesson Strategies</a></li>
+        <li><a href="./module-1-7-in-lesson-strategies.html">1.7 In-Lesson Strategies</a></li>
+        <li><a href="./module-1-8-direct-intervention.html">1.8 Direct Intervention</a></li>
+        <li><a href="./module-1-9-lesson-endings.html">1.9 Lesson Endings</a></li>
+        <li><a href="./module-1-10-other-routines.html">1.10 Other Routines</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 2</span>
+        <span class="ps-name">Adaptive Teaching & Inclusion</span>
+      </div>
+      <p class="ps-coming-note">Coming. SEND families to follow.</p>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 3</span>
+        <span class="ps-name">Instruction & Modelling</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-3-1-explain-clearly.html">3.1 Explain Clearly</a></li>
+        <li><a href="./module-3-2-explain-interactively.html">3.2 Explain Interactively</a></li>
+        <li><a href="./module-3-3-explain-with-visuals.html">3.3 Explain with Visuals</a></li>
+        <li><a href="./module-3-4-explain-with-examples.html">3.4 Explain with Examples</a></li>
+        <li><a href="./module-3-5-economy-of-language.html">3.5 Economy of Language</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 4</span>
+        <span class="ps-name">Checking for Understanding</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-4-1-mini-whiteboards.html">4.1 Mini-Whiteboards</a></li>
+        <li><a href="./module-4-2-circulating-checking-support.html">4.2 Circulating &amp; Checking Support</a></li>
+        <li class="ps-pending ps-deferred"><span>4.3 Explicit Vocabulary Teaching</span><span class="ps-tag ps-tag-deferred">primary</span></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 5</span>
+        <span class="ps-name">Questioning & Classroom Dialogue</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-5-1-cold-calling.html">5.1 Cold-Calling</a></li>
+        <li><a href="./module-5-2-probing-questions.html">5.2 Probing Questions</a></li>
+        <li><a href="./module-5-3-think-pair-share.html">5.3 Think, Pair, Share</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 6</span>
+        <span class="ps-name">Standards & Curriculum</span>
+      </div>
+      <p class="ps-coming-note">Coming. Primary-phase focus.</p>
+    </div>
+  </div>
+</details>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="pillar-tag">Pillar 1 · Behaviour for Learning</span>
+    <div class="module-number">Module 1.5</div>
+    <h1 class="title">Behaviour for Learning <em>in Class</em>.</h1>
+    <p class="lede">The classroom climate the techniques of Pillar 1 produce. The framing module that joins the routines and strategies covered elsewhere to the three observable measures of in-class behaviour: BFL7, BFL-O1, and BFL-O2.</p>
+
+    <div class="checklist-strip">
+      <span class="label">Checklist coverage</span>
+      <a href="#audit" class="cl-tag">BFL7</a>
+      <a href="#audit" class="cl-tag outcome">BFL-O1</a>
+      <a href="#audit" class="cl-tag outcome">BFL-O2</a>
+      <span class="secondary">Streamlined wording in use</span>
+    </div>
+
+    <div class="meta-row">
+      <div class="meta"><span class="label">Time</span><span class="value">60 minutes</span></div>
+      <div class="meta"><span class="label">Format</span><span class="value">Independent · Coaching · Department</span></div>
+      <div class="meta"><span class="label">Audience</span><div class="audience-tags"><span class="tag">All staff</span><span class="tag">New teachers</span></div></div>
+      <div class="meta"><span class="label">Prerequisites</span><span class="value">Modules 1.1, 1.2, 1.3, 1.7</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h4>In this module</h4>
+    <ol>
+      <li><a href="#why">Why this matters</a></li>
+      <li><a href="#climate">The classroom climate</a></li>
+      <li><a href="#bfl-o1">BFL-O1 · Calm and purposeful entry</a></li>
+      <li><a href="#bfl-o2">BFL-O2 · Focus throughout</a></li>
+      <li><a href="#bfl7">BFL7 · Pupils remain seated</a></li>
+      <li><a href="#diagnosing">Diagnosing the climate</a></li>
+      <li><a href="#pitfalls">Pitfalls</a></li>
+      <li><a href="#audit">Self-audit</a></li>
+      <li><a href="#ai-tool">AI scenario tester</a></li>
+      <li><a href="#downloads">Downloads</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="why">
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>The framing module of Pillar 1.</h2>
+      <p class="section-intro">Modules 1.1 to 1.4 covered the techniques the teacher uses to start lessons, mark transitions, and run the Diligence Routine. Module 1.7 covered the in-lesson strategies the teacher uses to manage drift before it reaches the warning ladder. This module steps back and looks at the daily climate those techniques produce — the conditions an observer registers on entering the room and on watching the lesson unfold.</p>
+
+      <p>The streamlined Behaviour for Learning checklist separates teacher actions from pupil outcomes. The action items in the BFL family — BFL3 to BFL9 — measure what the teacher does. The outcome items — BFL-O1 (atmosphere on entry) and BFL-O2 (focus throughout) — measure what is then observed in the room. Module 1.5 owns the outcome items together with one action item, BFL7, that sits across the daily life of the lesson rather than inside any single routine.</p>
+
+      <p>The diagnostic value of separating action items from outcome items lies in being able to identify, on a given lesson, whether the gap between the techniques delivered and the climate observed sits with the teacher's technique or somewhere else in the system. A teacher whose action items all rate green but whose outcome items rate amber or red has a different problem from a teacher whose action items rate amber. The first is a question for Pillars 3 and 4 (cognitive load, task design, adaptive teaching); the second is a question for the rest of Pillar 1.</p>
+
+      <p>This module assumes the teacher has completed Modules 1.1, 1.2, 1.3 and 1.7. Several of the techniques referenced here — the Diligence Routine, the strong position, the strategy ladder, the lesson-start sequence — are covered in detail in those modules.</p>
+    </section>
+
+    <section id="climate">
+      <div class="section-eyebrow">02 · The classroom climate</div>
+      <h2>From technique to observed climate.</h2>
+      <p class="section-intro">The diagram below maps the relationship between the action items the teacher executes and the climate the observer records. Each stage produces conditions that make the next stage possible.</p>
+
+      <div class="climate">
+        <a href="#bfl-o1" class="climate-stage" style="text-decoration: none; color: inherit;">
+          <span class="stage-label">Stage 1 · On entry</span>
+          <h3>Calm and purposeful atmosphere.</h3>
+          <p>What the observer registers in the first thirty seconds in the room.</p>
+          <span class="cl-pill outcome">BFL-O1</span>
+        </a>
+
+        <div class="climate-arrow">→</div>
+
+        <a href="#bfl-o2" class="climate-stage" style="text-decoration: none; color: inherit;">
+          <span class="stage-label">Stage 2 · Throughout</span>
+          <h3>Pupils focused on the task.</h3>
+          <p>What the observer registers across the body of the lesson.</p>
+          <span class="cl-pill outcome">BFL-O2</span>
+        </a>
+
+        <div class="climate-arrow">→</div>
+
+        <a href="#bfl7" class="climate-stage" style="text-decoration: none; color: inherit;">
+          <span class="stage-label">Stage 3 · Across the lesson</span>
+          <h3>Pupils remain seated.</h3>
+          <p>The single action item this module owns. Sustained for the full lesson.</p>
+          <span class="cl-pill action">BFL7</span>
+        </a>
+      </div>
+
+      <p class="climate-orientation">↓ Each stage is observable independently and rated separately on the audit ↓</p>
+
+      <p>The order of the stages is the order in which an observer encounters them. The climate of a Nishkam classroom is read first by the atmosphere on entry, then by what is happening across the body of the lesson, and then by the specific behaviours pupils exhibit during independent work. Each is recorded separately on the BFL audit. Where a teacher's BFL-O1 rates green but BFL-O2 rates amber, the issue is not how the lesson begins but how it sustains.</p>
+    </section>
+
+    <section id="bfl-o1">
+      <div class="item">
+        <div class="item-header">
+          <div class="item-id-tile outcome">BFL-O1</div>
+          <div class="item-title-block">
+            <div class="item-tag outcome">Outcome item · Streamlined wording</div>
+            <h3 class="item-title">Classroom atmosphere calm and purposeful on entry.</h3>
+          </div>
+        </div>
+
+        <p>BFL-O1 is the atmosphere an observer registers on stepping into the room. It is rated within the first thirty seconds and reflects the cumulative effect of the lesson-start techniques covered in Module 1.2 (entry, register, starter task, Reflection) together with the seating-plan and resource decisions covered in Module 1.6.</p>
+
+        <p>Calm and purposeful is a paired observable rather than a single one. A calm room that is not purposeful (pupils sitting quietly but not engaged in any task) does not pass; a purposeful room that is not calm (pupils working but at high volume) does not pass either. Both conditions are required, and both are typically present together when the lesson-start sequence has been executed cleanly.</p>
+
+        <div class="when"><div class="label">What the observer is checking for</div>The room registers as quiet but not silent (pupils are working, not waiting). The starter task is visible on the board and pupils are engaged with it. The teacher has either completed the register and is circulating, or is taking the register quietly while pupils work. There is no visible chatter at the back of the room, no pupils who have not yet started the task, and no waiting for a teacher instruction.</div>
+
+        <div class="technique"><div class="label">Where this is rated red or amber</div>The diagnosis is in the lesson-start sequence rather than in the body of the lesson. The teacher returns to Module 1.2 and identifies which of the six stages (entry, settle, starter, register, check, Reflection) is the source of the loss. The corresponding deliberate practice slot in Module 1.2 is the remediation activity.</div>
+      </div>
+    </section>
+
+    <section id="bfl-o2">
+      <div class="item">
+        <div class="item-header">
+          <div class="item-id-tile outcome">BFL-O2</div>
+          <div class="item-title-block">
+            <div class="item-tag outcome">Outcome item · Streamlined wording</div>
+            <h3 class="item-title">Pupils focused on the task throughout.</h3>
+          </div>
+        </div>
+
+        <p>BFL-O2 is the climate an observer registers across the body of the lesson — the period after the lesson start and before the close. It is the most diagnostic of the three items this module owns, because it is the item that most directly reflects whether the techniques of Pillar 1 are producing their intended effect on pupil behaviour.</p>
+
+        <p>The streamlined wording — "Pupils focused on the task throughout" — makes a single observable claim. The original wording bundled two clauses about attention being directed either to the teacher or to independent work; the streamlined item collapses these because the observable behaviour in both cases is the same: pupils are focused.</p>
+
+        <div class="when"><div class="label">What the observer is checking for</div>Across a sample of two or three minutes during the body of the lesson, pupils are engaged with the task. Where the task is teacher-led, pupils are watching, listening, and ready to respond. Where the task is independent, pupils are writing or working without interruption. Off-task behaviour, where it occurs, is brief and is registered by the teacher within ten or fifteen seconds.</div>
+
+        <div class="technique"><div class="label">Where this is rated red or amber</div>The diagnosis depends on where the loss of focus is occurring. Where pupils drift during teacher-led explanation, the issue is typically the cognitive load of the explanation itself (Pillar 3) or the duration over which it is sustained without an interactive cue. Where pupils drift during independent work, the issue is typically the task design (Pillar 4) or the teacher's circulation pattern (Pillar 5). The action items of Pillar 1 are checked first; where they all rate green and BFL-O2 still rates amber, the source is downstream and the diagnosis moves to the relevant pillar.</div>
+      </div>
+    </section>
+
+    <section id="bfl7">
+      <div class="item">
+        <div class="item-header">
+          <div class="item-id-tile">BFL7</div>
+          <div class="item-title-block">
+            <div class="item-tag">Action item · Streamlined wording</div>
+            <h3 class="item-title">Pupils remain seated without explicit permission.</h3>
+          </div>
+        </div>
+
+        <p>BFL7 is the action item this module owns. The streamlined wording — "Pupils remain seated without explicit permission" — is observable directly, without inference about the teacher's expectations. The rating reflects what is seen in the room rather than what the teacher has stated about the rule.</p>
+
+        <p>The standard at Nishkam School is that pupils do not leave their seats during the body of the lesson without first asking the teacher and receiving permission. This includes movement to sharpen a pencil, to retrieve a worksheet, or to move to a peer's table. The standard is non-negotiable because seating compliance is the precondition for several of the other items in the BFL family: positioning (BFL9) only works when the seating layout is stable, and the strong-position reset (BFL8) only registers when the room is settled.</p>
+
+        <div class="technique"><div class="label">The technique</div>The expectation is established in the first lesson with each class and is reinforced through the proximity and eye-meet rungs of Module 1.7 whenever a pupil looks as though they are about to leave their seat. The teacher addresses any breach immediately on the spot rather than later in the lesson; delayed correction teaches the room that the rule is negotiable.</div>
+
+        <div class="when"><div class="label">When pupils may leave their seats</div>The teacher's explicit permission is given verbally and individually. The pupil raises their hand, the teacher acknowledges the hand, the pupil states what they need, the teacher grants or refuses the request. Permission is not granted by the pupil's gesture alone; the verbal exchange is the technique and is what a learning walk is checking for.</div>
+
+        <div class="practice">
+          <div class="label"><span>Deliberate practice</span><span class="timer">5 minutes · in pairs</span></div>
+          <ol>
+            <li>The pair agrees three plausible mid-lesson requests pupils might make to leave their seat — a pencil-sharpener trip, a request to retrieve a worksheet, a request to speak to a peer about the task.</li>
+            <li>The teacher rehearses the response sequence: acknowledgement of the raised hand, brief verbal exchange, granting or refusal.</li>
+            <li>The partner reports whether each request was handled by the verbal exchange standard, or whether any was granted by gesture alone.</li>
+          </ol>
+          <div class="coach-prompt"><strong>Coach prompt:</strong> Did the teacher grant any request without the verbal exchange? Did the partner observe any pupil leaving their seat after the teacher's gesture rather than after the spoken word?</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnosing">
+      <div class="section-eyebrow">03 · Diagnosing the climate</div>
+      <h2>Reading the audit pattern.</h2>
+      <p class="section-intro">The combination of ratings across BFL-O1, BFL-O2, and BFL7 produces a diagnostic pattern that points to a specific area of the wider system. Three patterns occur with sufficient frequency to warrant a settled response.</p>
+
+      <div class="practice">
+        <div class="label"><span>Featured practice · Climate diagnosis</span><span class="timer">10 minutes · in trios</span></div>
+        <p style="font-size: 14px; margin: 0 0 10px;">For each of the three patterns below, the trio identifies the most likely source of the loss and the specific module to which the teacher would return for remediation.</p>
+        <ol>
+          <li><strong>Pattern A:</strong> BFL-O1 amber, BFL-O2 green, BFL7 green. The lesson starts poorly but recovers. The diagnosis is in Module 1.2; the remediation is the lesson-start sequence and, in particular, the Reflection (Module 1.4) where the start fails to settle.</li>
+          <li><strong>Pattern B:</strong> BFL-O1 green, BFL-O2 amber, BFL7 green. The lesson starts well but loses focus during the body. Action items BFL3 to BFL6 are checked first (Module 1.3); if they rate green, the loss is downstream and the diagnosis moves to cognitive load or task design.</li>
+          <li><strong>Pattern C:</strong> BFL-O1 green, BFL-O2 amber, BFL7 amber. Pupils are leaving their seats during the body of the lesson and the room loses focus as a consequence. The diagnosis is BFL7 first; once seating compliance is restored, BFL-O2 typically returns to green.</li>
+        </ol>
+        <div class="coach-prompt"><strong>Coach prompt:</strong> Which of the three patterns has the trio observed most frequently in their own classes this term? What would the diagnosis look like for a fourth pattern in which all three items rate amber?</div>
+      </div>
+    </section>
+
+    <section id="pitfalls">
+      <div class="section-eyebrow">04 · Common pitfalls</div>
+      <h2>Where the climate breaks.</h2>
+      <p class="section-intro">Each pitfall below describes a teacher behaviour that produces a measurable drop in BFL-O1, BFL-O2, or BFL7. Each is tagged with the item it puts at risk.</p>
+
+      <div class="pitfall"><strong>Reading the climate from the front of the room.</strong><span class="pf-cl">Risks BFL-O2</span><p>The teacher remains at the lectern for the body of the lesson and judges focus by the pupils visible from that position. The back row, which is the part of the room where focus typically breaks first, is not in eyeline. The technique is to circulate (Module 1.7, Rung 1) and to read the climate from the back of the room as well as from the front.</p></div>
+
+      <div class="pitfall"><strong>Granting seat-leaving by gesture.</strong><span class="pf-cl">Risks BFL7</span><p>A pupil raises their hand, holds up a broken pencil, and the teacher nods. The pupil leaves their seat. The verbal exchange has been skipped and a precedent has been set; subsequent pupils begin gesturing rather than asking, and the standard for permission shifts. The technique is the verbal exchange, every time.</p></div>
+
+      <div class="pitfall"><strong>Settling for quiet rather than purposeful.</strong><span class="pf-cl">Risks BFL-O1</span><p>The lesson starts quietly: pupils are not talking, but they are also not engaged with the starter task. The teacher reads the absence of chatter as compliance and proceeds. The combined observable that BFL-O1 measures — calm and purposeful — has not been met. The technique is to check that the starter task is visibly underway before moving on from the start sequence.</p></div>
+
+      <div class="pitfall"><strong>Correcting BFL7 breaches mid-lesson rather than on the spot.</strong><span class="pf-cl">Risks BFL7</span><p>The teacher notices a pupil out of their seat, decides not to interrupt the worked example, and addresses the breach later. By the time the correction is delivered, the pupil has returned to their seat and the room has read that seat-leaving is briefly tolerated. The technique is immediate, low-key correction at the moment of breach — a quick Module 1.7 Rung 2 (proximity) or Rung 3 (eye-meet) is sufficient in most cases.</p></div>
+
+      <div class="pitfall"><strong>Reading focus by absence of disruption.</strong><span class="pf-cl">Risks BFL-O2</span><p>A class where no pupil is being disruptive is not necessarily a class in which all pupils are focused. Disengaged pupils do not produce noise; they produce stillness. The technique is to walk the room and read the work in books, not the volume in the air. Where books are visibly behind, BFL-O2 is amber regardless of the volume of the room.</p></div>
+
+      <div class="pitfall"><strong>Apologising for the seating standard.</strong><span class="pf-cl">Risks BFL7</span><p>The teacher prefaces the rule with an apology ("I know it's a bit much, but please don't get up without asking"). The apology teaches the room that the rule is an imposition rather than the standard. The technique is to state the rule as the standard, in the first lesson, and to enforce it consistently from then on.</p></div>
+    </section>
+
+    <section id="audit">
+      <div class="section-eyebrow">05 · Self-audit · BFL7, BFL-O1, BFL-O2</div>
+      <h2>The canonical checklist.</h2>
+      <p class="section-intro">This audit mirrors the streamlined Behaviour for Learning checklist for the items this module owns. The single action item BFL7 is rated alongside the two outcome items, because the diagnostic value of the audit lies in the pattern across the three.</p>
+
+      <table class="audit">
+        <thead>
+          <tr><th style="width: 12%;">ID</th><th style="width: 52%;">Statement</th><th style="width: 16%;">RAG</th><th style="width: 20%;">Date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="id">BFL7</td><td>Pupils remain seated without explicit permission.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <div class="audit-section-divider">OUTCOME ITEMS — DOWNSTREAM SIGNALS</div>
+      <table class="audit" style="margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;">
+        <tbody>
+          <tr class="outcome-row"><td class="id" style="width: 12%;">BFL-O1</td><td style="width: 52%;">Classroom atmosphere calm and purposeful on entry.</td><td style="width: 16%;"><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td style="width: 20%;">—</td></tr>
+          <tr class="outcome-row"><td class="id" style="width: 12%;">BFL-O2</td><td style="width: 52%;">Pupils focused on the task throughout.</td><td style="width: 16%;"><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td style="width: 20%;">—</td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size: 14px; color: var(--ink-soft); margin-top: 16px;">The two outcome items are owned by Module 1.5 jointly with Modules 1.3 and 1.7. BFL-O2 in particular is rated against three modules at once, because it is the downstream signal for the techniques covered in each. The diagnostic pattern across the three modules' action items, taken together with BFL-O2, is what produces the targeted coaching response.</p>
+    </section>
+
+    <section id="ai-tool">
+      <div class="section-eyebrow">06 · AI scenario tester</div>
+      <h2>Worked example of a tool response.</h2>
+      <p class="section-intro">The full live tool will accept any classroom climate description the teacher submits. The worked example below shows the shape of a typical response.</p>
+
+      <div class="ai-tool">
+        <div class="ai-eyebrow">Worked example</div>
+        <h3>Climate diagnosis</h3>
+
+        <div class="ai-demo">
+          <div class="label">Teacher submits</div>
+          <div class="scenario">"Year 9 last period. They came in fine, did the starter, the Reflection went well, register taken in silence. Then about twenty minutes in, focus started to slip. Two pupils got up to sharpen pencils, one to throw something in the bin, and the room went from working silence to a low buzz. By the end of the lesson I'd given two warnings and the books showed less work than I'd hoped for. The lesson started well but didn't sustain."</div>
+
+          <div class="label">Tool responds</div>
+          <div class="response">
+            <p><strong>Items at risk:</strong> BFL7 (multiple seat-leaving incidents during the body of the lesson) and BFL-O2 (loss of focus from minute 20 onwards).</p>
+
+            <p><strong>What is happening:</strong> the climate description is a textbook Pattern C (BFL-O1 green, BFL-O2 and BFL7 both amber). The pupils' seat-leaving is the leading indicator; the loss of focus is the downstream consequence. Once a pupil has left their seat without challenge, the room reads the standard as approximate, and seat-leaving and chatter spread.</p>
+
+            <p><strong>Diagnostic priority:</strong></p>
+            <ol>
+              <li>BFL7 is the lever to pull first. The verbal-exchange standard for seat-leaving is reasserted in the next lesson with the class and enforced immediately on the first attempt.</li>
+              <li>The first seat-leaving incident in the next lesson is corrected on the spot using Module 1.7 Rung 2 or 3 (proximity or eye-meet). The pupil returns to their seat without the issue being escalated; the room reads that the standard is being enforced.</li>
+              <li>If BFL7 is restored to green, BFL-O2 is re-assessed. Where focus is still amber after seating compliance is back in place, the diagnosis moves to task design (Pillar 4) — the body of the lesson may not be giving pupils enough to do, or the task may not be appropriately matched to instructional level.</li>
+            </ol>
+
+            <p><strong>What to avoid:</strong> tightening BFL3 to BFL6 (the Diligence Routine) when those items are already rating green. The technique is not at fault; the climate has slipped because BFL7 has been allowed to drift, and the targeted response is to BFL7 specifically.</p>
+          </div>
+        </div>
+
+        <a class="ai-cta" href="#">Live tool — coming soon</a>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="section-eyebrow">07 · Downloads</div>
+      <h2>Module materials.</h2>
+      <p class="section-intro">The module is published in three formats — the printable booklet, the slide deck for the 60-minute session, and a one-page reference card carrying the climate diagram — each adapted for its medium.</p>
+      <div class="downloads">
+        <span class="download-card download-soon"><div class="type">CPD Booklet</div><div class="name">Module 1.5 Booklet</div><div class="size">.docx · printable</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">Slide Deck</div><div class="name">Module 1.5 Slides</div><div class="size">.pptx · 60-min session</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">One-pager</div><div class="name">Climate Diagram Reference Card</div><div class="size">PDF · pin to lectern</div><div class="dl-soon">Coming soon</div></span>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="#" class="prev"><span class="dir">← Previous module</span><span class="label">1.4 · The 30-Second Reflection</span></a>
+      <a href="#" class="next"><span class="dir">Next module →</span><span class="label">1.6 · Pre-Lesson Strategies</span></a>
+    </nav>
+  </article>
+</div>
+
+<footer class="module-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Pillar 1 · Module 1.5</div>
+  <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./matrix.html">Matrix</a></div>
+</footer>
+</body>
+</html>

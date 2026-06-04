@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Teaching Practice Programme | A Nishkam Schools programme</title>
+<meta name="description" content="A practical, transferable teaching-improvement programme in six one-hour sessions — presence, routines, explaining, checking, questioning, and putting it together. Each with a self-guided companion. Developed by Nishkam Schools." />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Spline+Sans:wght@400;500;600;700&display=swap');
+
+  :root {
+    --ink: #1a1f1d;
+    --ink-soft: #555f5a;
+    --paper: #fbfaf7;
+    --surface: #ffffff;
+    --rule: #e3e1d8;
+    --accent: #126b5e;        /* deep teal-green */
+    --accent-soft: #3f9488;
+    --accent-wash: #e8f1ee;
+    --gold: #b07d2b;
+    --shadow: rgba(18,107,94,0.10);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Spline Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--paper); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---- top bar ---- */
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 28px; border-bottom: 1px solid var(--rule); background: var(--surface); font-size: 13px; position: sticky; top: 0; z-index: 50; }
+  .topbar .wordmark { font-family: var(--serif); font-weight: 600; font-size: 16px; letter-spacing: -0.01em; color: var(--ink); }
+  .topbar .wordmark .by { font-family: var(--sans); font-weight: 500; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-left: 8px; }
+  .topbar .crumbs { color: var(--ink-soft); }
+  .topbar .crumbs a { color: var(--ink-soft); }
+  .topbar .crumbs span { margin: 0 8px; opacity: 0.5; }
+
+  /* ---- session rail (generic, inherited-clean nav spine) ---- */
+  .rail { background: var(--surface); border-bottom: 1px solid var(--rule); }
+  .rail-inner { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+  .rail details { padding: 0; }
+  .rail summary { display: flex; align-items: center; gap: 14px; padding: 12px 0; cursor: pointer; list-style: none; font-size: 13px; }
+  .rail summary::-webkit-details-marker { display: none; }
+  .rail summary .r-label { font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; color: var(--ink-soft); }
+  .rail summary .r-here { color: var(--accent); font-weight: 500; }
+  .rail summary .r-toggle { margin-left: auto; color: var(--accent); font-size: 12px; }
+  .rail-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding: 4px 0 18px; }
+  .rail-item { display: block; padding: 12px; border: 1px solid var(--rule); border-radius: 9px; background: var(--paper); font-size: 12.5px; line-height: 1.35; transition: border-color .15s, transform .15s; }
+  .rail-item:hover { border-color: var(--accent-soft); transform: translateY(-2px); text-decoration: none; }
+  .rail-item .ri-num { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 600; }
+  .rail-item .ri-name { display: block; color: var(--ink); font-weight: 500; margin-top: 3px; }
+  .rail-item.current { border-color: var(--accent); background: var(--accent-wash); }
+  @media (max-width: 820px) { .rail-grid { grid-template-columns: repeat(2,1fr); } }
+
+  /* ---- hero ---- */
+  .hero { max-width: 980px; margin: 0 auto; padding: 64px 28px 36px; }
+  .hero .session-kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 20px; }
+  .hero .session-kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 { font-family: var(--serif); font-size: clamp(36px, 5.5vw, 60px); line-height: 1.05; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 18px; }
+  .hero h1 em { font-style: italic; }
+  .hero .lede { font-size: 20px; color: var(--ink-soft); max-width: 640px; margin: 0 0 28px; line-height: 1.45; }
+  .session-meta { display: flex; flex-wrap: wrap; gap: 28px; padding: 20px 0 0; border-top: 1px solid var(--rule); }
+  .session-meta .m { }
+  .session-meta .m .k { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .session-meta .m .v { font-family: var(--serif); font-size: 17px; margin-top: 3px; }
+
+  /* ---- body ---- */
+  .wrap { max-width: 740px; margin: 0 auto; padding: 16px 28px 90px; }
+  .block { margin: 48px 0; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .block h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; line-height: 1.2; margin: 0 0 14px; letter-spacing: -0.01em; }
+  .block h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 28px 0 8px; }
+  .block p { margin: 0 0 16px; }
+  .block .intro { font-size: 18px; color: var(--ink-soft); }
+
+  /* the move list — the ready-made core of each session */
+  .moves { counter-reset: move; margin: 24px 0; }
+  .move { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid var(--rule); }
+  .move:last-child { border-bottom: 1px solid var(--rule); }
+  .move .mn { counter-increment: move; font-family: var(--serif); font-style: italic; font-size: 26px; color: var(--accent); font-weight: 600; line-height: 1; }
+  .move .mn::before { content: counter(move); }
+  .move h3 { margin: 0 0 6px; font-size: 19px; }
+  .move p { margin: 0 0 10px; font-size: 15.5px; }
+  .move .try { font-size: 14px; background: var(--accent-wash); border-radius: 8px; padding: 12px 14px; color: var(--ink); }
+  .move .try strong { color: var(--accent); }
+
+  /* callout / principle */
+  .note { border-left: 3px solid var(--accent); background: var(--surface); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 22px 0; font-size: 15.5px; }
+  .note strong { color: var(--accent); }
+
+  /* pitfall row */
+  .watch { border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; margin: 14px 0; background: var(--surface); }
+  .watch .wt { font-family: var(--serif); font-weight: 600; font-size: 16px; }
+  .watch p { margin: 6px 0 0; font-size: 14.5px; color: var(--ink-soft); }
+
+  /* coaching task */
+  .coach { background: var(--ink); color: #f1f3f1; border-radius: 14px; padding: 28px; margin: 28px 0; }
+  .coach .ce { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-soft); font-weight: 700; }
+  .coach h3 { font-family: var(--serif); color: #fff; margin: 8px 0 14px; font-size: 21px; }
+  .coach ol { margin: 0; padding-left: 20px; }
+  .coach li { margin: 0 0 9px; color: rgba(255,255,255,0.82); font-size: 15px; }
+  .coach .tmr { display: inline-block; margin-top: 6px; font-size: 12px; color: var(--accent-soft); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+
+  /* ---- scenario tester (live) ---- */
+  .tester { background: linear-gradient(160deg, #14322d 0%, #0d2420 100%); border-radius: 16px; padding: 30px; margin: 32px 0; color: #eaf3f0; }
+  .tester .te { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-soft); font-weight: 700; }
+  .tester h3 { font-family: var(--serif); color: #fff; font-size: 23px; margin: 8px 0 6px; }
+  .tester .sub { color: rgba(255,255,255,0.7); font-size: 14.5px; margin: 0 0 18px; }
+  .tester textarea { width: 100%; min-height: 96px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: #fff; padding: 14px; font-family: var(--sans); font-size: 15px; resize: vertical; }
+  .tester textarea::placeholder { color: rgba(255,255,255,0.4); }
+  .tester .row { display: flex; gap: 10px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+  .tester button { background: var(--accent-soft); color: #07211c; border: none; border-radius: 100px; padding: 11px 22px; font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; transition: background .15s, transform .1s; }
+  .tester button:hover { background: #58a99c; }
+  .tester button:active { transform: scale(0.98); }
+  .tester button:disabled { opacity: 0.5; cursor: default; }
+  .tester .chips { display: flex; gap: 7px; flex-wrap: wrap; }
+  .tester .chip { font-size: 12px; padding: 6px 12px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.78); cursor: pointer; background: transparent; font-family: var(--sans); }
+  .tester .chip:hover { border-color: var(--accent-soft); color: #fff; }
+  .tester .out { margin-top: 18px; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 18px; display: none; }
+  .tester .out.show { display: block; }
+  .tester .out h4 { font-family: var(--serif); color: var(--accent-soft); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 10px; font-weight: 600; }
+  .tester .out .resp { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.9); }
+  .tester .out .resp p { margin: 0 0 12px; }
+  .tester .out .resp strong { color: #fff; }
+  .tester .out .resp ol, .tester .out .resp ul { margin: 0 0 12px; padding-left: 20px; }
+  .tester .out .resp li { margin: 0 0 7px; }
+  .tester .spinner { display: inline-block; width: 15px; height: 15px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .tester .fallback-note { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 12px; }
+
+  /* footer nav */
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin: 56px 0 0; }
+  .pager a { flex: 1; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 11px; background: var(--surface); transition: border-color .15s, transform .15s; }
+  .pager a:hover { border-color: var(--accent-soft); transform: translateY(-2px); text-decoration: none; }
+  .pager a .pd { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .pager a .pl { font-family: var(--serif); font-size: 16px; color: var(--ink); margin-top: 4px; display: block; }
+  .pager a.nx { text-align: right; }
+
+  footer.site { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 28px; text-align: center; font-size: 13px; }
+  footer.site .fmark { font-family: var(--serif); color: #fff; font-size: 17px; margin-bottom: 6px; }
+  footer.site a { color: var(--accent-soft); }
+</style>
+<style>
+  .ix-hero { max-width: 880px; margin: 0 auto; padding: 80px 28px 40px; }
+  .ix-hero .kick { display:inline-block; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); font-weight:700; border:1px solid var(--accent); border-radius:100px; padding:6px 14px; margin-bottom:22px; }
+  .ix-hero h1 { font-family:var(--serif); font-size:clamp(38px,6vw,62px); line-height:1.04; font-weight:600; letter-spacing:-0.015em; margin:0 0 20px; }
+  .ix-hero h1 em { font-style:italic; }
+  .ix-hero .lede { font-size:20px; color:var(--ink-soft); max-width:620px; line-height:1.5; margin:0; }
+  .ix-how { max-width:880px; margin:0 auto; padding:24px 28px 8px; }
+  .ix-how .note { font-size:15.5px; }
+  .ix-list { max-width:880px; margin:0 auto; padding:20px 28px 80px; display:flex; flex-direction:column; gap:12px; }
+  .ix-card { display:grid; grid-template-columns:64px 1fr auto; align-items:center; gap:20px; padding:22px 26px; background:var(--surface); border:1px solid var(--rule); border-radius:14px; transition:border-color .15s, transform .15s, box-shadow .15s; }
+  .ix-card:hover { border-color:var(--accent-soft); transform:translateY(-2px); box-shadow:0 8px 22px var(--shadow); text-decoration:none; }
+  .ix-num { font-family:var(--serif); font-style:italic; font-size:40px; color:var(--accent); font-weight:600; line-height:1; text-align:center; }
+  .ix-name { font-family:var(--serif); font-size:21px; font-weight:600; color:var(--ink); }
+  .ix-desc { font-size:14.5px; color:var(--ink-soft); margin-top:4px; line-height:1.45; }
+  .ix-go { font-size:13px; color:var(--accent); font-weight:600; white-space:nowrap; }
+  @media (max-width:640px){ .ix-card{ grid-template-columns:48px 1fr; } .ix-go{ display:none; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wordmark">Teaching Practice <span class="by">A Nishkam Schools programme</span></div>
+  <div class="crumbs">Overview</div>
+</div>
+
+<header class="ix-hero">
+  <span class="kick">Six one-hour sessions</span>
+  <h1>A teaching method you can <em>actually use.</em></h1>
+  <p class="lede">Six practical sessions on the techniques that make the biggest difference in any classroom — clear, transferable, and ready to use on Monday. Each live session has a self-guided companion page with worked detail, a scenario tool, and a coaching task.</p>
+</header>
+
+<div class="ix-how">
+  <div class="note"><strong>How it works.</strong> Each session is delivered live in an hour, then supported by the companion page here — about an hour of self-guided detail you can return to whenever you need it. Work through them in order, or revisit any one as a reference. Nothing here is specific to one school; every technique transfers to your context.</div>
+</div>
+
+<div class="ix-list">
+      <a class="ix-card" href="./ext-session-1-presence-authority.html">
+        <div class="ix-num">1</div>
+        <div class="ix-body"><div class="ix-name">Presence &amp; Authority</div><div class="ix-desc">How to carry yourself so a room is willing to be led — position, stillness, gaze, voice, composure.</div></div>
+        <div class="ix-go">Open →</div>
+      </a>
+      <a class="ix-card" href="./ext-session-2-routines-climate.html">
+        <div class="ix-num">2</div>
+        <div class="ix-body"><div class="ix-name">Routines &amp; Climate</div><div class="ix-desc">The repeatable procedures that make a classroom run itself, and a calm ladder for low-level disruption.</div></div>
+        <div class="ix-go">Open →</div>
+      </a>
+      <a class="ix-card" href="./ext-session-3-explaining-modelling.html">
+        <div class="ix-num">3</div>
+        <div class="ix-body"><div class="ix-name">Explaining &amp; Modelling</div><div class="ix-desc">The most important part: modelling, guided practice, and independent work — small steps, thinking made visible, and saying less.</div></div>
+        <div class="ix-go">Open →</div>
+      </a>
+      <a class="ix-card" href="./ext-session-4-checking-understanding.html">
+        <div class="ix-num">4</div>
+        <div class="ix-body"><div class="ix-name">Checking for Understanding</div><div class="ix-desc">Finding out whether it landed — from every pupil, fast enough to act on within the lesson.</div></div>
+        <div class="ix-go">Open →</div>
+      </a>
+      <a class="ix-card" href="./ext-session-5-questioning-dialogue.html">
+        <div class="ix-num">5</div>
+        <div class="ix-body"><div class="ix-name">Questioning &amp; Dialogue</div><div class="ix-desc">Getting every pupil thinking, not just the volunteers — and making it safe to be wrong.</div></div>
+        <div class="ix-go">Open →</div>
+      </a>
+      <a class="ix-card" href="./ext-session-6-putting-it-together.html">
+        <div class="ix-num">6</div>
+        <div class="ix-body"><div class="ix-name">Putting It Together</div><div class="ix-desc">Fitting the techniques into one lesson, and making the change permanent.</div></div>
+        <div class="ix-go">Open →</div>
+      </a>
+</div>
+
+<footer class="site">
+  <div class="fmark">Teaching Practice Programme</div>
+  <div>A professional development programme developed by Nishkam Schools.</div>
+  <div style="margin-top:8px;">Six one-hour sessions, each with a self-guided companion.</div>
+</footer>
+</body>
+</html>

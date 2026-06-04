@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Foundations · Assertiveness | T&amp;L Excellence Programme</title>
+<meta name="description" content="Assertiveness at Nishkam School — the disposition that underlies the routines of Pillar 1. Self-directed reading unit, 30 minutes." />
+<style>
+  :root {
+    --bg: #f7f2e8; --surface: #fffdf7; --ink: #1f2a37; --ink-soft: #4b5563;
+    --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
+    --highlight: #fff4dd; --practice: #eef3ec;
+    --foundations: #5c4a7a;        /* Distinct strand colour — a deep slate plum */
+    --foundations-soft: #8b78a8;
+    --foundations-bg: #ece8f1;
+    --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .topbar { background: var(--ink); color: #fff; padding: 14px 24px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+  .topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+  .topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+  /* Hero — visually distinct from Pillar 1 modules. Foundations purple, no checklist strip. */
+  .hero { padding: 72px 24px 56px; border-bottom: 1px solid var(--rule); background: linear-gradient(135deg, var(--foundations-bg) 0%, var(--bg) 80%); position: relative; overflow: hidden; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(92, 74, 122, 0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 880px; margin: 0 auto; position: relative; }
+  .strand-tag { display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); border: 1px solid var(--foundations); padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; font-weight: 600; background: var(--surface); }
+  .unit-number { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 18px; margin-bottom: 8px; }
+  h1.title { font-family: var(--serif); font-size: clamp(40px, 5vw, 60px); line-height: 1.1; margin: 0 0 24px; font-weight: 600; letter-spacing: -0.01em; }
+  h1.title em { font-style: italic; color: var(--foundations); }
+  .lede { font-size: 20px; color: var(--ink-soft); max-width: 680px; margin: 0 0 40px; line-height: 1.5; }
+
+  /* Reading meta — replaces the checklist strip; emphasises the unit format */
+  .reading-meta { background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--foundations); border-radius: 8px; padding: 20px 26px; margin: 24px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  @media (max-width: 720px) { .reading-meta { grid-template-columns: 1fr 1fr; gap: 16px; } }
+  .reading-meta .item .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 4px; }
+  .reading-meta .item .value { font-weight: 600; font-size: 14px; color: var(--ink); }
+  .reading-meta .item .note { font-size: 12px; color: var(--ink-soft); font-style: italic; margin-top: 2px; }
+
+  /* Main layout — no left-rail TOC for this unit. The format is "read in a single sitting", so the page should flow continuously without sticky nav. */
+  .layout { max-width: 760px; margin: 0 auto; padding: 64px 24px 80px; }
+
+  article > section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  article h2 { font-family: var(--serif); font-size: 30px; margin: 0 0 8px; font-weight: 600; line-height: 1.2; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .section-intro { font-size: 18px; color: var(--ink-soft); margin: 0 0 28px; line-height: 1.5; }
+  article p { margin: 0 0 18px; }
+
+  /* Pattern callouts — three failure modes. Reduced visual weight from a "pitfall" block; here they're three short essay subsections with a coloured marker. */
+  .pattern { margin: 32px 0; padding: 24px 28px 24px 32px; background: var(--surface); border-left: 3px solid var(--accent-soft); border-radius: 0 8px 8px 0; }
+  .pattern-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+  .pattern h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .pattern p { margin: 0 0 12px; }
+  .pattern p:last-child { margin-bottom: 0; }
+  .pattern .corrective { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--rule); font-size: 15px; color: var(--ink); }
+  .pattern .corrective strong { color: var(--accent); font-weight: 700; }
+
+  /* Principle list — numbered, with the principle name in serif and the explanation in body text. Reads as a piece of professional writing, not a checklist. */
+  .principles { counter-reset: principle; margin: 24px 0; }
+  .principle { counter-increment: principle; display: grid; grid-template-columns: 56px 1fr; gap: 4px; margin-bottom: 32px; align-items: start; }
+  .principle::before {
+    content: counter(principle, decimal-leading-zero);
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--foundations);
+    font-style: italic;
+  }
+  .principle-body h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--ink); }
+  .principle-body p { margin: 0 0 10px; line-height: 1.6; }
+  .principle-body p:last-child { margin-bottom: 0; }
+
+  /* Scripted phrases inline — short instructional examples. Uses serif italic for the actual words a teacher would say. */
+  .said { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 600; }
+
+  /* Corridor section — given visual emphasis as a distinct sub-environment. */
+  .corridor { margin: 32px 0; padding: 28px 32px; background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); border: 1px solid var(--rule); border-radius: 10px; }
+  .corridor-marker { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .corridor h3 { margin: 0 0 16px; font-family: var(--serif); font-size: 26px; font-weight: 600; }
+  .corridor p { margin: 0 0 14px; }
+  .corridor p:last-child { margin-bottom: 0; }
+
+  /* The demand protocol — numbered steps, but rendered as a structured small reference block rather than a deliberate-practice cycle */
+  .protocol { background: var(--foundations-bg); border: 1px solid var(--foundations-soft); border-radius: 10px; padding: 28px 32px; margin: 32px 0; }
+  .protocol-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 8px; }
+  .protocol h3 { margin: 0 0 18px; font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--ink); }
+  .protocol-steps { counter-reset: step; padding: 0; margin: 0; list-style: none; }
+  .protocol-step { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 18px; }
+  .protocol-step::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--foundations);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+  }
+  .protocol-step strong { color: var(--ink); font-weight: 700; }
+  .protocol-step p { margin: 0 0 4px; }
+
+  /* Reflective prompt — closes the unit. Calmer treatment than a deliberate-practice block; this is for the reader to take away. */
+  .reflective { margin: 40px 0; padding: 28px 32px; background: var(--surface); border: 2px solid var(--foundations-soft); border-radius: 10px; }
+  .reflective-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foundations); font-weight: 700; margin-bottom: 12px; }
+  .reflective h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 24px; font-weight: 600; }
+  .reflective p { margin: 0 0 12px; }
+  .reflective p:last-child { margin-bottom: 0; }
+
+  /* Reading next — links to the modules this unit underlies. Replaces the downloads cards of a pillar module. */
+  .read-next { margin: 48px 0 0; padding: 32px 0 0; border-top: 1px solid var(--rule); }
+  .read-next h2 { margin: 0 0 8px; }
+  .read-next-intro { color: var(--ink-soft); font-size: 16px; margin-bottom: 24px; }
+  .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 600px) { .modules-grid { grid-template-columns: 1fr; } }
+  .module-link { display: block; padding: 18px 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; text-decoration: none; color: var(--ink); transition: all 0.2s; }
+  .module-link:hover { border-color: var(--foundations); transform: translateY(-1px); }
+  .module-link .tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--foundations); font-weight: 700; }
+  .module-link .name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-top: 4px; }
+  .module-link .why { font-size: 13px; color: var(--ink-soft); margin-top: 4px; font-style: italic; }
+
+  /* Closing note */
+  .closing-note { margin: 56px 0 0; padding: 24px 0; border-top: 1px solid var(--rule); text-align: center; font-style: italic; color: var(--ink-soft); font-size: 15px; font-family: var(--serif); }
+
+  /* Footer */
+  footer.unit-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 24px; text-align: center; font-size: 13px; margin-top: 80px; }
+  footer.unit-footer a { color: rgba(255,255,255,0.9); }
+  footer.unit-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a><span>›</span>
+    <a href="./tl-programme.html">T&amp;L Excellence</a><span>›</span>
+    <a href="./foundations.html">Foundations</a><span>›</span>
+    Assertiveness
+  </div>
+  <div>Foundations · Unit 1</div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="strand-tag">Foundations · Self-Directed Reading</span>
+    <div class="unit-number">Unit 1</div>
+    <h1 class="title"><em>Assertiveness.</em></h1>
+    <p class="lede">Carrying authority without escalation. The disposition that underlies every routine in Pillar 1.</p>
+
+    <div class="reading-meta">
+      <div class="item">
+        <div class="label">Format</div>
+        <div class="value">Self-directed reading</div>
+        <div class="note">No coaching partner required</div>
+      </div>
+      <div class="item">
+        <div class="label">Time</div>
+        <div class="value">30 minutes</div>
+        <div class="note">A single sitting</div>
+      </div>
+      <div class="item">
+        <div class="label">Audit</div>
+        <div class="value">None</div>
+        <div class="note">Reflective, not observable</div>
+      </div>
+      <div class="item">
+        <div class="label">Re-read</div>
+        <div class="value">Mid half-term</div>
+        <div class="note">And at the start of each year</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <article>
+
+    <section>
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>The disposition under the routines.</h2>
+      <p class="section-intro">The routines taught across the Teaching Excellence Programme — the Language of Virtues, the Lesson Starts sequence, the Diligence Routine, the strategy ladder — only work when the teacher delivering them carries authority.</p>
+
+      <p>The same words, in the same order, will produce one response when said by a teacher who expects to be obeyed, and a different response when said by a teacher who is hoping to be obeyed. Pupils read the difference instantly. The routines are technique; this unit is about the disposition that technique rests on.</p>
+
+      <p>The disposition is not aggression, not raised voice, not stern manner. Those signal anxiety, not authority, and pupils read them accordingly. The disposition is one of quiet steadiness: an expectation that the standard will be met, communicated through brevity, stillness, and consistency rather than through volume or repetition. Teachers who carry this disposition rarely need to escalate. The room reads them and complies.</p>
+
+      <p>This unit is intended for self-directed reading. There is no checklist, no coaching protocol, no rehearsal cycle. The intention is reflective: by the end of thirty minutes the reader should be able to recognise which of the three patterns described below they tend toward in moments of pressure, and what the corrective stance for that pattern looks like.</p>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">02 · Three patterns to recognise</div>
+      <h2>Predictable responses under pressure.</h2>
+      <p class="section-intro">Most teachers, under pressure, drift into one of three patterns. These are not character failings. They are predictable responses to difficult situations, and naming them is the first step toward replacing them.</p>
+
+      <div class="pattern">
+        <div class="pattern-label">Pattern One</div>
+        <h3>Escalation.</h3>
+        <p>The teacher treats minor non-compliance as defiance. A pupil with their head down during the starter becomes the subject of a public instruction across the room. The pupil, surprised by the framing, becomes defensive. The teacher reads the defensiveness as further defiance and escalates again. Within thirty seconds, a routine non-issue has become a behaviour incident requiring a sanction.</p>
+        <p>Most non-compliance in a Nishkam classroom is not defiance. It is inattention, fatigue, or the residue of the previous lesson.</p>
+        <div class="corrective"><strong>The corrective.</strong> Respond at the lowest rung of Module 1.7 — positioning, proximity, eye-meet — and reserve verbal correction for situations where it is genuinely needed.</div>
+      </div>
+
+      <div class="pattern">
+        <div class="pattern-label">Pattern Two</div>
+        <h3>Softening.</h3>
+        <p>The teacher converts every demand into a request, and every request into a hope. <span class="said">"Could you maybe get your planner out if you have it, please?"</span> The pupil hears, correctly, that compliance is optional, and they comply or do not depending on the moment.</p>
+        <p>In a school where <span class="said">"Planner out"</span> is a known instruction across the staff body — used in the same form by every teacher, carrying a specific operational meaning that pupils recognise immediately — softening the instruction is particularly costly. It weakens an instruction that the rest of the school is using in its sharp form, and pupils experience the inconsistency directly. Standards drift across the term until the teacher is no longer able to call them back.</p>
+        <div class="corrective"><strong>The corrective.</strong> State expectations as facts. <span class="said">"Planner out"</span> is a complete sentence. <span class="said">"Page forty-seven, please"</span> invites no negotiation. Brevity is the assertion.</div>
+      </div>
+
+      <div class="pattern">
+        <div class="pattern-label">Pattern Three</div>
+        <h3>Anxious enforcement.</h3>
+        <p>The teacher raises their voice to compensate for the sense that the room is not fully theirs. Volume becomes the tool that body language and presence should be doing. The room reads the volume as anxiety rather than authority, and responds by testing further.</p>
+        <p>Teachers who are genuinely in command of the room rarely raise their voice. The relationship between volume and authority is inverse: louder almost always reads as less in control.</p>
+        <div class="corrective"><strong>The corrective.</strong> Use the body, not the voice. Strong position, slow movement, brief sentences, normal volume. Trust that the room will read the change.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">03 · What assertive delivery looks like</div>
+      <h2>Six features of the disposition.</h2>
+      <p class="section-intro">There are six features of assertive delivery, each treated in turn below. None are techniques in their own right. They are the dispositions the techniques rest on.</p>
+
+      <div class="principles">
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Declarative, not interrogative.</h3>
+            <p>The assertive teacher states the expectation rather than asking for it. <span class="said">"Planner out"</span> not <span class="said">"Could you take your planner out please?"</span> The interrogative form invites a yes-or-no answer; the declarative form names the standard. There is room for politeness but not for negotiation: <span class="said">"Planner out, please"</span> preserves the declarative force while remaining civil.</p>
+            <p>This works at Nishkam in part because the instruction is known across the school: every teacher uses it, every pupil knows what it means, and a brief delivery carries the weight of the whole staff body's consistent prior use.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>The pupil's name at the start, not in the middle.</h3>
+            <p>Naming a pupil mid-sentence sounds accusatory — <span class="said">"and what do you think you're doing, [Pupil]?"</span> — and pupils brace against it. Naming a pupil at the start of a clear, brief instruction sounds direct and matter-of-fact: <span class="said">"[Pupil], pen down."</span> Same words, different effect, because the name now functions as a call to attention rather than as a charge.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>The pause after the instruction is the assertion.</h3>
+            <p>Three seconds of silence after a clear instruction is more authoritative than three sentences of explanation. The pause communicates that the teacher expects compliance and is willing to wait for it.</p>
+            <p>Filling the pause with qualifications — <span class="said">"...okay? thank you so much"</span> — converts the assertion into a request. The pause is the same three-second pause taught in Module 1.3.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>The body is still.</h3>
+            <p>Movement during the moment of instruction reads as anxiety. The strong position — front of room, weight even, hands free, body squared — is the visual signature of authority, and pupils respond to it long before they respond to the words. A teacher who can stand still while issuing an instruction is already halfway to assertive delivery.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>Behaviour, not pupil.</h3>
+            <p>Assertive correction names the action, not the person. <span class="said">"That's talking during the Reflection — pen down, eyes forward"</span> rather than <span class="said">"[Pupil], you're always talking during the Reflection"</span>. The first phrasing addresses a moment; the second phrasing accuses the pupil of a character trait, which invites defence and escalates the interaction.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-body">
+            <h3>The same register, every time.</h3>
+            <p>Raising the register when the situation feels worse teaches pupils that the standard register can be ignored. The teacher who uses the same calm declarative voice for a minor correction as for a serious one teaches the room that the standard register itself carries weight.</p>
+            <p>The escalation, when it becomes necessary, lives in the warning ladder (Module 1.8) — not in volume or tone.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">04 · The corridor</div>
+      <h2>The most exposed environment.</h2>
+      <p class="section-intro">The corridor is the most exposed assertiveness environment in school, and the one in which teachers most commonly feel uncertain. It is also the environment in which pupils form their model of what teachers at Nishkam will and will not accept.</p>
+
+      <div class="corridor">
+        <div class="corridor-marker">Corridor practice</div>
+        <h3>The standard is set in the corridors as much as in the classrooms.</h3>
+
+        <p>A pupil who is loud in the corridor and walks past three teachers without being addressed learns that the rule is optional. A pupil who is addressed by the first teacher they pass learns the opposite. Every teacher who upholds the corridor standard contributes to the school-wide signal; every teacher who walks past contributes to its erosion.</p>
+
+        <p>The corridor rule at Nishkam is single file, on the left, in silence near classrooms and stairwells. Every teacher upholds the same rule, in the same form. A pupil breaking the rule is not breaking the individual teacher's rule; they are breaking the school's rule, and addressing the breach is not personal.</p>
+
+        <p>The corridor script is the same in every interaction. <span class="said">"On the left, please."</span> <span class="said">"In silence near classrooms."</span> <span class="said">"Single file."</span> These are stated declaratively, in passing, without breaking stride. The teacher does not stop walking, does not raise their voice, and does not look for verbal acknowledgement. The instruction lands and the teacher continues. Pupils comply or do not, and the teacher who continues walking demonstrates that compliance is expected rather than negotiated.</p>
+
+        <p>When a pupil does not comply at the first instruction, the teacher stops, turns squarely, and repeats the instruction once, more slowly. There is no need to add weight to the voice; the act of stopping has already added it. After the repetition, the teacher pauses. Most pupils comply at this point. If a pupil does not, the teacher names a sanction calmly and walks on — the corridor is not the place to hold a confrontation, and a sanction logged at the next opportunity carries more weight than a public argument now.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">05 · Making a demand</div>
+      <h2>The five-step pattern.</h2>
+      <p class="section-intro">The mechanics of an assertive demand, in any context, follow a five-step pattern. This is the same pattern that underlies the Diligence Routine in Module 1.3, applied to one-to-one interactions rather than whole-class moments. Practising it consciously for two or three weeks usually establishes it as a habit.</p>
+
+      <div class="protocol">
+        <div class="protocol-label">The five-step pattern</div>
+        <h3>From set-up to compliance.</h3>
+
+        <ol class="protocol-steps">
+          <li class="protocol-step">
+            <p><strong>Set up the demand before issuing it.</strong></p>
+            <p>Stand in a strong position. Make brief eye contact with the pupil. The pupil should know an instruction is coming before they hear it.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>Issue the instruction in five words or fewer.</strong></p>
+            <p><span class="said">"Planner out."</span> <span class="said">"Eyes this way."</span> <span class="said">"Page forty-seven."</span> Brevity is itself assertive. Extended instructions allow the pupil to negotiate which part to comply with.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>Hold the pause.</strong></p>
+            <p>Three seconds, in silence. The teacher does not repeat, does not qualify, does not look away from the pupil.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>Acknowledge compliance silently.</strong></p>
+            <p>A small nod, a return of attention to the rest of the class. No verbal thanks, no commentary. Verbal thanks convert an expectation into a favour, and over time pupils begin to expect the thanks rather than the standard.</p>
+          </li>
+          <li class="protocol-step">
+            <p><strong>If non-compliance, repeat once.</strong></p>
+            <p>Same words, same volume, slightly slower. Then pause again. If compliance still does not follow, escalate to Module 1.7's strategy ladder or, if the situation requires it, to Module 1.8's warning ladder. Naming the next step internally helps the teacher remain calm during the second pause.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-eyebrow">06 · When assertiveness lapses</div>
+      <h2>Fatigue, and what to do about it.</h2>
+      <p class="section-intro">No teacher delivers assertive instruction perfectly across a full week. The most common reason an interaction collapses is fatigue — end of lesson, end of day, end of half-term.</p>
+
+      <p>The remedy is not to try harder. The remedy is to keep the interactions shorter and the language plainer when energy is low. A two-word instruction at three o'clock on a Friday will outperform a paragraph at the same time. A teacher who recognises their own fatigue can compensate by tightening their language rather than expanding it.</p>
+
+      <p>This unit is reflective rather than observable. The closing suggestion is reflective in kind.</p>
+
+      <div class="reflective">
+        <div class="reflective-label">For the reader</div>
+        <h3>A prompt to take into the week.</h3>
+        <p>Over the next week, in a moment of pressure, the teacher should ask themselves which of the three patterns above they have drifted toward — escalation, softening, or anxious enforcement — and which of the six features of assertive delivery would have produced a different outcome.</p>
+        <p>Recognising the pattern is most of the work. The corrective follows from the recognition.</p>
+      </div>
+    </section>
+
+    <section class="read-next">
+      <h2>Where to read next.</h2>
+      <p class="read-next-intro">The disposition described in this unit underlies the routines of Pillar 1. The following modules build on it directly.</p>
+
+      <div class="modules-grid">
+        <a class="module-link" href="./module-1-1-language-of-virtues.html">
+          <div class="tag">Module 1.1</div>
+          <div class="name">The Language of Virtues</div>
+          <div class="why">The vocabulary that assertive instructions are spoken in.</div>
+        </a>
+        <a class="module-link" href="./module-1-3-diligence-routine.html">
+          <div class="tag">Module 1.3</div>
+          <div class="name">The Diligence Routine</div>
+          <div class="why">The routine that depends on assertive delivery.</div>
+        </a>
+        <a class="module-link" href="./module-1-7-in-lesson-strategies.html">
+          <div class="tag">Module 1.7</div>
+          <div class="name">In-Lesson Strategies</div>
+          <div class="why">The ladder of escalating interventions when an instruction does not land.</div>
+        </a>
+        <a class="module-link" href="#">
+          <div class="tag">Module 1.8</div>
+          <div class="name">Direct Intervention</div>
+          <div class="why">The warning ladder when assertiveness has not produced compliance.</div>
+        </a>
+      </div>
+
+      <div class="closing-note">
+        The unit is intended to be read once, returned to in the first half-term, and revisited at the start of each subsequent year.
+      </div>
+    </section>
+
+  </article>
+</div>
+
+<footer class="unit-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Foundations · Unit 1</div>
+  <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./foundations.html">Foundations</a></div>
+</footer>
+</body>
+</html>

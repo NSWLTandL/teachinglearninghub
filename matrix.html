@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module ↔ Checklist Matrix | T&amp;L Excellence Programme</title>
+<meta name="description" content="The canonical mapping between every CPD module and every operational checklist item. Source of truth for the monitoring platform, target-setting system, and capability documentation." />
+<style>
+  :root {
+    --bg: #f7f2e8;
+    --surface: #fffdf7;
+    --ink: #1f2a37;
+    --ink-soft: #4b5563;
+    --rule: #d8cfb9;
+    --accent: #7a3b1d;
+    --accent-soft: #c98e60;
+    --highlight: #fff4dd;
+    --p1: #fff4dd;
+    --p2: #eef1f7;
+    --p3: #f1ecf7;
+    --p4: #eef3ec;
+    --p5: #fbeee5;
+    --status-built: #c9dcc0;
+    --status-build: #ffe9b5;
+    --status-planned: #fffdf7;
+    --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  .topbar {
+    background: var(--ink);
+    color: #fff;
+    padding: 14px 24px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+  .topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+  .hero {
+    padding: 56px 24px 40px;
+    border-bottom: 1px solid var(--rule);
+    background: radial-gradient(circle at 85% 20%, rgba(184, 137, 58, 0.10), transparent 50%), var(--bg);
+  }
+  .hero-inner { max-width: 1200px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(34px, 4.5vw, 50px);
+    line-height: 1.1;
+    margin: 0 0 16px;
+    font-weight: 600;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 760px;
+    margin: 0 0 24px;
+  }
+
+  /* Stats */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-top: 32px;
+  }
+  @media (max-width: 800px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 480px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .stat .label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; }
+  .stat .value { font-family: var(--serif); font-size: 36px; font-weight: 700; margin-top: 4px; line-height: 1; }
+  .stat.built .value { color: #2d6a3e; }
+  .stat.in-build .value { color: #b8893a; }
+
+  /* Layout */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  section { margin-bottom: 72px; scroll-margin-top: 24px; }
+  h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    margin: 0 0 8px;
+    font-weight: 600;
+  }
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .section-intro {
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    max-width: 720px;
+  }
+
+  /* Pillar grid */
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 1000px) { .pillar-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .pillar-grid { grid-template-columns: 1fr; } }
+  .pillar-card {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.15s, transform 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+  .pillar-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .pillar-card .num { font-family: var(--serif); font-size: 32px; font-weight: 700; }
+  .pillar-card .name { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-top: 4px; line-height: 1.25; }
+  .pillar-card .meta { font-size: 13px; color: var(--ink-soft); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  .pillar-card .meta strong { color: var(--accent); }
+  .pillar-card.p1 { background: var(--p1); }
+  .pillar-card.p2 { background: var(--p2); }
+  .pillar-card.p3 { background: var(--p3); }
+  .pillar-card.p4 { background: var(--p4); }
+  .pillar-card.p5 { background: var(--p5); }
+
+  /* Tables */
+  table.matrix {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  table.matrix th, table.matrix td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  table.matrix th {
+    background: var(--ink);
+    color: #fff;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+  }
+  table.matrix tr:last-child td { border-bottom: none; }
+  table.matrix .id-cell { font-weight: 700; font-family: var(--serif); color: var(--accent); white-space: nowrap; }
+  table.matrix .mod-cell { font-weight: 700; text-align: center; white-space: nowrap; }
+  table.matrix .pillar-cell { text-align: center; font-weight: 600; font-size: 12px; }
+  table.matrix .status-cell { white-space: nowrap; text-align: center; }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .pill.built { background: var(--status-built); color: #2d6a3e; }
+  .pill.in-build { background: var(--status-build); color: #8b5a00; }
+  .pill.planned { background: #f0ebe0; color: var(--ink-soft); }
+
+  /* Pillar background tints inside table rows */
+  tr.row-p1 td { background: var(--p1); }
+  tr.row-p2 td { background: var(--p2); }
+  tr.row-p3 td { background: var(--p3); }
+  tr.row-p4 td { background: var(--p4); }
+  tr.row-p5 td { background: var(--p5); }
+
+  /* Filter bar */
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    padding: 14px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+  }
+  .filter-bar label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+    align-self: center;
+    margin-right: 8px;
+  }
+  .filter-btn {
+    background: transparent;
+    border: 1px solid var(--rule);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink-soft);
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* Sidebar of contents */
+  .toc {
+    position: sticky;
+    top: 16px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+  }
+  .toc h4 {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+    font-weight: 700;
+  }
+  .toc ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .toc a { color: var(--ink); text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: var(--accent); }
+
+  footer.module-footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer.module-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a>
+    <span>›</span>
+    <a href="./tl-programme.html">T&amp;L Excellence</a>
+    <span>›</span>
+    Matrix
+  </div>
+  <div>Source of truth</div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Programme architecture</span>
+    <h1>Module &harr; Checklist <em>Matrix</em>.</h1>
+    <p class="lede">The canonical mapping between every CPD module and every operational checklist item. Source of truth for the monitoring platform, target-setting system, and capability documentation.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="label">Pillars</div><div class="value">5</div></div>
+      <div class="stat"><div class="label">Modules</div><div class="value">28</div></div>
+      <div class="stat"><div class="label">Checklists</div><div class="value">15</div></div>
+      <div class="stat"><div class="label">Items</div><div class="value">144</div></div>
+      <div class="stat built"><div class="label">Built</div><div class="value">1</div></div>
+      <div class="stat in-build"><div class="label">In build</div><div class="value">1</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="toc">
+    <h4>Jump to</h4>
+    <ul>
+      <li><a href="#pillars">Pillar architecture</a></li>
+      <li><a href="#modules">All modules</a></li>
+      <li><a href="#checklists">All checklist items</a></li>
+      <li><a href="#how-to-use">How to use this matrix</a></li>
+    </ul>
+  </div>
+
+  <!-- PILLARS -->
+  <section id="pillars">
+    <div class="section-eyebrow">01 · Pillar architecture</div>
+    <h2>Five pillars. Twenty-eight modules.</h2>
+    <p class="section-intro">The T&amp;L Excellence Programme is organised around five pillars of practice. Each pillar contains four to ten modules, and each module is anchored to one or more of the fifteen operational checklists.</p>
+
+    <div class="pillar-grid">
+      <a class="pillar-card p1" href="#pillar-1">
+        <div class="num">01</div>
+        <div class="name">Behaviour for Learning</div>
+        <div class="meta"><strong>10 modules</strong> · BFL, LS, LE · <strong>27 items</strong></div>
+      </a>
+      <a class="pillar-card p2" href="#pillar-2">
+        <div class="num">02</div>
+        <div class="name">Questioning</div>
+        <div class="meta"><strong>4 modules</strong> · CC, PQ · <strong>24 items</strong></div>
+      </a>
+      <a class="pillar-card p3" href="#pillar-3">
+        <div class="num">03</div>
+        <div class="name">Direct Instruction</div>
+        <div class="meta"><strong>5 modules</strong> · ID, WD, YD, CDI · <strong>25 items</strong></div>
+      </a>
+      <a class="pillar-card p4" href="#pillar-4">
+        <div class="num">04</div>
+        <div class="name">SEND &amp; Quality-First Teaching</div>
+        <div class="meta"><strong>4 modules</strong> · AT, Int, ICS · <strong>28 items</strong></div>
+      </a>
+      <a class="pillar-card p5" href="#pillar-5">
+        <div class="num">05</div>
+        <div class="name">Circulating, Checking &amp; Live Feedback</div>
+        <div class="meta"><strong>5 modules</strong> · MW, QC, SCS, TIP, QOW · <strong>40 items</strong></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section id="modules">
+    <div class="section-eyebrow">02 · All modules</div>
+    <h2>Every module, with its checklist coverage.</h2>
+    <p class="section-intro">Click any module to navigate to it. The "Items addressed" column lists the checklist items each module primarily teaches.</p>
+
+    <div class="filter-bar">
+      <label>Filter</label>
+      <button class="filter-btn active" data-filter="all">All pillars</button>
+      <button class="filter-btn" data-filter="p1">Pillar 1</button>
+      <button class="filter-btn" data-filter="p2">Pillar 2</button>
+      <button class="filter-btn" data-filter="p3">Pillar 3</button>
+      <button class="filter-btn" data-filter="p4">Pillar 4</button>
+      <button class="filter-btn" data-filter="p5">Pillar 5</button>
+    </div>
+
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th style="width: 8%;">Module</th>
+          <th style="width: 28%;">Title</th>
+          <th style="width: 8%;">Pillar</th>
+          <th style="width: 16%;">Checklist(s)</th>
+          <th style="width: 28%;">Items addressed</th>
+          <th style="width: 12%;">Status</th>
+        </tr>
+      </thead>
+      <tbody id="modules-tbody">
+        <!-- Filled by data below + JS -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CHECKLISTS -->
+  <section id="checklists">
+    <div class="section-eyebrow">03 · All checklist items</div>
+    <h2>Every checklist item. Every primary module.</h2>
+    <p class="section-intro">All 144 items in one place. The platform will read its mappings from this list — every item resolves to one primary module that teaches it.</p>
+
+    <div class="filter-bar">
+      <label>Filter</label>
+      <button class="filter-btn active" data-cl-filter="all">All checklists</button>
+      <button class="filter-btn" data-cl-filter="LS">LS</button>
+      <button class="filter-btn" data-cl-filter="LE">LE</button>
+      <button class="filter-btn" data-cl-filter="BFL">BFL</button>
+      <button class="filter-btn" data-cl-filter="CC">CC</button>
+      <button class="filter-btn" data-cl-filter="PQ">PQ</button>
+      <button class="filter-btn" data-cl-filter="ID">ID</button>
+      <button class="filter-btn" data-cl-filter="WD">WD</button>
+      <button class="filter-btn" data-cl-filter="YD">YD</button>
+      <button class="filter-btn" data-cl-filter="CDI">CDI</button>
+      <button class="filter-btn" data-cl-filter="MW">MW</button>
+      <button class="filter-btn" data-cl-filter="QC">QC</button>
+      <button class="filter-btn" data-cl-filter="SCS">SCS</button>
+      <button class="filter-btn" data-cl-filter="TIP">TIP</button>
+      <button class="filter-btn" data-cl-filter="QOW">QOW</button>
+      <button class="filter-btn" data-cl-filter="AT">AT</button>
+      <button class="filter-btn" data-cl-filter="Int">Int</button>
+      <button class="filter-btn" data-cl-filter="ICS">ICS</button>
+    </div>
+
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th style="width: 8%;">Item ID</th>
+          <th style="width: 14%;">Checklist</th>
+          <th style="width: 56%;">Item text</th>
+          <th style="width: 10%;">Module</th>
+          <th style="width: 12%;">Status</th>
+        </tr>
+      </thead>
+      <tbody id="checklists-tbody"></tbody>
+    </table>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section id="how-to-use">
+    <div class="section-eyebrow">04 · How to use this matrix</div>
+    <h2>Three audiences. Three reads.</h2>
+    <p class="section-intro">The matrix exists for distinct reasons depending on who is reading it.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+      <div style="background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 24px;">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 8px;">FOR TEACHERS</div>
+        <h3 style="font-family: var(--serif); margin: 0 0 8px;">"What does this checklist item mean?"</h3>
+        <p style="font-size: 14px; color: var(--ink-soft); margin: 0;">Find the item ID. Follow the link to the module. The module contains the script, the rationale, the deliberate practice, and the coach prompt for that item.</p>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 24px;">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 8px;">FOR COACHES</div>
+        <h3 style="font-family: var(--serif); margin: 0 0 8px;">"Where do I send a colleague who failed BFL3?"</h3>
+        <p style="font-size: 14px; color: var(--ink-soft); margin: 0;">Look up BFL3 in the items list. The Module column shows the canonical home of that item. The colleague rehearses the relevant practice slot in that module before re-observation.</p>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 24px;">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 8px;">FOR LEADERS</div>
+        <h3 style="font-family: var(--serif); margin: 0 0 8px;">"Where are we in the build?"</h3>
+        <p style="font-size: 14px; color: var(--ink-soft); margin: 0;">The Status column on every row shows what is built, what is in build, and what remains planned. The stats at the top give the headline numbers.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="module-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Module ↔ Checklist Matrix</div>
+</footer>
+
+<script>
+// ============== Module data ==============
+const modules = [
+  ["1.1",  "The Language of Virtues",                       "P1", "—",   "Cross-cutting — vocabulary used by all pillars",  "built"],
+  ["1.2",  "Lesson Starts",                                  "P1", "LS",  "LS1–LS12, BFL1, BFL3",                            "in-build"],
+  ["1.3",  "The Diligence Routine",                          "P1", "BFL", "BFL3, BFL4, BFL5, BFL6",                          "planned"],
+  ["1.4",  "The 30-Second Reflection",                       "P1", "—",   "LS5 (deepens)",                                   "planned"],
+  ["1.5",  "Behaviour for Learning in Class",                "P1", "BFL", "BFL1, BFL2, BFL7, BFL8, BFL9",                    "planned"],
+  ["1.6",  "Pre-Lesson Strategies",                          "P1", "—",   "Setup for BFL1, LS1, LS6, LS12",                  "planned"],
+  ["1.7",  "In-Lesson Strategies (Pre-Warning)",             "P1", "BFL", "BFL8, BFL9",                                      "planned"],
+  ["1.8",  "Direct Intervention (Warning Ladder)",           "P1", "—",   "Escalation pathway from BFL8/9",                  "planned"],
+  ["1.9",  "Lesson Endings",                                 "P1", "LE",  "LE1–LE6",                                         "planned"],
+  ["1.10", "Other Routines (Materials, Reading, Late Arrivals)", "P1", "—", "Sub-routines supporting BFL/LS/LE",            "planned"],
+  ["2.1",  "Cold Calling",                                   "P2", "CC",  "CC1–CC14",                                        "planned"],
+  ["2.2",  "Probing Questions",                              "P2", "PQ",  "PQ1–PQ10",                                        "planned"],
+  ["2.3",  "Pair-Share & Turn-and-Talk",                     "P2", "—",   "Supports CC3, PQ7",                               "planned"],
+  ["2.4",  "Questioning at the Front of the Room",           "P2", "—",   "CC1, CC12, PQ6",                                  "planned"],
+  ["3.1",  "Conditions for Direct Instruction",              "P3", "CDI", "CDI1–CDI9",                                       "planned"],
+  ["3.2",  "I Do — The Modelled Example",                    "P3", "ID",  "ID1–ID8",                                         "planned"],
+  ["3.3",  "We Do — Guided Practice",                        "P3", "WD",  "WD1–WD4",                                         "planned"],
+  ["3.4",  "You Do — Independent Practice",                  "P3", "YD",  "YD1–YD4",                                         "planned"],
+  ["3.5",  "Choral Response & Alternation",                  "P3", "—",   "CDI7, CDI8",                                      "planned"],
+  ["4.1",  "Adaptive Teaching",                              "P4", "AT",  "AT1–AT11",                                        "planned"],
+  ["4.2",  "SEND Intervention",                              "P4", "Int", "Int1–Int9",                                       "planned"],
+  ["4.3",  "In-Class Support (with Additional Adults)",      "P4", "ICS", "ICS1–ICS8",                                       "planned"],
+  ["4.4",  "Quality-First for All",                          "P4", "—",   "Cross-cutting AT principles",                     "planned"],
+  ["5.1",  "Mini Whiteboards",                               "P5", "MW",  "MW1–MW12",                                        "planned"],
+  ["5.2",  "Quick Checks for Understanding",                 "P5", "QC",  "QC1–QC4",                                         "planned"],
+  ["5.3",  "Transition to Independent Practice",             "P5", "TIP", "TIP1–TIP7",                                       "planned"],
+  ["5.4",  "Circulating & Live Feedback",                    "P5", "SCS", "SCS1–SCS9",                                       "planned"],
+  ["5.5",  "Quality of Work Standards",                      "P5", "QOW", "QOW1–QOW8",                                       "planned"],
+];
+
+const statusLabel = { built: "✓ Built", "in-build": "In build", planned: "Planned" };
+
+const tbody = document.getElementById("modules-tbody");
+modules.forEach(m => {
+  const tr = document.createElement("tr");
+  tr.className = "row-" + m[2].toLowerCase();
+  tr.dataset.pillar = m[2].toLowerCase();
+  tr.innerHTML = `
+    <td class="mod-cell">${m[0]}</td>
+    <td>${m[1]}</td>
+    <td class="pillar-cell">${m[2]}</td>
+    <td><strong>${m[3]}</strong></td>
+    <td style="font-size: 13px; font-style: italic; color: var(--ink-soft);">${m[4]}</td>
+    <td class="status-cell"><span class="pill ${m[5]}">${statusLabel[m[5]]}</span></td>
+  `;
+  tbody.appendChild(tr);
+});
+
+document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('#modules-tbody tr').forEach(tr => {
+      tr.style.display = (f === 'all' || tr.dataset.pillar === f) ? '' : 'none';
+    });
+  });
+});
+
+// ============== Checklist data ==============
+const checklists = [
+  // [id, family, text, primary_mod, pillar, status]
+  ["LS1",  "Lesson Starts",  "Is the teacher at the door as the lesson begins?",  "1.2", "P1", "in-build"],
+  ["LS2",  "Lesson Starts",  "Does the teacher set entry and corridor expectations verbally?",  "1.2", "P1", "in-build"],
+  ["LS3",  "Lesson Starts",  "Does the teacher narrate the positives as the students enter, using virtues language?",  "1.2", "P1", "in-build"],
+  ["LS4",  "Lesson Starts",  "Does the teacher use the 'peacefulness' virtue to quieten students?",  "1.2", "P1", "in-build"],
+  ["LS5",  "Lesson Starts",  "Is the reflection observed silently and still?",  "1.2", "P1", "in-build"],
+  ["LS6",  "Lesson Starts",  "Is the recall/starter task ready? (In books/on sheets/whiteboards)",  "1.2", "P1", "in-build"],
+  ["LS7",  "Lesson Starts",  "Is the register done in silence while the first task is being completed?",  "1.2", "P1", "in-build"],
+  ["LS8",  "Lesson Starts",  "Does the teacher finish the register and circulate the room?",  "1.2", "P1", "in-build"],
+  ["LS9",  "Lesson Starts",  "Does the teacher check for understanding after the starter/recall?",  "1.2", "P1", "in-build"],
+  ["LS10", "Lesson Starts",  "Are teacher's instructions (during transition) given clearly and in silence?",  "1.2", "P1", "in-build"],
+  ["LS11", "Lesson Starts",  "Are students compliant and respectful?",  "1.2", "P1", "in-build"],
+  ["LS12", "Lesson Starts",  "Are teacher materials prepared and appropriate?",  "1.2", "P1", "in-build"],
+  ["LE1",  "Lesson Endings", "Are clear instructions to 'pack up' given?",  "1.9", "P1", "planned"],
+  ["LE2",  "Lesson Endings", "Does the teacher leave enough time to pack up?",  "1.9", "P1", "planned"],
+  ["LE3",  "Lesson Endings", "At the end of the lesson, are students silent, stood behind chairs?",  "1.9", "P1", "planned"],
+  ["LE4",  "Lesson Endings", "Do students depart row by row, silently?",  "1.9", "P1", "planned"],
+  ["LE5",  "Lesson Endings", "Are prayers completed fully and with head coverings?",  "1.9", "P1", "planned"],
+  ["LE6",  "Lesson Endings", "Does the teacher go to the door or enter the corridor to support 'single file/left hand side'?",  "1.9", "P1", "planned"],
+  ["BFL1", "Behaviour for Learning", "Upon entering atmosphere in the classroom is calm and purposeful.",  "1.5", "P1", "planned"],
+  ["BFL2", "Behaviour for Learning", "Pupils are focused on the task, attentive to teacher or independent work.",  "1.5", "P1", "planned"],
+  ["BFL3", "Behaviour for Learning", "Teacher uses mantra 'Diligence' to mean 'pens/pencil down, arms folded, eyes on me'.",  "1.3", "P1", "planned"],
+  ["BFL4", "Behaviour for Learning", "Teacher pauses to allow pupils to comply, scans before giving instructions.",  "1.3", "P1", "planned"],
+  ["BFL5", "Behaviour for Learning", "Teacher provides clear instructions in order, no more than 3 steps.",  "1.3", "P1", "planned"],
+  ["BFL6", "Behaviour for Learning", "When teacher gives an instruction the pupils follow first time on the trigger word 'go'.",  "1.3", "P1", "planned"],
+  ["BFL7", "Behaviour for Learning", "Pupils do not leave seats without permission.",  "1.5", "P1", "planned"],
+  ["BFL8", "Behaviour for Learning", "If noise level increases, teacher returns to strong position requesting 'peacefulness' / 'diligence'.",  "1.7", "P1", "planned"],
+  ["BFL9", "Behaviour for Learning", "Behaviour is managed through positioning, proximity and resetting expectations.",  "1.7", "P1", "planned"],
+  ["ID1",  "I Do (Model)", "Talks through the purpose of the I do.",  "3.2", "P3", "planned"],
+  ["ID2",  "I Do (Model)", "Narrates the process of thinking through the problem/question/task.",  "3.2", "P3", "planned"],
+  ["ID3",  "I Do (Model)", "Models each stage step by step, talking through each action.",  "3.2", "P3", "planned"],
+  ["ID4",  "I Do (Model)", "Uses a visualiser, IWB or flipchart to ensure all pupils see what is being done.",  "3.2", "P3", "planned"],
+  ["ID5",  "I Do (Model)", "Pupils are listening and not doing anything else at this stage.",  "3.2", "P3", "planned"],
+  ["ID6",  "I Do (Model)", "Narrates what to do next and why.",  "3.2", "P3", "planned"],
+  ["ID7",  "I Do (Model)", "Stands back from the modelled example to review and evaluate it.",  "3.2", "P3", "planned"],
+  ["ID8",  "I Do (Model)", "Checks for understanding and models alternatives as required.",  "3.2", "P3", "planned"],
+  ["WD1",  "We Do (Guided)", "Transition to 'we do' stage made clear verbally.",  "3.3", "P3", "planned"],
+  ["WD2",  "We Do (Guided)", "Problem/question/task matched to the modelled example.",  "3.3", "P3", "planned"],
+  ["WD3",  "We Do (Guided)", "Guides pupils to practice making reference to modelled example.",  "3.3", "P3", "planned"],
+  ["WD4",  "We Do (Guided)", "Checks for understanding before independent practice.",  "3.3", "P3", "planned"],
+  ["YD1",  "You Do (Independent)", "Transition to 'you do' stage made clear verbally.",  "3.4", "P3", "planned"],
+  ["YD2",  "You Do (Independent)", "Moves pupils towards independent practice.",  "3.4", "P3", "planned"],
+  ["YD3",  "You Do (Independent)", "Checks that modelled example is being used.",  "3.4", "P3", "planned"],
+  ["YD4",  "You Do (Independent)", "Checks for understanding.",  "3.4", "P3", "planned"],
+  ["CDI1", "Conditions for DI", "The room is silent when the teacher is modelling.",  "3.1", "P3", "planned"],
+  ["CDI2", "Conditions for DI", "There is limited visual clutter in the room.",  "3.1", "P3", "planned"],
+  ["CDI3", "Conditions for DI", "Seating is in rows, with students facing the front.",  "3.1", "P3", "planned"],
+  ["CDI4", "Conditions for DI", "Seating plan has clearly been considered.",  "3.1", "P3", "planned"],
+  ["CDI5", "Conditions for DI", "Teacher uses a brisk pace.",  "3.1", "P3", "planned"],
+  ["CDI6", "Conditions for DI", "Material is matched to instructional level.",  "3.1", "P3", "planned"],
+  ["CDI7", "Conditions for DI", "The students have opportunities to chorally respond.",  "3.5", "P3", "planned"],
+  ["CDI8", "Conditions for DI", "The teacher employs the 'alternating principle'.",  "3.5", "P3", "planned"],
+  ["CDI9", "Conditions for DI", "The teacher uses eye contact and scanning to ensure students are on task.",  "3.1", "P3", "planned"],
+  ["MW1",  "Mini Whiteboards", "All pupils have white board and pen, available on desks throughout.",  "5.1", "P5", "planned"],
+  ["MW2",  "Mini Whiteboards", "Clear instructions for white board task.",  "5.1", "P5", "planned"],
+  ["MW3",  "Mini Whiteboards", "The information asked for acts as a genuine form of assessment.",  "5.1", "P5", "planned"],
+  ["MW4",  "Mini Whiteboards", "Set clear time limits to ensure pupils respond promptly.",  "5.1", "P5", "planned"],
+  ["MW5",  "Mini Whiteboards", "Monitors hesitation, watching for delayed/confused pupils.",  "5.1", "P5", "planned"],
+  ["MW6",  "Mini Whiteboards", "Builds in thinking time, with quiet/silence for pupils to think.",  "5.1", "P5", "planned"],
+  ["MW7",  "Mini Whiteboards", "Uses mantra: '3-2-1 Show me'.",  "5.1", "P5", "planned"],
+  ["MW8",  "Mini Whiteboards", "All whiteboards are raised; teacher corrects those who don't display.",  "5.1", "P5", "planned"],
+  ["MW9",  "Mini Whiteboards", "Scans the room to check responses, using verbal acknowledgement.",  "5.1", "P5", "planned"],
+  ["MW10", "Mini Whiteboards", "Teacher identifies pupils who made mistakes/are unable to answer.",  "5.1", "P5", "planned"],
+  ["MW11", "Mini Whiteboards", "Adapts teaching based on responses.",  "5.1", "P5", "planned"],
+  ["MW12", "Mini Whiteboards", "Need for reteaching is noted; or satisfaction expressed.",  "5.1", "P5", "planned"],
+  ["QC1",  "Quick Checks", "Clear instructions are given.",  "5.2", "P5", "planned"],
+  ["QC2",  "Quick Checks", "All students are assessed.",  "5.2", "P5", "planned"],
+  ["QC3",  "Quick Checks", "The assessment is fit for purpose.",  "5.2", "P5", "planned"],
+  ["QC4",  "Quick Checks", "The check for understanding is effective and offers clarity.",  "5.2", "P5", "planned"],
+  ["CC1",  "Cold Calling", "Stands in a strong position in the room.",  "2.1", "P2", "planned"],
+  ["CC2",  "Cold Calling", "Asks for 'peacefulness', 'diligence', sit up straight, equipment down, eyes on me.",  "2.1", "P2", "planned"],
+  ["CC3",  "Cold Calling", "Asks a question to the whole class.",  "2.1", "P2", "planned"],
+  ["CC4",  "Cold Calling", "Does not specify a name on the first occasion.",  "2.1", "P2", "planned"],
+  ["CC5",  "Cold Calling", "Builds in thinking time.",  "2.1", "P2", "planned"],
+  ["CC6",  "Cold Calling", "Clearly directs the question to a named individual.",  "2.1", "P2", "planned"],
+  ["CC7",  "Cold Calling", "Other pupils are attentive to the answer.",  "2.1", "P2", "planned"],
+  ["CC8",  "Cold Calling", "Acknowledges the answer and responds with affirmation/probe.",  "2.1", "P2", "planned"],
+  ["CC9",  "Cold Calling", "Asks for more detail in the response, or explanation of thought process.",  "2.1", "P2", "planned"],
+  ["CC10", "Cold Calling", "Invites other pupils to respond to the same or extended question.",  "2.1", "P2", "planned"],
+  ["CC11", "Cold Calling", "Identifies and addresses misconceptions.",  "2.1", "P2", "planned"],
+  ["CC12", "Cold Calling", "Scans the room throughout to check focus.",  "2.1", "P2", "planned"],
+  ["CC13", "Cold Calling", "Adapts teaching based on responses.",  "2.1", "P2", "planned"],
+  ["CC14", "Cold Calling", "Begins building on responses through probing questions method.",  "2.1", "P2", "planned"],
+  ["PQ1",  "Probing Questions", "Asks an open question to invite pupils to think.",  "2.2", "P2", "planned"],
+  ["PQ2",  "Probing Questions", "After the open question, selects pupil to question.",  "2.2", "P2", "planned"],
+  ["PQ3",  "Probing Questions", "Responds directly to the answer, picking out key ideas or rephrasing.",  "2.2", "P2", "planned"],
+  ["PQ4",  "Probing Questions", "Follows up with probing question to clarify, justify, use evidence, etc.",  "2.2", "P2", "planned"],
+  ["PQ5",  "Probing Questions", "Acknowledges the response and continues to explore further.",  "2.2", "P2", "planned"],
+  ["PQ6",  "Probing Questions", "Scans the room throughout to check focus.",  "2.2", "P2", "planned"],
+  ["PQ7",  "Probing Questions", "Invites other pupils to respond to the same probing question.",  "2.2", "P2", "planned"],
+  ["PQ8",  "Probing Questions", "Probing question is repeated and adapted, asked to whole class first.",  "2.2", "P2", "planned"],
+  ["PQ9",  "Probing Questions", "Checks for understanding by reviewing the answers given.",  "2.2", "P2", "planned"],
+  ["PQ10", "Probing Questions", "Process is repeated until 'new learning' has surfaced.",  "2.2", "P2", "planned"],
+  ["SCS1", "Support & Circulation", "Teacher moves to the back of the room and 'watches them work'.",  "5.4", "P5", "planned"],
+  ["SCS2", "Support & Circulation", "Adaptations and scaffolding provided to SEND and L20%.",  "5.4", "P5", "planned"],
+  ["SCS3", "Support & Circulation", "Identifies which pupils need support.",  "5.4", "P5", "planned"],
+  ["SCS4", "Support & Circulation", "Moves to check work of SEND students or those needing extra support.",  "5.4", "P5", "planned"],
+  ["SCS5", "Support & Circulation", "Addresses misconceptions or reteaches individuals/groups.",  "5.4", "P5", "planned"],
+  ["SCS6", "Support & Circulation", "AT is supporting key pupils with teacher guidance evident.",  "5.4", "P5", "planned"],
+  ["SCS7", "Support & Circulation", "Teacher is circulating and live marking with verbal/coded feedback.",  "5.4", "P5", "planned"],
+  ["SCS8", "Support & Circulation", "Pupils are responding to teacher feedback.",  "5.4", "P5", "planned"],
+  ["SCS9", "Support & Circulation", "Challenge/deeper thinking questions available to stretch.",  "5.4", "P5", "planned"],
+  ["TIP1", "Transition to Independent", "Asks for peacefulness; students respond by emptying hands and facing teacher.",  "5.3", "P5", "planned"],
+  ["TIP2", "Transition to Independent", "Offers a clear description of the expectations for the independent task.",  "5.3", "P5", "planned"],
+  ["TIP3", "Transition to Independent", "Checks understanding through questioning/cold-calling.",  "5.3", "P5", "planned"],
+  ["TIP4", "Transition to Independent", "Uses 'diligence' to ensure students start work quickly.",  "5.3", "P5", "planned"],
+  ["TIP5", "Transition to Independent", "Pupils engage in work quickly and purposefully.",  "5.3", "P5", "planned"],
+  ["TIP6", "Transition to Independent", "Working environment is calm and quiet, corrected if not.",  "5.3", "P5", "planned"],
+  ["TIP7", "Transition to Independent", "Teacher in strong position checks all pupils are on task.",  "5.3", "P5", "planned"],
+  ["QOW1", "Quality of Work", "Across the sample, handwriting is clear and legible.",  "5.5", "P5", "planned"],
+  ["QOW2", "Quality of Work", "Date and title are written and underlined without exception.",  "5.5", "P5", "planned"],
+  ["QOW3", "Quality of Work", "Clear narrative of increasing complexity, depth and challenge.",  "5.5", "P5", "planned"],
+  ["QOW4", "Quality of Work", "Marking guidelines for the department are being followed.",  "5.5", "P5", "planned"],
+  ["QOW5", "Quality of Work", "Volume of work is consistent across the sample.",  "5.5", "P5", "planned"],
+  ["QOW6", "Quality of Work", "Books look ordered and well-cared for.",  "5.5", "P5", "planned"],
+  ["QOW7", "Quality of Work", "All work is completed to a high standard.",  "5.5", "P5", "planned"],
+  ["QOW8", "Quality of Work", "Significant independent work takes place most lessons.",  "5.5", "P5", "planned"],
+  ["AT1",  "Adaptive Teaching", "Classroom uncluttered; pupils seated in relation to learning needs.",  "4.1", "P4", "planned"],
+  ["AT2",  "Adaptive Teaching", "Aware of students with SEND, plan targets and strategies.",  "4.1", "P4", "planned"],
+  ["AT3",  "Adaptive Teaching", "Lesson resources accessible and adapted where necessary.",  "4.1", "P4", "planned"],
+  ["AT4",  "Adaptive Teaching", "Visual timetable, prompts and task management tools used effectively.",  "4.1", "P4", "planned"],
+  ["AT5",  "Adaptive Teaching", "Concrete objects & manipulatives used where necessary.",  "4.1", "P4", "planned"],
+  ["AT6",  "Adaptive Teaching", "Adaptations match provision in learning plans.",  "4.1", "P4", "planned"],
+  ["AT7",  "Adaptive Teaching", "Tasks match pupil ability with built-in challenge.",  "4.1", "P4", "planned"],
+  ["AT8",  "Adaptive Teaching", "Uses AFL to adjust pace and support.",  "4.1", "P4", "planned"],
+  ["AT9",  "Adaptive Teaching", "Circulates frequently to monitor progress, offering scaffolding.",  "4.1", "P4", "planned"],
+  ["AT10", "Adaptive Teaching", "Additional adults aware of focus, targets, deployed effectively.",  "4.1", "P4", "planned"],
+  ["AT11", "Adaptive Teaching", "Motivators and sanctions used effectively and adapted to needs.",  "4.1", "P4", "planned"],
+  ["Int1", "Intervention", "Purpose of intervention clear; CT/SLT/SENDCO guidance followed.",  "4.2", "P4", "planned"],
+  ["Int2", "Intervention", "AT aware of target pupil(s) is working towards.",  "4.2", "P4", "planned"],
+  ["Int3", "Intervention", "Resources prepared in advance, accessible and appropriate.",  "4.2", "P4", "planned"],
+  ["Int4", "Intervention", "Learning broken down into steps with clear instructions.",  "4.2", "P4", "planned"],
+  ["Int5", "Intervention", "Pupil(s) engaged with the session and supported when needed.",  "4.2", "P4", "planned"],
+  ["Int6", "Intervention", "AT manages BFL well with no low level disruption.",  "4.2", "P4", "planned"],
+  ["Int7", "Intervention", "Pupil(s) makes progress in the session.",  "4.2", "P4", "planned"],
+  ["Int8", "Intervention", "Assessments recorded using an appropriate method.",  "4.2", "P4", "planned"],
+  ["Int9", "Intervention", "AT delivers post-intervention feedback to CT/SLT/SENDCO.",  "4.2", "P4", "planned"],
+  ["ICS1", "In-class Support", "AT understands learning objective, targets, needs of pupil(s).",  "4.3", "P4", "planned"],
+  ["ICS2", "In-class Support", "AT briefed, follows guidance given by CT/SLT/SENDCO.",  "4.3", "P4", "planned"],
+  ["ICS3", "In-class Support", "Targeted support given without disrupting class flow.",  "4.3", "P4", "planned"],
+  ["ICS4", "In-class Support", "AT uses variety of strategies (visual aids, modified tasks).",  "4.3", "P4", "planned"],
+  ["ICS5", "In-class Support", "Pupil(s) actively participating and making progress.",  "4.3", "P4", "planned"],
+  ["ICS6", "In-class Support", "AT scaffolds when needed but allows independent work.",  "4.3", "P4", "planned"],
+  ["ICS7", "In-class Support", "Pupil(s) encouraged to ask questions and take risks.",  "4.3", "P4", "planned"],
+  ["ICS8", "In-class Support", "AT adjusts level of support based on pupil progress.",  "4.3", "P4", "planned"],
+];
+
+const cltbody = document.getElementById("checklists-tbody");
+checklists.forEach(c => {
+  const tr = document.createElement("tr");
+  tr.className = "row-" + c[4].toLowerCase();
+  tr.dataset.family = c[0].replace(/\d+$/, "");
+  tr.innerHTML = `
+    <td class="id-cell">${c[0]}</td>
+    <td>${c[1]}</td>
+    <td style="font-size: 13px;">${c[2]}</td>
+    <td class="mod-cell">${c[3]}</td>
+    <td class="status-cell"><span class="pill ${c[5]}">${statusLabel[c[5]]}</span></td>
+  `;
+  cltbody.appendChild(tr);
+});
+
+document.querySelectorAll('.filter-btn[data-cl-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn[data-cl-filter]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.clFilter;
+    document.querySelectorAll('#checklists-tbody tr').forEach(tr => {
+      tr.style.display = (f === 'all' || tr.dataset.family === f) ? '' : 'none';
+    });
+  });
+});
+</script>
+
+</body>
+</html>

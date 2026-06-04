@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Session 4 · Checking for Understanding | Teaching Practice Programme</title>
+<meta name="description" content="Session 4 of the Teaching Practice Programme — Checking for Understanding. Whole-class response, purposeful circulation, live marking, and the set-settle-sweep-stop rhythm, with a self-audit." />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Spline+Sans:wght@400;500;600;700&display=swap');
+
+  :root {
+    --ink: #1a1f1d;
+    --ink-soft: #555f5a;
+    --paper: #fbfaf7;
+    --surface: #ffffff;
+    --rule: #e3e1d8;
+    --accent: #126b5e;        /* deep teal-green */
+    --accent-soft: #3f9488;
+    --accent-wash: #e8f1ee;
+    --gold: #b07d2b;
+    --shadow: rgba(18,107,94,0.10);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Spline Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--paper); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---- top bar ---- */
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 28px; border-bottom: 1px solid var(--rule); background: var(--surface); font-size: 13px; position: sticky; top: 0; z-index: 50; }
+  .topbar .wordmark { font-family: var(--serif); font-weight: 600; font-size: 16px; letter-spacing: -0.01em; color: var(--ink); }
+  .topbar .wordmark .by { font-family: var(--sans); font-weight: 500; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-left: 8px; }
+  .topbar .crumbs { color: var(--ink-soft); }
+  .topbar .crumbs a { color: var(--ink-soft); }
+  .topbar .crumbs span { margin: 0 8px; opacity: 0.5; }
+
+  /* ---- session rail (generic, inherited-clean nav spine) ---- */
+  .rail { background: var(--surface); border-bottom: 1px solid var(--rule); }
+  .rail-inner { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+  .rail details { padding: 0; }
+  .rail summary { display: flex; align-items: center; gap: 14px; padding: 12px 0; cursor: pointer; list-style: none; font-size: 13px; }
+  .rail summary::-webkit-details-marker { display: none; }
+  .rail summary .r-label { font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; color: var(--ink-soft); }
+  .rail summary .r-here { color: var(--accent); font-weight: 500; }
+  .rail summary .r-toggle { margin-left: auto; color: var(--accent); font-size: 12px; }
+  .rail-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding: 4px 0 18px; }
+  .rail-item { display: block; padding: 12px; border: 1px solid var(--rule); border-radius: 9px; background: var(--paper); font-size: 12.5px; line-height: 1.35; transition: border-color .15s, transform .15s; }
+  .rail-item:hover { border-color: var(--accent-soft); transform: translateY(-2px); text-decoration: none; }
+  .rail-item .ri-num { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 600; }
+  .rail-item .ri-name { display: block; color: var(--ink); font-weight: 500; margin-top: 3px; }
+  .rail-item.current { border-color: var(--accent); background: var(--accent-wash); }
+  @media (max-width: 820px) { .rail-grid { grid-template-columns: repeat(2,1fr); } }
+
+  /* ---- hero ---- */
+  .hero { max-width: 980px; margin: 0 auto; padding: 64px 28px 36px; }
+  .hero .session-kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 20px; }
+  .hero .session-kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 { font-family: var(--serif); font-size: clamp(36px, 5.5vw, 60px); line-height: 1.05; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 18px; }
+  .hero h1 em { font-style: italic; }
+  .hero .lede { font-size: 20px; color: var(--ink-soft); max-width: 640px; margin: 0 0 28px; line-height: 1.45; }
+  .session-meta { display: flex; flex-wrap: wrap; gap: 28px; padding: 20px 0 0; border-top: 1px solid var(--rule); }
+  .session-meta .m { }
+  .session-meta .m .k { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .session-meta .m .v { font-family: var(--serif); font-size: 17px; margin-top: 3px; }
+
+  /* ---- body ---- */
+  .wrap { max-width: 740px; margin: 0 auto; padding: 16px 28px 90px; }
+  .block { margin: 48px 0; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .block h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; line-height: 1.2; margin: 0 0 14px; letter-spacing: -0.01em; }
+  .block h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 28px 0 8px; }
+  .block p { margin: 0 0 16px; }
+  .block .intro { font-size: 18px; color: var(--ink-soft); }
+
+  /* the move list — the ready-made core of each session */
+  .moves { counter-reset: move; margin: 24px 0; }
+  .move { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid var(--rule); }
+  .move:last-child { border-bottom: 1px solid var(--rule); }
+  .move .mn { counter-increment: move; font-family: var(--serif); font-style: italic; font-size: 26px; color: var(--accent); font-weight: 600; line-height: 1; }
+  .move .mn::before { content: counter(move); }
+  .move h3 { margin: 0 0 6px; font-size: 19px; }
+  .move p { margin: 0 0 10px; font-size: 15.5px; }
+  .move .try { font-size: 14px; background: var(--accent-wash); border-radius: 8px; padding: 12px 14px; color: var(--ink); }
+  .move .try strong { color: var(--accent); }
+
+  /* callout / principle */
+  .note { border-left: 3px solid var(--accent); background: var(--surface); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 22px 0; font-size: 15.5px; }
+  .note strong { color: var(--accent); }
+
+  /* pitfall row */
+  .watch { border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; margin: 14px 0; background: var(--surface); }
+  .watch .wt { font-family: var(--serif); font-weight: 600; font-size: 16px; }
+  .watch p { margin: 6px 0 0; font-size: 14.5px; color: var(--ink-soft); }
+
+  /* coaching task */
+  .coach { background: var(--ink); color: #f1f3f1; border-radius: 14px; padding: 28px; margin: 28px 0; }
+  .coach .ce { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-soft); font-weight: 700; }
+  .coach h3 { font-family: var(--serif); color: #fff; margin: 8px 0 14px; font-size: 21px; }
+  .coach ol { margin: 0; padding-left: 20px; }
+  .coach li { margin: 0 0 9px; color: rgba(255,255,255,0.82); font-size: 15px; }
+  .coach .tmr { display: inline-block; margin-top: 6px; font-size: 12px; color: var(--accent-soft); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+
+  /* ---- scenario tester (live) ---- */
+  .tester { background: linear-gradient(160deg, #14322d 0%, #0d2420 100%); border-radius: 16px; padding: 30px; margin: 32px 0; color: #eaf3f0; }
+  .tester .te { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-soft); font-weight: 700; }
+  .tester h3 { font-family: var(--serif); color: #fff; font-size: 23px; margin: 8px 0 6px; }
+  .tester .sub { color: rgba(255,255,255,0.7); font-size: 14.5px; margin: 0 0 18px; }
+  .tester textarea { width: 100%; min-height: 96px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: #fff; padding: 14px; font-family: var(--sans); font-size: 15px; resize: vertical; }
+  .tester textarea::placeholder { color: rgba(255,255,255,0.4); }
+  .tester .row { display: flex; gap: 10px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+  .tester button { background: var(--accent-soft); color: #07211c; border: none; border-radius: 100px; padding: 11px 22px; font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; transition: background .15s, transform .1s; }
+  .tester button:hover { background: #58a99c; }
+  .tester button:active { transform: scale(0.98); }
+  .tester button:disabled { opacity: 0.5; cursor: default; }
+  .tester .chips { display: flex; gap: 7px; flex-wrap: wrap; }
+  .tester .chip { font-size: 12px; padding: 6px 12px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.78); cursor: pointer; background: transparent; font-family: var(--sans); }
+  .tester .chip:hover { border-color: var(--accent-soft); color: #fff; }
+  .tester .out { margin-top: 18px; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 18px; display: none; }
+  .tester .out.show { display: block; }
+  .tester .out h4 { font-family: var(--serif); color: var(--accent-soft); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 10px; font-weight: 600; }
+  .tester .out .resp { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.9); }
+  .tester .out .resp p { margin: 0 0 12px; }
+  .tester .out .resp strong { color: #fff; }
+  .tester .out .resp ol, .tester .out .resp ul { margin: 0 0 12px; padding-left: 20px; }
+  .tester .out .resp li { margin: 0 0 7px; }
+  .tester .spinner { display: inline-block; width: 15px; height: 15px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .tester .fallback-note { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 12px; }
+
+  /* footer nav */
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin: 56px 0 0; }
+  .pager a { flex: 1; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 11px; background: var(--surface); transition: border-color .15s, transform .15s; }
+  .pager a:hover { border-color: var(--accent-soft); transform: translateY(-2px); text-decoration: none; }
+  .pager a .pd { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .pager a .pl { font-family: var(--serif); font-size: 16px; color: var(--ink); margin-top: 4px; display: block; }
+  .pager a.nx { text-align: right; }
+
+  footer.site { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 28px; text-align: center; font-size: 13px; }
+  footer.site .fmark { font-family: var(--serif); color: #fff; font-size: 17px; margin-bottom: 6px; }
+  footer.site a { color: var(--accent-soft); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wordmark">Teaching Practice <span class="by">A Nishkam Schools programme</span></div>
+  <div class="crumbs"><a href="./external-index.html">Overview</a><span>›</span>Session 4</div>
+</div>
+
+<div class="rail"><div class="rail-inner">
+  <details>
+    <summary>
+      <span class="r-label">Six sessions</span>
+      <span class="r-here">Session 4 · Checking for Understanding</span>
+      <span class="r-toggle">All sessions</span>
+    </summary>
+    <div class="rail-grid">
+<a class="rail-item" href="./ext-session-1-presence-authority.html"><span class="ri-num">1</span><span class="ri-name">Presence &amp; Authority</span></a>
+<a class="rail-item" href="./ext-session-2-routines-climate.html"><span class="ri-num">2</span><span class="ri-name">Routines &amp; Climate</span></a>
+<a class="rail-item" href="./ext-session-3-explaining-modelling.html"><span class="ri-num">3</span><span class="ri-name">Explaining &amp; Modelling</span></a>
+<a class="rail-item current" href="./ext-session-4-checking-understanding.html"><span class="ri-num">4</span><span class="ri-name">Checking for Understanding</span></a>
+<a class="rail-item" href="./ext-session-5-questioning-dialogue.html"><span class="ri-num">5</span><span class="ri-name">Questioning &amp; Dialogue</span></a>
+<a class="rail-item" href="./ext-session-6-putting-it-together.html"><span class="ri-num">6</span><span class="ri-name">Putting It Together</span></a>
+    </div>
+  </details>
+</div></div>
+
+<header class="hero">
+  <div class="session-kicker"><span class="dot"></span> Session 4 of 6</div>
+  <h1>Checking for <em>Understanding.</em></h1>
+  <p class="lede">The most common mistake in teaching is moving on too soon. This session is how we find out whether the teaching landed — from every pupil, and quickly enough to act on it inside the lesson — with our own wording taken out.</p>
+  <div class="session-meta">
+<div class="m"><div class="k">Live session</div><div class="v">1 hour</div></div>
+<div class="m"><div class="k">Self-guided</div><div class="v">1 hour</div></div>
+<div class="m"><div class="k">Built on</div><div class="v">A self-audit checklist</div></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="block">
+    <div class="eyebrow">Starting here</div>
+    <h2>Finding out whether it actually landed.</h2>
+    <p class="intro">The most common mistake in teaching is moving on too soon. The explanation felt clear, the room was quiet, a couple of confident pupils nodded — so the lesson presses on, and it is only at the next test that it turns out half the class never understood. Checking for understanding is the habit of finding that out while you can still do something about it, rather than weeks later. This session is the method we use, with the parts that name our school taken out.</p>
+    <p>The thing to aim for is a response from every pupil, not just the keen ones. A question answered by one volunteer tells you that one pupil understood. To teach the class actually in front of you, you need to see the whole room's thinking at once, quickly enough to act on it inside the lesson. The moves below are the practical ways to do that, and a simple cycle for the part of the lesson where most checking gets lost.</p>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The moves</div>
+    <h2>Five ways to see what they understand.</h2>
+    <div class="moves">
+      <div class="move"><div class="mn"></div><div>
+        <h3>Get an answer from everyone at once.</h3>
+        <p>Mini-whiteboards, hand signals, or a quick "everyone show me" turns a check you can't see into one you can. In a few seconds you see every pupil's answer, not just the volunteer's. It is the fastest way to read a whole room, and it is a leveller — every pupil has to commit to an answer rather than hide behind the confident few.</p>
+        <div class="try"><strong>What to do:</strong> At one key moment in your next lesson, have every pupil show an answer at the same time. Read the whole room before you react to any one answer.</div>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Move around the room on purpose.</h3>
+        <p>During independent work, move on a route you've planned, so no pupil gets missed — a circuit, not a wander. You're reading who has it, who is quietly stuck, and who is finished and needs more. Working from among the desks shows you every page; staying at the front shows you almost nothing.</p>
+        <div class="try"><strong>What to do:</strong> Plan your route before the lesson, and start moving within thirty seconds of setting the class off.</div>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Mark it there and then.</h3>
+        <p>As you move around, mark in the moment — underline the error, name the fix, and have the pupil correct it before you move on. Feedback given where the pupil is sitting, while the work is fresh, is worth far more than the same comment written in a book that night — and it means you aren't carrying thirty books home.</p>
+        <div class="try"><strong>What to do:</strong> On your circuit, give one pupil a ten-second fix and watch them act on it before you step away.</div>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Check before you set them off.</h3>
+        <p>Before you release the class to a task, make sure they actually know what to do — a quick question to one or two, or "show me you're ready." Thirty seconds here saves ten minutes of pupils doing the wrong thing with great confidence.</p>
+        <div class="try"><strong>What to do:</strong> Before independent work, ask one pupil to say the task back. Fix any gap before anyone starts.</div>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Stop and re-teach when it's a common problem.</h3>
+        <p>If your checks show the same mistake cropping up around the room, stop and re-teach it to everyone. Fixing it pupil by pupil is slow and lets it spread; a minute of whole-class re-teaching sorts it once. Checking is only worth doing if you act on what it tells you.</p>
+        <div class="try"><strong>What to do:</strong> Set yourself a rule — if you see the same error three times, stop the class and re-model it.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">A rhythm for independent work</div>
+    <h2>Set, settle, sweep, stop.</h2>
+    <p>A useful rhythm for any stretch of independent work, and the part of the lesson where checking most often gets lost. <strong>Set</strong> the task with a clear, checked instruction. <strong>Settle</strong> the class — hold your position, scan, see who has actually started. <strong>Sweep</strong> the room on your planned route, marking as you go. <strong>Stop</strong> the whole class to re-teach if a common error shows up. It gives the messy middle of a lesson a shape, instead of "set them off and hope."</p>
+    <div class="note">Most checking opportunities go missing in exactly this stretch — after you've explained and before you review — because nothing gives it a structure. The four words are just a way of remembering to keep looking.</div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">Where it tends to go wrong</div>
+    <h2>Three things that feel like checking but aren't.</h2>
+    <div class="watch"><div class="wt">"Everyone got that?"</div><p>Only the confident answer, and always with "yes." It tells you nothing. Ask a specific question of someone who didn't volunteer, or get an answer from all of them.</p></div>
+    <div class="watch"><div class="wt">Taking quiet as understanding.</div><p>A silent room might be working or might be lost. Silence isn't evidence either way. Make the thinking visible before you trust it.</p></div>
+    <div class="watch"><div class="wt">Checking, then carrying on regardless.</div><p>Spotting that pupils are stuck and pressing on anyway because the plan said so. The check is wasted unless it changes what you do next.</p></div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The checklist</div>
+    <h2>What a colleague would look for.</h2>
+   <p class="intro">This is the self-audit we use for circulating and checking, set out one-to-one with our own checklist and generalised. Rate each red, amber, or green.</p>
+
+    <div class="watch"><div class="wt">CCS2 · Gives a clear description of the task at the point pupils start.</div><p>At the transition into independent work, expectations for the task are made plain.</p></div>
+    <div class="watch"><div class="wt">CCS3 · Checks confidence through a question or cold call before they begin.</div><p>You confirm the class knows what to do rather than assuming it.</p></div>
+    <div class="watch"><div class="wt">CCS4 · Sets pupils to start quickly and efficiently.</div><p>The class gets to work promptly, without a long lead-in.</p></div>
+    <div class="watch"><div class="wt">CCS5 · Takes a strong position and checks all pupils are on task.</div><p>You position yourself well and scan to see everyone is working.</p></div>
+    <div class="watch"><div class="wt">CCS6 · Provides adaptations or scaffolding so the task can be accessed.</div><p>Pupils who need a way in have one, so the task is reachable for all.</p></div>
+    <div class="watch"><div class="wt">CCS7 · Pupils engage in the work quickly and purposefully.</div><p>The class settles into the task with intent.</p></div>
+    <div class="watch"><div class="wt">CCS8 · Any supporting adult is directed to key pupils, with clear guidance.</div><p>Where there's a teaching assistant, their support is targeted and guided.</p></div>
+    <div class="watch"><div class="wt">CCS9 · The working environment is calm and quiet, and is reset calmly if it slips.</div><p>The working atmosphere holds, and is corrected without raising your voice.</p></div>
+    <div class="watch"><div class="wt">CCS10 · Actively circulates, spotting who needs support and who needs more.</div><p>You move purposefully, reading work and identifying who needs what.</p></div>
+    <div class="watch"><div class="wt">CCS11 · Pupils respond to live feedback at the desk.</div><p>Feedback given in the moment is acted on, not just received.</p></div>
+    <div class="watch"><div class="wt">CCS12 · Evaluates success and errors, and addresses them by reinforcing, re-modelling, or re-teaching.</div><p>You judge how it's going and respond — shoring up, showing again, or re-teaching.</p></div>
+    <div class="watch"><div class="wt">CCS14 · Offers challenge through stretch or deeper-thinking tasks.</div><p>Pupils who are ready are pushed further rather than left waiting.</p></div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">Coaching task</div>
+    <h2>Build one check in.</h2>
+    <div class="coach">
+      <div class="ce">15 minutes · in pairs</div>
+      <h3>Where will you look?</h3>
+      <ol>
+        <li>Each take a lesson you'll teach soon. Find the one moment where understanding most needs checking.</li>
+        <li>Choose how you'll check it: an answer from everyone, a checked instruction, or a planned point on your circuit.</li>
+        <li>Decide in advance what you'll do if the check shows a common error — your re-teach plan.</li>
+        <li>Share it with your partner; they test whether it really sees every pupil, not just some.</li>
+      </ol>
+      <span class="tmr">Every pupil visible · a plan to act on it</span>
+    </div>
+  </div>
+
+
+    <div class="tester" id="tester">
+      <div class="te">Scenario tester</div>
+      <h3>Try it on your own classroom.</h3>
+      <p class="sub">Describe a real situation from your teaching. The tool suggests how to apply this session's techniques to it.</p>
+      <textarea id="scenario" placeholder="e.g. My Year 9 class goes quiet when I ask a question — the same four hands go up and everyone else switches off..."></textarea>
+      <div class="row">
+        <button id="askBtn" onclick="runScenario()">Get suggestions</button>
+        <div class="chips"><button class="chip" onclick="fillScenario(this)">I only find out they didn't get it at the test</button><button class="chip" onclick="fillScenario(this)">A few pupils answer and I assume the rest are fine</button><button class="chip" onclick="fillScenario(this)">Independent work time feels unproductive</button></div>
+      </div>
+      <div class="out" id="out">
+        <h4 id="outLabel">Suggestions</h4>
+        <div class="resp" id="resp"></div>
+      </div>
+      <div class="fallback-note" id="fbNote" style="display:none;">Showing a worked example — the live tool runs when the page is opened in a connected environment.</div>
+    </div>
+
+    <script>
+      const SYS = 'You are a teaching coach helping a teacher apply a specific set of classroom techniques. The techniques for this session are: getting an answer from every pupil at once (mini-whiteboards or show-me), circulating on a planned route, marking live at the desk and having pupils act on it, checking the class knows the task before releasing them, and stopping to re-teach a common error; the set-settle-sweep-stop rhythm for independent work The teacher will describe a real classroom situation. Respond with practical, specific, encouraging advice on how to apply these techniques to their situation. Keep it concise and usable: a brief diagnosis, then 3-5 concrete steps, then one common pitfall to avoid. Use plain, warm, non-academic language. Do not reference any specific school, ethos, or named virtues — keep advice universal and transferable to any school context. Format your response in simple HTML using <p>, <strong>, <ol>, <li> tags only.';
+      const FALLBACK = "<p><strong>Where this usually comes from:</strong> if problems only surface at the test, the lesson is missing in-the-moment checks — you're finding out too late to do anything.</p><ol><li>Add one 'everyone show me' at the key moment, so you see the whole room's thinking at once.</li><li>Move around on a planned route during independent work; read the pages, don't just patrol.</li><li>Mark there and then — a quick fix the pupil acts on before you move on.</li><li>If the same error keeps appearing, stop and re-teach it once to everyone.</li></ol><p><strong>One thing to avoid:</strong> asking 'everyone got that?' Only the confident answer, and always yes. Make every pupil respond.</p>";
+      function fillScenario(b){ document.getElementById('scenario').value = b.textContent; }
+      async function runScenario(){
+        const s = document.getElementById('scenario').value.trim();
+        if(!s){ document.getElementById('scenario').focus(); return; }
+        const btn = document.getElementById('askBtn');
+        const out = document.getElementById('out');
+        const resp = document.getElementById('resp');
+        out.classList.add('show');
+        resp.innerHTML = '<span class="spinner"></span>';
+        btn.disabled = true; btn.textContent = 'Thinking...';
+        try {
+          const r = await fetch("https://api.anthropic.com/v1/messages", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              model: "claude-sonnet-4-20250514",
+              max_tokens: 1000,
+              system: SYS,
+              messages: [{ role: "user", content: s }]
+            })
+          });
+          if(!r.ok) throw new Error('api');
+          const data = await r.json();
+          const text = (data.content||[]).map(b=>b.text||"").join("\n").trim();
+          if(!text) throw new Error('empty');
+          resp.innerHTML = text.replace(/```html|```/g,'').trim();
+          document.getElementById('fbNote').style.display='none';
+        } catch(e) {
+          resp.innerHTML = FALLBACK;
+          document.getElementById('fbNote').style.display='block';
+        } finally {
+          btn.disabled = false; btn.textContent = 'Get suggestions';
+        }
+      }
+    </script>
+
+  <div class="pager"><a class="pv" href="./ext-session-3-explaining-modelling.html"><span class="pd">← Previous session</span><span class="pl">Explaining &amp; Modelling</span></a><a class="nx" href="./ext-session-5-questioning-dialogue.html"><span class="pd">Next session →</span><span class="pl">Questioning &amp; Dialogue</span></a></div>
+</div>
+
+<footer class="site">
+  <div class="fmark">Teaching Practice Programme</div>
+  <div>A professional development programme developed by Nishkam Schools.</div>
+  <div style="margin-top:8px;"><a href="./external-index.html">Overview</a> · Six one-hour sessions, each with a self-guided companion.</div>
+</footer>
+</body>
+</html>

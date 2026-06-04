@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Teaching Excellence Programme | Nishkam School West London</title>
+<meta name="description" content="The in-house Teaching Excellence Programme for Nishkam School West London — six pillars of direct-instruction practice plus the Foundations reading strand." />
+<style>
+/* Pillar 3 — Questioning · shared stylesheet */
+:root {
+  --bg: #f7f2e8; --surface: #fffdf7; --ink: #1f2a37; --ink-soft: #4b5563;
+  --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
+  --highlight: #fff4dd; --practice: #eef3ec; --practice-rule: #b6c8b1; --practice-ink: #2d6a3e;
+  --pause: #faf3e3; --pause-ink: #8a6611;
+  --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+.topbar { background: var(--ink); color: #fff; padding: 14px 24px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+.topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+.topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+.hero { padding: 56px 24px 40px; border-bottom: 1px solid var(--rule); background: radial-gradient(circle at 85% 20%, rgba(184, 137, 58, 0.10), transparent 50%), var(--bg); }
+.hero-inner { max-width: 1080px; margin: 0 auto; }
+.pillar-tag { display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; font-weight: 600; }
+.module-number { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 18px; margin-bottom: 8px; }
+h1.title { font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); line-height: 1.1; margin: 0 0 18px; font-weight: 600; letter-spacing: -0.01em; }
+h1.title em { font-style: italic; color: var(--accent); }
+.lede { font-size: 19px; color: var(--ink-soft); max-width: 720px; margin: 0 0 24px; line-height: 1.5; }
+
+.checklist-strip { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 20px; margin: 18px 0 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.checklist-strip .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-right: 6px; }
+.checklist-strip a.cl-tag, .checklist-strip span.cl-tag { font-family: var(--serif); font-weight: 700; font-size: 13px; background: var(--highlight); color: var(--accent); padding: 4px 10px; border-radius: 100px; text-decoration: none; }
+.checklist-strip .cl-tag.outcome { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-style: italic; }
+.checklist-strip .secondary { font-size: 11px; color: var(--ink-soft); font-style: italic; margin-left: 6px; }
+
+.meta-row { display: flex; flex-wrap: wrap; gap: 24px; padding-top: 20px; border-top: 1px solid var(--rule); }
+.meta { display: flex; flex-direction: column; gap: 4px; }
+.meta .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.meta .value { font-weight: 600; font-size: 15px; }
+
+.layout { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 44px 24px 60px; }
+@media (max-width: 880px) { .layout { grid-template-columns: 1fr; gap: 0; padding: 28px 20px 56px; } }
+
+nav.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; line-height: 1.5; }
+nav.toc h4 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 12px; font-weight: 600; }
+nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+nav.toc li { counter-increment: toc; padding: 5px 0 5px 12px; }
+nav.toc li::before { content: counter(toc, decimal-leading-zero) "  "; color: var(--accent-soft); }
+nav.toc a { color: var(--ink); text-decoration: none; }
+nav.toc a:hover { color: var(--accent); }
+@media (max-width: 880px) { nav.toc { display: none; } }
+
+article > section { margin-bottom: 44px; scroll-margin-top: 24px; }
+article h2 { font-family: var(--serif); font-size: 28px; margin: 0 0 8px; font-weight: 600; }
+.section-eyebrow { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 6px; }
+.section-intro { font-size: 17px; color: var(--ink-soft); margin: 0 0 18px; max-width: 660px; }
+article p { margin: 0 0 14px; }
+article ol { padding-left: 22px; margin: 0 0 14px; }
+
+/* Routines orientation table */
+.orient { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--surface); border-radius: 8px; overflow: hidden; font-size: 13px; }
+.orient th, .orient td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.orient th { background: var(--ink); color: #fff; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.orient td:first-child { font-family: var(--serif); font-weight: 700; color: var(--accent); white-space: nowrap; }
+.orient tr.this-module td { background: var(--highlight); }
+
+/* Beat strip (signature visual for sequenced techniques) */
+.beat-strip { margin: 22px 0; padding: 22px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.beat-orient { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; text-align: center; margin-bottom: 14px; }
+.beat-grid { display: grid; gap: 6px; }
+.beat-grid.cols-6 { grid-template-columns: repeat(6, 1fr); }
+.beat-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+.beat-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 880px) { .beat-grid { grid-template-columns: 1fr 1fr !important; gap: 8px; } }
+.beat { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 10px; text-align: center; min-height: 140px; display: flex; flex-direction: column; }
+.beat.pause-beat { background: var(--pause); border-color: var(--gold); }
+.beat .beat-num { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 20px; color: var(--accent); margin-bottom: 4px; }
+.beat.pause-beat .beat-num { color: var(--pause-ink); }
+.beat .beat-name { font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.2; }
+.beat .beat-detail { font-size: 11px; color: var(--ink-soft); line-height: 1.35; flex: 1; }
+.beat .beat-cl { margin-top: 6px; font-family: var(--serif); font-weight: 700; font-size: 11px; color: var(--accent); }
+.beat.pause-beat .beat-cl { color: var(--pause-ink); }
+
+/* Step cards */
+.step-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 20px 24px; margin: 16px 0; scroll-margin-top: 24px; }
+.step-header { display: flex; align-items: center; gap: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); margin-bottom: 12px; }
+.step-num { width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 16px; font-family: var(--serif); }
+.step-num.pause { background: var(--gold); }
+.step-title-block { flex: 1; }
+.step-title-block h3 { margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 600; }
+.step-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.step-tag.pause { color: var(--pause-ink); }
+.step-cl { display: flex; flex-wrap: wrap; gap: 5px; flex-shrink: 0; }
+.cl-pill { background: var(--highlight); color: var(--accent); font-family: var(--serif); font-weight: 700; font-size: 11px; padding: 3px 9px; border-radius: 100px; }
+.cl-pill.outcome { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-style: italic; }
+
+.script { margin: 12px 0; padding: 12px 16px; background: var(--highlight); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink); }
+.script .label { display: block; font-family: var(--sans); font-style: normal; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+.script .pause-marker { font-family: var(--sans); font-style: normal; font-weight: 700; color: var(--pause-ink); background: var(--pause); padding: 1px 6px; border-radius: 3px; font-size: 11px; letter-spacing: 0.04em; }
+
+.pause-note { background: var(--pause); border-left: 3px solid var(--gold); padding: 10px 14px; margin: 10px 0; font-size: 13px; color: var(--pause-ink); border-radius: 0 4px 4px 0; }
+.pause-note strong { color: var(--pause-ink); }
+
+.practice { background: var(--practice); border: 1px solid var(--practice-rule); border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
+.practice .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--practice-ink); font-weight: 700; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.practice .timer { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 13px; text-transform: none; letter-spacing: 0; }
+.practice ol { padding-left: 22px; margin: 0; }
+.practice ol li { margin-bottom: 3px; font-size: 14px; }
+.coach-prompt { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--practice-rule); font-size: 13px; color: var(--ink-soft); }
+.coach-prompt strong { color: var(--practice-ink); }
+
+.pitfall { border-left: 4px solid #c25b3f; background: #fbeee5; padding: 12px 18px; border-radius: 0 6px 6px 0; margin: 14px 0; font-size: 14px; }
+.pitfall strong { color: #8b3a2e; }
+.pf-cl { display: inline-block; font-family: var(--serif); font-weight: 700; font-size: 11px; color: #8b3a2e; background: #fff; padding: 2px 8px; border-radius: 100px; margin-left: 6px; vertical-align: middle; }
+
+table.audit { width: 100%; border-collapse: collapse; margin: 16px 0; background: var(--surface); border-radius: 10px; overflow: hidden; font-size: 13px; }
+table.audit th, table.audit td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.audit th { background: var(--ink); color: #fff; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+table.audit tr:last-child td { border-bottom: none; }
+table.audit tr.outcome-row td { background: #faf3e3; }
+table.audit tr.outcome-row .id { color: var(--gold); }
+table.audit .id { font-family: var(--serif); font-weight: 700; color: var(--accent); white-space: nowrap; }
+table.audit .rag { display: inline-flex; gap: 4px; }
+table.audit .rag span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--rule); }
+.rag .r { background: #e8c0b6; } .rag .a { background: #f3dfa8; } .rag .g { background: #b8d4ba; }
+.audit-section-divider { background: var(--gold); color: #fff; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 7px 14px; }
+
+.ai-tool { background: linear-gradient(135deg, #2a2a2a 0%, #1f2a37 100%); color: #f5f2eb; padding: 26px; border-radius: 10px; margin: 22px 0; }
+.ai-tool h3 { color: #fff; margin: 0 0 6px; font-family: var(--serif); }
+.ai-tool .ai-eyebrow { color: var(--accent-soft); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; }
+.ai-tool p { color: rgba(255,255,255,0.75); }
+.ai-demo { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 18px; margin-top: 16px; }
+.ai-demo .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 5px; font-weight: 600; }
+.ai-demo .scenario { font-style: italic; color: rgba(255,255,255,0.85); padding: 11px 13px; background: rgba(0,0,0,0.2); border-radius: 6px; margin-bottom: 14px; font-family: var(--serif); font-size: 14px; }
+.ai-demo .response { font-size: 14px; line-height: 1.55; }
+.ai-demo .response strong { color: var(--accent-soft); }
+.ai-demo .response ol { margin: 6px 0; padding-left: 20px; }
+.ai-cta { display: inline-block; margin-top: 14px; padding: 9px 16px; border: 1px solid var(--accent-soft); color: var(--accent-soft); border-radius: 6px; text-decoration: none; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: not-allowed; opacity: 0.7; }
+
+.downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+@media (max-width: 700px) { .downloads { grid-template-columns: 1fr; } }
+.download-card { border: 1px solid var(--rule); border-radius: 10px; padding: 18px; background: var(--surface); text-decoration: none; color: var(--ink); transition: all 0.2s; display: block; }
+.download-card:hover { border-color: var(--accent); }
+.download-card .type { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.download-card .name { font-weight: 600; margin-top: 5px; font-size: 15px; font-family: var(--serif); }
+.download-card .size { font-size: 11px; color: var(--ink-soft); margin-top: 4px; }
+
+footer.module-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 36px 24px; text-align: center; font-size: 13px; }
+footer.module-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+
+.module-nav { display: flex; justify-content: space-between; gap: 16px; padding: 28px 0; border-top: 1px solid var(--rule); margin-top: 32px; }
+.module-nav a { text-decoration: none; flex: 1; max-width: 320px; padding: 14px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); }
+.module-nav .dir { font-size: 11px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+.module-nav .label { display: block; margin-top: 4px; font-family: var(--serif); font-size: 16px; color: var(--ink); }
+.module-nav .next { text-align: right; }
+
+/* Routine cycle visual (used in 2.4 Pair-share + Sequencing) */
+.cycle { display: grid; grid-template-columns: repeat(5, 1fr) auto; gap: 6px; align-items: stretch; margin: 22px 0; }
+@media (max-width: 880px) { .cycle { grid-template-columns: 1fr 1fr; } }
+.cycle-stage { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 10px; text-align: center; min-height: 130px; display: flex; flex-direction: column; }
+.cycle-stage.this-module { background: var(--highlight); border-color: var(--accent-soft); }
+.cycle-stage .stage-letter { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--accent); font-weight: 700; }
+.cycle-stage .stage-name { font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--ink); margin: 4px 0; line-height: 1.2; }
+.cycle-stage .stage-purpose { font-size: 11px; color: var(--ink-soft); line-height: 1.35; flex: 1; }
+.cycle-stage .stage-mod { margin-top: 6px; font-family: var(--serif); font-style: italic; font-size: 10px; color: var(--accent); }
+.cycle-arrow { display: flex; align-items: center; color: var(--accent-soft); font-size: 18px; }
+@media (max-width: 880px) { .cycle-arrow { display: none; } }
+
+.long-quote { margin: 20px 0; padding: 16px 22px; border-left: 3px solid var(--gold); background: var(--surface); font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--ink-soft); font-style: italic; }
+.long-quote cite { display: block; font-family: var(--sans); font-style: normal; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-top: 10px; font-weight: 600; }
+
+
+/* ====== shared six-pillar nav spine ====== */
+.pillar-spine { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.pillar-spine-summary {
+  list-style: none; cursor: pointer; padding: 14px 24px;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  max-width: 1080px; margin: 0 auto;
+}
+.pillar-spine-summary::-webkit-details-marker { display: none; }
+.pillar-spine-summary::marker { content: ""; }
+.pillar-spine-summary .ps-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.pillar-spine-summary .ps-current {
+  font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 15px;
+}
+.pillar-spine-summary .ps-current strong { font-style: normal; color: var(--accent); font-weight: 600; }
+.pillar-spine-summary .ps-toggle {
+  margin-left: auto; color: var(--accent); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.06em;
+}
+.pillar-spine-summary .ps-toggle::after { content: " ↓"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle::after { content: " ↑"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-show { display: none; }
+.pillar-spine .pillar-spine-summary .ps-toggle .ps-hide { display: none; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-hide { display: inline; }
+
+.pillar-spine-grid {
+  max-width: 1080px; margin: 0 auto; padding: 4px 24px 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px;
+}
+@media (max-width: 880px) { .pillar-spine-grid { grid-template-columns: 1fr; padding-bottom: 18px; } }
+
+.ps-pillar { border-top: 1px solid var(--rule); padding: 14px 0 4px; }
+.ps-pillar-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.ps-num {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700;
+}
+.ps-name {
+  font-family: var(--serif); font-size: 16px; color: var(--ink); font-weight: 600;
+  line-height: 1.25;
+}
+.ps-modules { list-style: none; padding: 0; margin: 0; }
+.ps-modules li { padding: 2px 0; font-size: 13.5px; line-height: 1.5; }
+.ps-modules a { color: var(--ink); text-decoration: none; }
+.ps-modules a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ps-modules a.ps-current { color: var(--accent); font-weight: 700; }
+.ps-modules a.ps-current::before { content: "● "; color: var(--accent); font-size: 10px; vertical-align: 2px; }
+
+.ps-pillar.ps-coming .ps-num,
+.ps-pillar.ps-coming .ps-name { color: var(--ink-soft); }
+.ps-pillar.ps-coming .ps-name { opacity: 0.7; }
+.ps-pillar.ps-coming .ps-coming-note {
+  font-size: 12.5px; color: var(--ink-soft); font-style: italic;
+  margin: 4px 0 0; opacity: 0.75;
+}
+.ps-pending { color: var(--ink-soft); opacity: 0.65; display: flex; align-items: baseline; gap: 8px; }
+.ps-pending .ps-tag {
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 1px 7px; border-radius: 100px; font-style: normal; font-weight: 600;
+}
+  .ps-pending .ps-tag.ps-tag-deferred {
+  color: var(--ink-soft); border-color: var(--rule);
+}
+/* ====== /shared six-pillar nav spine ====== */
+
+</style>
+
+<style>
+  .lp-wrap { max-width: 1080px; margin: 0 auto; padding: 56px 24px 96px; }
+  .lp-section { margin-bottom: 64px; }
+  .lp-section > .section-eyebrow { margin-bottom: 10px; }
+  .lp-section h2 { font-family: var(--serif); font-size: 30px; font-weight: 600; margin: 0 0 8px; line-height: 1.2; }
+  .lp-section .section-intro { font-size: 18px; color: var(--ink-soft); margin: 0 0 28px; max-width: 720px; line-height: 1.5; }
+
+  .pillar-block { margin-bottom: 44px; }
+  .pillar-block-head { display: flex; align-items: baseline; gap: 14px; border-bottom: 2px solid var(--rule); padding-bottom: 10px; margin-bottom: 20px; }
+  .pillar-block-head .pn { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 600; font-size: 15px; letter-spacing: 0.04em; }
+  .pillar-block-head .nm { font-family: var(--serif); font-size: 22px; font-weight: 600; }
+  .pillar-block-head .st { margin-left: auto; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; }
+  .pillar-block.deferred .pillar-block-head { opacity: 0.6; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 14px; }
+  .lp-card { display: block; padding: 18px 20px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; text-decoration: none; color: var(--ink); transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s; }
+  .lp-card:hover { transform: translateY(-2px); border-color: var(--accent-soft); box-shadow: 0 6px 18px rgba(122,59,29,0.08); text-decoration: none; }
+  .lp-card .c-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .lp-card .c-name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-top: 5px; line-height: 1.25; }
+  .lp-card .c-desc { font-size: 13px; color: var(--ink-soft); margin-top: 6px; line-height: 1.45; }
+  .lp-card.deferred { opacity: 0.55; pointer-events: none; background: transparent; border-style: dashed; }
+  .lp-card.deferred .c-tag { color: var(--ink-soft); }
+
+  .strand-card { border-left: 4px solid var(--foundations, #5c4a7a); }
+  .strand-card .c-tag { color: var(--foundations, #5c4a7a); }
+
+  .big-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 8px; }
+  .big-tile { display: block; padding: 30px 30px 28px; border-radius: 14px; text-decoration: none; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); transition: transform 0.15s, box-shadow 0.15s; position: relative; overflow: hidden; }
+  .big-tile:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(31,42,55,0.1); text-decoration: none; }
+  .big-tile .bt-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .big-tile h3 { font-family: var(--serif); font-size: 24px; font-weight: 600; margin: 8px 0 10px; }
+  .big-tile p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+  .big-tile.deferred { opacity: 0.5; pointer-events: none; border-style: dashed; background: transparent; }
+  .big-tile .bt-status { display: inline-block; margin-top: 14px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+
+  .lp-hero { padding: 80px 24px 60px; background: linear-gradient(135deg, var(--highlight) 0%, var(--bg) 75%); border-bottom: 1px solid var(--rule); }
+  .lp-hero-inner { max-width: 1080px; margin: 0 auto; }
+  .lp-hero .eyebrow { display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 6px 14px; border-radius: 100px; margin-bottom: 22px; font-weight: 600; background: var(--surface); }
+  .lp-hero h1 { font-family: var(--serif); font-size: clamp(38px, 5vw, 56px); line-height: 1.08; margin: 0 0 20px; font-weight: 600; letter-spacing: -0.01em; }
+  .lp-hero h1 em { font-style: italic; color: var(--accent); }
+  .lp-hero .lede { font-size: 20px; color: var(--ink-soft); max-width: 680px; margin: 0; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a><span>›</span>
+    <a href="./tl-programme.html">T&amp;L Excellence</a><span>›</span>
+    Programme
+  </div>
+  <div>Programme Index</div>
+</div>
+
+<header class="lp-hero">
+  <div class="lp-hero-inner">
+    <span class="eyebrow">Nishkam School West London</span>
+    <h1>Teaching Excellence <em>Programme.</em></h1>
+    <p class="lede">The in-house reference for every routine, explanation, check, and question that makes a Nishkam classroom work — and the Foundations that underlie them.</p>
+  </div>
+</header>
+
+<div class="lp-wrap">
+  <div class="lp-section">
+    <div class="section-eyebrow">The programme</div>
+    <h2>Six pillars of classroom practice.</h2>
+    <p class="section-intro">The Teaching Excellence Programme is organised into six pillars. Each module maps to the school's Teaching &amp; Learning checklist and is built for direct instruction: step-by-step, visible, and clear. Pillars 2 and 6 are deferred for now and appear greyed.</p>
+    <div class="pillar-block">
+      <div class="pillar-block-head"><span class="pn">Pillar 1</span><span class="nm">Behaviour &amp; Climate</span><span class="st">10 built</span></div>
+      <div class="card-grid">
+        <a class="lp-card" href="./module-1-1-language-of-virtues.html"><span class="c-tag">1.1</span><span class="c-name">Language of Virtues</span><span class="c-desc">The shared moral vocabulary of the classroom.</span></a>
+        <a class="lp-card" href="./module-1-2-lesson-starts.html"><span class="c-tag">1.2</span><span class="c-name">Lesson Starts</span><span class="c-desc">The opening sequence that settles a room.</span></a>
+        <a class="lp-card" href="./module-1-3-diligence-routine.html"><span class="c-tag">1.3</span><span class="c-name">Diligence Routine</span><span class="c-desc">The brief instruction and the held pause.</span></a>
+        <a class="lp-card" href="./module-1-4-30-second-reflection.html"><span class="c-tag">1.4</span><span class="c-name">30-Second Reflection</span><span class="c-desc">The short reset that restores attention.</span></a>
+        <a class="lp-card" href="./module-1-5-bfl-in-class.html"><span class="c-tag">1.5</span><span class="c-name">Behaviour for Learning in Class</span><span class="c-desc">The conditions under which learning happens.</span></a>
+        <a class="lp-card" href="./module-1-6-pre-lesson-strategies.html"><span class="c-tag">1.6</span><span class="c-name">Pre-Lesson Strategies</span><span class="c-desc">Setting the room before pupils arrive.</span></a>
+        <a class="lp-card" href="./module-1-7-in-lesson-strategies.html"><span class="c-tag">1.7</span><span class="c-name">In-Lesson Strategies</span><span class="c-desc">The ladder of measured responses to challenge.</span></a>
+        <a class="lp-card" href="./module-1-8-direct-intervention.html"><span class="c-tag">1.8</span><span class="c-name">Direct Intervention</span><span class="c-desc">The warning ladder when a routine fails.</span></a>
+        <a class="lp-card" href="./module-1-9-lesson-endings.html"><span class="c-tag">1.9</span><span class="c-name">Lesson Endings</span><span class="c-desc">Closing a lesson with the standard intact.</span></a>
+        <a class="lp-card" href="./module-1-10-other-routines.html"><span class="c-tag">1.10</span><span class="c-name">Other Routines</span><span class="c-desc">The whole-school routines that hold the day.</span></a>
+      </div>
+    </div>
+    <div class="pillar-block deferred">
+      <div class="pillar-block-head"><span class="pn">Pillar 2</span><span class="nm">Adaptive Teaching &amp; Inclusion</span><span class="st">Deferred</span></div>
+      <p class="section-intro" style="margin:0;font-size:15px;">SEND families to follow.</p>
+    </div>
+    <div class="pillar-block">
+      <div class="pillar-block-head"><span class="pn">Pillar 3</span><span class="nm">Instruction &amp; Modelling</span><span class="st">5 built</span></div>
+      <div class="card-grid">
+        <a class="lp-card" href="./module-3-1-explain-clearly.html"><span class="c-tag">3.1</span><span class="c-name">Explain Clearly</span><span class="c-desc">Structuring an explanation so it can be followed.</span></a>
+        <a class="lp-card" href="./module-3-2-explain-interactively.html"><span class="c-tag">3.2</span><span class="c-name">Explain Interactively</span><span class="c-desc">Alternating teacher input with pupil output.</span></a>
+        <a class="lp-card" href="./module-3-3-explain-with-visuals.html"><span class="c-tag">3.3</span><span class="c-name">Explain with Visuals</span><span class="c-desc">Pairing speech with images and representations.</span></a>
+        <a class="lp-card" href="./module-3-4-explain-with-examples.html"><span class="c-tag">3.4</span><span class="c-name">Explain with Examples</span><span class="c-desc">Saying what it is and what it is not.</span></a>
+        <a class="lp-card" href="./module-3-5-economy-of-language.html"><span class="c-tag">3.5</span><span class="c-name">Economy of Language</span><span class="c-desc">Saying only the words that need saying.</span></a>
+      </div>
+    </div>
+    <div class="pillar-block">
+      <div class="pillar-block-head"><span class="pn">Pillar 4</span><span class="nm">Checking for Understanding</span><span class="st">2 built</span></div>
+      <div class="card-grid">
+        <a class="lp-card" href="./module-4-1-mini-whiteboards.html"><span class="c-tag">4.1</span><span class="c-name">Mini-Whiteboards</span><span class="c-desc">A response from every pupil at once.</span></a>
+        <a class="lp-card" href="./module-4-2-circulating-checking-support.html"><span class="c-tag">4.2</span><span class="c-name">Circulating &amp; Checking Support</span><span class="c-desc">Set, Settle, Sweep, Stop — and live marking.</span></a>
+        <span class="lp-card deferred"><span class="c-tag">4.3 · Primary</span><span class="c-name">Explicit Vocabulary Teaching</span><span class="c-desc">Primary phase. Deferred for now.</span></span>
+      </div>
+    </div>
+    <div class="pillar-block">
+      <div class="pillar-block-head"><span class="pn">Pillar 5</span><span class="nm">Questioning &amp; Classroom Dialogue</span><span class="st">3 built</span></div>
+      <div class="card-grid">
+        <a class="lp-card" href="./module-5-1-cold-calling.html"><span class="c-tag">5.1</span><span class="c-name">Cold-Calling</span><span class="c-desc">Every pupil expects to be asked.</span></a>
+        <a class="lp-card" href="./module-5-2-probing-questions.html"><span class="c-tag">5.2</span><span class="c-name">Probing Questions</span><span class="c-desc">Following an answer to its reasoning.</span></a>
+        <a class="lp-card" href="./module-5-3-think-pair-share.html"><span class="c-tag">5.3</span><span class="c-name">Think, Pair, Share</span><span class="c-desc">Rehearsing an answer before giving it.</span></a>
+      </div>
+    </div>
+    <div class="pillar-block deferred">
+      <div class="pillar-block-head"><span class="pn">Pillar 6</span><span class="nm">Standards &amp; Curriculum</span><span class="st">Deferred</span></div>
+      <p class="section-intro" style="margin:0;font-size:15px;">Primary-phase focus.</p>
+    </div>
+  </div>
+
+  <div class="lp-section">
+    <div class="section-eyebrow">The strand beneath the pillars</div>
+    <h2>Foundations.</h2>
+    <p class="section-intro">Five self-directed reading units on the dispositions the routines rest on. No checklist, no coaching partner — read in a single sitting, returned to across the year.</p>
+    <div class="card-grid">
+        <a class="lp-card strand-card" href="./foundations-1-assertiveness.html"><span class="c-tag">Unit 1</span><span class="c-name">Assertiveness</span><span class="c-desc">Carrying authority without escalation.</span></a>
+        <a class="lp-card strand-card" href="./foundations-2-presence.html"><span class="c-tag">Unit 2</span><span class="c-name">Presence</span><span class="c-desc">What the room reads before a word is spoken.</span></a>
+        <a class="lp-card strand-card" href="./foundations-3-professional-conduct.html"><span class="c-tag">Unit 3</span><span class="c-name">Professional Conduct</span><span class="c-desc">The basics of conduct, professionalism, and co-working.</span></a>
+        <a class="lp-card strand-card" href="./foundations-4-voice.html"><span class="c-tag">Unit 4</span><span class="c-name">Voice</span><span class="c-desc">Projection over volume; silence as a tool.</span></a>
+        <a class="lp-card strand-card" href="./foundations-5-composure.html"><span class="c-tag">Unit 5</span><span class="c-name">Composure</span><span class="c-desc">Staying measured when a situation invites otherwise.</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="module-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Nishkam School West London</div>
+  <div style="margin-top: 8px;"><a href="./index.html" style="color: rgba(255,255,255,0.9);">Hub</a> · <a href="./tl-programme.html" style="color: rgba(255,255,255,0.9);">T&amp;L Excellence</a></div>
+</footer>
+</body>
+</html>

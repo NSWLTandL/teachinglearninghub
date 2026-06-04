@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module 1.4 — The 30-Second Reflection | T&amp;L Excellence Programme</title>
+<meta name="description" content="The 30-Second Reflection at Nishkam School — the deep treatment of LS5. The silence that resets the lesson, the practice that teaches teachers to hold it, and the variations when it collapses." />
+<style>
+  :root {
+    --bg: #f7f2e8; --surface: #fffdf7; --ink: #1f2a37; --ink-soft: #4b5563;
+    --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
+    --highlight: #fff4dd; --practice: #eef3ec; --practice-rule: #b6c8b1; --practice-ink: #2d6a3e;
+    --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .topbar { background: var(--ink); color: #fff; padding: 14px 24px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+  .topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+  .topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+  .hero { padding: 64px 24px 48px; border-bottom: 1px solid var(--rule); background: radial-gradient(circle at 85% 20%, rgba(184, 137, 58, 0.10), transparent 50%), var(--bg); }
+  .hero-inner { max-width: 1080px; margin: 0 auto; }
+  .pillar-tag { display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; font-weight: 600; }
+  .module-number { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 18px; margin-bottom: 8px; }
+  h1.title { font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); line-height: 1.1; margin: 0 0 20px; font-weight: 600; letter-spacing: -0.01em; }
+  h1.title em { font-style: italic; color: var(--accent); }
+  .lede { font-size: 20px; color: var(--ink-soft); max-width: 720px; margin: 0 0 32px; line-height: 1.5; }
+
+  .checklist-strip { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 22px; margin: 24px 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .checklist-strip .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-right: 8px; }
+  .checklist-strip a.cl-tag { font-family: var(--serif); font-weight: 700; font-size: 13px; background: var(--highlight); color: var(--accent); padding: 5px 11px; border-radius: 100px; text-decoration: none; border: 1px solid transparent; transition: border-color 0.15s; }
+  .checklist-strip a.cl-tag:hover { border-color: var(--accent); }
+  .checklist-strip .secondary { font-size: 11px; color: var(--ink-soft); font-style: italic; margin-left: 8px; }
+
+  .meta-row { display: flex; flex-wrap: wrap; gap: 24px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .meta { display: flex; flex-direction: column; gap: 4px; }
+  .meta .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+  .meta .value { font-weight: 600; font-size: 15px; }
+  .audience-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+  .tag { background: var(--surface); border: 1px solid var(--rule); padding: 4px 12px; border-radius: 100px; font-size: 12px; color: var(--ink-soft); }
+
+  .layout { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 240px 1fr; gap: 56px; padding: 56px 24px 80px; }
+  @media (max-width: 880px) { .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 20px 60px; } }
+
+  nav.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; line-height: 1.5; }
+  nav.toc h4 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 14px; font-weight: 600; }
+  nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+  nav.toc li { counter-increment: toc; padding: 6px 0; padding-left: 12px; }
+  nav.toc li::before { content: counter(toc, decimal-leading-zero) "  "; color: var(--accent-soft); }
+  nav.toc a { color: var(--ink); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  @media (max-width: 880px) { nav.toc { display: none; } }
+
+  article > section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  article h2 { font-family: var(--serif); font-size: 32px; margin: 0 0 8px; font-weight: 600; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
+  .section-intro { font-size: 18px; color: var(--ink-soft); margin: 0 0 28px; max-width: 660px; }
+  article p { margin: 0 0 16px; }
+  article ol { padding-left: 22px; margin: 0 0 18px; }
+
+  blockquote.pull { margin: 32px 0; padding: 28px 32px; border-left: 4px solid var(--accent); background: var(--surface); font-family: var(--serif); font-size: 22px; line-height: 1.4; color: var(--ink); font-style: italic; }
+  blockquote.pull cite { display: block; font-family: var(--sans); font-style: normal; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-top: 16px; }
+
+  /* THE SIGNATURE: silence clock — vertical timeline, second-by-second */
+  .silence-clock { margin: 32px 0; padding: 32px; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; display: grid; grid-template-columns: 80px 1fr 1fr; gap: 0; }
+  .clock-axis { position: relative; padding: 16px 0; }
+  .clock-axis::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; background: var(--accent); transform: translateX(-50%); border-radius: 2px; }
+  .clock-mark { position: relative; height: 80px; display: flex; align-items: center; justify-content: center; }
+  .clock-mark::before { content: ''; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); position: absolute; }
+  .clock-mark .second { position: absolute; right: 50%; margin-right: 14px; font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 700; font-size: 16px; }
+  .clock-col-header { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; padding: 0 0 16px 24px; border-bottom: 1px solid var(--rule); margin-bottom: 8px; text-align: center; }
+  .clock-col { display: flex; flex-direction: column; padding: 0 24px; }
+  .clock-cell { height: 80px; display: flex; align-items: center; padding: 8px 0; }
+  .clock-cell .what { font-size: 14px; line-height: 1.4; color: var(--ink); }
+  .clock-cell .what strong { color: var(--accent); }
+  .clock-axis-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; padding: 0 0 16px 0; text-align: center; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+
+  @media (max-width: 700px) {
+    .silence-clock { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
+    .clock-axis { display: none; }
+  }
+
+  /* Drill cards — the silence drill */
+  .drill { background: var(--practice); border: 2px solid var(--practice-rule); border-radius: 12px; padding: 24px 28px; margin: 16px 0; }
+  .drill-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; margin-bottom: 16px; border-bottom: 1px dashed var(--practice-rule); }
+  .drill-name { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink); margin: 0; }
+  .drill-time { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--practice-ink); }
+  .drill-difficulty { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--practice-ink); font-weight: 700; }
+  .drill p { margin: 0 0 12px; font-size: 15px; }
+  .drill .protocol { background: rgba(255,255,255,0.5); border-radius: 6px; padding: 14px 18px; margin-top: 12px; }
+  .drill .protocol-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--practice-ink); font-weight: 700; margin-bottom: 6px; }
+  .drill ol { padding-left: 22px; margin: 0; }
+  .drill ol li { font-size: 14px; margin-bottom: 4px; }
+
+  /* Variation cards — what to do when silence collapses */
+  .variation { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 20px 24px; margin: 16px 0; }
+  .variation-header { display: flex; align-items: baseline; gap: 12px; padding-bottom: 10px; margin-bottom: 12px; border-bottom: 1px solid var(--rule); }
+  .variation-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .variation h4 { margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 600; }
+  .variation p { margin: 0 0 10px; font-size: 15px; }
+  .variation .response { background: var(--highlight); border-left: 3px solid var(--accent); padding: 10px 14px; margin-top: 8px; border-radius: 0 4px 4px 0; font-size: 14px; }
+  .variation .response strong { color: var(--accent); }
+
+  .technique { background: var(--highlight); border-left: 3px solid var(--accent); padding: 14px 18px; margin: 14px 0; border-radius: 0 6px 6px 0; }
+  .technique .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 6px; }
+
+  .script { margin: 14px 0; padding: 14px 18px; background: #fafaf6; border: 1px solid var(--rule); border-radius: 6px; font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--ink); }
+  .script .label { display: block; font-family: var(--sans); font-style: normal; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-bottom: 6px; }
+
+  .pitfall { border-left: 4px solid #c25b3f; background: #fbeee5; padding: 16px 22px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+  .pitfall strong { color: #8b3a2e; }
+  .pf-cl { display: inline-block; font-family: var(--serif); font-weight: 700; font-size: 11px; color: #8b3a2e; background: #fff; padding: 2px 8px; border-radius: 100px; margin-left: 8px; vertical-align: middle; }
+
+  table.audit { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--surface); border-radius: 10px; overflow: hidden; font-size: 14px; }
+  table.audit th, table.audit td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  table.audit th { background: var(--ink); color: #fff; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  table.audit tr:last-child td { border-bottom: none; }
+  table.audit .id { font-family: var(--serif); font-weight: 700; color: var(--accent); white-space: nowrap; }
+  table.audit .rag { display: inline-flex; gap: 4px; }
+  table.audit .rag span { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--rule); }
+  .rag .r { background: #e8c0b6; } .rag .a { background: #f3dfa8; } .rag .g { background: #b8d4ba; }
+
+  .ai-tool { background: linear-gradient(135deg, #2a2a2a 0%, #1f2a37 100%); color: #f5f2eb; padding: 32px; border-radius: 12px; margin: 24px 0; }
+  .ai-tool h3 { color: #fff; margin: 0 0 8px; font-family: var(--serif); }
+  .ai-tool .ai-eyebrow { color: var(--accent-soft); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; }
+  .ai-tool p { color: rgba(255,255,255,0.75); }
+  .ai-demo { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 20px; margin-top: 20px; }
+  .ai-demo .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 6px; font-weight: 600; }
+  .ai-demo .scenario { font-style: italic; color: rgba(255,255,255,0.85); padding: 12px 14px; background: rgba(0,0,0,0.2); border-radius: 6px; margin-bottom: 16px; font-family: var(--serif); font-size: 15px; }
+  .ai-demo .response { font-size: 15px; line-height: 1.6; }
+  .ai-demo .response strong { color: var(--accent-soft); }
+  .ai-demo .response ol { margin: 8px 0; padding-left: 20px; }
+  .ai-cta { display: inline-block; margin-top: 16px; padding: 10px 18px; border: 1px solid var(--accent-soft); color: var(--accent-soft); border-radius: 6px; text-decoration: none; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: not-allowed; opacity: 0.7; }
+
+  .downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 700px) { .downloads { grid-template-columns: 1fr; } }
+  .download-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--surface); text-decoration: none; color: var(--ink); transition: all 0.2s; display: block; }
+  .download-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .download-card .type { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .download-card .name { font-weight: 600; margin-top: 6px; font-size: 16px; font-family: var(--serif); }
+  .download-card .size { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+
+  footer.module-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 24px; text-align: center; font-size: 13px; }
+  footer.module-footer a { color: rgba(255,255,255,0.9); }
+  footer.module-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+
+  .module-nav { display: flex; justify-content: space-between; gap: 16px; padding: 32px 0; border-top: 1px solid var(--rule); margin-top: 40px; }
+  .module-nav a { text-decoration: none; flex: 1; max-width: 320px; padding: 16px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); transition: border-color 0.2s; }
+  .module-nav a:hover { border-color: var(--accent); }
+  .module-nav .dir { font-size: 11px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+  .module-nav .label { display: block; margin-top: 4px; font-family: var(--serif); font-size: 17px; color: var(--ink); }
+  .module-nav .next { text-align: right; }
+
+/* ====== shared six-pillar nav spine ====== */
+.pillar-spine { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.pillar-spine-summary {
+  list-style: none; cursor: pointer; padding: 14px 24px;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  max-width: 1080px; margin: 0 auto;
+}
+.pillar-spine-summary::-webkit-details-marker { display: none; }
+.pillar-spine-summary::marker { content: ""; }
+.pillar-spine-summary .ps-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.pillar-spine-summary .ps-current {
+  font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 15px;
+}
+.pillar-spine-summary .ps-current strong { font-style: normal; color: var(--accent); font-weight: 600; }
+.pillar-spine-summary .ps-toggle {
+  margin-left: auto; color: var(--accent); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.06em;
+}
+.pillar-spine-summary .ps-toggle::after { content: " ↓"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle::after { content: " ↑"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-show { display: none; }
+.pillar-spine .pillar-spine-summary .ps-toggle .ps-hide { display: none; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-hide { display: inline; }
+
+.pillar-spine-grid {
+  max-width: 1080px; margin: 0 auto; padding: 4px 24px 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px;
+}
+@media (max-width: 880px) { .pillar-spine-grid { grid-template-columns: 1fr; padding-bottom: 18px; } }
+
+.ps-pillar { border-top: 1px solid var(--rule); padding: 14px 0 4px; }
+.ps-pillar-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.ps-num {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700;
+}
+.ps-name {
+  font-family: var(--serif); font-size: 16px; color: var(--ink); font-weight: 600;
+  line-height: 1.25;
+}
+.ps-modules { list-style: none; padding: 0; margin: 0; }
+.ps-modules li { padding: 2px 0; font-size: 13.5px; line-height: 1.5; }
+.ps-modules a { color: var(--ink); text-decoration: none; }
+.ps-modules a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ps-modules a.ps-current { color: var(--accent); font-weight: 700; }
+.ps-modules a.ps-current::before { content: "● "; color: var(--accent); font-size: 10px; vertical-align: 2px; }
+
+.ps-pillar.ps-coming .ps-num,
+.ps-pillar.ps-coming .ps-name { color: var(--ink-soft); }
+.ps-pillar.ps-coming .ps-name { opacity: 0.7; }
+.ps-pillar.ps-coming .ps-coming-note {
+  font-size: 12.5px; color: var(--ink-soft); font-style: italic;
+  margin: 4px 0 0; opacity: 0.75;
+}
+.ps-pending { color: var(--ink-soft); opacity: 0.65; display: flex; align-items: baseline; gap: 8px; }
+.ps-pending .ps-tag {
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 1px 7px; border-radius: 100px; font-style: normal; font-weight: 600;
+}
+  .ps-pending .ps-tag.ps-tag-deferred {
+  color: var(--ink-soft); border-color: var(--rule);
+}
+/* ====== /shared six-pillar nav spine ====== */
+
+  .download-card.download-soon { opacity: 0.6; cursor: default; position: relative; }
+  .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
+  .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+</style>
+</head>
+<body data-current="1-4">
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a><span>›</span>
+    <a href="./tl-programme.html">T&amp;L Excellence</a><span>›</span>
+    <a href="./index.html">Behaviour for Learning</a><span>›</span>
+    Module 1.4
+  </div>
+  <div>Module 1.4 of 10</div>
+</div>
+
+<details class="pillar-spine">
+  <summary class="pillar-spine-summary">
+    <span class="ps-label">Six pillars</span>
+    <span class="ps-current">You are here: <strong>Pillar 1 · 1.4 30-Second Reflection</strong></span>
+    <span class="ps-toggle"><span class="ps-show">Show all modules</span><span class="ps-hide">Hide</span></span>
+  </summary>
+  <div class="pillar-spine-grid">
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 1</span>
+        <span class="ps-name">Behaviour & Climate</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-1-1-language-of-virtues.html">1.1 Language of Virtues</a></li>
+        <li><a href="./module-1-2-lesson-starts.html">1.2 Lesson Starts</a></li>
+        <li><a href="./module-1-3-diligence-routine.html">1.3 Diligence Routine</a></li>
+        <li><a class="ps-current" href="./module-1-4-30-second-reflection.html">1.4 30-Second Reflection</a></li>
+        <li><a href="./module-1-5-bfl-in-class.html">1.5 Behaviour for Learning in Class</a></li>
+        <li><a href="./module-1-6-pre-lesson-strategies.html">1.6 Pre-Lesson Strategies</a></li>
+        <li><a href="./module-1-7-in-lesson-strategies.html">1.7 In-Lesson Strategies</a></li>
+        <li><a href="./module-1-8-direct-intervention.html">1.8 Direct Intervention</a></li>
+        <li><a href="./module-1-9-lesson-endings.html">1.9 Lesson Endings</a></li>
+        <li><a href="./module-1-10-other-routines.html">1.10 Other Routines</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 2</span>
+        <span class="ps-name">Adaptive Teaching & Inclusion</span>
+      </div>
+      <p class="ps-coming-note">Coming. SEND families to follow.</p>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 3</span>
+        <span class="ps-name">Instruction & Modelling</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-3-1-explain-clearly.html">3.1 Explain Clearly</a></li>
+        <li><a href="./module-3-2-explain-interactively.html">3.2 Explain Interactively</a></li>
+        <li><a href="./module-3-3-explain-with-visuals.html">3.3 Explain with Visuals</a></li>
+        <li><a href="./module-3-4-explain-with-examples.html">3.4 Explain with Examples</a></li>
+        <li><a href="./module-3-5-economy-of-language.html">3.5 Economy of Language</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 4</span>
+        <span class="ps-name">Checking for Understanding</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-4-1-mini-whiteboards.html">4.1 Mini-Whiteboards</a></li>
+        <li><a href="./module-4-2-circulating-checking-support.html">4.2 Circulating &amp; Checking Support</a></li>
+        <li class="ps-pending ps-deferred"><span>4.3 Explicit Vocabulary Teaching</span><span class="ps-tag ps-tag-deferred">primary</span></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 5</span>
+        <span class="ps-name">Questioning & Classroom Dialogue</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-5-1-cold-calling.html">5.1 Cold-Calling</a></li>
+        <li><a href="./module-5-2-probing-questions.html">5.2 Probing Questions</a></li>
+        <li><a href="./module-5-3-think-pair-share.html">5.3 Think, Pair, Share</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 6</span>
+        <span class="ps-name">Standards & Curriculum</span>
+      </div>
+      <p class="ps-coming-note">Coming. Primary-phase focus.</p>
+    </div>
+  </div>
+</details>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="pillar-tag">Pillar 1 · Behaviour for Learning</span>
+    <div class="module-number">Module 1.4</div>
+    <h1 class="title">The 30-Second <em>Reflection</em>.</h1>
+    <p class="lede">A deep treatment of one technique. The thirty seconds of held silence that anchor every Nishkam lesson — and the deliberate practice that teaches a teacher to hold them.</p>
+
+    <div class="checklist-strip">
+      <span class="label">Checklist coverage</span>
+      <a href="#audit" class="cl-tag">LS5</a>
+      <span class="secondary">Single-item module · Streamlined wording in use</span>
+    </div>
+
+    <div class="meta-row">
+      <div class="meta"><span class="label">Time</span><span class="value">45 minutes</span></div>
+      <div class="meta"><span class="label">Format</span><span class="value">Independent · Coaching · Department</span></div>
+      <div class="meta"><span class="label">Audience</span><div class="audience-tags"><span class="tag">New teachers</span><span class="tag">All staff</span></div></div>
+      <div class="meta"><span class="label">Prerequisite</span><span class="value">Modules 1.1, 1.2</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h4>In this module</h4>
+    <ol>
+      <li><a href="#why">Why this matters</a></li>
+      <li><a href="#what">What it is</a></li>
+      <li><a href="#clock">The silence clock</a></li>
+      <li><a href="#drill">The silence drill</a></li>
+      <li><a href="#variations">When the silence collapses</a></li>
+      <li><a href="#pitfalls">Pitfalls</a></li>
+      <li><a href="#audit">Self-audit</a></li>
+      <li><a href="#ai-tool">AI scenario tester</a></li>
+      <li><a href="#downloads">Downloads</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="why">
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>Thirty seconds of held silence.</h2>
+      <p class="section-intro">Module 1.2 introduced the 30-Second Reflection as the sixth stage of the Lesson Starts routine. This module goes deeper. The thirty seconds are the most-violated moment in any Nishkam lesson, and the deepest skill in Pillar 1.</p>
+
+      <p>The routine itself is established in Module 1.2. The countdown ends, the teacher names the virtue for the day, the room falls into silence, thirty seconds pass, and the teacher says <em>"eyes this way"</em> before the lesson continues. The sequence is straightforward to describe. In a real classroom it is among the most demanding moves a teacher makes in a day.</p>
+
+      <p>What makes it hard is not the pupils. The pupils, by Year 8, know the routine perfectly. They know what to do during those thirty seconds; most of them like it. What makes it hard is the teacher. Thirty seconds of silence in front of a class feels much longer than thirty seconds anywhere else. The teacher's instinct is to fill it — with a clarifying instruction, with a piece of narration, with a "right, well done, eyes this way" at twenty seconds because the silence has become uncomfortable. Each of those moves erodes the routine. Pupils notice. The next time, they begin to test the boundary.</p>
+
+      <p>This module addresses the teacher’s discipline rather than the routine itself. The deliberate practice that follows trains a single capacity: holding the silence for longer than feels natural, without filling it.</p>
+
+      <p>Most adults cannot hold thirty seconds of silence in a room of forty people without rehearsal. The demand is not the silence itself but the discipline of doing nothing while it lasts.</p>
+
+      <p>This module assumes completion of Modules 1.1 (the language of virtues) and 1.2 (the lesson starts routine). The vocabulary, the mantra, and the position in the routine are taken as given here.</p>
+    </section>
+
+    <section id="what">
+      <div class="section-eyebrow">02 · What it is</div>
+      <h2>The literal mechanics.</h2>
+      <p class="section-intro">The standard precedes the practice. These are the rules of the thirty seconds at Nishkam School.</p>
+
+      <p>The Reflection is a thirty-second silent pause that follows the countdown mantra of Module 1.2's Stage 5. Its function is not religious. Its function is cognitive: it is the moment the room transitions from social to academic. The silence is the transition. Without it, the lesson begins on top of the chatter that preceded it; with it, the lesson begins on a settled, attentive room.</p>
+
+      <p>Six rules govern it:</p>
+
+      <div class="technique">
+        <div class="label">The six rules</div>
+        <p style="margin: 0;"><strong>1.</strong> Thirty seconds, full. Not fifteen, not twenty. Time it, especially in the first weeks.</p>
+        <p style="margin: 8px 0 0;"><strong>2.</strong> Pupils' heads bowed. Eyes down or closed. This is non-optional and non-religious — it is the physical signal that the academic transition is in progress.</p>
+        <p style="margin: 8px 0 0;"><strong>3.</strong> Pens down. Hands still. Bodies still.</p>
+        <p style="margin: 8px 0 0;"><strong>4.</strong> The teacher names the virtue at the start, asks one short reflective question, and then says nothing further until the thirty seconds are up.</p>
+        <p style="margin: 8px 0 0;"><strong>5.</strong> The teacher does not police the silence during. If a pupil fidgets, that is for after — the silence must be held even imperfectly.</p>
+        <p style="margin: 8px 0 0;"><strong>6.</strong> The end is signalled by three words: <em>"Eyes this way."</em> Nothing more.</p>
+      </div>
+
+      <div class="script">
+        <span class="label">Scripted opening</span>
+        "Time for reflection. Pens down, heads bowed. Today's virtue is determination. Where will you need it most this lesson?"
+      </div>
+
+      <p>Then — silence. Thirty seconds. Then "eyes this way".</p>
+    </section>
+
+    <section id="clock">
+      <div class="section-eyebrow">03 · The silence clock</div>
+      <h2>What's happening, second by second.</h2>
+      <p class="section-intro">The thirty seconds are not empty time. They are active time for the pupils — and disciplined time for the teacher. Read the columns side by side.</p>
+
+      <div class="silence-clock">
+        <div>
+          <div class="clock-axis-label">Time</div>
+          <div class="clock-axis">
+            <div class="clock-mark"><span class="second">0:00</span></div>
+            <div class="clock-mark"><span class="second">0:05</span></div>
+            <div class="clock-mark"><span class="second">0:15</span></div>
+            <div class="clock-mark"><span class="second">0:25</span></div>
+            <div class="clock-mark"><span class="second">0:30</span></div>
+          </div>
+        </div>
+
+        <div class="clock-col">
+          <div class="clock-col-header">What pupils are doing</div>
+          <div class="clock-cell"><div class="what">Heads bowing. Pens going down. The room <strong>becoming</strong> silent.</div></div>
+          <div class="clock-cell"><div class="what">Settled. The named virtue is being held in mind. Internal noise still high.</div></div>
+          <div class="clock-cell"><div class="what">Quietest point. Most pupils have actually stopped thinking about the corridor.</div></div>
+          <div class="clock-cell"><div class="what">A beginning of restlessness in the youngest classes. Not yet visible.</div></div>
+          <div class="clock-cell"><div class="what">Ready to listen. The transition is complete.</div></div>
+        </div>
+
+        <div class="clock-col">
+          <div class="clock-col-header">What the teacher is doing</div>
+          <div class="clock-cell"><div class="what">Standing in <strong>strong position</strong>. Eyes ahead, not on the pupils. Mouth closed.</div></div>
+          <div class="clock-cell"><div class="what"><strong>Nothing.</strong> The strong position holds itself. No nodding, no scanning, no narration.</div></div>
+          <div class="clock-cell"><div class="what"><strong>Nothing.</strong> Internal urge to speak peaks here — resist it.</div></div>
+          <div class="clock-cell"><div class="what"><strong>Nothing.</strong> The teacher who scans the room here teaches pupils to perform compliance rather than reflect.</div></div>
+          <div class="clock-cell"><div class="what">Three words: <em>"Eyes this way."</em> The lesson resumes.</div></div>
+        </div>
+      </div>
+
+      <p>The argument the visual makes: the teacher's column is mostly empty. That emptiness is the discipline of the technique. The pupils' column has activity in it — internal activity — and the teacher's job is to leave space for that activity by doing nothing.</p>
+    </section>
+
+    <section id="drill">
+      <div class="section-eyebrow">04 · The silence drill</div>
+      <h2>Practising the discipline.</h2>
+      <p class="section-intro">Three graduated drills. Each is harder than the last. Run them in order. Most teachers find the second one harder than they expect; very few hold a clean thirty seconds on the first attempt.</p>
+
+      <div class="drill">
+        <div class="drill-header">
+          <h3 class="drill-name">Drill 1 · Solo silence</h3>
+          <div class="drill-time">15s</div>
+        </div>
+        <div class="drill-difficulty">FOUNDATION</div>
+        <p style="margin-top: 8px;">The teacher sits alone and times fifteen seconds of complete silence — mouth closed, body still — noticing the urge to look at a phone, sigh, or fidget without acting on it.</p>
+        <p>Fifteen seconds of solo silence is almost trivially easy. The point is to establish a baseline: this is the duration the body finds comfortable.</p>
+        <div class="protocol">
+          <div class="protocol-label">Protocol · 5 minutes · individual</div>
+          <ol>
+            <li>Set a timer for fifteen seconds.</li>
+            <li>Start the timer and sit still.</li>
+            <li>When it ends, record what was noticed: whether there was an urge to fill the silence, and where in the body it was felt.</li>
+            <li>Repeat three times.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="drill">
+        <div class="drill-header">
+          <h3 class="drill-name">Drill 2 · Paired silence</h3>
+          <div class="drill-time">30s</div>
+        </div>
+        <div class="drill-difficulty">CORE</div>
+        <p style="margin-top: 8px;">In pairs. One colleague delivers the scripted opening of the Reflection. The other times exactly thirty seconds. Both hold silence. The "teacher" must stand in strong position and do nothing.</p>
+        <p>Thirty seconds of silence with another adult watching is qualitatively different from solo silence. The presence of an observer is what makes it feel like the classroom moment.</p>
+        <div class="protocol">
+          <div class="protocol-label">Protocol · 10 minutes · in pairs</div>
+          <ol>
+            <li>"Teacher" stands. Strong position. "Pupil" sits in front of them.</li>
+            <li>Teacher delivers the scripted opening: <em>"Time for reflection. Pens down, heads bowed. Today's virtue is determination. Where will you need it most this lesson?"</em></li>
+            <li>Pupil starts the timer. Bows head.</li>
+            <li>Thirty seconds pass. Teacher does nothing. No nodding. No looking at the pupil. No movement.</li>
+            <li>At thirty seconds, teacher says <em>"Eyes this way."</em></li>
+            <li>Switch. Repeat. Repeat. Repeat.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="drill">
+        <div class="drill-header">
+          <h3 class="drill-name">Drill 3 · The interruption drill</h3>
+          <div class="drill-time">30s + interrupt</div>
+        </div>
+        <div class="drill-difficulty">ADVANCED</div>
+        <p style="margin-top: 8px;">In trios. As Drill 2, but a third colleague creates a small interruption — coughs, drops a pen, whispers — at a random moment during the thirty seconds. The teacher must hold the silence regardless.</p>
+        <p>This is the drill that mirrors the actual lesson most closely. Real classrooms produce small disruptions during the Reflection; the skill is not preventing them, but holding the silence through them.</p>
+        <div class="protocol">
+          <div class="protocol-label">Protocol · 10 minutes · in trios</div>
+          <ol>
+            <li>Set up as Drill 2. Add a third colleague as the "disruptor".</li>
+            <li>Teacher delivers the opening. Pupil bows head. Disruptor waits.</li>
+            <li>At a random moment between 8 and 22 seconds in, the disruptor produces one small disruption — a cough, a fidget, a soft sigh.</li>
+            <li>The teacher's job is to do nothing. No glance towards the disruptor. No clearing of throat in response. No silent admonition.</li>
+            <li>The thirty seconds end. Teacher says <em>"Eyes this way."</em></li>
+            <li>Disruptor reports: did the teacher react? Even microscopically?</li>
+            <li>Rotate roles. Repeat.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="variations">
+      <div class="section-eyebrow">05 · When the silence collapses</div>
+      <h2>What to do, what not to do.</h2>
+      <p class="section-intro">Sometimes the silence breaks. A pupil talks. A pupil cries. The fire alarm goes. Three principles, three responses.</p>
+
+      <div class="variation">
+        <div class="variation-header">
+          <span class="variation-tag">Variation A</span>
+          <h4>One pupil talks during the Reflection.</h4>
+        </div>
+        <p>The standard response is none — at least not during. The Reflection is held; the talking is noted; the talking pupil is addressed afterwards using Module 1.7's positioning, proximity, and eye-meet rungs. Interrupting the silence to address the talking is exactly what the talker is testing for.</p>
+        <div class="response">
+          <strong>Response:</strong> hold the silence. Note who. Address afterwards in Module 1.7 territory. If the talking is sustained for more than five seconds, end the Reflection cleanly with <em>"eyes this way"</em> and address the pupil with a Module 1.8 warning — but the standard expectation is that this is rare.
+        </div>
+      </div>
+
+      <div class="variation">
+        <div class="variation-header">
+          <span class="variation-tag">Variation B</span>
+          <h4>A pupil is visibly distressed.</h4>
+        </div>
+        <p>Different. A distressed pupil during the Reflection takes priority over the routine. The teacher quietly approaches, kneels next to them if appropriate, asks if they need a moment outside. The rest of the room continues the silence — pupils know how to do this and almost always do.</p>
+        <div class="response">
+          <strong>Response:</strong> the welfare of the pupil overrides the routine, always. The class can hold the silence without the teacher's explicit attention; the routine is robust enough for that.
+        </div>
+      </div>
+
+      <div class="variation">
+        <div class="variation-header">
+          <span class="variation-tag">Variation C</span>
+          <h4>The fire alarm or other genuine interruption.</h4>
+        </div>
+        <p>End the Reflection cleanly: <em>"That's the alarm. Stand. Please leave the room calmly."</em> The next lesson will run a full Reflection again. One missed Reflection does no damage; an apologetic explanation about the missed Reflection erodes the routine more than the missing one did.</p>
+        <div class="response">
+          <strong>Response:</strong> respond to the genuine interruption. Do not apologise for the missed Reflection. Just resume the routine fully next lesson.
+        </div>
+      </div>
+    </section>
+
+    <section id="pitfalls">
+      <div class="section-eyebrow">06 · Common pitfalls</div>
+      <h2>Where the Reflection breaks.</h2>
+      <p class="section-intro">All of these are about the teacher, not the pupils. The pupils are reliable; the teacher is the variable.</p>
+
+      <div class="pitfall"><strong>Cutting it short.</strong><span class="pf-cl">Risks LS5</span><p>"Right, that's enough" at twenty seconds. The single most common pitfall. The thirty seconds are not a target; they are the standard. Time them.</p></div>
+
+      <div class="pitfall"><strong>Filling the silence with narration.</strong><span class="pf-cl">Risks LS5</span><p>"Today's virtue is determination — really focus on what determination means to you — think about how it might apply..." The silence is not a vacuum to fill. The prompt is one short question, then nothing.</p></div>
+
+      <div class="pitfall"><strong>Policing through the silence.</strong><span class="pf-cl">Risks LS5</span><p>The teacher scans the room during the thirty seconds, catches a pupil with their head not bowed, narrates a correction. The Reflection has now become surveillance — pupils learn to perform compliance rather than reflect.</p></div>
+
+      <div class="pitfall"><strong>Apologising for the technique.</strong><span class="pf-cl">Risks LS5</span><p>"I know it's hard but please — heads bowed." The apology teaches pupils that the routine is an imposition rather than the standard.</p></div>
+
+      <div class="pitfall"><strong>Skipping it on a busy day.</strong><span class="pf-cl">Risks LS5</span><p>"We're tight on time today, so we'll skip the reflection." Once the routine is known to be skippable, it is no longer a routine. Hold it especially on the days that feel too busy for it.</p></div>
+
+      <div class="pitfall"><strong>Performing the silence theatrically.</strong><span class="pf-cl">Risks LS5</span><p>The teacher closes their own eyes, breathes audibly, performs reverence. The Reflection is functional, not performative. Strong position, eyes ahead, neutral.</p></div>
+    </section>
+
+    <section id="audit">
+      <div class="section-eyebrow">07 · Self-audit · LS5</div>
+      <h2>The single canonical item.</h2>
+      <p class="section-intro">This is the leanest audit in the programme. One item. Rate it honestly — and remember that "amber" or "red" almost always means a teacher discipline issue, not a pupil compliance issue.</p>
+
+      <table class="audit">
+        <thead>
+          <tr><th style="width: 12%;">ID</th><th style="width: 52%;">Statement</th><th style="width: 16%;">RAG</th><th style="width: 20%;">Date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="id">LS5</td><td>Reflection: full thirty seconds, silent and still.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size: 14px; color: var(--ink-soft); margin-top: 16px;">
+        <strong>Where this is rated red or amber:</strong> the relevant practice is Drill 2 above (paired silence, thirty seconds). The teacher runs it daily for one week with a coaching partner who times the silence accurately. The data alone resolves most cases — teachers consistently underestimate by five to ten seconds, and seeing the timer makes the discipline visible.
+      </p>
+    </section>
+
+    <section id="ai-tool">
+      <div class="section-eyebrow">08 · AI scenario tester</div>
+      <h2>A real reflection moment.</h2>
+      <p class="section-intro">The full live tool will accept any scenario you describe. The worked example below shows the shape of the response.</p>
+
+      <div class="ai-tool">
+        <div class="ai-eyebrow">Worked example</div>
+        <h3>Scenario tester</h3>
+
+        <div class="ai-demo">
+          <div class="label">Teacher submits</div>
+          <div class="scenario">"My [Year 7] class is brand new. They've never done the Reflection before. I tried it on Monday — I delivered the script, said 'pens down, heads bowed', and waited. After about ten seconds two boys started giggling. By fifteen seconds three or four pupils were looking around to see who was laughing. By twenty seconds the silence was clearly broken. I gave up, said 'eyes this way', and we moved on. I don't want to traumatise the new class — but the routine isn't working."</div>
+
+          <div class="label">Tool responds</div>
+          <div class="response">
+            <p><strong>Item at risk:</strong> LS5. But the diagnosis here is not your discipline — it's an embedding issue. New classes do not arrive at Nishkam knowing the Reflection. They have to be taught it across the first half-term.</p>
+
+            <p><strong>What's actually happening:</strong> the giggling at ten seconds is not a behaviour problem. It is a brand-new social signal in a brand-new class — pupils don't yet have the routine internalised, so they reach for the easiest thing, which is to laugh at the unusualness of the silence. By Year 9 they will not. By Year 13 they will hold a thirty-second silence so reliably you stop noticing it.</p>
+
+            <p><strong>What to do across the first half-term:</strong></p>
+            <ol>
+              <li>Run the Reflection every single lesson. Every one. This is the single most important variable.</li>
+              <li>Hold whatever silence you can — even fifteen seconds in week one. You can build to thirty by week four.</li>
+              <li>After each Reflection, do not debrief or comment on the quality of the silence. Move on. Pupils read commentary as negotiation.</li>
+              <li>Address the gigglers using Module 1.7's positioning and proximity rungs in the next lesson <em>before</em> the Reflection — stand near them as the mantra begins. Do not name them; the proximity is the message.</li>
+              <li>By week four, the silence should be approaching thirty seconds clean. By week six, it should be reliable.</li>
+            </ol>
+
+            <p><strong>What not to do:</strong> do not abandon the Reflection because the new class isn't yet good at it. The routine is taught across half-terms, not introduced ready-made. Skipping it now means you never embed it.</p>
+
+            <p><strong>The longer-term reframe:</strong> the question is not "how do I make this class hold thirty seconds of silence by Friday?" The question is "what will it take to make this class hold thirty seconds of silence by half-term?" Daily repetition is the answer.</p>
+          </div>
+        </div>
+
+        <a class="ai-cta" href="#">Live tool — coming soon</a>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="section-eyebrow">09 · Downloads</div>
+      <h2>Module formats.</h2>
+      <p class="section-intro">Three formats. Same content, shaped for the medium.</p>
+      <div class="downloads">
+        <span class="download-card download-soon"><div class="type">CPD Booklet</div><div class="name">Module 1.4 Booklet</div><div class="size">.docx · printable</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">Slide Deck</div><div class="name">Module 1.4 Slides</div><div class="size">.pptx · 45-min session</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">One-pager</div><div class="name">The Six Rules · Reference Card</div><div class="size">PDF · pin to lectern</div><div class="dl-soon">Coming soon</div></span>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="#" class="prev"><span class="dir">← Previous module</span><span class="label">1.3 · The Diligence Routine</span></a>
+      <a href="#" class="next"><span class="dir">Next module →</span><span class="label">1.5 · BFL in Class</span></a>
+    </nav>
+  </article>
+</div>
+
+<footer class="module-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Pillar 1 · Module 1.4</div>
+  <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./matrix.html">Matrix</a></div>
+</footer>
+</body>
+</html>

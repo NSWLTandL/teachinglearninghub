@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module 1.6 — Pre-Lesson Strategies · Nishkam Teaching Excellence Programme</title>
+<meta name="description" content="Pre-Lesson Strategies at Nishkam School — the teacher's actions in the five minutes before the bell, and the checklist items that measure them: LS1, LS6, LE6." />
+<style>
+:root {
+  --cream: #F7F2E8; --surface: #FFFDF7; --ink: #1F2A37; --ink-soft: #4B5563;
+  --rust: #7A3B1D; --rust-soft: #C98E60; --gold: #B8893A;
+  --highlight: #FFF4DD; --practice: #EEF3EC; --practice-ink: #2D6A3E; --practice-rule: #8FAB87;
+  --pitfall: #FBEEE5; --pitfall-bar: #C25B3F; --pitfall-ink: #8B3A2E;
+  --rule: #D8CFB9; --serif: Georgia, 'Times New Roman', serif; --sans: Calibri, 'Trebuchet MS', sans-serif;
+  --accent: var(--rust);
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
+a { color: var(--rust); }
+
+.hero { background: var(--cream); padding: 56px 32px 40px; border-bottom: 1px solid var(--rule); }
+.hero-inner { max-width: 1080px; margin: 0 auto; }
+.pillar-tag { display: inline-block; font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 18px; }
+.module-number { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink-soft); margin-bottom: 10px; }
+.title { font-family: var(--serif); font-size: 56px; font-weight: 700; color: var(--ink); margin: 0 0 14px; line-height: 1.05; }
+.title em { font-style: italic; color: var(--rust); }
+.lede { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--ink-soft); margin: 0 0 28px; line-height: 1.45; max-width: 760px; }
+
+.checklist-strip { background: var(--highlight); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.checklist-strip .label { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; margin-right: 8px; }
+.checklist-strip a.cl-tag { font-family: var(--serif); font-weight: 700; font-size: 13px; background: var(--highlight); color: var(--accent); padding: 5px 11px; border-radius: 100px; text-decoration: none; border: 1px solid transparent; transition: border-color 0.15s; }
+.checklist-strip a.cl-tag:hover { border-color: var(--accent); }
+.checklist-strip .secondary { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 14px; margin-left: auto; }
+
+.meta-row { display: flex; flex-wrap: wrap; gap: 30px; padding-top: 8px; }
+.meta { display: flex; flex-direction: column; gap: 4px; }
+.meta .label { font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; }
+.meta .value { font-family: var(--sans); font-size: 16px; font-weight: 700; color: var(--ink); }
+.audience-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.audience-tags .tag { font-size: 12px; background: var(--surface); border: 1px solid var(--rule); padding: 3px 9px; border-radius: 100px; color: var(--ink); font-weight: 600; }
+
+.layout { max-width: 1080px; margin: 0 auto; padding: 40px 32px; display: grid; grid-template-columns: 220px 1fr; gap: 56px; }
+.toc { position: sticky; top: 28px; align-self: start; }
+.toc h4 { font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px; }
+.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; font-size: 14px; }
+.toc li { padding: 5px 0; border-top: 1px solid var(--rule); counter-increment: toc; }
+.toc li:first-child { border-top: none; }
+.toc li::before { content: counter(toc, decimal-leading-zero) " · "; color: var(--rust); font-family: var(--serif); font-style: italic; }
+.toc a { color: var(--ink); text-decoration: none; }
+.toc a:hover { color: var(--rust); }
+
+article { min-width: 0; }
+section { margin: 0 0 56px; }
+.section-eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; margin: 0 0 8px; }
+h2 { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--ink); margin: 0 0 14px; line-height: 1.15; }
+.section-intro { font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--ink-soft); margin: 0 0 24px; line-height: 1.45; }
+p { margin: 0 0 18px; line-height: 1.65; }
+
+/* Pre-lesson timeline — signature visual */
+.timeline { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 28px 26px; margin: 22px 0 16px; }
+.timeline-axis { position: relative; height: 60px; margin: 8px 0 16px; }
+.timeline-line { position: absolute; top: 28px; left: 30px; right: 30px; height: 2px; background: var(--rust-soft); }
+.timeline-marks { position: absolute; left: 0; right: 0; top: 0; display: flex; justify-content: space-between; }
+.timeline-mark { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.timeline-mark .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--rust); border: 3px solid var(--cream); margin-top: 18px; box-shadow: 0 0 0 1px var(--rust-soft); }
+.timeline-mark .time { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--rust); margin-top: 2px; }
+.timeline-mark .label { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+.timeline-mark.first .dot { background: var(--gold); }
+.timeline-mark.last .dot { background: var(--practice-ink); }
+.timeline-caption { font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--ink-soft); text-align: center; margin: 0; }
+
+/* Item detail blocks */
+.item { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 24px 26px; margin: 0 0 22px; }
+.item-header { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 14px; }
+.item-id-tile { background: var(--rust); color: var(--surface); font-family: var(--serif); font-weight: 700; font-size: 22px; padding: 12px 16px; border-radius: 6px; min-width: 72px; text-align: center; flex-shrink: 0; line-height: 1; }
+.item-title-block { flex: 1; min-width: 0; }
+.item-tag { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.item-time { font-family: var(--serif); font-style: italic; color: var(--rust); font-size: 14px; margin-left: auto; padding-top: 6px; flex-shrink: 0; }
+.item-title { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); margin: 0; }
+.item p { margin: 0 0 14px; font-size: 15px; line-height: 1.65; }
+
+.technique, .when, .script { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 18px; margin: 12px 0; }
+.technique .label, .when .label, .script .label { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 6px; }
+.script { background: var(--highlight); }
+.script p { font-style: italic; color: var(--ink); }
+
+.practice { background: var(--practice); border: 1px solid var(--practice-rule); border-left: 5px solid var(--practice-ink); border-radius: 6px; padding: 18px 20px; margin: 14px 0; }
+.practice .label { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 12px; }
+.practice .label span:first-child { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--practice-ink); text-transform: uppercase; letter-spacing: 3px; }
+.practice .timer { font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--practice-ink); }
+.practice ol { margin: 0; padding-left: 22px; }
+.practice li { margin: 0 0 8px; line-height: 1.55; font-size: 14px; }
+.coach-prompt { font-family: var(--sans); font-size: 13px; color: var(--ink); margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--practice-rule); font-style: italic; }
+.coach-prompt strong { font-style: normal; color: var(--practice-ink); }
+
+.pitfall { background: var(--pitfall); border: 1px solid var(--rule); border-left: 5px solid var(--pitfall-bar); border-radius: 6px; padding: 14px 18px; margin: 0 0 12px; }
+.pitfall strong { color: var(--pitfall-ink); display: inline; }
+.pitfall .pf-cl { display: inline-block; font-family: var(--sans); font-size: 11px; font-weight: 700; font-style: italic; color: var(--pitfall-ink); margin-left: 8px; }
+.pitfall p { margin: 6px 0 0; font-size: 14px; line-height: 1.6; color: var(--ink); }
+
+.audit { width: 100%; border-collapse: collapse; margin: 18px 0 8px; font-size: 14px; background: var(--surface); border-radius: 6px; overflow: hidden; }
+.audit thead th { background: var(--ink); color: var(--surface); font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 12px 14px; text-align: left; }
+.audit td { padding: 14px; border-top: 1px solid var(--rule); vertical-align: middle; }
+.audit td.id { font-family: var(--serif); font-weight: 700; color: var(--rust); width: 12%; }
+.rag { display: inline-flex; gap: 4px; }
+.rag span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--rule); display: inline-block; }
+.rag .r { background: #C25B3F33; } .rag .a { background: #C9933F33; } .rag .g { background: #5B8B5933; }
+
+.ai-tool { background: #1F2A37; color: #EAE3D0; padding: 28px 30px; border-radius: 10px; margin: 22px 0; }
+.ai-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--rust-soft); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.ai-tool h3 { font-family: var(--serif); font-weight: 700; font-size: 24px; color: var(--surface); margin: 0 0 16px; }
+.ai-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 14px; }
+.ai-demo .label { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--rust-soft); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 6px; }
+.ai-demo .scenario, .ai-demo .response { background: #0E141C; border: 1px solid #2A3340; border-radius: 6px; padding: 14px 16px; font-size: 13px; line-height: 1.6; }
+.ai-demo .scenario { font-style: italic; }
+.ai-demo .response p { margin: 0 0 10px; font-size: 13px; }
+.ai-demo .response p:last-child { margin: 0; }
+.ai-demo .response strong { color: var(--rust-soft); font-style: normal; }
+.ai-demo .response ol { margin: 0 0 10px; padding-left: 18px; }
+.ai-demo .response li { margin-bottom: 6px; }
+.ai-cta { display: inline-block; background: var(--rust-soft); color: var(--ink); font-family: var(--sans); font-weight: 700; padding: 10px 18px; border-radius: 6px; text-decoration: none; }
+
+.downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 18px 0 8px; }
+.download-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--ink); }
+.download-card:hover { border-color: var(--rust); }
+.download-card .type { font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--rust); text-transform: uppercase; letter-spacing: 3px; }
+.download-card .name { font-family: var(--serif); font-weight: 700; font-size: 17px; color: var(--ink); }
+.download-card .size { font-family: var(--sans); font-size: 12px; color: var(--ink-soft); }
+
+.module-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0 12px; padding-top: 24px; border-top: 1px solid var(--rule); }
+.module-nav a { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 18px; text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 4px; }
+.module-nav a.next { text-align: right; }
+.module-nav a:hover { border-color: var(--rust); }
+.module-nav .dir { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 2px; }
+.module-nav .label { font-family: var(--serif); font-weight: 700; font-size: 17px; }
+
+.module-footer { background: var(--ink); color: var(--cream); padding: 36px 32px; text-align: center; margin-top: 30px; }
+.module-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--rust-soft); margin-bottom: 6px; }
+.module-footer a { color: var(--rust-soft); }
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 24px 18px; }
+  .toc { position: static; }
+  .timeline-axis { height: auto; }
+  .timeline-marks { flex-direction: column; gap: 14px; align-items: flex-start; }
+  .timeline-line { display: none; }
+  .ai-demo { grid-template-columns: 1fr; }
+  .downloads { grid-template-columns: 1fr; }
+  .title { font-size: 36px; }
+  .item-header { flex-direction: column; align-items: flex-start; }
+}
+
+/* ====== shared six-pillar nav spine ====== */
+.pillar-spine { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.pillar-spine-summary {
+  list-style: none; cursor: pointer; padding: 14px 24px;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  max-width: 1080px; margin: 0 auto;
+}
+.pillar-spine-summary::-webkit-details-marker { display: none; }
+.pillar-spine-summary::marker { content: ""; }
+.pillar-spine-summary .ps-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.pillar-spine-summary .ps-current {
+  font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 15px;
+}
+.pillar-spine-summary .ps-current strong { font-style: normal; color: var(--accent); font-weight: 600; }
+.pillar-spine-summary .ps-toggle {
+  margin-left: auto; color: var(--accent); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.06em;
+}
+.pillar-spine-summary .ps-toggle::after { content: " ↓"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle::after { content: " ↑"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-show { display: none; }
+.pillar-spine .pillar-spine-summary .ps-toggle .ps-hide { display: none; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-hide { display: inline; }
+
+.pillar-spine-grid {
+  max-width: 1080px; margin: 0 auto; padding: 4px 24px 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px;
+}
+@media (max-width: 880px) { .pillar-spine-grid { grid-template-columns: 1fr; padding-bottom: 18px; } }
+
+.ps-pillar { border-top: 1px solid var(--rule); padding: 14px 0 4px; }
+.ps-pillar-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.ps-num {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700;
+}
+.ps-name {
+  font-family: var(--serif); font-size: 16px; color: var(--ink); font-weight: 600;
+  line-height: 1.25;
+}
+.ps-modules { list-style: none; padding: 0; margin: 0; }
+.ps-modules li { padding: 2px 0; font-size: 13.5px; line-height: 1.5; }
+.ps-modules a { color: var(--ink); text-decoration: none; }
+.ps-modules a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ps-modules a.ps-current { color: var(--accent); font-weight: 700; }
+.ps-modules a.ps-current::before { content: "● "; color: var(--accent); font-size: 10px; vertical-align: 2px; }
+
+.ps-pillar.ps-coming .ps-num,
+.ps-pillar.ps-coming .ps-name { color: var(--ink-soft); }
+.ps-pillar.ps-coming .ps-name { opacity: 0.7; }
+.ps-pillar.ps-coming .ps-coming-note {
+  font-size: 12.5px; color: var(--ink-soft); font-style: italic;
+  margin: 4px 0 0; opacity: 0.75;
+}
+.ps-pending { color: var(--ink-soft); opacity: 0.65; display: flex; align-items: baseline; gap: 8px; }
+.ps-pending .ps-tag {
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 1px 7px; border-radius: 100px; font-style: normal; font-weight: 600;
+}
+  .ps-pending .ps-tag.ps-tag-deferred {
+  color: var(--ink-soft); border-color: var(--rule);
+}
+/* ====== /shared six-pillar nav spine ====== */
+
+  .download-card.download-soon { opacity: 0.6; cursor: default; position: relative; }
+  .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
+  .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+</style>
+</head>
+<body data-current="1-6">
+
+<details class="pillar-spine">
+  <summary class="pillar-spine-summary">
+    <span class="ps-label">Six pillars</span>
+    <span class="ps-current">You are here: <strong>Pillar 1 · 1.6 Pre-Lesson Strategies</strong></span>
+    <span class="ps-toggle"><span class="ps-show">Show all modules</span><span class="ps-hide">Hide</span></span>
+  </summary>
+  <div class="pillar-spine-grid">
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 1</span>
+        <span class="ps-name">Behaviour & Climate</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-1-1-language-of-virtues.html">1.1 Language of Virtues</a></li>
+        <li><a href="./module-1-2-lesson-starts.html">1.2 Lesson Starts</a></li>
+        <li><a href="./module-1-3-diligence-routine.html">1.3 Diligence Routine</a></li>
+        <li><a href="./module-1-4-30-second-reflection.html">1.4 30-Second Reflection</a></li>
+        <li><a href="./module-1-5-bfl-in-class.html">1.5 Behaviour for Learning in Class</a></li>
+        <li><a class="ps-current" href="./module-1-6-pre-lesson-strategies.html">1.6 Pre-Lesson Strategies</a></li>
+        <li><a href="./module-1-7-in-lesson-strategies.html">1.7 In-Lesson Strategies</a></li>
+        <li><a href="./module-1-8-direct-intervention.html">1.8 Direct Intervention</a></li>
+        <li><a href="./module-1-9-lesson-endings.html">1.9 Lesson Endings</a></li>
+        <li><a href="./module-1-10-other-routines.html">1.10 Other Routines</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 2</span>
+        <span class="ps-name">Adaptive Teaching & Inclusion</span>
+      </div>
+      <p class="ps-coming-note">Coming. SEND families to follow.</p>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 3</span>
+        <span class="ps-name">Instruction & Modelling</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-3-1-explain-clearly.html">3.1 Explain Clearly</a></li>
+        <li><a href="./module-3-2-explain-interactively.html">3.2 Explain Interactively</a></li>
+        <li><a href="./module-3-3-explain-with-visuals.html">3.3 Explain with Visuals</a></li>
+        <li><a href="./module-3-4-explain-with-examples.html">3.4 Explain with Examples</a></li>
+        <li><a href="./module-3-5-economy-of-language.html">3.5 Economy of Language</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 4</span>
+        <span class="ps-name">Checking for Understanding</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-4-1-mini-whiteboards.html">4.1 Mini-Whiteboards</a></li>
+        <li><a href="./module-4-2-circulating-checking-support.html">4.2 Circulating &amp; Checking Support</a></li>
+        <li class="ps-pending ps-deferred"><span>4.3 Explicit Vocabulary Teaching</span><span class="ps-tag ps-tag-deferred">primary</span></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 5</span>
+        <span class="ps-name">Questioning & Classroom Dialogue</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-5-1-cold-calling.html">5.1 Cold-Calling</a></li>
+        <li><a href="./module-5-2-probing-questions.html">5.2 Probing Questions</a></li>
+        <li><a href="./module-5-3-think-pair-share.html">5.3 Think, Pair, Share</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 6</span>
+        <span class="ps-name">Standards & Curriculum</span>
+      </div>
+      <p class="ps-coming-note">Coming. Primary-phase focus.</p>
+    </div>
+  </div>
+</details>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="pillar-tag">Pillar 1 · Behaviour for Learning</span>
+    <div class="module-number">Module 1.6</div>
+    <h1 class="title">Pre-Lesson <em>Strategies</em>.</h1>
+    <p class="lede">The teacher's actions in the five minutes before the bell. The four observables — door, starter, materials, handover — that determine whether the lesson begins on a settled substrate or has to settle the room from disorder.</p>
+
+    <div class="checklist-strip">
+      <span class="label">Checklist coverage</span>
+      <a href="#audit" class="cl-tag">LS1</a>
+      <a href="#audit" class="cl-tag">LS6</a>
+      <a href="#audit" class="cl-tag">LE6</a>
+      <span class="secondary">Streamlined wording in use</span>
+    </div>
+
+    <div class="meta-row">
+      <div class="meta"><span class="label">Time</span><span class="value">45 minutes</span></div>
+      <div class="meta"><span class="label">Format</span><span class="value">Independent · Coaching · Department</span></div>
+      <div class="meta"><span class="label">Audience</span><div class="audience-tags"><span class="tag">All staff</span><span class="tag">New teachers</span></div></div>
+      <div class="meta"><span class="label">Prerequisites</span><span class="value">Module 1.2</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h4>In this module</h4>
+    <ol>
+      <li><a href="#why">Why this matters</a></li>
+      <li><a href="#timeline">The five-minute timeline</a></li>
+      <li><a href="#le6">LE6 · Handover at the door</a></li>
+      <li><a href="#ls12">Materials prepared</a></li>
+      <li><a href="#ls6">LS6 · Starter task ready</a></li>
+      <li><a href="#ls1">LS1 · Teacher at the door</a></li>
+      <li><a href="#pitfalls">Pitfalls</a></li>
+      <li><a href="#audit">Self-audit</a></li>
+      <li><a href="#ai-tool">AI scenario tester</a></li>
+      <li><a href="#downloads">Downloads</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="why">
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>The substrate the lesson begins on.</h2>
+      <p class="section-intro">Module 1.2 covered the lesson-start sequence — the six stages from settle through to the 30-Second Reflection that begin the lesson once pupils have arrived. This module covers the period before that: the five minutes leading up to the bell, during which the teacher prepares the room and manages the corridor. The substrate the lesson begins on is shaped largely by what the teacher has done before the first pupil enters.</p>
+
+      <p>Three observables sit in this period, alongside the materials-preparation routine. The starter task is on the board (LS6). The materials the lesson requires are prepared and to hand. The teacher is at the door as pupils arrive (LS1). The corridor handover is being managed: the previous class has been dismissed and the new class is being welcomed (LE6). Each item is independently observable on a learning walk, and the cumulative effect of these together determines the atmosphere a learning walker registers in the first thirty seconds — BFL-O1 on the Module 1.5 audit.</p>
+
+      <p>The diagnostic value of separating the four pre-lesson items lies in their independence. A teacher whose lesson starts run badly because of corridor disorder is not the same case as a teacher whose lesson starts run badly because the starter task is not ready. The four items pinpoint the source of the loss precisely, and the targeted coaching response addresses the specific observable rather than the lesson-start sequence as a whole.</p>
+
+      <p>This module assumes the teacher has completed Module 1.2. The lesson-start sequence covered there is the downstream activity that the four pre-lesson items make possible.</p>
+    </section>
+
+    <section id="timeline">
+      <div class="section-eyebrow">02 · The five-minute timeline</div>
+      <h2>The teacher's actions before the bell.</h2>
+      <p class="section-intro">The timeline below maps the four pre-lesson items against the time before the bell at which each is typically completed. The exact timings vary by classroom and timetable; the sequence does not.</p>
+
+      <div class="timeline">
+        <div class="timeline-axis">
+          <div class="timeline-line"></div>
+          <div class="timeline-marks">
+            <div class="timeline-mark first">
+              <div class="label">Materials</div>
+              <div class="dot"></div>
+              <div class="time">−5 min</div>
+            </div>
+            <div class="timeline-mark">
+              <div class="label">Starter</div>
+              <div class="dot"></div>
+              <div class="time">−4 min</div>
+            </div>
+            <div class="timeline-mark">
+              <div class="label">Handover</div>
+              <div class="dot"></div>
+              <div class="time">−3 min</div>
+            </div>
+            <div class="timeline-mark">
+              <div class="label">At door</div>
+              <div class="dot"></div>
+              <div class="time">−2 min</div>
+            </div>
+            <div class="timeline-mark last">
+              <div class="label">Bell</div>
+              <div class="dot"></div>
+              <div class="time">0:00</div>
+            </div>
+          </div>
+        </div>
+        <p class="timeline-caption">Five minutes before the bell, four items completed in sequence. Module 1.2 begins at 0:00.</p>
+      </div>
+
+      <p>The order is the order in which the items make each other possible. Materials are prepared first because the act of preparing them is what determines whether the starter task can be projected. The starter task is set up second because once it is on the board, the teacher is free to leave the classroom for the corridor. The handover is managed third — the previous class has been dismissed by this point, the next class is approaching, and the corridor work is the active task of the next minute. The door position is taken last, in the final two minutes, when most of the class has begun to arrive and the corridor work is winding down.</p>
+
+      <p>Each item is detailed below in the order in which the teacher executes it, and rated separately on the audit in section 04.</p>
+    </section>
+
+    <section id="le6">
+      <div class="item">
+        <div class="item-header">
+          <div class="item-id-tile">LE6</div>
+          <div class="item-title-block">
+            <div class="item-tag">Handover · Streamlined wording</div>
+            <h3 class="item-title">Teacher at door / corridor for handover.</h3>
+          </div>
+          <div class="item-time">−3 min</div>
+        </div>
+
+        <p>LE6 sits formally in the Lesson Endings family because it covers the dismissal of the previous class, but its operational effect is on the start of the next lesson. The technique is the corridor work the teacher does between classes: dismissing the outgoing pupils row by row in silence, then standing at the door of the room as the incoming pupils approach.</p>
+
+        <p>The corridor itself is part of the school's behaviour standard. Pupils move on the left-hand side and in single file. The teacher's presence at the doorway during the changeover provides the corridor with the same authority that any other supervised space carries; an unsupervised corridor produces a different atmosphere from a supervised one, and the difference is registered by pupils as quickly as on the next changeover.</p>
+
+        <div class="when"><div class="label">What the observer is checking for</div>The teacher is in the doorway or one step into the corridor as the incoming class approaches. Pupils on the corridor are moving on the left, in single file, without sustained conversation. The teacher acknowledges arriving pupils by name where possible. There is no lull during which the corridor is unsupervised between the dismissal of one class and the arrival of the next.</div>
+
+        <div class="technique"><div class="label">The technique</div>The teacher dismisses the outgoing class in time to be at the door for the next. The dismissal sequence (Module 1.9) finishes approximately three minutes before the bell, which leaves the teacher with two to three minutes in the corridor before the new class arrives. The teacher uses this period to greet arriving pupils and to apply the school's corridor standard to any pupils not meeting it.</div>
+      </div>
+    </section>
+
+    <section id="ls12">
+      <div class="item">
+        <div class="item-header">
+          <div class="item-id-tile" style="font-size:13px;">Routine</div>
+          <div class="item-title-block">
+            <div class="item-tag">Materials · Supporting routine</div>
+            <h3 class="item-title">Materials prepared and appropriate to lesson.</h3>
+          </div>
+          <div class="item-time">−5 min</div>
+        </div>
+
+        <p>Materials preparation is the first action in the pre-lesson sequence. The materials the lesson requires — printed sheets, exercise books, mini-whiteboards, pens, manipulatives — are prepared before the bell and placed at the end of the rows for distribution by the take-and-pass technique covered in Module 1.10.</p>
+
+        <p>The standard at Nishkam School is that pupils do not wander around handing out materials during the lesson. The take-and-pass technique relies on the materials being in the right place at the start of the lesson, which is a precondition for the smooth running of the early lesson stages.</p>
+
+        <div class="when"><div class="label">What the observer is checking for</div>Materials are placed at the end of each row before pupils arrive. Where worksheets are required, they are face-down at the end of the row to prevent reading before the task has been introduced. Where mini-whiteboards or other equipment are required, they are on each desk before pupils sit down. The teacher does not need to leave the lectern during the lesson to retrieve any of the materials the lesson plan requires.</div>
+
+        <div class="technique"><div class="label">The technique</div>Materials are prepared during the previous free period, or at the start of the day for the first lesson. The lesson plan is the source document: each activity in the plan is checked against the materials it requires, and the corresponding stack is placed at the end of the relevant row before the bell.</div>
+      </div>
+    </section>
+
+    <section id="ls6">
+      <div class="item">
+        <div class="item-header">
+          <div class="item-id-tile">LS6</div>
+          <div class="item-title-block">
+            <div class="item-tag">Starter · Streamlined wording</div>
+            <h3 class="item-title">Starter task on board before pupils arrive.</h3>
+          </div>
+          <div class="item-time">−4 min</div>
+        </div>
+
+        <p>LS6 is the starter task, which Module 1.2 names as Stage 3 of the lesson-start sequence. The technique is that the task is on the board — projected, written, or printed in books — before the first pupil enters the room. The starter is the task pupils begin within the first thirty seconds of arriving, and its presence on the board is what makes that thirty-second window possible.</p>
+
+        <p>The task is straight-into-thinking work: a recall question from the previous lesson, a short retrieval prompt, or a short reading. The cognitive demand is calibrated to the working state of pupils who have just arrived from a corridor changeover; it is not the introduction of new material, which comes later in the lesson once the room has settled.</p>
+
+        <div class="when"><div class="label">What the observer is checking for</div>The starter task is visible on the board, on a printed sheet, or in books as pupils arrive. The instruction for completing it is unambiguous and requires no further teacher input before pupils begin. The teacher does not need to spend any of the first two minutes of the lesson explaining what the task is.</div>
+
+        <div class="technique"><div class="label">The technique</div>The starter is set up at approximately four minutes before the bell, after the materials have been placed at the end of the rows. The board is checked: the slide loads, the projector is on, the writing is legible from the back row. The teacher then leaves the classroom for the corridor work of the next two minutes.</div>
+      </div>
+    </section>
+
+    <section id="ls1">
+      <div class="item">
+        <div class="item-header">
+          <div class="item-id-tile">LS1</div>
+          <div class="item-title-block">
+            <div class="item-tag">Door · Streamlined wording</div>
+            <h3 class="item-title">Teacher at door as pupils arrive.</h3>
+          </div>
+          <div class="item-time">−2 min</div>
+        </div>
+
+        <p>LS1 is the most visible of the four pre-lesson items because it is the one pupils encounter first. The teacher stands in the doorway as the class arrives, greets each pupil by name where possible, and directs them to the starter task that is already on the board. The doorway position serves three purposes: it signals to the corridor that the teacher is present, it gives the teacher a vantage point from which to read the mood of the arriving class, and it allows the teacher to manage entry one pupil at a time rather than as a crowd.</p>
+
+        <p>The greeting is not perfunctory. A pupil whose name has been used at the doorway has been registered as a person before the lesson begins; the cumulative effect across a half-term is on the relationship between the teacher and the class, which in turn is one of the variables in BFL-O2 (focus throughout the lesson).</p>
+
+        <div class="when"><div class="label">What the observer is checking for</div>The teacher is positioned in the doorway, half in the corridor and half in the classroom, in the two minutes before the bell. Each arriving pupil is greeted briefly. The teacher is not behind the lectern, not setting up materials, and not addressing the previous class. As pupils enter, they begin the starter task that is already on the board.</div>
+
+        <div class="technique"><div class="label">The technique</div>The teacher takes the door position once the materials are in place and the starter task is on the board. The greeting is brief and uses the pupil's name where possible; for newer classes, the teacher uses the seating plan to learn names quickly during the first half-term. Where a pupil arrives in a state that suggests difficulty (visibly upset, late, agitated), the teacher acknowledges this at the door and addresses it during the body of the lesson rather than at the start.</div>
+
+        <div class="practice">
+          <div class="label"><span>Featured practice · Door rehearsal</span><span class="timer">5 minutes · in pairs</span></div>
+          <ol>
+            <li>The teacher stands in a doorway-position relative to the partner playing the corridor pupil. The pupil approaches.</li>
+            <li>The teacher greets the pupil by name and directs them to the starter task ("Hello, [Pupil]. Straight to the starter on the board, please.").</li>
+            <li>The pupil reports whether the greeting registered as warm or perfunctory, and whether the direction to the starter was clear or had to be inferred.</li>
+            <li>The drill is repeated five times with five different scenarios — a calm pupil, a chatty pupil, a late pupil, a visibly upset pupil, and a pupil who attempts to ask a question on arrival.</li>
+          </ol>
+          <div class="coach-prompt"><strong>Coach prompt:</strong> Did the greeting use the pupil's name in each case? Was the direction to the starter task delivered as a settled expectation, or as a request that the pupil could decline?</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pitfalls">
+      <div class="section-eyebrow">03 · Common pitfalls</div>
+      <h2>Where the pre-lesson sequence breaks.</h2>
+      <p class="section-intro">Each pitfall below describes a teacher behaviour that produces a measurable drop in one of the four pre-lesson items. Each is tagged with the item it puts at risk.</p>
+
+      <div class="pitfall"><strong>Setting up the starter while pupils are arriving.</strong><span class="pf-cl">Risks LS6, LS1</span><p>The teacher is at the lectern loading slides as the first pupils enter, and is therefore not at the door (LS1 fails) and the starter is not yet on the board (LS6 fails). Each pupil who arrives during this window has nothing to begin and starts a conversation with a peer instead. The technique is to set the starter up at minus four minutes, before the door position is taken at minus two.</p></div>
+
+      <div class="pitfall"><strong>Photocopying during the changeover.</strong><span class="pf-cl">Risks the routine</span><p>The teacher leaves the classroom during the lesson changeover to photocopy worksheets the lesson requires, and is consequently absent from the corridor (LE6 fails) and not at the door when pupils arrive (LS1 fails). Materials are prepared during the previous free period or at the start of the day, not during the changeover.</p></div>
+
+      <div class="pitfall"><strong>Greeting from behind the lectern.</strong><span class="pf-cl">Risks LS1</span><p>The teacher acknowledges arriving pupils by raising a hand from behind the lectern. The greeting has been delivered in form but not in substance, and the corridor is unsupervised. The technique is the doorway position; the lectern is not the door.</p></div>
+
+      <div class="pitfall"><strong>Letting the previous class run over.</strong><span class="pf-cl">Risks LE6</span><p>The previous lesson finishes at the bell rather than at minus three minutes, which means the teacher is not in the corridor for the changeover, the door position is taken late, and the starter is not introduced in the first thirty seconds of the new lesson. The technique is in Module 1.9: the dismissal sequence finishes three minutes before the bell.</p></div>
+
+      <div class="pitfall"><strong>A starter that requires teacher explanation.</strong><span class="pf-cl">Risks LS6</span><p>The starter task on the board is unclear without spoken instructions. The teacher has to talk pupils through it once the lesson begins, and the first two minutes are spent on the starter rather than on the body of the lesson. The starter is task that pupils can begin without further input; if it requires explanation, it is not the starter.</p></div>
+
+      <div class="pitfall"><strong>Treating the door position as optional in cold weather or at end of day.</strong><span class="pf-cl">Risks LS1, LE6</span><p>The teacher remains in the classroom on cold days or at the end of the school day. The corridor reads the absent teacher as the new standard, and the corridor work fails for the lesson and on subsequent days. The standard is delivered consistently, not adjusted for the conditions; that is what makes it the standard.</p></div>
+    </section>
+
+    <section id="audit">
+      <div class="section-eyebrow">04 · Self-audit · LS1, LS6, LE6</div>
+      <h2>The canonical checklist.</h2>
+      <p class="section-intro">This audit mirrors the streamlined Lesson Starts and Lesson Endings checklists for the items this module owns. The four items are typically rated together because their cumulative effect is on the same observable: the atmosphere registered in the first thirty seconds of the lesson (BFL-O1 on the Module 1.5 audit).</p>
+
+      <table class="audit">
+        <thead>
+          <tr><th style="width: 12%;">ID</th><th style="width: 52%;">Statement</th><th style="width: 16%;">RAG</th><th style="width: 20%;">Date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="id">LS1</td><td>Teacher at door as pupils arrive.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">LS6</td><td>Starter task on board before pupils arrive.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">LE6</td><td>Teacher at door / corridor for handover.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size: 14px; color: var(--ink-soft); margin-top: 16px;"><strong>Where any of the three is rated red or amber:</strong> the diagnosis points to a specific timing within the five-minute pre-lesson window. LS6 amber to the starter set-up timing; LE6 amber to the dismissal timing of the previous lesson; LS1 amber to the door position itself. The targeted remediation addresses the specific item rather than the pre-lesson sequence as a whole.</p>
+    </section>
+
+    <section id="ai-tool">
+      <div class="section-eyebrow">05 · AI scenario tester</div>
+      <h2>Worked example of a tool response.</h2>
+      <p class="section-intro">The full live tool will accept any pre-lesson scenario the teacher describes. The worked example below shows the shape of a typical response.</p>
+
+      <div class="ai-tool">
+        <div class="ai-eyebrow">Worked example</div>
+        <h3>Pre-lesson sequence diagnosis</h3>
+
+        <div class="ai-demo">
+          <div class="label">Teacher submits</div>
+          <div class="scenario">"My Period 4 Year 8 lesson keeps starting badly. Pupils arrive, the room is loud, it takes me five or six minutes to get them settled into the starter. I'm rushing to set up between Period 3 and 4 — I usually have a Year 11 group at Period 3 in a different room and I have to come up two flights of stairs. By the time I'm at my classroom, half the Year 8 class is already there, and the corridor outside my room is chaotic. I tried tightening up the Diligence Routine but it hasn't fixed it."</div>
+
+          <div class="label">Tool responds</div>
+          <div class="response">
+            <p><strong>Items at risk:</strong> LE6 (no handover — the teacher is travelling between rooms during the changeover), LS1 (door position taken late or not at all), LS6 (starter likely set up after pupils arrive).</p>
+
+            <p><strong>What is happening:</strong> the diagnosis is in the pre-lesson sequence, not in the Diligence Routine itself. The Period 3-to-4 transition is structural; the teacher cannot be in two places at once. Tightening the Diligence Routine treats the symptom rather than the cause, and is unlikely to produce a measurable improvement on the ratings.</p>
+
+            <p><strong>Where to look for the fix:</strong></p>
+            <ol>
+              <li>The Period 3 lesson finishes at minus four minutes — one minute earlier than the standard — to allow the teacher to clear the room and travel two flights up.</li>
+              <li>Materials for Period 4 are pre-positioned in the Year 8 room before the day begins, so that the teacher does not need to set them up in the changeover.</li>
+              <li>The starter for Period 4 is loaded on the board at the end of the day before, or as a printed sheet placed on each desk during the morning. The teacher does not need to set up the projector during the changeover.</li>
+              <li>A colleague with a free Period 3 covers the corridor outside the Year 8 room for the first ninety seconds of the changeover, until the teacher arrives. This is a department conversation rather than a self-fix.</li>
+            </ol>
+
+            <p><strong>Where the fix sits:</strong> the structural changes above are typically agreed at the department level rather than enacted by the teacher alone. The teacher records the issue with the Curriculum Leader and the timetabling team, with the items LS1, LS6, and LE6 named as the specific ratings being affected.</p>
+          </div>
+        </div>
+
+        <a class="ai-cta" href="#">Live tool — coming soon</a>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="section-eyebrow">06 · Downloads</div>
+      <h2>Module materials.</h2>
+      <p class="section-intro">The module is published in three formats — the printable booklet, the slide deck for the 45-minute session, and a one-page reference card carrying the five-minute timeline — each adapted for its medium.</p>
+      <div class="downloads">
+        <span class="download-card download-soon"><div class="type">CPD Booklet</div><div class="name">Module 1.6 Booklet</div><div class="size">.docx · printable</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">Slide Deck</div><div class="name">Module 1.6 Slides</div><div class="size">.pptx · 45-min session</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">One-pager</div><div class="name">Pre-Lesson Timeline Reference Card</div><div class="size">PDF · pin to lectern</div><div class="dl-soon">Coming soon</div></span>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="#" class="prev"><span class="dir">← Previous module</span><span class="label">1.5 · BFL in Class</span></a>
+      <a href="#" class="next"><span class="dir">Next module →</span><span class="label">1.7 · In-Lesson Strategies</span></a>
+    </nav>
+  </article>
+</div>
+
+<footer class="module-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Pillar 1 · Module 1.6</div>
+  <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./matrix.html">Matrix</a></div>
+</footer>
+</body>
+</html>

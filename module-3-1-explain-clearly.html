@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module 3.1 — Explain Clearly | T&amp;L Excellence Programme</title>
+<meta name="description" content="Direct Instruction at Nishkam School — clarity and economy of language. Say only the words that need to be said. Anchored to ID1, ID2, ID3, ID6." />
+<style>
+/* Pillar 3 — Questioning · shared stylesheet */
+:root {
+  --bg: #f7f2e8; --surface: #fffdf7; --ink: #1f2a37; --ink-soft: #4b5563;
+  --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
+  --highlight: #fff4dd; --practice: #eef3ec; --practice-rule: #b6c8b1; --practice-ink: #2d6a3e;
+  --pause: #faf3e3; --pause-ink: #8a6611;
+  --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+.topbar { background: var(--ink); color: #fff; padding: 14px 24px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+.topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+.topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+.hero { padding: 56px 24px 40px; border-bottom: 1px solid var(--rule); background: radial-gradient(circle at 85% 20%, rgba(184, 137, 58, 0.10), transparent 50%), var(--bg); }
+.hero-inner { max-width: 1080px; margin: 0 auto; }
+.pillar-tag { display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; font-weight: 600; }
+.module-number { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 18px; margin-bottom: 8px; }
+h1.title { font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); line-height: 1.1; margin: 0 0 18px; font-weight: 600; letter-spacing: -0.01em; }
+h1.title em { font-style: italic; color: var(--accent); }
+.lede { font-size: 19px; color: var(--ink-soft); max-width: 720px; margin: 0 0 24px; line-height: 1.5; }
+
+.checklist-strip { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 20px; margin: 18px 0 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.checklist-strip .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-right: 6px; }
+.checklist-strip a.cl-tag, .checklist-strip span.cl-tag { font-family: var(--serif); font-weight: 700; font-size: 13px; background: var(--highlight); color: var(--accent); padding: 4px 10px; border-radius: 100px; text-decoration: none; }
+.checklist-strip .cl-tag.outcome { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-style: italic; }
+.checklist-strip .secondary { font-size: 11px; color: var(--ink-soft); font-style: italic; margin-left: 6px; }
+
+.meta-row { display: flex; flex-wrap: wrap; gap: 24px; padding-top: 20px; border-top: 1px solid var(--rule); }
+.meta { display: flex; flex-direction: column; gap: 4px; }
+.meta .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.meta .value { font-weight: 600; font-size: 15px; }
+
+.layout { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 44px 24px 60px; }
+@media (max-width: 880px) { .layout { grid-template-columns: 1fr; gap: 0; padding: 28px 20px 56px; } }
+
+nav.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; line-height: 1.5; }
+nav.toc h4 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 12px; font-weight: 600; }
+nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+nav.toc li { counter-increment: toc; padding: 5px 0 5px 12px; }
+nav.toc li::before { content: counter(toc, decimal-leading-zero) "  "; color: var(--accent-soft); }
+nav.toc a { color: var(--ink); text-decoration: none; }
+nav.toc a:hover { color: var(--accent); }
+@media (max-width: 880px) { nav.toc { display: none; } }
+
+article > section { margin-bottom: 44px; scroll-margin-top: 24px; }
+article h2 { font-family: var(--serif); font-size: 28px; margin: 0 0 8px; font-weight: 600; }
+.section-eyebrow { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 6px; }
+.section-intro { font-size: 17px; color: var(--ink-soft); margin: 0 0 18px; max-width: 660px; }
+article p { margin: 0 0 14px; }
+article ol { padding-left: 22px; margin: 0 0 14px; }
+
+/* Routines orientation table */
+.orient { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--surface); border-radius: 8px; overflow: hidden; font-size: 13px; }
+.orient th, .orient td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.orient th { background: var(--ink); color: #fff; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.orient td:first-child { font-family: var(--serif); font-weight: 700; color: var(--accent); white-space: nowrap; }
+.orient tr.this-module td { background: var(--highlight); }
+
+/* Beat strip (signature visual for sequenced techniques) */
+.beat-strip { margin: 22px 0; padding: 22px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.beat-orient { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; text-align: center; margin-bottom: 14px; }
+.beat-grid { display: grid; gap: 6px; }
+.beat-grid.cols-6 { grid-template-columns: repeat(6, 1fr); }
+.beat-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+.beat-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 880px) { .beat-grid { grid-template-columns: 1fr 1fr !important; gap: 8px; } }
+.beat { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 10px; text-align: center; min-height: 140px; display: flex; flex-direction: column; }
+.beat.pause-beat { background: var(--pause); border-color: var(--gold); }
+.beat .beat-num { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 20px; color: var(--accent); margin-bottom: 4px; }
+.beat.pause-beat .beat-num { color: var(--pause-ink); }
+.beat .beat-name { font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.2; }
+.beat .beat-detail { font-size: 11px; color: var(--ink-soft); line-height: 1.35; flex: 1; }
+.beat .beat-cl { margin-top: 6px; font-family: var(--serif); font-weight: 700; font-size: 11px; color: var(--accent); }
+.beat.pause-beat .beat-cl { color: var(--pause-ink); }
+
+/* Step cards */
+.step-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 20px 24px; margin: 16px 0; scroll-margin-top: 24px; }
+.step-header { display: flex; align-items: center; gap: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); margin-bottom: 12px; }
+.step-num { width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 16px; font-family: var(--serif); }
+.step-num.pause { background: var(--gold); }
+.step-title-block { flex: 1; }
+.step-title-block h3 { margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 600; }
+.step-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.step-tag.pause { color: var(--pause-ink); }
+.step-cl { display: flex; flex-wrap: wrap; gap: 5px; flex-shrink: 0; }
+.cl-pill { background: var(--highlight); color: var(--accent); font-family: var(--serif); font-weight: 700; font-size: 11px; padding: 3px 9px; border-radius: 100px; }
+.cl-pill.outcome { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-style: italic; }
+
+.script { margin: 12px 0; padding: 12px 16px; background: var(--highlight); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink); }
+.script .label { display: block; font-family: var(--sans); font-style: normal; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+.script .pause-marker { font-family: var(--sans); font-style: normal; font-weight: 700; color: var(--pause-ink); background: var(--pause); padding: 1px 6px; border-radius: 3px; font-size: 11px; letter-spacing: 0.04em; }
+
+.pause-note { background: var(--pause); border-left: 3px solid var(--gold); padding: 10px 14px; margin: 10px 0; font-size: 13px; color: var(--pause-ink); border-radius: 0 4px 4px 0; }
+.pause-note strong { color: var(--pause-ink); }
+
+.practice { background: var(--practice); border: 1px solid var(--practice-rule); border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
+.practice .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--practice-ink); font-weight: 700; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.practice .timer { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 13px; text-transform: none; letter-spacing: 0; }
+.practice ol { padding-left: 22px; margin: 0; }
+.practice ol li { margin-bottom: 3px; font-size: 14px; }
+.coach-prompt { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--practice-rule); font-size: 13px; color: var(--ink-soft); }
+.coach-prompt strong { color: var(--practice-ink); }
+
+.pitfall { border-left: 4px solid #c25b3f; background: #fbeee5; padding: 12px 18px; border-radius: 0 6px 6px 0; margin: 14px 0; font-size: 14px; }
+.pitfall strong { color: #8b3a2e; }
+.pf-cl { display: inline-block; font-family: var(--serif); font-weight: 700; font-size: 11px; color: #8b3a2e; background: #fff; padding: 2px 8px; border-radius: 100px; margin-left: 6px; vertical-align: middle; }
+
+table.audit { width: 100%; border-collapse: collapse; margin: 16px 0; background: var(--surface); border-radius: 10px; overflow: hidden; font-size: 13px; }
+table.audit th, table.audit td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.audit th { background: var(--ink); color: #fff; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+table.audit tr:last-child td { border-bottom: none; }
+table.audit tr.outcome-row td { background: #faf3e3; }
+table.audit tr.outcome-row .id { color: var(--gold); }
+table.audit .id { font-family: var(--serif); font-weight: 700; color: var(--accent); white-space: nowrap; }
+table.audit .rag { display: inline-flex; gap: 4px; }
+table.audit .rag span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--rule); }
+.rag .r { background: #e8c0b6; } .rag .a { background: #f3dfa8; } .rag .g { background: #b8d4ba; }
+.audit-section-divider { background: var(--gold); color: #fff; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 7px 14px; }
+
+.ai-tool { background: linear-gradient(135deg, #2a2a2a 0%, #1f2a37 100%); color: #f5f2eb; padding: 26px; border-radius: 10px; margin: 22px 0; }
+.ai-tool h3 { color: #fff; margin: 0 0 6px; font-family: var(--serif); }
+.ai-tool .ai-eyebrow { color: var(--accent-soft); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; }
+.ai-tool p { color: rgba(255,255,255,0.75); }
+.ai-demo { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 18px; margin-top: 16px; }
+.ai-demo .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 5px; font-weight: 600; }
+.ai-demo .scenario { font-style: italic; color: rgba(255,255,255,0.85); padding: 11px 13px; background: rgba(0,0,0,0.2); border-radius: 6px; margin-bottom: 14px; font-family: var(--serif); font-size: 14px; }
+.ai-demo .response { font-size: 14px; line-height: 1.55; }
+.ai-demo .response strong { color: var(--accent-soft); }
+.ai-demo .response ol { margin: 6px 0; padding-left: 20px; }
+.ai-cta { display: inline-block; margin-top: 14px; padding: 9px 16px; border: 1px solid var(--accent-soft); color: var(--accent-soft); border-radius: 6px; text-decoration: none; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: not-allowed; opacity: 0.7; }
+
+.downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+@media (max-width: 700px) { .downloads { grid-template-columns: 1fr; } }
+.download-card { border: 1px solid var(--rule); border-radius: 10px; padding: 18px; background: var(--surface); text-decoration: none; color: var(--ink); transition: all 0.2s; display: block; }
+.download-card:hover { border-color: var(--accent); }
+.download-card .type { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.download-card .name { font-weight: 600; margin-top: 5px; font-size: 15px; font-family: var(--serif); }
+.download-card .size { font-size: 11px; color: var(--ink-soft); margin-top: 4px; }
+
+footer.module-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 36px 24px; text-align: center; font-size: 13px; }
+footer.module-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+
+.module-nav { display: flex; justify-content: space-between; gap: 16px; padding: 28px 0; border-top: 1px solid var(--rule); margin-top: 32px; }
+.module-nav a { text-decoration: none; flex: 1; max-width: 320px; padding: 14px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); }
+.module-nav .dir { font-size: 11px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+.module-nav .label { display: block; margin-top: 4px; font-family: var(--serif); font-size: 16px; color: var(--ink); }
+.module-nav .next { text-align: right; }
+
+/* Routine cycle visual (used in 2.4 Pair-share + Sequencing) */
+.cycle { display: grid; grid-template-columns: repeat(5, 1fr) auto; gap: 6px; align-items: stretch; margin: 22px 0; }
+@media (max-width: 880px) { .cycle { grid-template-columns: 1fr 1fr; } }
+.cycle-stage { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 10px; text-align: center; min-height: 130px; display: flex; flex-direction: column; }
+.cycle-stage.this-module { background: var(--highlight); border-color: var(--accent-soft); }
+.cycle-stage .stage-letter { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--accent); font-weight: 700; }
+.cycle-stage .stage-name { font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--ink); margin: 4px 0; line-height: 1.2; }
+.cycle-stage .stage-purpose { font-size: 11px; color: var(--ink-soft); line-height: 1.35; flex: 1; }
+.cycle-stage .stage-mod { margin-top: 6px; font-family: var(--serif); font-style: italic; font-size: 10px; color: var(--accent); }
+.cycle-arrow { display: flex; align-items: center; color: var(--accent-soft); font-size: 18px; }
+@media (max-width: 880px) { .cycle-arrow { display: none; } }
+
+.long-quote { margin: 20px 0; padding: 16px 22px; border-left: 3px solid var(--gold); background: var(--surface); font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--ink-soft); font-style: italic; }
+.long-quote cite { display: block; font-family: var(--sans); font-style: normal; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-top: 10px; font-weight: 600; }
+
+
+/* ====== shared six-pillar nav spine ====== */
+.pillar-spine { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.pillar-spine-summary {
+  list-style: none; cursor: pointer; padding: 14px 24px;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  max-width: 1080px; margin: 0 auto;
+}
+.pillar-spine-summary::-webkit-details-marker { display: none; }
+.pillar-spine-summary::marker { content: ""; }
+.pillar-spine-summary .ps-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.pillar-spine-summary .ps-current {
+  font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 15px;
+}
+.pillar-spine-summary .ps-current strong { font-style: normal; color: var(--accent); font-weight: 600; }
+.pillar-spine-summary .ps-toggle {
+  margin-left: auto; color: var(--accent); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.06em;
+}
+.pillar-spine-summary .ps-toggle::after { content: " ↓"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle::after { content: " ↑"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-show { display: none; }
+.pillar-spine .pillar-spine-summary .ps-toggle .ps-hide { display: none; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-hide { display: inline; }
+
+.pillar-spine-grid {
+  max-width: 1080px; margin: 0 auto; padding: 4px 24px 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px;
+}
+@media (max-width: 880px) { .pillar-spine-grid { grid-template-columns: 1fr; padding-bottom: 18px; } }
+
+.ps-pillar { border-top: 1px solid var(--rule); padding: 14px 0 4px; }
+.ps-pillar-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.ps-num {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700;
+}
+.ps-name {
+  font-family: var(--serif); font-size: 16px; color: var(--ink); font-weight: 600;
+  line-height: 1.25;
+}
+.ps-modules { list-style: none; padding: 0; margin: 0; }
+.ps-modules li { padding: 2px 0; font-size: 13.5px; line-height: 1.5; }
+.ps-modules a { color: var(--ink); text-decoration: none; }
+.ps-modules a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ps-modules a.ps-current { color: var(--accent); font-weight: 700; }
+.ps-modules a.ps-current::before { content: "● "; color: var(--accent); font-size: 10px; vertical-align: 2px; }
+
+.ps-pillar.ps-coming .ps-num,
+.ps-pillar.ps-coming .ps-name { color: var(--ink-soft); }
+.ps-pillar.ps-coming .ps-name { opacity: 0.7; }
+.ps-pillar.ps-coming .ps-coming-note {
+  font-size: 12.5px; color: var(--ink-soft); font-style: italic;
+  margin: 4px 0 0; opacity: 0.75;
+}
+.ps-pending { color: var(--ink-soft); opacity: 0.65; display: flex; align-items: baseline; gap: 8px; }
+.ps-pending .ps-tag {
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 1px 7px; border-radius: 100px; font-style: normal; font-weight: 600;
+}
+  .ps-pending .ps-tag.ps-tag-deferred {
+  color: var(--ink-soft); border-color: var(--rule);
+}
+/* ====== /shared six-pillar nav spine ====== */
+
+  .download-card.download-soon { opacity: 0.6; cursor: default; position: relative; }
+  .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
+  .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+</style>
+</head>
+<body data-current="3-1">
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a><span>›</span>
+    <a href="./programme-index.html">Direct Instruction</a><span>›</span>
+    Module 3.1
+  </div>
+  <div>Module 3.1 of 5 · Pillar 3</div>
+</div>
+
+<details class="pillar-spine">
+  <summary class="pillar-spine-summary">
+    <span class="ps-label">Six pillars</span>
+    <span class="ps-current">You are here: <strong>Pillar 3 · 3.1 Explain Clearly</strong></span>
+    <span class="ps-toggle"><span class="ps-show">Show all modules</span><span class="ps-hide">Hide</span></span>
+  </summary>
+  <div class="pillar-spine-grid">
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 1</span>
+        <span class="ps-name">Behaviour & Climate</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-1-1-language-of-virtues.html">1.1 Language of Virtues</a></li>
+        <li><a href="./module-1-2-lesson-starts.html">1.2 Lesson Starts</a></li>
+        <li><a href="./module-1-3-diligence-routine.html">1.3 Diligence Routine</a></li>
+        <li><a href="./module-1-4-30-second-reflection.html">1.4 30-Second Reflection</a></li>
+        <li><a href="./module-1-5-bfl-in-class.html">1.5 Behaviour for Learning in Class</a></li>
+        <li><a href="./module-1-6-pre-lesson-strategies.html">1.6 Pre-Lesson Strategies</a></li>
+        <li><a href="./module-1-7-in-lesson-strategies.html">1.7 In-Lesson Strategies</a></li>
+        <li><a href="./module-1-8-direct-intervention.html">1.8 Direct Intervention</a></li>
+        <li><a href="./module-1-9-lesson-endings.html">1.9 Lesson Endings</a></li>
+        <li><a href="./module-1-10-other-routines.html">1.10 Other Routines</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 2</span>
+        <span class="ps-name">Adaptive Teaching & Inclusion</span>
+      </div>
+      <p class="ps-coming-note">Coming. SEND families to follow.</p>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 3</span>
+        <span class="ps-name">Instruction & Modelling</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a class="ps-current" href="./module-3-1-explain-clearly.html">3.1 Explain Clearly</a></li>
+        <li><a href="./module-3-2-explain-interactively.html">3.2 Explain Interactively</a></li>
+        <li><a href="./module-3-3-explain-with-visuals.html">3.3 Explain with Visuals</a></li>
+        <li><a href="./module-3-4-explain-with-examples.html">3.4 Explain with Examples</a></li>
+        <li><a href="./module-3-5-economy-of-language.html">3.5 Economy of Language</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 4</span>
+        <span class="ps-name">Checking for Understanding</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-4-1-mini-whiteboards.html">4.1 Mini-Whiteboards</a></li>
+        <li><a href="./module-4-2-circulating-checking-support.html">4.2 Circulating &amp; Checking Support</a></li>
+        <li class="ps-pending ps-deferred"><span>4.3 Explicit Vocabulary Teaching</span><span class="ps-tag ps-tag-deferred">primary</span></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 5</span>
+        <span class="ps-name">Questioning & Classroom Dialogue</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-5-1-cold-calling.html">5.1 Cold-Calling</a></li>
+        <li><a href="./module-5-2-probing-questions.html">5.2 Probing Questions</a></li>
+        <li><a href="./module-5-3-think-pair-share.html">5.3 Think, Pair, Share</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar ps-coming">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 6</span>
+        <span class="ps-name">Standards & Curriculum</span>
+      </div>
+      <p class="ps-coming-note">Coming. Primary-phase focus.</p>
+    </div>
+  </div>
+</details>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="pillar-tag">Pillar 3 · Direct Instruction</span>
+    <div class="module-number">Module 3.1</div>
+    <h1 class="title">Explain <em>Clearly.</em></h1>
+    <p class="lede">Say only the words that need to be said. Clarity and economy of language during the I Do — purpose named, thinking narrated, each step talked through.</p>
+
+    <div class="checklist-strip">
+      <span class="label">Checklist coverage</span>
+      <a href="#audit" class="cl-tag">ID1</a><a href="#audit" class="cl-tag">ID2</a><a href="#audit" class="cl-tag">ID3</a><a href="#audit" class="cl-tag">ID6</a>
+      <span class="secondary">also relates to BFL5 (no more than 3-step instructions)</span>
+    </div>
+
+    <div class="meta-row">
+      <div class="meta"><span class="label">Time</span><span class="value">25 minutes</span></div>
+      <div class="meta"><span class="label">Format</span><span class="value">Independent · Coaching · Department</span></div>
+      <div class="meta"><span class="label">Prerequisite</span><span class="value">Module 3.1</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h4>In this module</h4>
+    <ol>
+      <li><a href="#orient">Five concepts, one purpose</a></li>
+      <li><a href="#why">Why this matters</a></li>
+      <li><a href="#sequence">The clarity sequence</a></li>
+      <li><a href="#step-1">Step 1 · Name the purpose</a></li>
+      <li><a href="#step-2">Step 2 · Narrate the thinking</a></li>
+      <li><a href="#step-3">Step 3 · Step by step</a></li>
+      <li><a href="#step-4">Step 4 · Next step &amp; why</a></li>
+      <li><a href="#avoid">Three things to avoid</a></li>
+      <li><a href="#pitfalls">Pitfalls</a></li>
+      <li><a href="#audit">Self-audit</a></li>
+      <li><a href="#downloads">Downloads</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="orient">
+      <div class="section-eyebrow">Orientation</div>
+      <h2>Five concepts, one purpose.</h2>
+      <p class="section-intro">This module covers clarity — saying only the words that need to be said during the I Do. Anchored to four ID items that govern the language of modelling.</p>
+
+      <table class="orient">
+        <thead><tr><th>Concept</th><th>What it does</th><th>Module</th></tr></thead>
+        <tbody>
+          <tr><td>Undivided attention</td><td>Sets the conditions that allow the model to land.</td><td>3.1</td></tr>
+          <tr class="this-module"><td>Clarity</td><td>Says only the words that need to be said.</td><td>3.2</td></tr>
+          <tr><td>Interactivity</td><td>Alternates between teacher input and pupil output.</td><td>3.3</td></tr>
+          <tr><td>Visuals</td><td>Pairs speaking with images and drawings.</td><td>3.4</td></tr>
+          <tr><td>Examples</td><td>Says what it is and what it isn't.</td><td>3.5</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="why">
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>Working memory is precious.</h2>
+      <p class="section-intro">Pupils sit in polite confusion when teacher language is imprecise. They are not lazy; they are uncertain. Clarity respects the learner — it removes unnecessary struggle and lets the working memory focus on the steps of the procedure rather than on decoding the explanation.</p>
+
+      <p>Three forms of unclear teacher language consume working memory without contributing to learning. <strong>Vagueness</strong> — "this lesson might help you to understand a bit more about those little things we sometimes call number patterns" — uses fifteen words to deliver one. <strong>Discontinuity</strong> — switching mid-explanation to a tangent or aside — forces pupils to track which thread they are on. <strong>Seductive details</strong> — interesting tangents irrelevant to the learning — pull attention away from the material.</p>
+
+      <div class="long-quote">Imprecise, ambiguous and uncertain sets of words characterise unclear explanations.<cite>Serki and Bolkan, 2023</cite></div>
+
+      <p>The four ID items below are the spine of clear modelling. Each one names a specific moment in the I Do where teacher language has to be precise. The "no more than three steps" principle from BFL5 carries forward: a model that contains four or five distinct teacher actions stacked together overflows the working memory before the pupils have understood any of them.</p>
+    </section>
+
+    <section id="sequence">
+      <div class="section-eyebrow">02 · The clarity sequence</div>
+      <h2>Four beats. Each precise.</h2>
+      <p class="section-intro">Each item below maps to a specific moment in the I Do — what the teacher says and what working-memory job it does.</p>
+
+      <div class="beat-strip">
+        <div class="beat-orient">PURPOSE → THINKING → STEP-BY-STEP → NEXT STEP &amp; WHY</div>
+        <div class="beat-grid cols-4">
+          <div class="beat"><div class="beat-num">1</div><div class="beat-name">Name the purpose</div><div class="beat-detail">What we will learn. Why it matters.</div><div class="beat-cl">ID1</div></div>
+          <div class="beat"><div class="beat-num">2</div><div class="beat-name">Narrate the thinking</div><div class="beat-detail">Think aloud. Make reasoning visible.</div><div class="beat-cl">ID2</div></div>
+          <div class="beat"><div class="beat-num">3</div><div class="beat-name">Step by step</div><div class="beat-detail">Each action shown and named.</div><div class="beat-cl">ID3</div></div>
+          <div class="beat"><div class="beat-num">4</div><div class="beat-name">Next step &amp; why</div><div class="beat-detail">Signpost the move. Brief reason.</div><div class="beat-cl">ID6</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="step-1"><div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title-block">
+          <div class="step-tag">Step 1 · Name the purpose</div>
+          <h3>What. Why. In one sentence.</h3>
+        </div>
+        <div class="step-cl"><span class="cl-pill">ID1</span></div>
+      </div>
+      <p>The model opens with a single sentence that names what is being taught and why it matters. Brief, factual, no warm-up. Pupils know within five seconds what they are about to learn and what role this learning plays in the wider sequence.</p>
+      <p>The temptation is to elaborate. "Today we're going to look at a really important skill that's going to come up loads in your exams and is also useful in lots of other contexts you'll meet later" — fifty words, no information. "Today we're learning to factorise quadratic expressions. This is the foundation for solving them next lesson" — fifteen words, two pieces of information.</p>
+      <div class="script"><span class="label">Scripted purpose statement</span>"Today we're learning to factorise quadratic expressions. <span class="pause-marker">PAUSE</span> This is the foundation for solving them next lesson."</div>
+    </div></section>
+
+    <section id="step-2"><div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title-block">
+          <div class="step-tag">Step 2 · Narrate the thinking</div>
+          <h3>Think aloud. Make the reasoning visible.</h3>
+        </div>
+        <div class="step-cl"><span class="cl-pill">ID2</span></div>
+      </div>
+      <p>The teacher narrates the thinking process as it happens. "What is being asked? — I'm being asked to find two numbers that multiply to give 12 and add to give 7. <span class="pause-marker">PAUSE</span> What information do I have already? — I know my times tables for 12. <span class="pause-marker">PAUSE</span> So I'll list the factor pairs."</p>
+      <p>The narration is the thinking, not a description of it. The pupil hears the question the expert asks themselves, sees the expert pause to retrieve, hears the answer arrive. The thinking process becomes audible. Without narration, the I Do shows only the trail of the thinking — the worked steps — without showing how the thinking itself was generated.</p>
+      <div class="script"><span class="label">Scripted think-aloud</span>"What am I being asked to do? <span class="pause-marker">PAUSE · 2 SEC</span> I'm being asked to factorise. <span class="pause-marker">PAUSE</span> What do I know about factorising? <span class="pause-marker">PAUSE · 2 SEC</span> I know I'm looking for two numbers that multiply and add."</div>
+      <div class="pause-note"><strong>The think-aloud needs the same wait time as cold-calling.</strong> Without pauses, the narration becomes recitation; with pauses, pupils have a moment to predict the answer themselves before the teacher delivers it.</div>
+    </div></section>
+
+    <section id="step-3"><div class="step-card">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title-block">
+          <div class="step-tag">Step 3 · Step by step</div>
+          <h3>Each step shown and named.</h3>
+        </div>
+        <div class="step-cl"><span class="cl-pill">ID3</span></div>
+      </div>
+      <p>Each action is shown and named at the same moment. The teacher writes the step under the visualiser while saying what they are doing. "Step one — list the factor pairs of twelve. <span class="pause-marker">PAUSE</span> One and twelve. Two and six. Three and four." The writing and the saying are simultaneous; pupils encode visually and aurally at once (the dual-coding principle covered in Module 3.3).</p>
+      <p>Steps are numbered out loud. "Step one… step two… step three." The numbering is what allows pupils to retrieve the procedure in the You Do — they remember the count, then each step under the count. Without numbering, the procedure is a continuous flow that the working memory cannot reconstruct.</p>
+      <div class="script"><span class="label">Scripted step-by-step</span>"Step one — list the factor pairs. <span class="pause-marker">WRITE · NAME</span> Step two — find the pair that adds to seven. <span class="pause-marker">WRITE · NAME</span> Step three — write the brackets. <span class="pause-marker">WRITE · NAME</span>"</div>
+    </div></section>
+
+    <section id="step-4"><div class="step-card">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title-block">
+          <div class="step-tag">Step 4 · Next step &amp; why</div>
+          <h3>Signpost the move. One reason.</h3>
+        </div>
+        <div class="step-cl"><span class="cl-pill">ID6</span></div>
+      </div>
+      <p>Between steps, the teacher names what comes next and why. "Step three — write the brackets. <span class="pause-marker">PAUSE</span> Why brackets? Because the factorised form is the product of two expressions, and brackets show the product." One sentence; one reason.</p>
+      <p>The "and why" is what makes the procedure a procedure rather than a sequence of moves. Pupils remember the reason longer than they remember the step itself; the reason is what they retrieve when they encounter a slightly different problem in the You Do.</p>
+      <div class="script"><span class="label">Scripted signpost</span>"Step three — write the brackets. <span class="pause-marker">PAUSE</span> Why brackets? <span class="pause-marker">PAUSE · 1 SEC</span> Because the factorised form is the product of two expressions, and brackets show the product."</div>
+
+      <div class="practice">
+        <div class="label"><span>Coaching moment · narrate one model</span><span class="timer">5 minutes · in pairs</span></div>
+        <ol>
+          <li>One colleague picks a procedure from this week's lessons and runs the four steps end-to-end as a 90-second model.</li>
+          <li>The partner times the model and counts: number of "step" markers said aloud, number of "and why" sentences delivered.</li>
+          <li>Aim is three or more numbered steps and at least two "and why" sentences across the 90 seconds.</li>
+        </ol>
+        <div class="coach-prompt"><strong>Coach prompt:</strong> Were the step numbers said aloud, or only written? Was each "why" one sentence, or did it become an explanation in itself?</div>
+      </div>
+    </div></section>
+
+    <section id="avoid">
+      <div class="section-eyebrow">03 · Three things to avoid</div>
+      <h2>Vagueness. Discontinuity. Seductive details.</h2>
+      <p class="section-intro">The three patterns of unclear teacher language. Each is illustrated by an example from the source booklet.</p>
+
+      <div class="step-card">
+        <h3 style="margin-top: 0;">Vagueness.</h3>
+        <p>Imprecise, ambiguous, uncertain phrasings. Words like "kind of", "sort of", "those little things we call". The example from the source booklet: "This lesson might help you to understand a bit more about those little things we sometimes call 'number patterns'."</p>
+        <div class="script"><span class="label">Replace with</span>"This lesson is about Number Patterns. Number Patterns are…"</div>
+      </div>
+
+      <div class="step-card">
+        <h3 style="margin-top: 0;">Discontinuity.</h3>
+        <p>Mid-explanation switches to a tangent or an aside. The pupil now has to track which thread they are on, and the working memory loses the thread of the original explanation. The example: "Okay we're going to look at Act 3 Scene 1 of Romeo and Juliet. I wish I knew what Shakespeare had for breakfast the morning he wrote this! Anyway, we'll read the scene today and tomorrow we'll be going onto look at Mercutio, but today we're just focusing on the plot."</p>
+        <div class="script"><span class="label">Replace with</span>"Today we're reading Act 3 Scene 1 of Romeo and Juliet. <span class="pause-marker">PAUSE</span> We're focusing on the plot."</div>
+      </div>
+
+      <div class="step-card">
+        <h3 style="margin-top: 0;">Seductive details.</h3>
+        <p>Interesting tangents that divert attention from the learning. Pupils enjoy them and some pupils have strategies for triggering them. They are not part of the model unless they make the concept more memorable; otherwise they cost working memory and time. The discriminator: <em>does this story help pupils retrieve the procedure under exam conditions?</em> If no, omit.</p>
+        <div class="pause-note"><strong>Humour is allowed; tangents are not.</strong> Light-hearted moments that arise within the relevant teaching of material are natural. Off-topic stories that fill time but do not help retention belong outside the model.</div>
+      </div>
+    </section>
+
+    <section id="pitfalls">
+      <div class="section-eyebrow">04 · Pitfalls</div>
+      <h2>Where clarity breaks.</h2>
+      <p class="section-intro">Each pitfall is tagged with the ID item it puts at risk.</p>
+
+      <div class="pitfall"><strong>The warm-up purpose statement.</strong><span class="pf-cl">Risks ID1</span><p>"Right, so today we're going to be doing something really exciting…" Fifty words before the actual content. The purpose is named in one sentence and the model begins.</p></div>
+
+      <div class="pitfall"><strong>Silent narration.</strong><span class="pf-cl">Risks ID2</span><p>The teacher writes the steps under the visualiser without saying what they are thinking. Pupils see the trail but not the reasoning. The narration is part of the model, not optional commentary on it.</p></div>
+
+      <div class="pitfall"><strong>Unnumbered steps.</strong><span class="pf-cl">Risks ID3</span><p>The procedure is shown as a continuous flow without "step one… step two…". The pupils cannot retrieve the count later, and the procedure becomes a memory of a process rather than a structured procedure.</p></div>
+
+      <div class="pitfall"><strong>"And why" as another explanation.</strong><span class="pf-cl">Risks ID6</span><p>The teacher says "step three — write the brackets" then delivers a 90-second explanation of why brackets matter in algebraic notation. The "why" becomes a second model on top of the first. One sentence; one reason.</p></div>
+
+      <div class="pitfall"><strong>Mid-model tangents.</strong><span class="pf-cl">Risks ID2, ID3</span><p>The teacher recalls a related anecdote partway through the model. The working memory loses the previous step. Tangents belong outside the model.</p></div>
+
+      <div class="pitfall"><strong>Stacked instructions.</strong><span class="pf-cl">Risks BFL5, ID3</span><p>The teacher gives five or six task instructions in one breath ("write the title, underline it, copy the objective, talk to your partner, write a summary, then sit with pens down"). The working memory holds three or four items; everything beyond that is lost. Three steps maximum.</p></div>
+    </section>
+
+    <section id="audit">
+      <div class="section-eyebrow">05 · Self-audit</div>
+      <h2>The clarity items.</h2>
+      <p class="section-intro">Streamlined wording. Four ID items governing the language of the I Do.</p>
+
+      <table class="audit">
+        <thead><tr><th style="width: 10%;">ID</th><th style="width: 56%;">Statement</th><th style="width: 14%;">RAG</th><th style="width: 20%;">Date</th></tr></thead>
+        <tbody>
+          <tr><td class="id">ID1</td><td>Purpose of the model named aloud.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">ID2</td><td>Thinking process narrated as it happens.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">ID3</td><td>Each step modelled and narrated.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+          <tr><td class="id">ID6</td><td>Next step and rationale narrated.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="downloads">
+      <div class="section-eyebrow">06 · Downloads</div>
+      <h2>Module materials.</h2>
+      <p class="section-intro">Three formats — booklet, slide deck, reference card.</p>
+      <div class="downloads">
+        <span class="download-card download-soon"><div class="type">CPD Booklet</div><div class="name">Module 3.1 Booklet</div><div class="size">.docx · printable</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">Slide Deck</div><div class="name">Module 3.1 Slides</div><div class="size">.pptx · 25-min session</div><div class="dl-soon">Coming soon</div></span>
+        <span class="download-card download-soon"><div class="type">One-pager</div><div class="name">Clarity Reference Card</div><div class="size">PDF · pin to lectern</div><div class="dl-soon">Coming soon</div></span>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="./module-3-4-explain-with-examples.html" class="prev"><span class="dir">← Previous module</span><span class="label">3.1 · Undivided Attention</span></a>
+      <a href="./module-3-2-explain-interactively.html" class="next"><span class="dir">Next module →</span><span class="label">3.3 · Explain Interactively</span></a>
+    </nav>
+  </article>
+</div>
+
+<footer class="module-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Pillar 3 · Module 3.1</div>
+  <div style="margin-top: 8px;"><a href="./index.html" style="color: rgba(255,255,255,0.9);">Hub</a> · <a href="./programme-index.html" style="color: rgba(255,255,255,0.9);">Direct Instruction</a></div>
+</footer>
+</body>
+</html>

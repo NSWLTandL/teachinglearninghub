@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Session 3 · Explaining and Modelling | Teaching Practice Programme</title>
+<meta name="description" content="Session 3 of the Teaching Practice Programme — Explaining and Modelling. The I do / we do / you do model, step by step, with a self-audit, generalised from our method for any school." />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Spline+Sans:wght@400;500;600;700&display=swap');
+
+  :root {
+    --ink: #1a1f1d;
+    --ink-soft: #555f5a;
+    --paper: #fbfaf7;
+    --surface: #ffffff;
+    --rule: #e3e1d8;
+    --accent: #126b5e;        /* deep teal-green */
+    --accent-soft: #3f9488;
+    --accent-wash: #e8f1ee;
+    --gold: #b07d2b;
+    --shadow: rgba(18,107,94,0.10);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Spline Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--paper); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---- top bar ---- */
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 28px; border-bottom: 1px solid var(--rule); background: var(--surface); font-size: 13px; position: sticky; top: 0; z-index: 50; }
+  .topbar .wordmark { font-family: var(--serif); font-weight: 600; font-size: 16px; letter-spacing: -0.01em; color: var(--ink); }
+  .topbar .wordmark .by { font-family: var(--sans); font-weight: 500; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-left: 8px; }
+  .topbar .crumbs { color: var(--ink-soft); }
+  .topbar .crumbs a { color: var(--ink-soft); }
+  .topbar .crumbs span { margin: 0 8px; opacity: 0.5; }
+
+  /* ---- session rail (generic, inherited-clean nav spine) ---- */
+  .rail { background: var(--surface); border-bottom: 1px solid var(--rule); }
+  .rail-inner { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+  .rail details { padding: 0; }
+  .rail summary { display: flex; align-items: center; gap: 14px; padding: 12px 0; cursor: pointer; list-style: none; font-size: 13px; }
+  .rail summary::-webkit-details-marker { display: none; }
+  .rail summary .r-label { font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; color: var(--ink-soft); }
+  .rail summary .r-here { color: var(--accent); font-weight: 500; }
+  .rail summary .r-toggle { margin-left: auto; color: var(--accent); font-size: 12px; }
+  .rail-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding: 4px 0 18px; }
+  .rail-item { display: block; padding: 12px; border: 1px solid var(--rule); border-radius: 9px; background: var(--paper); font-size: 12.5px; line-height: 1.35; transition: border-color .15s, transform .15s; }
+  .rail-item:hover { border-color: var(--accent-soft); transform: translateY(-2px); text-decoration: none; }
+  .rail-item .ri-num { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 600; }
+  .rail-item .ri-name { display: block; color: var(--ink); font-weight: 500; margin-top: 3px; }
+  .rail-item.current { border-color: var(--accent); background: var(--accent-wash); }
+  @media (max-width: 820px) { .rail-grid { grid-template-columns: repeat(2,1fr); } }
+
+  /* ---- hero ---- */
+  .hero { max-width: 980px; margin: 0 auto; padding: 64px 28px 36px; }
+  .hero .session-kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 20px; }
+  .hero .session-kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 { font-family: var(--serif); font-size: clamp(36px, 5.5vw, 60px); line-height: 1.05; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 18px; }
+  .hero h1 em { font-style: italic; }
+  .hero .lede { font-size: 20px; color: var(--ink-soft); max-width: 640px; margin: 0 0 28px; line-height: 1.45; }
+  .session-meta { display: flex; flex-wrap: wrap; gap: 28px; padding: 20px 0 0; border-top: 1px solid var(--rule); }
+  .session-meta .m { }
+  .session-meta .m .k { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .session-meta .m .v { font-family: var(--serif); font-size: 17px; margin-top: 3px; }
+
+  /* ---- body ---- */
+  .wrap { max-width: 740px; margin: 0 auto; padding: 16px 28px 90px; }
+  .block { margin: 48px 0; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .block h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; line-height: 1.2; margin: 0 0 14px; letter-spacing: -0.01em; }
+  .block h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 28px 0 8px; }
+  .block p { margin: 0 0 16px; }
+  .block .intro { font-size: 18px; color: var(--ink-soft); }
+
+  /* the move list — the ready-made core of each session */
+  .moves { counter-reset: move; margin: 24px 0; }
+  .move { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid var(--rule); }
+  .move:last-child { border-bottom: 1px solid var(--rule); }
+  .move .mn { counter-increment: move; font-family: var(--serif); font-style: italic; font-size: 26px; color: var(--accent); font-weight: 600; line-height: 1; }
+  .move .mn::before { content: counter(move); }
+  .move h3 { margin: 0 0 6px; font-size: 19px; }
+  .move p { margin: 0 0 10px; font-size: 15.5px; }
+  .move .try { font-size: 14px; background: var(--accent-wash); border-radius: 8px; padding: 12px 14px; color: var(--ink); }
+  .move .try strong { color: var(--accent); }
+
+  /* callout / principle */
+  .note { border-left: 3px solid var(--accent); background: var(--surface); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 22px 0; font-size: 15.5px; }
+  .note strong { color: var(--accent); }
+
+  /* pitfall row */
+  .watch { border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; margin: 14px 0; background: var(--surface); }
+  .watch .wt { font-family: var(--serif); font-weight: 600; font-size: 16px; }
+  .watch p { margin: 6px 0 0; font-size: 14.5px; color: var(--ink-soft); }
+
+  /* coaching task */
+  .coach { background: var(--ink); color: #f1f3f1; border-radius: 14px; padding: 28px; margin: 28px 0; }
+  .coach .ce { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-soft); font-weight: 700; }
+  .coach h3 { font-family: var(--serif); color: #fff; margin: 8px 0 14px; font-size: 21px; }
+  .coach ol { margin: 0; padding-left: 20px; }
+  .coach li { margin: 0 0 9px; color: rgba(255,255,255,0.82); font-size: 15px; }
+  .coach .tmr { display: inline-block; margin-top: 6px; font-size: 12px; color: var(--accent-soft); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+
+  /* ---- scenario tester (live) ---- */
+  .tester { background: linear-gradient(160deg, #14322d 0%, #0d2420 100%); border-radius: 16px; padding: 30px; margin: 32px 0; color: #eaf3f0; }
+  .tester .te { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-soft); font-weight: 700; }
+  .tester h3 { font-family: var(--serif); color: #fff; font-size: 23px; margin: 8px 0 6px; }
+  .tester .sub { color: rgba(255,255,255,0.7); font-size: 14.5px; margin: 0 0 18px; }
+  .tester textarea { width: 100%; min-height: 96px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: #fff; padding: 14px; font-family: var(--sans); font-size: 15px; resize: vertical; }
+  .tester textarea::placeholder { color: rgba(255,255,255,0.4); }
+  .tester .row { display: flex; gap: 10px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+  .tester button { background: var(--accent-soft); color: #07211c; border: none; border-radius: 100px; padding: 11px 22px; font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; transition: background .15s, transform .1s; }
+  .tester button:hover { background: #58a99c; }
+  .tester button:active { transform: scale(0.98); }
+  .tester button:disabled { opacity: 0.5; cursor: default; }
+  .tester .chips { display: flex; gap: 7px; flex-wrap: wrap; }
+  .tester .chip { font-size: 12px; padding: 6px 12px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.78); cursor: pointer; background: transparent; font-family: var(--sans); }
+  .tester .chip:hover { border-color: var(--accent-soft); color: #fff; }
+  .tester .out { margin-top: 18px; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 18px; display: none; }
+  .tester .out.show { display: block; }
+  .tester .out h4 { font-family: var(--serif); color: var(--accent-soft); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 10px; font-weight: 600; }
+  .tester .out .resp { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.9); }
+  .tester .out .resp p { margin: 0 0 12px; }
+  .tester .out .resp strong { color: #fff; }
+  .tester .out .resp ol, .tester .out .resp ul { margin: 0 0 12px; padding-left: 20px; }
+  .tester .out .resp li { margin: 0 0 7px; }
+  .tester .spinner { display: inline-block; width: 15px; height: 15px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .tester .fallback-note { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 12px; }
+
+  /* footer nav */
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin: 56px 0 0; }
+  .pager a { flex: 1; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 11px; background: var(--surface); transition: border-color .15s, transform .15s; }
+  .pager a:hover { border-color: var(--accent-soft); transform: translateY(-2px); text-decoration: none; }
+  .pager a .pd { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .pager a .pl { font-family: var(--serif); font-size: 16px; color: var(--ink); margin-top: 4px; display: block; }
+  .pager a.nx { text-align: right; }
+
+  footer.site { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 28px; text-align: center; font-size: 13px; }
+  footer.site .fmark { font-family: var(--serif); color: #fff; font-size: 17px; margin-bottom: 6px; }
+  footer.site a { color: var(--accent-soft); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wordmark">Teaching Practice <span class="by">A Nishkam Schools programme</span></div>
+  <div class="crumbs"><a href="./external-index.html">Overview</a><span>›</span>Session 3</div>
+</div>
+
+<div class="rail"><div class="rail-inner">
+  <details>
+    <summary>
+      <span class="r-label">Six sessions</span>
+      <span class="r-here">Session 3 · Explaining &amp; Modelling</span>
+      <span class="r-toggle">All sessions</span>
+    </summary>
+    <div class="rail-grid">
+<a class="rail-item" href="./ext-session-1-presence-authority.html"><span class="ri-num">1</span><span class="ri-name">Presence &amp; Authority</span></a>
+<a class="rail-item" href="./ext-session-2-routines-climate.html"><span class="ri-num">2</span><span class="ri-name">Routines &amp; Climate</span></a>
+<a class="rail-item current" href="./ext-session-3-explaining-modelling.html"><span class="ri-num">3</span><span class="ri-name">Explaining &amp; Modelling</span></a>
+<a class="rail-item" href="./ext-session-4-checking-understanding.html"><span class="ri-num">4</span><span class="ri-name">Checking for Understanding</span></a>
+<a class="rail-item" href="./ext-session-5-questioning-dialogue.html"><span class="ri-num">5</span><span class="ri-name">Questioning &amp; Dialogue</span></a>
+<a class="rail-item" href="./ext-session-6-putting-it-together.html"><span class="ri-num">6</span><span class="ri-name">Putting It Together</span></a>
+    </div>
+  </details>
+</div></div>
+
+<header class="hero">
+  <div class="session-kicker"><span class="dot"></span> Session 3 of 6</div>
+  <h1>Explaining &amp; <em>Modelling.</em></h1>
+  <p class="lede">The centre of the programme. If pupils can't follow the explanation, nothing else helps. This session is the I do / we do / you do model we use — modelling, guided practice, and independent work — broken into its steps and generalised for any subject.</p>
+  <div class="session-meta">
+<div class="m"><div class="k">Live session</div><div class="v">1 hour</div></div>
+<div class="m"><div class="k">Self-guided</div><div class="v">1 hour</div></div>
+<div class="m"><div class="k">Built on</div><div class="v">A self-audit checklist</div></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="block">
+    <div class="eyebrow">Starting here</div>
+    <h2>If they can't follow the explanation, nothing else helps.</h2>
+    <p class="intro">This is the centre of the whole programme. You can have a perfectly behaved room and ask good questions, but if the explanation itself isn't clear, pupils learn the wrong thing or nothing at all. Explaining and modelling well is the most useful thing a teacher does, and it is the part most worth getting right. This session is the model we use — broken into the same three stages, with the same things we look for — generalised so it fits any subject and any school.</p>
+    <p>The idea underneath it is simple: a pupil can only hold so much at once, and every extra word, tangent, or unclear step uses up room they need for the actual learning. So we teach new material in small steps, show each one properly, and let pupils try it before moving on. The shorthand for the three stages is "I do, we do, you do" — you model it, the class practises it with you, then they do it on their own. Each stage has its own steps, and they are below.</p>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The first stage</div>
+    <h2>I do — modelling it.</h2>
+    <p class="intro">You show how it is done, and just as importantly, how you think while doing it. The aim is for pupils to see the thinking, not just the finished answer.</p>
+    <div class="moves">
+      <div class="move"><div class="mn"></div><div>
+        <h3>Say why it matters first.</h3>
+        <p>Before you model, take a moment to say what the thing is for — what pupils will be able to do, and why it is worth knowing. A model that arrives with no purpose is harder to attend to than one a pupil understands the point of.</p>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Think out loud as you go.</h3>
+        <p>Narrate the thinking, not just the steps. Say what you notice, what you're deciding, why you're choosing this over that. Pupils can copy a thought process they can hear; they can't copy one that stays in your head. This is the difference between showing the destination and showing the route.</p>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Model each step, one at a time.</h3>
+        <p>Work through it step by step, talking through each action as you do it. Don't collapse three steps into one because they feel obvious to you — they aren't obvious to someone meeting it for the first time. The small steps feel slow to you and clear to them.</p>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Make sure everyone can see it.</h3>
+        <p>Use a visualiser, board, or flipchart so every pupil can actually see what you're doing. Let it carry its share — point to it rather than describing in words what the picture already shows, or the two compete for attention.</p>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Stand back and check it.</h3>
+        <p>When the model is done, step back and review it with the class — is it right, does it do what was asked? Then check they have followed before you move on, and model it a second way if they haven't. A model nobody understood is not a model; it's a performance.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The second stage</div>
+    <h2>We do — practising it together.</h2>
+    <p class="intro">Between your model and pupils working alone sits guided practice. You work the next one with the class, prompting the steps rather than supplying them. It is the bridge that catches misunderstandings while they are still easy to fix.</p>
+    <div class="moves">
+      <div class="move"><div class="mn"></div><div>
+        <h3>Say clearly that you're moving on.</h3>
+        <p>Mark the move into "we do" out loud, so pupils know the job has changed from watching to joining in. A clear verbal handover stops the stage from blurring into more modelling.</p>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Use an example that matches your model.</h3>
+        <p>The one you practise together should be close to the one you just modelled — near enough that the model is obviously useful, not so different that pupils are starting from scratch again.</p>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Guide them through it, pointing back to the model.</h3>
+        <p>Prompt the steps rather than doing them — "what's the first move?" — and keep referring back to the modelled example so pupils learn to lean on it. Done together, out loud, this is where the class rehearses the thinking with your support still there. Where it fits, use choral response — the whole class answering together on a cue — to keep everyone involved and to hear, in one go, who is with you and who isn't.</p>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Check they're ready before letting go.</h3>
+        <p>Before independent work, check whether the class is actually ready for it. This is the same checking you'll meet in Session 4 — a quick look at whether they can do it with less of you, before you remove yourself entirely.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The third stage</div>
+    <h2>You do — independent practice.</h2>
+    <p class="intro">Pupils now do it on their own. Your job shifts to watching closely and keeping them anchored to the model.</p>
+    <div class="moves">
+      <div class="move"><div class="mn"></div><div>
+        <h3>Mark the move to working alone.</h3>
+        <p>Say clearly that pupils are now working independently, so the change of expectation is unmistakable — this is their turn, not a continuation of the shared practice.</p>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Keep them using the model.</h3>
+        <p>As they work, check the modelled example is actually being used rather than ignored. The model is there to be leaned on; part of your circulation is making sure it is.</p>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Keep checking as they go.</h3>
+        <p>Independent practice is not a chance to switch off — it is where you find out whether the teaching landed. Circulate and check, ready to pull the class back together if a common problem shows up. That checking is the whole of Session 4.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">Saying less</div>
+    <h2>Fewer words, more learning.</h2>
+    <p>Running through all three stages, one habit matters more than any single technique: saying less. Every extra word spends a bit of a pupil's attention. Use plain, consistent phrasing, give an instruction once, and let a pause do the work a repetition would. This isn't about being cold — it's about respecting how little a pupil can hold at once, and spending it on the idea rather than on your talk around it.</p>
+    <div class="note">A useful test: write out an explanation you give often, then cut it by a third and read both aloud. The shorter one almost always lands better. The words you cut were nearly always doing work for you, not for them.</div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">Where it tends to go wrong</div>
+    <h2>Three things to watch.</h2>
+    <div class="watch"><div class="wt">Setting work you never modelled.</div><p>Sending pupils into a task you didn't demonstrate leaves them to work out a method on their own, often the wrong one. Model it first, thinking aloud.</p></div>
+    <div class="watch"><div class="wt">Talking about it instead of showing it.</div><p>Describing, at length, how one might approach a problem, without ever performing the move. Pupils hear a description but see nothing to copy. Say the step, do it, say why, move on.</p></div>
+    <div class="watch"><div class="wt">Moving on because the room is quiet.</div><p>Quiet isn't the same as understanding. Without a check you're guessing — so build the check in before you press ahead.</p></div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The checklist</div>
+    <h2>What a colleague would look for.</h2>
+   <p class="intro">This is the self-audit we use for explaining and modelling, set out one-to-one with our own checklist, with the wording generalised. It runs in the same three stages as the lesson. Rate each red, amber, or green.</p>
+
+    <h3 style="margin-top:26px;">I do — modelling</h3>
+    <div class="watch"><div class="wt">ID1 · Talks through the purpose of the model.</div><p>What is the objective, why this matters, and how it links to the wider learning.</p></div>
+    <div class="watch"><div class="wt">ID2 · Narrates the thinking through the problem or task.</div><p>What is being asked, what we already know, and what we are aiming for.</p></div>
+    <div class="watch"><div class="wt">ID3 · Models each stage step by step, talking through each action.</div><p>Nothing is collapsed or skipped; every step is shown and explained.</p></div>
+    <div class="watch"><div class="wt">ID4 · Uses a suitable platform so all pupils can see — visualiser, board, or flipchart.</div><p>Every pupil can clearly see the model being built.</p></div>
+    <div class="watch"><div class="wt">ID5 · Pupils are actively listening, not doing anything else.</div><p>At the modelling stage, attention is on the model and nothing else.</p></div>
+    <div class="watch"><div class="wt">ID6 · Narrates what to do next, and why.</div><p>The reasoning behind each next step is made explicit, not just the step.</p></div>
+    <div class="watch"><div class="wt">ID7 · Stands back to review the model and evaluate it.</div><p>You step back and judge whether it is correct and meets the success criteria.</p></div>
+    <div class="watch"><div class="wt">ID8 · Checks for understanding and models alternatives as needed.</div><p>Understanding is confirmed, and a second way is modelled if it hasn't landed.</p></div>
+    <h3 style="margin-top:26px;">We do — guided practice</h3>
+    <div class="watch"><div class="wt">WD1 · Makes the move to 'we do' clear out loud.</div><p>The shift from watching to joining in is signalled explicitly.</p></div>
+    <div class="watch"><div class="wt">WD2 · Uses a task matched to the modelled example.</div><p>The shared practice is close enough to the model to make it obviously useful.</p></div>
+    <div class="watch"><div class="wt">WD3 · Guides practice with reference to the model — including choral response where it fits.</div><p>You prompt the steps and point back to the model, using whole-class response where it helps.</p></div>
+    <div class="watch"><div class="wt">WD4 · Checks for understanding before independent practice.</div><p>You confirm the class is ready before they work alone.</p></div>
+    <h3 style="margin-top:26px;">You do — independent practice</h3>
+    <div class="watch"><div class="wt">YD1 · Makes the move to 'you do' clear out loud.</div><p>The shift to working independently is signalled clearly.</p></div>
+    <div class="watch"><div class="wt">YD2 · Moves pupils towards working independently.</div><p>Pupils take over the task on their own.</p></div>
+    <div class="watch"><div class="wt">YD3 · Checks the modelled example is being used.</div><p>The model is leaned on, not ignored, as pupils work.</p></div>
+    <div class="watch"><div class="wt">YD4 · Checks for understanding.</div><p>You keep checking that the learning is landing as they work alone.</p></div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">Coaching task</div>
+    <h2>Sharpen one explanation.</h2>
+    <div class="coach">
+      <div class="ce">20 minutes · in pairs</div>
+      <h3>Model it, cut it, check it.</h3>
+      <ol>
+        <li>Each choose one thing you'll teach this week that pupils often find hard.</li>
+        <li>Script the "I do" as small steps with the thinking spoken aloud, then plan the matched "we do" example.</li>
+        <li>Read it to your partner. They cut any words that just repeat the visual or pad a step.</li>
+        <li>Agree the one check you'll use to know it landed before you let pupils work alone.</li>
+      </ol>
+      <span class="tmr">Small steps · thinking aloud · one check</span>
+    </div>
+  </div>
+
+
+    <div class="tester" id="tester">
+      <div class="te">Scenario tester</div>
+      <h3>Try it on your own classroom.</h3>
+      <p class="sub">Describe a real situation from your teaching. The tool suggests how to apply this session's techniques to it.</p>
+      <textarea id="scenario" placeholder="e.g. My Year 9 class goes quiet when I ask a question — the same four hands go up and everyone else switches off..."></textarea>
+      <div class="row">
+        <button id="askBtn" onclick="runScenario()">Get suggestions</button>
+        <div class="chips"><button class="chip" onclick="fillScenario(this)">Pupils can do it with me but not on their own</button><button class="chip" onclick="fillScenario(this)">My explanations go over their heads</button><button class="chip" onclick="fillScenario(this)">They keep making the same mistake</button></div>
+      </div>
+      <div class="out" id="out">
+        <h4 id="outLabel">Suggestions</h4>
+        <div class="resp" id="resp"></div>
+      </div>
+      <div class="fallback-note" id="fbNote" style="display:none;">Showing a worked example — the live tool runs when the page is opened in a connected environment.</div>
+    </div>
+
+    <script>
+      const SYS = 'You are a teaching coach helping a teacher apply a specific set of classroom techniques. The techniques for this session are: the I do / we do / you do model: modelling with the thinking spoken aloud and shown step by step on a visualiser, guided practice on a matched example with prompts back to the model and choral response where it fits, and independent practice kept anchored to the model and checked throughout; plus economy of language The teacher will describe a real classroom situation. Respond with practical, specific, encouraging advice on how to apply these techniques to their situation. Keep it concise and usable: a brief diagnosis, then 3-5 concrete steps, then one common pitfall to avoid. Use plain, warm, non-academic language. Do not reference any specific school, ethos, or named virtues — keep advice universal and transferable to any school context. Format your response in simple HTML using <p>, <strong>, <ol>, <li> tags only.';
+      const FALLBACK = "<p><strong>Where this usually comes from:</strong> if pupils can do it with you but not alone, the gap is almost always a missing 'we do' — you went from your model straight to independent work.</p><ol><li>After modelling, work the next one together, prompting the steps rather than giving them.</li><li>When you model, narrate the thinking — the decisions, not just the answer.</li><li>Keep them pointing back to your modelled example as they practise.</li><li>Check they're ready before you release them, so you catch problems while they're still easy to fix.</li></ol><p><strong>One thing to avoid:</strong> over-explaining. Cut the model to its smallest clear steps; more words rarely help.</p>";
+      function fillScenario(b){ document.getElementById('scenario').value = b.textContent; }
+      async function runScenario(){
+        const s = document.getElementById('scenario').value.trim();
+        if(!s){ document.getElementById('scenario').focus(); return; }
+        const btn = document.getElementById('askBtn');
+        const out = document.getElementById('out');
+        const resp = document.getElementById('resp');
+        out.classList.add('show');
+        resp.innerHTML = '<span class="spinner"></span>';
+        btn.disabled = true; btn.textContent = 'Thinking...';
+        try {
+          const r = await fetch("https://api.anthropic.com/v1/messages", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              model: "claude-sonnet-4-20250514",
+              max_tokens: 1000,
+              system: SYS,
+              messages: [{ role: "user", content: s }]
+            })
+          });
+          if(!r.ok) throw new Error('api');
+          const data = await r.json();
+          const text = (data.content||[]).map(b=>b.text||"").join("\n").trim();
+          if(!text) throw new Error('empty');
+          resp.innerHTML = text.replace(/```html|```/g,'').trim();
+          document.getElementById('fbNote').style.display='none';
+        } catch(e) {
+          resp.innerHTML = FALLBACK;
+          document.getElementById('fbNote').style.display='block';
+        } finally {
+          btn.disabled = false; btn.textContent = 'Get suggestions';
+        }
+      }
+    </script>
+
+  <div class="pager"><a class="pv" href="./ext-session-2-routines-climate.html"><span class="pd">← Previous session</span><span class="pl">Routines &amp; Climate</span></a><a class="nx" href="./ext-session-4-checking-understanding.html"><span class="pd">Next session →</span><span class="pl">Checking for Understanding</span></a></div>
+</div>
+
+<footer class="site">
+  <div class="fmark">Teaching Practice Programme</div>
+  <div>A professional development programme developed by Nishkam Schools.</div>
+  <div style="margin-top:8px;"><a href="./external-index.html">Overview</a> · Six one-hour sessions, each with a self-guided companion.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Session 2 · Routines and Climate | Teaching Practice Programme</title>
+<meta name="description" content="Session 2 of the Teaching Practice Programme — Routines and Climate. Consistent starts, one attention signal, numbered instructions, a routine for getting unstuck, clean endings, and a calm behaviour ladder, with a self-audit." />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Spline+Sans:wght@400;500;600;700&display=swap');
+
+  :root {
+    --ink: #1a1f1d;
+    --ink-soft: #555f5a;
+    --paper: #fbfaf7;
+    --surface: #ffffff;
+    --rule: #e3e1d8;
+    --accent: #126b5e;        /* deep teal-green */
+    --accent-soft: #3f9488;
+    --accent-wash: #e8f1ee;
+    --gold: #b07d2b;
+    --shadow: rgba(18,107,94,0.10);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Spline Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--paper); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---- top bar ---- */
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 28px; border-bottom: 1px solid var(--rule); background: var(--surface); font-size: 13px; position: sticky; top: 0; z-index: 50; }
+  .topbar .wordmark { font-family: var(--serif); font-weight: 600; font-size: 16px; letter-spacing: -0.01em; color: var(--ink); }
+  .topbar .wordmark .by { font-family: var(--sans); font-weight: 500; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-left: 8px; }
+  .topbar .crumbs { color: var(--ink-soft); }
+  .topbar .crumbs a { color: var(--ink-soft); }
+  .topbar .crumbs span { margin: 0 8px; opacity: 0.5; }
+
+  /* ---- session rail (generic, inherited-clean nav spine) ---- */
+  .rail { background: var(--surface); border-bottom: 1px solid var(--rule); }
+  .rail-inner { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+  .rail details { padding: 0; }
+  .rail summary { display: flex; align-items: center; gap: 14px; padding: 12px 0; cursor: pointer; list-style: none; font-size: 13px; }
+  .rail summary::-webkit-details-marker { display: none; }
+  .rail summary .r-label { font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; color: var(--ink-soft); }
+  .rail summary .r-here { color: var(--accent); font-weight: 500; }
+  .rail summary .r-toggle { margin-left: auto; color: var(--accent); font-size: 12px; }
+  .rail-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding: 4px 0 18px; }
+  .rail-item { display: block; padding: 12px; border: 1px solid var(--rule); border-radius: 9px; background: var(--paper); font-size: 12.5px; line-height: 1.35; transition: border-color .15s, transform .15s; }
+  .rail-item:hover { border-color: var(--accent-soft); transform: translateY(-2px); text-decoration: none; }
+  .rail-item .ri-num { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 600; }
+  .rail-item .ri-name { display: block; color: var(--ink); font-weight: 500; margin-top: 3px; }
+  .rail-item.current { border-color: var(--accent); background: var(--accent-wash); }
+  @media (max-width: 820px) { .rail-grid { grid-template-columns: repeat(2,1fr); } }
+
+  /* ---- hero ---- */
+  .hero { max-width: 980px; margin: 0 auto; padding: 64px 28px 36px; }
+  .hero .session-kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 20px; }
+  .hero .session-kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 { font-family: var(--serif); font-size: clamp(36px, 5.5vw, 60px); line-height: 1.05; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 18px; }
+  .hero h1 em { font-style: italic; }
+  .hero .lede { font-size: 20px; color: var(--ink-soft); max-width: 640px; margin: 0 0 28px; line-height: 1.45; }
+  .session-meta { display: flex; flex-wrap: wrap; gap: 28px; padding: 20px 0 0; border-top: 1px solid var(--rule); }
+  .session-meta .m { }
+  .session-meta .m .k { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .session-meta .m .v { font-family: var(--serif); font-size: 17px; margin-top: 3px; }
+
+  /* ---- body ---- */
+  .wrap { max-width: 740px; margin: 0 auto; padding: 16px 28px 90px; }
+  .block { margin: 48px 0; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .block h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; line-height: 1.2; margin: 0 0 14px; letter-spacing: -0.01em; }
+  .block h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 28px 0 8px; }
+  .block p { margin: 0 0 16px; }
+  .block .intro { font-size: 18px; color: var(--ink-soft); }
+
+  /* the move list — the ready-made core of each session */
+  .moves { counter-reset: move; margin: 24px 0; }
+  .move { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid var(--rule); }
+  .move:last-child { border-bottom: 1px solid var(--rule); }
+  .move .mn { counter-increment: move; font-family: var(--serif); font-style: italic; font-size: 26px; color: var(--accent); font-weight: 600; line-height: 1; }
+  .move .mn::before { content: counter(move); }
+  .move h3 { margin: 0 0 6px; font-size: 19px; }
+  .move p { margin: 0 0 10px; font-size: 15.5px; }
+  .move .try { font-size: 14px; background: var(--accent-wash); border-radius: 8px; padding: 12px 14px; color: var(--ink); }
+  .move .try strong { color: var(--accent); }
+
+  /* callout / principle */
+  .note { border-left: 3px solid var(--accent); background: var(--surface); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 22px 0; font-size: 15.5px; }
+  .note strong { color: var(--accent); }
+
+  /* pitfall row */
+  .watch { border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; margin: 14px 0; background: var(--surface); }
+  .watch .wt { font-family: var(--serif); font-weight: 600; font-size: 16px; }
+  .watch p { margin: 6px 0 0; font-size: 14.5px; color: var(--ink-soft); }
+
+  /* coaching task */
+  .coach { background: var(--ink); color: #f1f3f1; border-radius: 14px; padding: 28px; margin: 28px 0; }
+  .coach .ce { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-soft); font-weight: 700; }
+  .coach h3 { font-family: var(--serif); color: #fff; margin: 8px 0 14px; font-size: 21px; }
+  .coach ol { margin: 0; padding-left: 20px; }
+  .coach li { margin: 0 0 9px; color: rgba(255,255,255,0.82); font-size: 15px; }
+  .coach .tmr { display: inline-block; margin-top: 6px; font-size: 12px; color: var(--accent-soft); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+
+  /* ---- scenario tester (live) ---- */
+  .tester { background: linear-gradient(160deg, #14322d 0%, #0d2420 100%); border-radius: 16px; padding: 30px; margin: 32px 0; color: #eaf3f0; }
+  .tester .te { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-soft); font-weight: 700; }
+  .tester h3 { font-family: var(--serif); color: #fff; font-size: 23px; margin: 8px 0 6px; }
+  .tester .sub { color: rgba(255,255,255,0.7); font-size: 14.5px; margin: 0 0 18px; }
+  .tester textarea { width: 100%; min-height: 96px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: #fff; padding: 14px; font-family: var(--sans); font-size: 15px; resize: vertical; }
+  .tester textarea::placeholder { color: rgba(255,255,255,0.4); }
+  .tester .row { display: flex; gap: 10px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+  .tester button { background: var(--accent-soft); color: #07211c; border: none; border-radius: 100px; padding: 11px 22px; font-family: var(--sans); font-weight: 600; font-size: 14px; cursor: pointer; transition: background .15s, transform .1s; }
+  .tester button:hover { background: #58a99c; }
+  .tester button:active { transform: scale(0.98); }
+  .tester button:disabled { opacity: 0.5; cursor: default; }
+  .tester .chips { display: flex; gap: 7px; flex-wrap: wrap; }
+  .tester .chip { font-size: 12px; padding: 6px 12px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.78); cursor: pointer; background: transparent; font-family: var(--sans); }
+  .tester .chip:hover { border-color: var(--accent-soft); color: #fff; }
+  .tester .out { margin-top: 18px; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 18px; display: none; }
+  .tester .out.show { display: block; }
+  .tester .out h4 { font-family: var(--serif); color: var(--accent-soft); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 10px; font-weight: 600; }
+  .tester .out .resp { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.9); }
+  .tester .out .resp p { margin: 0 0 12px; }
+  .tester .out .resp strong { color: #fff; }
+  .tester .out .resp ol, .tester .out .resp ul { margin: 0 0 12px; padding-left: 20px; }
+  .tester .out .resp li { margin: 0 0 7px; }
+  .tester .spinner { display: inline-block; width: 15px; height: 15px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .tester .fallback-note { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 12px; }
+
+  /* footer nav */
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin: 56px 0 0; }
+  .pager a { flex: 1; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 11px; background: var(--surface); transition: border-color .15s, transform .15s; }
+  .pager a:hover { border-color: var(--accent-soft); transform: translateY(-2px); text-decoration: none; }
+  .pager a .pd { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .pager a .pl { font-family: var(--serif); font-size: 16px; color: var(--ink); margin-top: 4px; display: block; }
+  .pager a.nx { text-align: right; }
+
+  footer.site { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 28px; text-align: center; font-size: 13px; }
+  footer.site .fmark { font-family: var(--serif); color: #fff; font-size: 17px; margin-bottom: 6px; }
+  footer.site a { color: var(--accent-soft); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wordmark">Teaching Practice <span class="by">A Nishkam Schools programme</span></div>
+  <div class="crumbs"><a href="./external-index.html">Overview</a><span>›</span>Session 2</div>
+</div>
+
+<div class="rail"><div class="rail-inner">
+  <details>
+    <summary>
+      <span class="r-label">Six sessions</span>
+      <span class="r-here">Session 2 · Routines &amp; Climate</span>
+      <span class="r-toggle">All sessions</span>
+    </summary>
+    <div class="rail-grid">
+<a class="rail-item" href="./ext-session-1-presence-authority.html"><span class="ri-num">1</span><span class="ri-name">Presence &amp; Authority</span></a>
+<a class="rail-item current" href="./ext-session-2-routines-climate.html"><span class="ri-num">2</span><span class="ri-name">Routines &amp; Climate</span></a>
+<a class="rail-item" href="./ext-session-3-explaining-modelling.html"><span class="ri-num">3</span><span class="ri-name">Explaining &amp; Modelling</span></a>
+<a class="rail-item" href="./ext-session-4-checking-understanding.html"><span class="ri-num">4</span><span class="ri-name">Checking for Understanding</span></a>
+<a class="rail-item" href="./ext-session-5-questioning-dialogue.html"><span class="ri-num">5</span><span class="ri-name">Questioning &amp; Dialogue</span></a>
+<a class="rail-item" href="./ext-session-6-putting-it-together.html"><span class="ri-num">6</span><span class="ri-name">Putting It Together</span></a>
+    </div>
+  </details>
+</div></div>
+
+<header class="hero">
+  <div class="session-kicker"><span class="dot"></span> Session 2 of 6</div>
+  <h1>Routines &amp; <em>Climate.</em></h1>
+  <p class="lede">A calm, purposeful room is built from a few well-taught routines. This session covers which ones are worth the effort, how we teach them so they hold, and a calm way to deal with behaviour when it slips — our routines, with our own wording taken out.</p>
+  <div class="session-meta">
+<div class="m"><div class="k">Live session</div><div class="v">1 hour</div></div>
+<div class="m"><div class="k">Self-guided</div><div class="v">1 hour</div></div>
+<div class="m"><div class="k">Built on</div><div class="v">A self-audit checklist</div></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="block">
+    <div class="eyebrow">Starting here</div>
+    <h2>A calm room is something you build.</h2>
+    <p class="intro">Some classes feel orderly and some feel like hard work, and it is easy to put the difference down to the pupils. Far more of it comes down to routines — the small, repeated procedures that mean nobody has to think about how the lesson runs, so everyone can think about the work instead. This session sets out the routines we have found worth building, the way we teach them so they hold, and a calm way of dealing with behaviour when it slips.</p>
+    <p>A routine is just a process the class knows by heart: how to come in, how to start, what to do when they are stuck, how to pack away. Once it is established it costs almost nothing to run — you name it and the class does it — and the energy you would otherwise spend managing the room is freed up for teaching. The catch is that the cost is paid up front. A routine has to be taught, practised, and insisted on for a couple of weeks before it runs itself. As with Session 1, the routines below are ours with the school-specific wording taken out, so you can put your own in.</p>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The routines</div>
+    <h2>Five routines worth building.</h2>
+    <p class="intro">Start with the ones your classes most need. Each follows the same rule: the same words and the same steps, every time. We have set them out step by step, because that is how they are taught — not described to a class once, but modelled and rehearsed.</p>
+    <div class="moves">
+      <div class="move"><div class="mn"></div><div>
+        <h3>The same start every time.</h3>
+        <p>Decide what happens in the first minute or two — where pupils sit, what they take out, what they start — and keep it identical every lesson. A class that knows exactly how to begin begins without being told. Have the first task on the board before the bell, so coming in and starting are the same thing. Set the entry expectation out loud as they arrive, in the same words each day.</p>
+        <div class="try"><strong>How to teach it:</strong> For the first two weeks, narrate the entry every lesson — "[your settle cue], coats off, planner out, start the task on the board" — using the same words until it runs without you.</div>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>One signal to bring them back.</h3>
+        <p>Choose a single, consistent way of calling the room back to you — a phrase, a raised hand, a countdown — and use only that one. Mixing signals teaches a class to wait and see which one you mean this time. One signal, taught properly and insisted on, brings a room back in a few seconds.</p>
+        <div class="try"><strong>How to teach it:</strong> Teach the signal openly. "When I do this, you stop, look this way, and wait — within five seconds." Then practise it cold, twice, before you need it for real.</div>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>Short, numbered instructions.</h3>
+        <p>Give a task as a tight sequence the class can hold — "one, do this; two, then this; three, then check it." Count the steps on your fingers as you say them. The test is whether a pupil could repeat it back to you. A long, vague instruction gets half-followed; a short numbered one gets done. This is the same discipline as the five-word instruction from Session 1, applied to a task rather than a single command.</p>
+        <div class="try"><strong>How to teach it:</strong> Before you set a task, give it in three numbered steps, then cold-call one pupil to say step two back. If they can't, the instruction was too long.</div>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>A known way to get unstuck.</h3>
+        <p>Teach the class what to do before they put a hand up — re-read the question, check the example, try the first line. A routine for being stuck cuts the queue at your desk and builds a bit of independence, and the hands that are still up afterwards are the ones that genuinely need you. It needs teaching like any other routine; pupils don't arrive knowing it.</p>
+        <div class="try"><strong>How to teach it:</strong> Put a three-step "stuck?" prompt on the wall. When a pupil says "I don't get it," point to it rather than answering, until checking it first becomes the habit.</div>
+      </div></div>
+      <div class="move"><div class="mn"></div><div>
+        <h3>A clean ending.</h3>
+        <p>End the lesson on your terms rather than the bell's. A consistent close — pack away on the signal, a last check, leave by table when the room is settled — means the lesson finishes in order instead of dissolving into the corridor. The last thirty seconds colour how the class remembers the whole hour, and a scrambled ending undoes a good lesson.</p>
+        <div class="try"><strong>How to teach it:</strong> Build a two-step pack-away on a single signal, leave a couple of minutes for it, and only let the class leave when the room is still and ready.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">When behaviour slips</div>
+    <h2>A calm ladder.</h2>
+    <p>Even in a well-run room, low-level disruption happens. The aim is to deal with it early and quietly, before it grows, and without your own manner changing. A simple ladder does the job: a non-verbal cue first — a look, standing nearby, a pause beside the pupil — then a quiet private word, then a clear named consequence if it carries on. Each rung is calm and matter-of-fact. You are applying something everyone knows, not winning a contest.</p>
+    <div class="note">Most disruption stops at the first or second rung — a glance, or simply standing nearby — precisely because you have dealt with it early and without fuss. Going straight to a consequence escalates a moment that standing next to the pupil would have settled on its own.</div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">Where it tends to go wrong</div>
+    <h2>Three things to watch.</h2>
+    <div class="watch"><div class="wt">Changing the words each time.</div><p>If the instruction or the signal is worded differently every lesson, it isn't a routine — it's a fresh instruction the class has to work out each time. Settle on the words and keep them.</p></div>
+    <div class="watch"><div class="wt">Teaching it once and assuming it.</div><p>A routine introduced on Monday and taken for granted by Wednesday won't hold. It is taught across two weeks of daily repetition. The patience now is what buys you the automatic version later.</p></div>
+    <div class="watch"><div class="wt">Letting it slide when you're tired.</div><p>The first time you walk past a broken routine, the class learns it is optional. Standards are held by what you actually insist on at the end of a long week, not by what you meant to do.</p></div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The checklist</div>
+    <h2>What a colleague would look for.</h2>
+    <p class="intro">The same self-audit we use for lesson starts and endings, with our own wording generalised. Rate each red, amber, or green.</p>
+    <div class="watch"><div class="wt">R1 · The teacher is at the door as the lesson begins.</div><p>You are at the threshold as pupils arrive, setting the tone before they sit down.</p></div>
+    <div class="watch"><div class="wt">R2 · Entry expectations are set out loud as pupils come in.</div><p>You narrate how to come in, in the same words each day, until it no longer needs saying.</p></div>
+    <div class="watch"><div class="wt">R3 · Pupils start the first task straight away.</div><p>A task is waiting that needs no explanation, and the class gets on with it on arrival.</p></div>
+    <div class="watch"><div class="wt">R4 · Any opening routine is observed quietly and settled.</div><p>Whatever your settled start looks like, it happens calmly and without prompting.</p></div>
+    <div class="watch"><div class="wt">R5 · The register is taken quietly while pupils work.</div><p>Administration happens in the background; it doesn't interrupt the start.</p></div>
+    <div class="watch"><div class="wt">R6 · Instructions during transitions are clear and given into a settled room.</div><p>Moves between activities are directed clearly, not shouted over a busy class.</p></div>
+    <div class="watch"><div class="wt">R7 · Clear instructions to pack up are given, with time to do it.</div><p>The end is signalled clearly, with a couple of minutes set aside so it isn't a scramble.</p></div>
+    <div class="watch"><div class="wt">R8 · Pupils leave in an orderly way, when the room is settled.</div><p>The class departs in order — by row or table — rather than spilling out at the bell.</p></div>
+    <div class="watch"><div class="wt">R9 · The teacher goes to the corridor to support the transition out.</div><p>You see the class out and help keep the corridor calm between lessons.</p></div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">Coaching task</div>
+    <h2>Write one routine out properly.</h2>
+    <div class="coach">
+      <div class="ce">15 minutes · in pairs</div>
+      <h3>From vague to scripted.</h3>
+      <ol>
+        <li>Each pick one routine your classes currently do inconsistently.</li>
+        <li>Write it out as exact steps with exact words — what you say, what they do, in order.</li>
+        <li>Read it to your partner. They flag any step a brand-new pupil couldn't follow.</li>
+        <li>Agree how you'll teach it: model it, practise it cold, and insist on it daily for two weeks.</li>
+      </ol>
+      <span class="tmr">Aim for words a pupil could repeat back</span>
+    </div>
+  </div>
+
+
+    <div class="tester" id="tester">
+      <div class="te">Scenario tester</div>
+      <h3>Try it on your own classroom.</h3>
+      <p class="sub">Describe a real situation from your teaching. The tool suggests how to apply this session's techniques to it.</p>
+      <textarea id="scenario" placeholder="e.g. My Year 9 class goes quiet when I ask a question — the same four hands go up and everyone else switches off..."></textarea>
+      <div class="row">
+        <button id="askBtn" onclick="runScenario()">Get suggestions</button>
+        <div class="chips"><button class="chip" onclick="fillScenario(this)">My lessons take ages to get going</button><button class="chip" onclick="fillScenario(this)">Pupils swarm my desk when they're stuck</button><button class="chip" onclick="fillScenario(this)">The end of my lessons descends into chaos</button></div>
+      </div>
+      <div class="out" id="out">
+        <h4 id="outLabel">Suggestions</h4>
+        <div class="resp" id="resp"></div>
+      </div>
+      <div class="fallback-note" id="fbNote" style="display:none;">Showing a worked example — the live tool runs when the page is opened in a connected environment.</div>
+    </div>
+
+    <script>
+      const SYS = 'You are a teaching coach helping a teacher apply a specific set of classroom techniques. The techniques for this session are: building a consistent lesson start, using one clear signal to call the class back, giving short numbered instructions, teaching a routine for getting unstuck, ending the lesson cleanly, and a calm ladder (look, proximity, quiet word, named consequence) for low-level disruption The teacher will describe a real classroom situation. Respond with practical, specific, encouraging advice on how to apply these techniques to their situation. Keep it concise and usable: a brief diagnosis, then 3-5 concrete steps, then one common pitfall to avoid. Use plain, warm, non-academic language. Do not reference any specific school, ethos, or named virtues — keep advice universal and transferable to any school context. Format your response in simple HTML using <p>, <strong>, <ol>, <li> tags only.';
+      const FALLBACK = "<p><strong>Where this usually comes from:</strong> a slow, noisy start is nearly always a missing entry routine rather than a motivation problem — the class doesn't know what 'started' is meant to look like.</p><ol><li>Put a short task on the board that needs no explanation, ready as they walk in.</li><li>Teach the entry out loud for a week — come in, sit, take out, begin — in the same words every lesson.</li><li>Stand at the door so being greeted and settling happen together.</li><li>Hold the line calmly when it slips; the consistency in week one is what makes it automatic by week three.</li></ol><p><strong>One thing to avoid:</strong> changing the format of the opening task every day. Keep the shape the same so only the content changes.</p>";
+      function fillScenario(b){ document.getElementById('scenario').value = b.textContent; }
+      async function runScenario(){
+        const s = document.getElementById('scenario').value.trim();
+        if(!s){ document.getElementById('scenario').focus(); return; }
+        const btn = document.getElementById('askBtn');
+        const out = document.getElementById('out');
+        const resp = document.getElementById('resp');
+        out.classList.add('show');
+        resp.innerHTML = '<span class="spinner"></span>';
+        btn.disabled = true; btn.textContent = 'Thinking...';
+        try {
+          const r = await fetch("https://api.anthropic.com/v1/messages", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              model: "claude-sonnet-4-20250514",
+              max_tokens: 1000,
+              system: SYS,
+              messages: [{ role: "user", content: s }]
+            })
+          });
+          if(!r.ok) throw new Error('api');
+          const data = await r.json();
+          const text = (data.content||[]).map(b=>b.text||"").join("\n").trim();
+          if(!text) throw new Error('empty');
+          resp.innerHTML = text.replace(/```html|```/g,'').trim();
+          document.getElementById('fbNote').style.display='none';
+        } catch(e) {
+          resp.innerHTML = FALLBACK;
+          document.getElementById('fbNote').style.display='block';
+        } finally {
+          btn.disabled = false; btn.textContent = 'Get suggestions';
+        }
+      }
+    </script>
+
+  <div class="pager"><a class="pv" href="./ext-session-1-presence-authority.html"><span class="pd">← Previous session</span><span class="pl">Presence &amp; Authority</span></a><a class="nx" href="./ext-session-3-explaining-modelling.html"><span class="pd">Next session →</span><span class="pl">Explaining &amp; Modelling</span></a></div>
+</div>
+
+<footer class="site">
+  <div class="fmark">Teaching Practice Programme</div>
+  <div>A professional development programme developed by Nishkam Schools.</div>
+  <div style="margin-top:8px;"><a href="./external-index.html">Overview</a> · Six one-hour sessions, each with a self-guided companion.</div>
+</footer>
+</body>
+</html>
