@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reflection & feedback — Nishkam Middle Leadership</title>
+<style>
+  :root{
+    --bg:#f7f2e8; --surface:#fffdf7; --ink:#1f2a37; --ink-soft:#4b5563; --rule:#d8cfb9;
+    --accent:#7a3b1d; --accent-soft:#c98e60; --leaf:#2f5d50; --gold:#b07d2b;
+    --serif:Georgia,"Cormorant Garamond","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;}
+  .topbar{background:var(--ink);color:#f7f2e8;font-size:13px;}
+  .topbar .wrap{max-width:780px;margin:0 auto;padding:11px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .topbar a{color:#e7d9c4;text-decoration:none;}
+  .topbar .crumbs span{opacity:.5;margin:0 7px;}
+  .wrap-main{max-width:780px;margin:0 auto;padding:40px 24px 80px;}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  h1{font-family:var(--serif);font-weight:600;font-size:38px;line-height:1.12;margin:12px 0 10px;}
+  h1 em{font-style:italic;color:var(--accent);}
+  .lede{font-size:18px;color:var(--ink-soft);max-width:640px;margin:0;}
+
+  .sec{margin-top:30px;}
+  .sec-h{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);font-weight:700;border-bottom:1px solid var(--rule);padding-bottom:7px;margin-bottom:8px;}
+  .q{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;margin-top:14px;}
+  .q .qt{font-size:16px;font-weight:600;margin:0 0 4px;}
+  .q .qs{font-size:13.5px;color:var(--ink-soft);margin:0 0 12px;}
+  textarea{width:100%;min-height:74px;border:1px solid var(--rule);border-radius:8px;padding:11px 13px;font-family:var(--sans);font-size:14.5px;color:var(--ink);background:#fff;resize:vertical;line-height:1.5;}
+  textarea:focus,input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent-soft);}
+  .scale{display:flex;gap:6px;flex-wrap:wrap;}
+  .scale button{width:40px;height:40px;border:1px solid var(--rule);background:#fff;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer;color:var(--ink);}
+  .scale button.sel{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .scale-ends{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-soft);margin-top:6px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:7px 0;cursor:pointer;font-size:14.5px;}
+  .opt .mk{flex:none;width:20px;height:20px;border:2px solid var(--accent-soft);background:#fff;display:grid;place-items:center;margin-top:1px;}
+  .opt .mk.radio{border-radius:50%;}
+  .opt .mk.cb{border-radius:5px;}
+  .opt.sel .mk{background:var(--leaf);border-color:var(--leaf);}
+  .opt .mk svg{width:12px;height:12px;opacity:0;}
+  .opt.sel .mk svg{opacity:1;}
+  .opt .mk.radio .dot{width:8px;height:8px;border-radius:50%;background:#fff;opacity:0;}
+  .opt.sel .mk.radio .dot{opacity:1;}
+
+  .actions{margin-top:26px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+  button.primary{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:13px 28px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--sans);}
+  button.primary:disabled{opacity:.5;}
+  .hint{font-size:13px;color:var(--ink-soft);}
+  .privacy{font-size:12.5px;color:var(--ink-soft);margin-top:10px;}
+
+  /* confirmation / own responses */
+  .done-card{background:#eef3ef;border:1px solid #cdded4;border-left:4px solid var(--leaf);border-radius:12px;padding:24px 26px;}
+  .done-card h2{font-family:var(--serif);font-size:26px;margin:0 0 6px;color:var(--leaf);}
+  .own dt{font-size:12px;letter-spacing:.04em;color:var(--ink-soft);margin-top:14px;text-transform:uppercase;}
+  .own dd{margin:2px 0 0;font-size:15px;}
+
+  /* lead dashboard */
+  .lead-bar{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#f3ece0;border-radius:10px;padding:12px 18px;margin-top:18px;font-size:14px;}
+  .lead-bar b{color:#fff;}
+  .stat{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;margin-top:14px;}
+  .stat .st-q{font-size:15px;font-weight:600;margin:0 0 12px;}
+  .barrow{display:flex;align-items:center;gap:10px;margin:5px 0;font-size:13.5px;}
+  .barrow .lab{width:160px;flex:none;color:var(--ink-soft);}
+  .barrow .track{flex:1;background:#efe7d6;border-radius:5px;height:18px;overflow:hidden;}
+  .barrow .fill{height:100%;background:var(--accent-soft);}
+  .barrow .num{width:34px;text-align:right;color:var(--ink-soft);}
+  .avg{font-family:var(--serif);font-size:30px;color:var(--accent);}
+  .quotes{margin:0;padding:0;list-style:none;}
+  .quotes li{border-left:2px solid var(--rule);padding:4px 0 4px 14px;margin:8px 0;font-size:14.5px;color:var(--ink);}
+  .quotes li:before{content:"\201C";}
+  .quotes li:after{content:"\201D";}
+  .muted{color:var(--ink-soft);font-size:14px;}
+  .switch{font-size:13px;color:var(--accent);text-decoration:none;cursor:pointer;}
+  .loading{display:flex;align-items:center;gap:12px;color:var(--ink-soft);font-size:15px;margin-top:18px;}
+  .spinner{width:18px;height:18px;border:2px solid var(--rule);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .footer-row{margin-top:30px;border-top:1px solid var(--rule);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .note{font-size:12.5px;color:var(--ink-soft);}
+  @media(max-width:600px){h1{font-size:30px;} .barrow .lab{width:110px;}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="crumbs"><a href="./index.html">Nishkam Hub</a><span>›</span><a href="./mlt-index.html">Middle Leadership</a><span>›</span>Reflection</div>
+  <div>Middle Leadership Development Programme</div>
+</div></div>
+
+<div class="wrap-main">
+  <div class="eyebrow">Reflection &amp; feedback</div>
+  <h1>How has the programme <em>changed your leadership?</em></h1>
+  <p class="lede">A short reflection at the end of the programme. Your answers are collated anonymously to shape future cohorts — and you'll see your own reflection summarised at the end.</p>
+
+  <div id="app"></div>
+
+  <div class="footer-row">
+    <span class="note">Nishkam Middle Leadership Development Programme · Reflection</span>
+    <span class="switch" id="leadLink">Programme lead view →</span>
+  </div>
+</div>
+
+<script>
+  // =================== CONFIG ===================
+  var LEAD_CODE = "nishkam-lead";   // change this to whatever the programme lead should use
+  var STORE_PREFIX = "mlt-q:resp:";
+  var SESSIONS = [
+    "Session 1: What is a Middle Leader?",
+    "Session 2: Leading from the Middle",
+    "Session 3: Leading When It Is Hard",
+    "Session 4: Developing Others",
+    "Session 5: Staff Morale"
+  ];
+  var HELPFUL = [
+    "Practical strategies for leading teams",
+    "Reflection tasks and discussion",
+    "Research-based insights (e.g. Robinson, Lemov)",
+    "The Nishkam lens of leadership (service, optimism, joy)",
+    "Scenario-based activities",
+    "Conversation planning and feedback techniques",
+    "Asking colleagues for advice and perspective"
+  ];
+  var SECTIONS = [
+    { title:"Overall impact", qs:[
+      {id:"q1", type:"scale", t:"How impactful has the programme been for your leadership practice?", s:"1 = not at all impactful, 10 = extremely impactful"},
+      {id:"q2", type:"text", t:"What is the biggest change you've noticed in your approach to leadership since starting?"},
+      {id:"q3", type:"radio", t:"Which session had the greatest impact on you?", opts:SESSIONS, why:"Why?"}
+    ]},
+    { title:"Strengths of the programme", qs:[
+      {id:"q4", type:"multi", t:"Which aspects were most helpful?", s:"Tick all that apply.", opts:HELPFUL},
+      {id:"q5", type:"text", t:"What did you find most engaging or relevant to your role as a middle leader?"},
+      {id:"q5a", type:"text", t:"Were the reflection tasks and paired activities useful? Why, or why not?"}
+    ]},
+    { title:"Application in practice", qs:[
+      {id:"q6", type:"text", t:"Which behaviours or strategies have you started using as a result of the programme?"},
+      {id:"q7", type:"text", t:"Share one specific example where you applied something from the sessions."},
+      {id:"q8", type:"text", t:"What has been the impact on your team or your pupils?"}
+    ]},
+    { title:"Challenges & next steps", qs:[
+      {id:"q9", type:"text", t:"Which areas of middle leadership do you still find challenging?"},
+      {id:"q10", type:"text", t:"What additional support or training would help you move forward?"},
+      {id:"q11", type:"text", t:"Are there topics you'd like to explore in future sessions?"}
+    ]},
+    { title:"Programme feedback", qs:[
+      {id:"q12", type:"radio", t:"How would you rate the structure and delivery of the sessions?", opts:["Excellent","Good","Needs improvement"]},
+      {id:"q13", type:"text", t:"Any suggestions to make the programme more impactful?"}
+    ]},
+    { title:"Overall reflection", qs:[
+      {id:"q14", type:"text", t:"In one sentence: what does being a middle leader mean to you now, compared with before the programme?"}
+    ]}
+  ];
+  var ALLQ = [].concat.apply([], SECTIONS.map(function(s){return s.qs;}));
+  var LABELS = {}; ALLQ.forEach(function(q){ LABELS[q.id]=q.t; });
+
+  var MEM = [];               // in-memory fallback if storage is unavailable
+  var state = {};             // current participant answers
+  var app = document.getElementById('app');
+
+  // =================== STORAGE ===================
+  async function saveResponse(resp){
+    var id = Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+    try{ if(window.storage){ await window.storage.set(STORE_PREFIX+id, JSON.stringify(resp), true); return true; } }
+    catch(e){}
+    MEM.push(resp); return false;
+  }
+  async function loadAll(){
+    try{
+      if(window.storage){
+        var res = await window.storage.list(STORE_PREFIX, true);
+        var keys = (res && res.keys) ? res.keys : [];
+        var out=[];
+        for(var i=0;i<keys.length;i++){
+          var k = typeof keys[i]==='string' ? keys[i] : keys[i].key;
+          try{ var r=await window.storage.get(k, true); if(r && r.value) out.push(JSON.parse(r.value)); }catch(e){}
+        }
+        return out;
+      }
+    }catch(e){}
+    return MEM.slice();
+  }
+
+  // =================== PARTICIPANT FORM ===================
+  function renderForm(){
+    var html = '';
+    SECTIONS.forEach(function(sec){
+      html += '<div class="sec"><div class="sec-h">'+sec.title+'</div>';
+      sec.qs.forEach(function(q){
+        html += '<div class="q"><p class="qt">'+q.t+'</p>'+(q.s?'<p class="qs">'+q.s+'</p>':'');
+        if(q.type==='text'){
+          html += '<textarea data-id="'+q.id+'"></textarea>';
+        } else if(q.type==='scale'){
+          html += '<div class="scale" data-id="'+q.id+'">';
+          for(var n=1;n<=10;n++) html += '<button type="button" data-v="'+n+'">'+n+'</button>';
+          html += '</div><div class="scale-ends"><span>Not at all</span><span>Extremely</span></div>';
+        } else if(q.type==='radio'){
+          html += '<div data-id="'+q.id+'" data-kind="radio">';
+          q.opts.forEach(function(o){ html += optRow(o,'radio'); });
+          html += '</div>';
+          if(q.why) html += '<textarea data-id="'+q.id+'_why" placeholder="'+q.why+'" style="margin-top:10px;"></textarea>';
+        } else if(q.type==='multi'){
+          html += '<div data-id="'+q.id+'" data-kind="multi">';
+          q.opts.forEach(function(o){ html += optRow(o,'cb'); });
+          html += '</div>';
+        }
+        html += '</div>';
+      });
+      html += '</div>';
+    });
+    html += '<div class="actions"><button class="primary" id="submitBtn">Submit reflection</button><span class="hint" id="subHint"></span></div>'+
+            '<p class="privacy">Responses are anonymous and pooled for programme research. Please avoid naming individual colleagues.</p>';
+    app.innerHTML = html;
+    wireForm();
+  }
+  function optRow(label, kind){
+    var inner = kind==='radio' ? '<span class="dot"></span>' : '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>';
+    return '<div class="opt" data-val="'+escapeAttr(label)+'"><span class="mk '+kind+'">'+inner+'</span><span>'+label+'</span></div>';
+  }
+  function wireForm(){
+    app.querySelectorAll('textarea').forEach(function(ta){
+      ta.addEventListener('input', function(){ state[ta.getAttribute('data-id')] = ta.value; });
+    });
+    app.querySelectorAll('.scale').forEach(function(sc){
+      sc.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click', function(){
+          sc.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+          b.classList.add('sel'); state[sc.getAttribute('data-id')] = parseInt(b.getAttribute('data-v'),10);
+        });
+      });
+    });
+    app.querySelectorAll('[data-kind="radio"]').forEach(function(grp){
+      grp.querySelectorAll('.opt').forEach(function(op){
+        op.addEventListener('click', function(){
+          grp.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');});
+          op.classList.add('sel'); state[grp.getAttribute('data-id')] = op.getAttribute('data-val');
+        });
+      });
+    });
+    app.querySelectorAll('[data-kind="multi"]').forEach(function(grp){
+      grp.querySelectorAll('.opt').forEach(function(op){
+        op.addEventListener('click', function(){
+          op.classList.toggle('sel');
+          var vals = Array.prototype.slice.call(grp.querySelectorAll('.opt.sel')).map(function(x){return x.getAttribute('data-val');});
+          state[grp.getAttribute('data-id')] = vals;
+        });
+      });
+    });
+    document.getElementById('submitBtn').addEventListener('click', onSubmit);
+  }
+  async function onSubmit(){
+    if(!state.q1 && !state.q2 && !state.q14){
+      document.getElementById('subHint').textContent = 'Add a few answers before submitting.'; return;
+    }
+    var btn=document.getElementById('submitBtn'); btn.disabled=true;
+    document.getElementById('subHint').textContent='Saving…';
+    state.submitted = new Date().toISOString();
+    await saveResponse(state);
+    renderThanks(state);
+  }
+
+  // =================== PARTICIPANT'S OWN SUMMARY ===================
+  function renderThanks(resp){
+    var html = '<div class="done-card"><h2>Thank you for your reflection.</h2>'+
+      '<p class="muted">Your answers have been added to the cohort, anonymously. Here is what you shared.</p><dl class="own">';
+    ALLQ.forEach(function(q){
+      var v = resp[q.id]; if(v===undefined || v===null || v==='' || (Array.isArray(v)&&!v.length)) return;
+      if(Array.isArray(v)) v = v.join('; ');
+      html += '<dt>'+q.t+'</dt><dd>'+escapeHtml(String(v))+'</dd>';
+      if(q.why && resp[q.id+'_why']) html += '<dd class="muted">'+escapeHtml(resp[q.id+'_why'])+'</dd>';
+    });
+    html += '</dl></div>';
+    app.innerHTML = html;
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  // =================== PROGRAMME LEAD DASHBOARD ===================
+  async function renderLead(){
+    app.innerHTML = '<div class="loading"><div class="spinner"></div>Gathering responses…</div>';
+    var all = await loadAll();
+    var html = '<div class="lead-bar"><span>Programme lead — cohort results</span><span><b>'+all.length+'</b> response'+(all.length===1?'':'s')+'</span></div>';
+    if(!all.length){ html += '<p class="muted" style="margin-top:18px;">No responses yet. They\'ll appear here as participants submit.</p>'; app.innerHTML=html; bindBack(); return; }
+
+    // Q1 scale: average + distribution
+    var nums = all.map(function(r){return r.q1;}).filter(function(v){return typeof v==='number';});
+    if(nums.length){
+      var avg = (nums.reduce(function(a,b){return a+b;},0)/nums.length).toFixed(1);
+      html += '<div class="stat"><p class="st-q">'+LABELS.q1+'</p>'+
+              '<p style="margin:0 0 10px;"><span class="avg">'+avg+'</span> <span class="muted">average of '+nums.length+'</span></p>';
+      var dist={}; for(var n=1;n<=10;n++) dist[n]=0; nums.forEach(function(v){dist[v]++;});
+      html += barChart(Object.keys(dist).map(function(k){return [k, dist[k]];}), nums.length);
+      html += '</div>';
+    }
+    html += textStat('q2'); html += textStat('q14',true);
+    html += choiceStat('q3', SESSIONS) + textStat('q3_why');
+    html += multiStat('q4', HELPFUL);
+    html += textStat('q5'); html += textStat('q5a');
+    html += textStat('q6'); html += textStat('q7'); html += textStat('q8');
+    html += textStat('q9'); html += textStat('q10'); html += textStat('q11');
+    html += choiceStat('q12', ["Excellent","Good","Needs improvement"]);
+    html += textStat('q13');
+    app.innerHTML = html;
+    bindBack();
+
+    function textStat(id){
+      var quotes = all.map(function(r){return r[id];}).filter(function(v){return v && String(v).trim();});
+      if(!quotes.length) return '';
+      return '<div class="stat"><p class="st-q">'+(LABELS[id]||(id==='q3_why'?'Why that session?':id))+' <span class="muted">('+quotes.length+')</span></p>'+
+             '<ul class="quotes">'+quotes.map(function(q){return '<li>'+escapeHtml(String(q))+'</li>';}).join('')+'</ul></div>';
+    }
+    function choiceStat(id, opts){
+      var counts={}; opts.forEach(function(o){counts[o]=0;});
+      all.forEach(function(r){ if(r[id]!==undefined && counts[r[id]]!==undefined) counts[r[id]]++; });
+      var total=Object.keys(counts).reduce(function(a,k){return a+counts[k];},0);
+      if(!total) return '';
+      return '<div class="stat"><p class="st-q">'+LABELS[id]+'</p>'+barChart(opts.map(function(o){return [o,counts[o]];}), total)+'</div>';
+    }
+    function multiStat(id, opts){
+      var counts={}; opts.forEach(function(o){counts[o]=0;});
+      all.forEach(function(r){ (r[id]||[]).forEach(function(v){ if(counts[v]!==undefined) counts[v]++; }); });
+      return '<div class="stat"><p class="st-q">'+LABELS[id]+' <span class="muted">(ticks across '+all.length+')</span></p>'+
+             barChart(opts.map(function(o){return [o,counts[o]];}), all.length)+'</div>';
+    }
+  }
+  function barChart(pairs, total){
+    var max = Math.max.apply(null, pairs.map(function(p){return p[1];}).concat([1]));
+    return pairs.map(function(p){
+      var pct = max? Math.round(p[1]/max*100):0;
+      return '<div class="barrow"><span class="lab">'+escapeHtml(String(p[0]))+'</span>'+
+             '<span class="track"><span class="fill" style="width:'+pct+'%"></span></span>'+
+             '<span class="num">'+p[1]+'</span></div>';
+    }).join('');
+  }
+  function bindBack(){
+    var b=document.createElement('div'); b.className='footer-row';
+    b.innerHTML='<span class="note">Shared cohort data. Refresh to pull the latest.</span>'+
+      '<span><span class="switch" id="refresh">Refresh</span> &nbsp; <span class="switch" id="toForm">← Back to the form</span></span>';
+    app.appendChild(b);
+    document.getElementById('refresh').addEventListener('click', renderLead);
+    document.getElementById('toForm').addEventListener('click', function(){ state={}; renderForm(); });
+  }
+
+  // =================== UTIL + INIT ===================
+  function escapeHtml(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function escapeAttr(s){ return escapeHtml(s).replace(/'/g,"&#39;"); }
+  document.getElementById('leadLink').addEventListener('click', function(){
+    var code = window.prompt("Programme lead access code:");
+    if(code===null) return;
+    if(code===LEAD_CODE) renderLead();
+    else window.alert("That code wasn't recognised.");
+  });
+  renderForm();
+</script>
+</body>
+</html>
