@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Middle Leadership Development Programme — Nishkam Schools</title><style>
+  :root{--bg:#f7f2e8;--surface:#fffdf7;--ink:#1f2a37;--ink-soft:#4b5563;--rule:#d8cfb9;
+    --accent:#7a3b1d;--accent-soft:#c98e60;--leaf:#2f5d50;--gold:#b07d2b;
+    --serif:Georgia,"Cormorant Garamond","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;}
+  a{color:var(--accent);text-underline-offset:3px;}
+  .topbar{background:var(--ink);color:#f7f2e8;font-size:13px;}
+  .topbar .wrap{max-width:1040px;margin:0 auto;padding:11px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .topbar a{color:#e7d9c4;text-decoration:none;}.topbar .crumbs span{opacity:.5;margin:0 7px;}
+  .session-strip{background:var(--surface);border-bottom:1px solid var(--rule);}
+  .session-strip .wrap{max-width:1040px;margin:0 auto;padding:10px 24px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+  .session-strip .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-right:8px;}
+  .session-strip a{font-size:12.5px;text-decoration:none;color:var(--ink-soft);padding:4px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--bg);}
+  .session-strip a.here{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:600;}
+  .hero{max-width:1040px;margin:0 auto;padding:56px 24px 30px;}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1.1;margin:12px 0 14px;}
+  .hero h1 em{font-style:italic;color:var(--accent);}
+  .hero .lede{font-size:20px;color:var(--ink-soft);max-width:730px;margin:0;}
+  .hero .pull{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--leaf);border-left:3px solid var(--gold);padding:6px 0 6px 18px;margin:26px 0 0;max-width:760px;}
+  main{max-width:1040px;margin:0 auto;padding:0 24px 80px;}
+  section{padding:34px 0;border-top:1px solid var(--rule);}
+  .sec-eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;}
+  h2{font-family:var(--serif);font-weight:600;font-size:29px;margin:0 0 6px;}
+  .sec-intro{font-size:17px;color:var(--ink-soft);max-width:720px;margin:0 0 22px;}
+  p{margin:0 0 14px;}
+  .biglist{font-size:17px;max-width:760px;padding-left:20px;}.biglist li{margin-bottom:7px;}
+  .six{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .c-card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:20px 20px 18px;}
+  .c-card .c-name{font-family:var(--serif);font-size:21px;color:var(--ink);margin:0 0 4px;}
+  .c-card .c-name b{color:var(--accent);}
+  .c-card .c-what{font-size:14.5px;color:var(--ink-soft);margin:0 0 12px;}
+  .c-card .do{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf);font-weight:700;margin:0 0 5px;}
+  .c-card ul{margin:0;padding-left:18px;font-size:14.5px;}.c-card li{margin-bottom:4px;}
+  .lens{background:#f1ece0;border:1px solid var(--rule);border-left:4px solid var(--gold);border-radius:12px;padding:24px 26px;}
+  .lens h3{font-family:var(--serif);font-size:22px;margin:0 0 4px;color:var(--leaf);}
+  .lens .sub{font-size:14px;color:var(--ink-soft);margin:0 0 16px;}
+  .lens-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 26px;}
+  .lens-grid .item{font-size:15px;color:var(--ink-soft);}.lens-grid .item b{color:var(--ink);}
+  .evidence{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .ev{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;font-size:14.5px;}.ev b{color:var(--accent);}
+  .compare{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden;}
+  .compare th{text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:11px 16px;background:#efe7d6;color:var(--ink);}
+  .compare th.r{color:var(--leaf);}
+  .compare td{padding:11px 16px;font-size:14.5px;border-top:1px solid var(--rule);vertical-align:top;}
+  .compare td.l{color:var(--ink-soft);width:50%;}.compare td.r{color:var(--ink);width:50%;}
+  .twocol{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .tc{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;}
+  .tc h4{margin:0 0 10px;font-size:15px;}.tc.up h4{color:var(--leaf);}.tc.down h4{color:var(--accent);}
+  .tc ul{margin:0;padding-left:18px;font-size:14.5px;}.tc li{margin-bottom:5px;}
+  .starters{display:flex;flex-direction:column;gap:8px;}
+  .starter{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent-soft);border-radius:8px;padding:11px 16px;font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink);}
+  .planner{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:6px 22px;}
+  .pl-row{padding:14px 0;border-bottom:1px solid var(--rule);}.pl-row:last-child{border-bottom:none;}
+  .pl-row .pq{font-weight:600;font-size:15.5px;margin:0 0 3px;}
+  .pl-row .pg{font-size:14px;color:var(--ink-soft);margin:0;}
+  .checklist{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:8px 22px;}
+  .check-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);cursor:pointer;}
+  .check-item:last-child{border-bottom:none;}
+  .box{flex:none;width:22px;height:22px;border:2px solid var(--accent-soft);border-radius:6px;margin-top:2px;display:grid;place-items:center;transition:all .15s;}
+  .box svg{width:14px;height:14px;opacity:0;}
+  .check-item.done .box{background:var(--leaf);border-color:var(--leaf);}.check-item.done .box svg{opacity:1;}
+  .check-item.done .ci-text{color:var(--ink-soft);}
+  .ci-text b{display:block;font-size:16px;color:var(--ink);margin-bottom:1px;}.ci-text span{font-size:14px;color:var(--ink-soft);}
+  .progress{font-size:13px;color:var(--ink-soft);margin:14px 2px 0;}
+  .reflect{background:#f1ece0;border-radius:12px;padding:22px 24px;}
+  .reflect ol{margin:0;padding-left:20px;}.reflect li{margin-bottom:10px;font-size:16px;}
+  .stem{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--leaf);margin-top:14px;}
+  .tool{background:var(--ink);color:#f3ece0;border-radius:14px;padding:30px 30px 28px;}
+  .tool .badge{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#c9a86a;font-weight:700;}
+  .tool h2{color:#fff;margin:6px 0 8px;}.tool p{color:#d8cdbb;font-size:15.5px;}
+  .tool .cta{display:inline-block;margin-top:6px;background:var(--gold);color:#1f1300;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:999px;font-size:15px;}
+  .nav-foot{display:flex;justify-content:space-between;gap:16px;padding:30px 0 0;}
+  .nav-foot a{flex:1;max-width:340px;text-decoration:none;border:1px solid var(--rule);border-radius:10px;padding:15px 18px;background:var(--surface);color:var(--ink);}
+  .nav-foot .dir{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .nav-foot .lab{font-family:var(--serif);font-size:17px;display:block;margin-top:3px;}.nav-foot .next{text-align:right;}
+  footer{background:var(--ink);color:#cdbfa9;text-align:center;font-size:13px;padding:40px 24px;}
+  footer .tag{font-family:var(--serif);font-style:italic;font-size:16px;color:#9c8e78;margin-bottom:8px;}
+  @media(max-width:720px){.hero h1{font-size:34px;}.six,.lens-grid,.evidence,.twocol{grid-template-columns:1fr;}.nav-foot{flex-direction:column;}.compare td.l,.compare td.r{width:auto;}}
+
+  .lead-hero{max-width:1040px;margin:0 auto;padding:64px 24px 20px;}
+  .lead-hero h1{font-family:var(--serif);font-weight:600;font-size:52px;line-height:1.08;margin:14px 0 16px;}
+  .lead-hero h1 em{font-style:italic;color:var(--accent);}
+  .lead-hero .lede{font-size:21px;color:var(--ink-soft);max-width:760px;}
+  .areas{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:6px;}
+  .area{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:24px 26px;color:var(--ink);transition:transform .12s,box-shadow .12s,border-color .12s;}
+  .area:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(31,42,55,.08);border-color:var(--accent-soft);}
+  .area .num{font-family:var(--serif);font-size:34px;color:var(--accent-soft);line-height:1;}
+  .area h3{font-family:var(--serif);font-size:23px;margin:8px 0 6px;color:var(--ink);}
+  .area p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+  .area .go{font-size:13px;color:var(--accent);font-weight:700;margin-top:12px;display:inline-block;}
+  .area.reflect-card{grid-column:1 / -1;background:#f1ece0;border-left:4px solid var(--gold);}
+  .how{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:22px 24px;margin-top:8px;}
+  .how h3{font-family:var(--serif);font-size:20px;margin:0 0 8px;color:var(--leaf);}
+  .how p{font-size:15px;color:var(--ink-soft);margin:0;}
+  @media(max-width:720px){.lead-hero h1{font-size:38px;}.areas{grid-template-columns:1fr;}}
+</style></head><body>
+<div class="topbar"><div class="wrap">
+  <div class="crumbs"><a href="./index.html">Nishkam Hub</a><span>›</span>Middle Leadership</div>
+  <div>Middle Leadership Development Programme</div></div></div>
+<header class="lead-hero">
+  <div class="eyebrow">Nishkam Schools · Leadership development</div>
+  <h1>Middle Leadership <em>Development Programme</em></h1>
+  <p class="lede">Five self-study areas for current and aspiring middle leaders — in Nishkam schools and beyond. Practical strategies, honest reflection, and evidence-based leadership, built to influence culture, drive improvement, and lead with clarity and care.</p>
+</header>
+<main>
+  <section style="border-top:none;padding-top:18px;">
+    <div class="sec-eyebrow">The five areas</div>
+    <div class="areas">
+      <a class="area" href="./mlt-session-1-what-is-a-middle-leader.html"><div class="num">1</div><h3>What is a Middle Leader?</h3><p>The role as the bridge between strategy and practice, and the six C’s that make it work.</p><span class="go">Start this area →</span></a>
+      <a class="area" href="./mlt-session-2-leading-from-the-middle.html"><div class="num">2</div><h3>Leading from the Middle</h3><p>The six behaviours of effective middle leadership, and how consistency creates momentum.</p><span class="go">Start this area →</span></a>
+      <a class="area" href="./mlt-session-3-leading-when-it-is-hard.html"><div class="num">3</div><h3>Leading When It Is Hard</h3><p>The leader’s lens, courageous conversations, and feedback that lands with clarity and care.</p><span class="go">Start this area →</span></a>
+      <a class="area" href="./mlt-session-4-developing-others.html"><div class="num">4</div><h3>Developing Others</h3><p>Moving from managing to growing people — coaching, adult learning, and stretch.</p><span class="go">Start this area →</span></a>
+      <a class="area" href="./mlt-session-5-staff-morale.html"><div class="num">5</div><h3>Staff Morale</h3><p>What drives morale — Maslow, Herzberg, transformational leadership — and how to lift a team.</p><span class="go">Start this area →</span></a>
+      <a class="area reflect-card" href="./mlt-reflection-questionnaire.html"><div class="num" style="color:var(--gold)">✎</div><h3>Reflection &amp; feedback</h3><p>At the end of the programme, reflect on what has changed in your leadership. You’ll see your own reflection summarised; the programme lead sees the cohort’s.</p><span class="go">Open the reflection →</span></a>
+    </div>
+  </section>
+  <section>
+    <div class="how"><h3>How to use these areas</h3><p>Work through them in order or dip into the one you need. Each area takes about an hour: read it, check yourself against the self-assessment, sit with the reflection prompts, then rehearse a real situation in the scenario tool. They pair with the in-person sessions, but stand on their own for self-study.</p></div>
+  </section>
+</main>
+<footer><div class="tag">Leading with service, clarity and care</div><div>Nishkam Middle Leadership Development Programme</div></footer>
+</body></html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario practice — Nishkam Middle Leadership</title>
+<style>
+  :root{--bg:#f7f2e8;--surface:#fffdf7;--ink:#1f2a37;--ink-soft:#4b5563;--rule:#d8cfb9;
+    --accent:#7a3b1d;--accent-soft:#c98e60;--leaf:#2f5d50;--gold:#b07d2b;
+    --serif:Georgia,"Cormorant Garamond","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;}
+  .topbar{background:var(--ink);color:#f7f2e8;font-size:13px;}
+  .topbar .wrap{max-width:880px;margin:0 auto;padding:11px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .topbar a{color:#e7d9c4;text-decoration:none;}.topbar .crumbs span{opacity:.5;margin:0 7px;}
+  .wrap-main{max-width:880px;margin:0 auto;padding:40px 24px 80px;}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  h1{font-family:var(--serif);font-weight:600;font-size:38px;line-height:1.12;margin:12px 0 10px;}
+  h1 em{font-style:italic;color:var(--accent);}
+  .lede{font-size:18px;color:var(--ink-soft);max-width:680px;margin:0 0 8px;}
+  .card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:24px 26px;margin-top:24px;}
+  .scen-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);font-weight:700;display:flex;justify-content:space-between;align-items:center;}
+  .scen-label .count{color:var(--ink-soft);letter-spacing:.06em;}
+  .scen-text{font-family:var(--serif);font-size:21px;line-height:1.45;margin:12px 0 4px;}
+  .scen-prompt{font-size:14.5px;color:var(--ink-soft);margin:0;}
+  label.q{display:block;font-weight:600;font-size:15px;margin:22px 0 8px;}
+  textarea{width:100%;min-height:150px;border:1px solid var(--rule);border-radius:10px;padding:14px 16px;font-family:var(--sans);font-size:15px;color:var(--ink);background:#fff;resize:vertical;line-height:1.55;}
+  textarea:focus{outline:2px solid var(--accent-soft);border-color:var(--accent-soft);}
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;align-items:center;}
+  button{font-family:var(--sans);font-size:15px;font-weight:600;border:none;border-radius:999px;padding:12px 24px;cursor:pointer;transition:opacity .15s;}
+  button:disabled{opacity:.5;cursor:default;}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-ghost{background:transparent;color:var(--accent);border:1px solid var(--accent);}
+  .hint{font-size:13px;color:var(--ink-soft);}
+  .fb-block{border-left:3px solid var(--rule);padding:2px 0 2px 18px;margin:18px 0;}
+  .fb-block.good{border-color:var(--leaf);}.fb-block.grow{border-color:var(--gold);}.fb-block.phrase{border-color:var(--accent);}
+  .fb-head{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin:0 0 5px;}
+  .fb-block.good .fb-head{color:var(--leaf);}.fb-block.grow .fb-head{color:var(--gold);}.fb-block.phrase .fb-head{color:var(--accent);}
+  .fb-body{font-size:15.5px;margin:0;}
+  .fb-block.phrase .fb-body{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink);}
+  .fb-principle{font-size:13.5px;color:var(--ink-soft);margin-top:14px;}.fb-principle b{color:var(--leaf);}
+  .loading{display:flex;align-items:center;gap:12px;color:var(--ink-soft);font-size:15px;margin-top:18px;}
+  .spinner{width:18px;height:18px;border:2px solid var(--rule);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .error{margin-top:16px;background:#f6e7df;border:1px solid var(--accent-soft);border-radius:10px;padding:14px 16px;font-size:14.5px;color:#7a3b1d;}
+  .note{font-size:12.5px;color:var(--ink-soft);margin-top:30px;border-top:1px solid var(--rule);padding-top:16px;}
+  a.back{color:var(--accent);font-size:14px;text-decoration:none;}
+  @media(max-width:600px){h1{font-size:30px;}.scen-text{font-size:19px;}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="crumbs"><a href="./index.html">Nishkam Hub</a><span>\u203a</span><a id="crumbSession" href="#">Session</a><span>\u203a</span>Scenario practice</div>
+  <div>Middle Leadership Development Programme</div>
+</div></div>
+
+<div class="wrap-main">
+  <div class="eyebrow" id="eyebrow">Practice</div>
+  <h1>Try it on a <em>real situation</em></h1>
+  <p class="lede">Read the situation, write how you would handle it, and you'll get specific, supportive feedback against this session's ideas and the Nishkam lens. No scores, nothing saved \u2014 a place to think a conversation through before you have it.</p>
+
+  <div class="card">
+    <div class="scen-label"><span id="sessTag">The situation</span><span class="count" id="count"></span></div>
+    <p class="scen-text" id="scenText"></p>
+    <p class="scen-prompt" id="scenPrompt"></p>
+    <label class="q" for="resp">How would you handle this? Write what you'd do or say.</label>
+    <textarea id="resp" placeholder="For example: I'd speak to them privately, and I'd open with\u2026"></textarea>
+    <div class="row">
+      <button class="btn-primary" id="getFb">Get feedback</button>
+      <button class="btn-ghost" id="newScen">Try a different situation</button>
+      <span class="hint" id="hint"></span>
+    </div>
+    <div id="out"></div>
+  </div>
+
+  <p style="margin-top:24px;"><a class="back" id="backLink" href="#">\u2190 Back to the session</a></p>
+  <p class="note"><b>For the live site:</b> this tool calls Claude to generate its feedback, which works inside Claude. To run it on the public site, route the request through a small proxy that holds the API key (a single serverless function) and point <code>API_URL</code> at it.</p>
+</div>
+
+<script>
+  var SESSIONS = {
+    "1": {
+      title:"What is a Middle Leader?", page:"mlt-session-1-what-is-a-middle-leader.html",
+      principles:"The six C's: Credibility (expert teaching, modelling), Clarity (priorities, standards, the 'why'), Consistency (follow-up, fairness), Communication (early, plain, listening first), Courage (naming issues kindly, not walking past slips), Coaching mindset (developing others). The Nishkam lens: service not status, consider others, optimism, joy. Warm-strict: high expectations with genuine care. 'What we permit, we promote.'",
+      scenarios:[
+        {text:"A teacher in your team is well-liked but has quietly let a shared routine slip \u2014 books aren't marked to the agreed standard, and others are starting to notice.", prompt:"How do you raise it without damaging the relationship or the team's trust in you?"},
+        {text:"A senior leader has asked you to roll out a marking policy you have private doubts about. Your team looks to you to see how you'll carry it.", prompt:"How do you lead this with your team while staying credible up and down?"},
+        {text:"A strong, experienced colleague pushes back in a meeting: 'We've tried this before and it didn't work.' The room goes quiet and looks to you.", prompt:"How do you respond in the moment?"},
+        {text:"A new teacher is struggling with low-level disruption and is losing confidence. They haven't asked for help.", prompt:"How do you step in, in a way that develops rather than rescues them?"},
+        {text:"You said you'd give feedback on everyone's planning by Friday, but the week ran away and three people are still waiting.", prompt:"What do you do, and what does it say about your consistency?"}
+      ]
+    },
+    "2": {
+      title:"Leading from the Middle", page:"mlt-session-2-leading-from-the-middle.html",
+      principles:"The six behaviours: clarity of purpose (translate vision into what good looks like), visible approachable presence, consistency in follow-through, developing others (coach, delegate), accountability with compassion (evidence and shared values, not a weapon), reflective adaptive practice. 'What you permit, you promote' (Lemov) \u2014 silence is not neutral. 'Consistency is the platform' (Bambrick-Santoyo). The Nishkam frame: service, consistency as kindness, optimism, follow-through.",
+      scenarios:[
+        {text:"A respected member of your team has been quietly questioning one of your decisions to others \u2014 not to your face.", prompt:"How do you address it while keeping the relationship and your authority intact?"},
+        {text:"A shared routine \u2014 meeting classes at the door \u2014 has quietly lapsed across your team this term. No single culprit, just drift.", prompt:"How do you reset the expectation without it landing as a telling-off?"},
+        {text:"You need to delegate leadership of a real piece of work, but the capable, obvious person is reluctant: 'I've got enough on.'", prompt:"How do you delegate it meaningfully?"},
+        {text:"You realise you applied a deadline strictly with one colleague and let it slide with another \u2014 and a third has noticed.", prompt:"What do you do about the inconsistency?"},
+        {text:"Your team meetings keep ending with everyone a bit unclear on who is doing what, by when.", prompt:"How do you bring clarity without controlling everything?"}
+      ]
+    },
+    "3": {
+      title:"Leading When It Is Hard", page:"mlt-session-3-leading-when-it-is-hard.html",
+      principles:"Warm-strict and precise praise (Lemov): high expectations with strong relationships. Crucial Conversations (Patterson et al.): stay calm, focus on facts not personal judgements, seek a shared purpose. Accountability paired with belief in the person (Knight). Feedback that lands (Stone & Heen): trust the motive, be specific, target behaviour not personality, give a clear path forward. A simple structure: what was seen (specific), why it matters (link to learning/expectations), what could change (actionable). Open with a warm, direct sentence starter.",
+      scenarios:[
+        {text:"A colleague rolls their eyes when a new policy is discussed in a meeting.", prompt:"How do you raise it with them afterwards?"},
+        {text:"A colleague's recent lesson observation showed low levels of pupil engagement. You need to give the feedback.", prompt:"What do you say, and how do you open it?"},
+        {text:"You've had feedback about the inconsistent quality of a colleague's marking \u2014 and you've seen it yourself.", prompt:"How do you give feedback that lands and leads to change?"},
+        {text:"A team member gives plenty of whole-class praise but doesn't follow through on checking individual work; some pupils are coasting as a result.", prompt:"How do you raise it constructively?"},
+        {text:"Concerns about workload have been expressed indirectly \u2014 a few sighs, a comment in passing \u2014 rather than to you directly.", prompt:"How do you open the conversation?"}
+      ]
+    },
+    "4": {
+      title:"Developing Others", page:"mlt-session-4-developing-others.html",
+      principles:"The developer lens, not the manager lens: 'what would help them get ready?' Coaching, not telling: Jim Knight's Impact Cycle (identify a goal together, learn strategies, reflect and refine); Costa & Garmston metacognitive questions ('what led you to that decision?', 'what might you try next time?'); Knowles' adult learning (relevance, autonomy, real problems). Stretch taps autonomy, mastery and purpose (Pink) and builds self-efficacy (Bandura). Good stretch is aligned to strengths, supported with coaching, and followed up with recognition. Coaching starters: 'What went well? What would you do differently? What support would help?'",
+      scenarios:[
+        {text:"A teacher has just taught a lesson that didn't go to plan \u2014 low engagement, objectives not fully met. They seem deflated.", prompt:"Coach them through it \u2014 what do you ask, and how do you open?"},
+        {text:"A colleague is an excellent, consistent teacher and a positive influence, but relies on familiar strategies and hasn't engaged with new approaches lately. They could lead practice across the team.", prompt:"How do you stretch them, and how do you frame it?"},
+        {text:"A team member regularly volunteers ideas and shows real initiative in meetings.", prompt:"What stretch opportunity do you create, and how do you set it up?"},
+        {text:"A teacher is keen to improve their questioning but unsure where to start.", prompt:"How do you support their development without taking over?"},
+        {text:"You'd like to delegate a real responsibility, but you're not sure the person is quite ready yet.", prompt:"What would help them get ready, and how do you set it up to succeed?"}
+      ]
+    },
+    "5": {
+      title:"Staff Morale", page:"mlt-session-5-staff-morale.html",
+      principles:"Maslow: people need safety, belonging and esteem before they reach for innovation. Herzberg: hygiene factors (pay, conditions, policy) prevent dissatisfaction but don't motivate; motivators (achievement, recognition, responsibility, growth) drive engagement. Transformational leadership: vision, modelling, individual support, and a safe space for ideas. Morale lifts with recognition, responsibility, growth, belonging, fairness and shared purpose; it drains with unseen effort, inconsistency, uncontrolled workload, and unchallenged cynicism. The Nishkam frame: optimism and joy are deliberate choices; attending to wellbeing is service.",
+      scenarios:[
+        {text:"A normally strong, upbeat teacher has gone quiet lately \u2014 less involved in the team, doing the minimum.", prompt:"How do you open a conversation about it?"},
+        {text:"Your team is visibly tired and stretched. Workload is high and morale is dipping \u2014 and much of the workload isn't yours to remove.", prompt:"What do you do?"},
+        {text:"One team member's cynicism is starting to spread \u2014 eye-rolls, 'here we go again' \u2014 and it's affecting the mood of meetings.", prompt:"How do you handle it?"},
+        {text:"A colleague has worked extremely hard on something that largely went unnoticed by the wider school.", prompt:"How do you respond?"},
+        {text:"A capable teacher confides they're thinking of leaving \u2014 they feel like 'just a cog' and don't see a future here.", prompt:"How do you respond in that conversation?"}
+      ]
+    }
+  };
+
+  var API_URL = "https://api.anthropic.com/v1/messages";
+
+  var s = (new URLSearchParams(location.search).get('s') || '1');
+  if(!SESSIONS[s]) s = '1';
+  var SESSION = SESSIONS[s];
+
+  document.getElementById('eyebrow').textContent = 'Session ' + s + ' \u00b7 Practice';
+  document.getElementById('sessTag').textContent = SESSION.title;
+  document.title = 'Scenario practice \u00b7 Session ' + s + ' — Nishkam Middle Leadership';
+  var crumb = document.getElementById('crumbSession'); crumb.textContent = 'Session ' + s; crumb.href = './' + SESSION.page;
+  document.getElementById('backLink').href = './' + SESSION.page;
+
+  var idx=0, order=shuffle(SESSION.scenarios.map(function(_,i){return i;}));
+  var elText=document.getElementById('scenText'), elPrompt=document.getElementById('scenPrompt'),
+      elCount=document.getElementById('count'), elResp=document.getElementById('resp'),
+      elOut=document.getElementById('out'), btnFb=document.getElementById('getFb'),
+      btnNew=document.getElementById('newScen'), elHint=document.getElementById('hint');
+
+  function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function show(){
+    var sc=SESSION.scenarios[order[idx]];
+    elText.textContent=sc.text; elPrompt.textContent=sc.prompt;
+    elCount.textContent='Situation '+(idx+1)+' of '+SESSION.scenarios.length;
+    elResp.value=''; elOut.innerHTML=''; elHint.textContent='';
+  }
+  show();
+  btnNew.addEventListener('click', function(){ idx=(idx+1)%SESSION.scenarios.length; show(); elResp.focus(); });
+
+  btnFb.addEventListener('click', async function(){
+    var answer=elResp.value.trim();
+    if(answer.length<15){ elHint.textContent='Write a little more first \u2014 a sentence or two.'; return; }
+    elHint.textContent=''; btnFb.disabled=true; btnNew.disabled=true;
+    elOut.innerHTML='<div class="loading"><div class="spinner"></div>Reading your response\u2026</div>';
+    var sc=SESSION.scenarios[order[idx]];
+    var prompt=
+      "You are a warm, experienced school leadership coach giving feedback to a middle leader in training, "+
+      "for the Nishkam Middle Leadership Development Programme. Ground your feedback in these principles:\n\n"+
+      SESSION.principles+"\n\nTHE SCENARIO:\n"+sc.text+"\n"+sc.prompt+"\n\nTHEIR RESPONSE:\n\""+answer+"\"\n\n"+
+      "Give honest, encouraging, practical feedback. Be specific to what they actually wrote \u2014 refer to their own words. "+
+      "Hold high expectations with genuine care (warm-strict). If their approach would damage trust or duck the issue, say so kindly and clearly.\n\n"+
+      "VOICE \u2014 this matters: plain, warm British English, as a real colleague would speak. Short, concrete sentences. "+
+      "No buzzwords, jargon, or cliches. Do NOT use 'X, not Y' constructions. Do not use em dashes. Do not open with 'Great' or 'I love'. Do not flatter. Sound human, not like an AI.\n\n"+
+      "Return ONLY a JSON object, no preamble and no code fences, with exactly these keys:\n"+
+      '{\n  "strengths": "1-2 sentences on what works, specific to what they wrote",\n'+
+      '  "strengthen": "1-2 sentences on the single most useful thing to do differently",\n'+
+      '  "modelPhrase": "one sentence they could actually say in this situation",\n'+
+      '  "principle": "the one idea from this session it connects to most, in 2-5 words"\n}';
+    try{
+      var res=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,messages:[{role:"user",content:prompt}]})});
+      if(!res.ok) throw new Error("HTTP "+res.status);
+      var data=await res.json();
+      var raw=(data.content||[]).map(function(b){return b.text||"";}).join("").trim();
+      var clean=raw.replace(/```json|```/g,"").trim(), fb;
+      try{ fb=JSON.parse(clean); }catch(e){ var m=clean.match(/\{[\s\S]*\}/); fb=m?JSON.parse(m[0]):null; }
+      if(!fb){ elOut.innerHTML='<div class="fb-block"><p class="fb-body">'+escapeHtml(raw)+'</p></div>'; }
+      else{ renderFeedback(fb); }
+    }catch(err){
+      elOut.innerHTML='<div class="error">Something went wrong reaching the feedback service ('+escapeHtml(err.message)+'). Please try again in a moment.</div>';
+    }finally{ btnFb.disabled=false; btnNew.disabled=false; }
+  });
+
+  function renderFeedback(fb){
+    elOut.innerHTML=
+      block('good','What works',fb.strengths)+
+      block('grow','Worth strengthening',fb.strengthen)+
+      block('phrase','You could try saying',fb.modelPhrase)+
+      (fb.principle?'<p class="fb-principle">This connects most to <b>'+escapeHtml(fb.principle)+'</b>.</p>':'');
+  }
+  function block(cls,head,body){ return body?'<div class="fb-block '+cls+'"><p class="fb-head">'+head+'</p><p class="fb-body">'+escapeHtml(body)+'</p></div>':''; }
+  function escapeHtml(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+</script>
+</body>
+</html>

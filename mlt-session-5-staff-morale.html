@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Morale — Nishkam Middle Leadership</title><style>
+  :root{--bg:#f7f2e8;--surface:#fffdf7;--ink:#1f2a37;--ink-soft:#4b5563;--rule:#d8cfb9;
+    --accent:#7a3b1d;--accent-soft:#c98e60;--leaf:#2f5d50;--gold:#b07d2b;
+    --serif:Georgia,"Cormorant Garamond","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;}
+  a{color:var(--accent);text-underline-offset:3px;}
+  .topbar{background:var(--ink);color:#f7f2e8;font-size:13px;}
+  .topbar .wrap{max-width:1040px;margin:0 auto;padding:11px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .topbar a{color:#e7d9c4;text-decoration:none;}.topbar .crumbs span{opacity:.5;margin:0 7px;}
+  .session-strip{background:var(--surface);border-bottom:1px solid var(--rule);}
+  .session-strip .wrap{max-width:1040px;margin:0 auto;padding:10px 24px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+  .session-strip .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-right:8px;}
+  .session-strip a{font-size:12.5px;text-decoration:none;color:var(--ink-soft);padding:4px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--bg);}
+  .session-strip a.here{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:600;}
+  .hero{max-width:1040px;margin:0 auto;padding:56px 24px 30px;}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1.1;margin:12px 0 14px;}
+  .hero h1 em{font-style:italic;color:var(--accent);}
+  .hero .lede{font-size:20px;color:var(--ink-soft);max-width:730px;margin:0;}
+  .hero .pull{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--leaf);border-left:3px solid var(--gold);padding:6px 0 6px 18px;margin:26px 0 0;max-width:760px;}
+  main{max-width:1040px;margin:0 auto;padding:0 24px 80px;}
+  section{padding:34px 0;border-top:1px solid var(--rule);}
+  .sec-eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;}
+  h2{font-family:var(--serif);font-weight:600;font-size:29px;margin:0 0 6px;}
+  .sec-intro{font-size:17px;color:var(--ink-soft);max-width:720px;margin:0 0 22px;}
+  p{margin:0 0 14px;}
+  .biglist{font-size:17px;max-width:760px;padding-left:20px;}.biglist li{margin-bottom:7px;}
+  .six{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .c-card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:20px 20px 18px;}
+  .c-card .c-name{font-family:var(--serif);font-size:21px;color:var(--ink);margin:0 0 4px;}
+  .c-card .c-name b{color:var(--accent);}
+  .c-card .c-what{font-size:14.5px;color:var(--ink-soft);margin:0 0 12px;}
+  .c-card .do{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf);font-weight:700;margin:0 0 5px;}
+  .c-card ul{margin:0;padding-left:18px;font-size:14.5px;}.c-card li{margin-bottom:4px;}
+  .lens{background:#f1ece0;border:1px solid var(--rule);border-left:4px solid var(--gold);border-radius:12px;padding:24px 26px;}
+  .lens h3{font-family:var(--serif);font-size:22px;margin:0 0 4px;color:var(--leaf);}
+  .lens .sub{font-size:14px;color:var(--ink-soft);margin:0 0 16px;}
+  .lens-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 26px;}
+  .lens-grid .item{font-size:15px;color:var(--ink-soft);}.lens-grid .item b{color:var(--ink);}
+  .evidence{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .ev{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;font-size:14.5px;}.ev b{color:var(--accent);}
+  .compare{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden;}
+  .compare th{text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:11px 16px;background:#efe7d6;color:var(--ink);}
+  .compare th.r{color:var(--leaf);}
+  .compare td{padding:11px 16px;font-size:14.5px;border-top:1px solid var(--rule);vertical-align:top;}
+  .compare td.l{color:var(--ink-soft);width:50%;}.compare td.r{color:var(--ink);width:50%;}
+  .twocol{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .tc{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;}
+  .tc h4{margin:0 0 10px;font-size:15px;}.tc.up h4{color:var(--leaf);}.tc.down h4{color:var(--accent);}
+  .tc ul{margin:0;padding-left:18px;font-size:14.5px;}.tc li{margin-bottom:5px;}
+  .starters{display:flex;flex-direction:column;gap:8px;}
+  .starter{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent-soft);border-radius:8px;padding:11px 16px;font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink);}
+  .planner{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:6px 22px;}
+  .pl-row{padding:14px 0;border-bottom:1px solid var(--rule);}.pl-row:last-child{border-bottom:none;}
+  .pl-row .pq{font-weight:600;font-size:15.5px;margin:0 0 3px;}
+  .pl-row .pg{font-size:14px;color:var(--ink-soft);margin:0;}
+  .checklist{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:8px 22px;}
+  .check-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);cursor:pointer;}
+  .check-item:last-child{border-bottom:none;}
+  .box{flex:none;width:22px;height:22px;border:2px solid var(--accent-soft);border-radius:6px;margin-top:2px;display:grid;place-items:center;transition:all .15s;}
+  .box svg{width:14px;height:14px;opacity:0;}
+  .check-item.done .box{background:var(--leaf);border-color:var(--leaf);}.check-item.done .box svg{opacity:1;}
+  .check-item.done .ci-text{color:var(--ink-soft);}
+  .ci-text b{display:block;font-size:16px;color:var(--ink);margin-bottom:1px;}.ci-text span{font-size:14px;color:var(--ink-soft);}
+  .progress{font-size:13px;color:var(--ink-soft);margin:14px 2px 0;}
+  .reflect{background:#f1ece0;border-radius:12px;padding:22px 24px;}
+  .reflect ol{margin:0;padding-left:20px;}.reflect li{margin-bottom:10px;font-size:16px;}
+  .stem{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--leaf);margin-top:14px;}
+  .tool{background:var(--ink);color:#f3ece0;border-radius:14px;padding:30px 30px 28px;}
+  .tool .badge{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#c9a86a;font-weight:700;}
+  .tool h2{color:#fff;margin:6px 0 8px;}.tool p{color:#d8cdbb;font-size:15.5px;}
+  .tool .cta{display:inline-block;margin-top:6px;background:var(--gold);color:#1f1300;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:999px;font-size:15px;}
+  .nav-foot{display:flex;justify-content:space-between;gap:16px;padding:30px 0 0;}
+  .nav-foot a{flex:1;max-width:340px;text-decoration:none;border:1px solid var(--rule);border-radius:10px;padding:15px 18px;background:var(--surface);color:var(--ink);}
+  .nav-foot .dir{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .nav-foot .lab{font-family:var(--serif);font-size:17px;display:block;margin-top:3px;}.nav-foot .next{text-align:right;}
+  footer{background:var(--ink);color:#cdbfa9;text-align:center;font-size:13px;padding:40px 24px;}
+  footer .tag{font-family:var(--serif);font-style:italic;font-size:16px;color:#9c8e78;margin-bottom:8px;}
+  @media(max-width:720px){.hero h1{font-size:34px;}.six,.lens-grid,.evidence,.twocol{grid-template-columns:1fr;}.nav-foot{flex-direction:column;}.compare td.l,.compare td.r{width:auto;}}
+</style></head><body>
+<div class="topbar"><div class="wrap">
+  <div class="crumbs"><a href="./index.html">Nishkam Hub</a><span>›</span><a href="./mlt-index.html">Middle Leadership</a><span>›</span>Session 5</div>
+  <div>Middle Leadership Development Programme</div></div></div>
+<nav class="session-strip"><div class="wrap"><span class="lbl">Five areas</span>
+      <a class="" href="./mlt-session-1-what-is-a-middle-leader.html">1 · What is a Middle Leader?</a>
+      <a class="" href="./mlt-session-2-leading-from-the-middle.html">2 · Leading from the Middle</a>
+      <a class="" href="./mlt-session-3-leading-when-it-is-hard.html">3 · Leading When It Is Hard</a>
+      <a class="" href="./mlt-session-4-developing-others.html">4 · Developing Others</a>
+      <a class="here" href="./mlt-session-5-staff-morale.html">5 · Staff Morale</a>
+</div></nav>
+<header class="hero"><div class="eyebrow">Session 5 · Self-study</div><h1>Staff <em>morale</em></h1><p class="lede">Morale is shaped by what a leader does. This area covers what really drives it — Maslow, Herzberg, transformational leadership — and the everyday behaviours that lift a team or drain it.</p><p class="pull">“When staff feel inspired, valued, and supported, they are more engaged, motivated, and committed.”</p></header>
+<main>
+<section><div class="sec-eyebrow">Why it matters</div><h2>Morale is a leadership behaviour</h2><p class="sec-intro">Morale is not a mood that happens to a team; it is shaped, day to day, by how a leader behaves. Three ideas explain what drives it.</p><div class="six"><div class="c-card"><p class="c-name"><b>Maslow · Hierarchy of needs</b></p><p class="c-what">People are motivated through levels of need, from the basic upward.</p><p class="do">What it means for a team</p><ul><li>Safety: security, stability, fair treatment.</li><li>Belonging: connection and a sense of being part of the team.</li><li>Esteem: recognition, respect, achievement.</li><li>Lower needs must be reasonably met before people reach for innovation.</li></ul></div><div class="c-card"><p class="c-name"><b>Herzberg · Two factors</b></p><p class="c-what">Hygiene factors and motivators do different jobs.</p><p class="do">What it means for a team</p><ul><li>Hygiene (pay, policy, conditions): their absence causes dissatisfaction.</li><li>Fixing hygiene removes dissatisfaction — but does not motivate.</li><li>Motivators (achievement, recognition, responsibility, growth) drive engagement.</li><li>So: clear the irritants, then invest in the motivators.</li></ul></div><div class="c-card"><p class="c-name"><b>Transformational leadership</b></p><p class="c-what">Lift morale and performance through vision and trust, not just task management.</p><p class="do">What it means for a team</p><ul><li>Communicate a clear, compelling purpose people can see themselves in.</li><li>Model integrity, enthusiasm and commitment.</li><li>Recognise strengths; coach and grow individuals.</li><li>Make it safe to share ideas and take initiative.</li></ul></div></div></section>
+<section><div class="sec-eyebrow">In your team</div><h2>What lifts morale, and what drains it</h2><p class="sec-intro">Drawing the theory together: most of what moves morale is within a middle leader’s gift.</p><div class="twocol"><div class="tc up"><h4>Lifts morale</h4><ul><li>Being noticed: specific, genuine recognition.</li><li>Responsibility and trust to do the work well.</li><li>Growth: stretch, CPD, a path forward.</li><li>Belonging: a team that feels like a team.</li><li>Fairness and consistency you can rely on.</li><li>A clear, shared purpose worth the effort.</li></ul></div><div class="tc down"><h4>Drains morale</h4><ul><li>Effort that goes unseen or unacknowledged.</li><li>Inconsistency and perceived unfairness.</li><li>Workload with no control or no let-up.</li><li>Being managed but never developed.</li><li>Mixed messages and shifting priorities.</li><li>Cynicism left to spread unchallenged.</li></ul></div></div></section>
+<section><div class="sec-eyebrow">The Nishkam frame</div><div class="lens"><h3>Optimism and joy, on purpose</h3><p class="sub">Two of our four leadership ideas speak directly to morale — and they are choices a leader makes, not weather a team waits out.</p><div class="lens-grid"><div class="item"><b>We approach life with optimism.</b> Positivity is a discipline that builds momentum, especially when things are hard.</div><div class="item"><b>We look for joy.</b> Joy in the work and the relationships is contagious, and it builds resilient teams.</div><div class="item"><b>We work for others.</b> Attending to a colleague’s wellbeing is service, not a distraction from the ‘real’ work.</div><div class="item"><b>We consider others.</b> Noticing the person behind the role is where morale begins.</div></div></div></section>
+<section><div class="sec-eyebrow">Check yourself</div><h2>Self-assessment: supporting morale</h2><p class="sec-intro">Tick what you do consistently. For you only.</p><div class="checklist" data-checklist><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Recognition</b><span>I notice and name good work, specifically and often.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Safety</b><span>My team feels secure, fairly treated, and able to speak up.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Belonging</b><span>I build connection, not just compliance.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Growth</b><span>Everyone in my team has a sense of where they are heading.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Purpose</b><span>I keep the shared ‘why’ visible, especially under pressure.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Wellbeing</b><span>I notice when someone’s morale dips, and I open a conversation.</span></span></div></div><p class="progress" data-progress>0 of 6 ticked</p></section>
+<section><div class="sec-eyebrow">Reflect</div><h2>Read the room</h2><div class="reflect"><ol><li>Where is your team on Maslow’s levels right now? What need is most unmet?</li><li>Name one hygiene irritant you could remove, and one motivator you could strengthen.</li><li>Who on your team seems low at the moment? What is one coaching conversation you could open this week?</li></ol><p class="stem">“The one thing that would lift my team’s morale most is…”</p></div></section>
+<section><div class="tool"><p class="badge">Practice · AI scenario tool</p><h2>Try it on a real situation</h2><p>Work through a true-to-life situation, write how you would handle it, and get specific, kind feedback against this session’s ideas and the Nishkam lens — then try it a different way.</p><a class="cta" href="./mlt-scenario-tool.html?s=5">Open the scenario tool →</a></div></section>
+<div class="nav-foot"><a href="./mlt-session-4-developing-others.html" class="prev"><span class="dir">← Previous</span><span class="lab">4 · Developing Others</span></a><a href="./mlt-index.html" class="next"><span class="dir">Finish →</span><span class="lab">Reflection & the full programme</span></a></div>
+</main>
+<footer><div class="tag">Leading with service, clarity and care</div><div>Nishkam Middle Leadership Development Programme</div></footer>
+<script>
+  document.querySelectorAll('[data-checklist]').forEach(function(cl){
+    var prog=cl.parentNode.querySelector('[data-progress]')||cl.nextElementSibling;
+    var items=cl.querySelectorAll('.check-item');
+    items.forEach(function(it){it.addEventListener('click',function(){it.classList.toggle('done');
+      var d=cl.querySelectorAll('.check-item.done').length; if(prog) prog.textContent=d+' of '+items.length+' ticked';});});
+  });
+</script>
+</body></html>

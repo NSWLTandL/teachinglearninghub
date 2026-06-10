@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developing Others — Nishkam Middle Leadership</title><style>
+  :root{--bg:#f7f2e8;--surface:#fffdf7;--ink:#1f2a37;--ink-soft:#4b5563;--rule:#d8cfb9;
+    --accent:#7a3b1d;--accent-soft:#c98e60;--leaf:#2f5d50;--gold:#b07d2b;
+    --serif:Georgia,"Cormorant Garamond","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;}
+  a{color:var(--accent);text-underline-offset:3px;}
+  .topbar{background:var(--ink);color:#f7f2e8;font-size:13px;}
+  .topbar .wrap{max-width:1040px;margin:0 auto;padding:11px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .topbar a{color:#e7d9c4;text-decoration:none;}.topbar .crumbs span{opacity:.5;margin:0 7px;}
+  .session-strip{background:var(--surface);border-bottom:1px solid var(--rule);}
+  .session-strip .wrap{max-width:1040px;margin:0 auto;padding:10px 24px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+  .session-strip .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-right:8px;}
+  .session-strip a{font-size:12.5px;text-decoration:none;color:var(--ink-soft);padding:4px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--bg);}
+  .session-strip a.here{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:600;}
+  .hero{max-width:1040px;margin:0 auto;padding:56px 24px 30px;}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1.1;margin:12px 0 14px;}
+  .hero h1 em{font-style:italic;color:var(--accent);}
+  .hero .lede{font-size:20px;color:var(--ink-soft);max-width:730px;margin:0;}
+  .hero .pull{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--leaf);border-left:3px solid var(--gold);padding:6px 0 6px 18px;margin:26px 0 0;max-width:760px;}
+  main{max-width:1040px;margin:0 auto;padding:0 24px 80px;}
+  section{padding:34px 0;border-top:1px solid var(--rule);}
+  .sec-eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;}
+  h2{font-family:var(--serif);font-weight:600;font-size:29px;margin:0 0 6px;}
+  .sec-intro{font-size:17px;color:var(--ink-soft);max-width:720px;margin:0 0 22px;}
+  p{margin:0 0 14px;}
+  .biglist{font-size:17px;max-width:760px;padding-left:20px;}.biglist li{margin-bottom:7px;}
+  .six{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .c-card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:20px 20px 18px;}
+  .c-card .c-name{font-family:var(--serif);font-size:21px;color:var(--ink);margin:0 0 4px;}
+  .c-card .c-name b{color:var(--accent);}
+  .c-card .c-what{font-size:14.5px;color:var(--ink-soft);margin:0 0 12px;}
+  .c-card .do{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf);font-weight:700;margin:0 0 5px;}
+  .c-card ul{margin:0;padding-left:18px;font-size:14.5px;}.c-card li{margin-bottom:4px;}
+  .lens{background:#f1ece0;border:1px solid var(--rule);border-left:4px solid var(--gold);border-radius:12px;padding:24px 26px;}
+  .lens h3{font-family:var(--serif);font-size:22px;margin:0 0 4px;color:var(--leaf);}
+  .lens .sub{font-size:14px;color:var(--ink-soft);margin:0 0 16px;}
+  .lens-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 26px;}
+  .lens-grid .item{font-size:15px;color:var(--ink-soft);}.lens-grid .item b{color:var(--ink);}
+  .evidence{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .ev{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;font-size:14.5px;}.ev b{color:var(--accent);}
+  .compare{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden;}
+  .compare th{text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:11px 16px;background:#efe7d6;color:var(--ink);}
+  .compare th.r{color:var(--leaf);}
+  .compare td{padding:11px 16px;font-size:14.5px;border-top:1px solid var(--rule);vertical-align:top;}
+  .compare td.l{color:var(--ink-soft);width:50%;}.compare td.r{color:var(--ink);width:50%;}
+  .twocol{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .tc{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;}
+  .tc h4{margin:0 0 10px;font-size:15px;}.tc.up h4{color:var(--leaf);}.tc.down h4{color:var(--accent);}
+  .tc ul{margin:0;padding-left:18px;font-size:14.5px;}.tc li{margin-bottom:5px;}
+  .starters{display:flex;flex-direction:column;gap:8px;}
+  .starter{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent-soft);border-radius:8px;padding:11px 16px;font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink);}
+  .planner{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:6px 22px;}
+  .pl-row{padding:14px 0;border-bottom:1px solid var(--rule);}.pl-row:last-child{border-bottom:none;}
+  .pl-row .pq{font-weight:600;font-size:15.5px;margin:0 0 3px;}
+  .pl-row .pg{font-size:14px;color:var(--ink-soft);margin:0;}
+  .checklist{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:8px 22px;}
+  .check-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);cursor:pointer;}
+  .check-item:last-child{border-bottom:none;}
+  .box{flex:none;width:22px;height:22px;border:2px solid var(--accent-soft);border-radius:6px;margin-top:2px;display:grid;place-items:center;transition:all .15s;}
+  .box svg{width:14px;height:14px;opacity:0;}
+  .check-item.done .box{background:var(--leaf);border-color:var(--leaf);}.check-item.done .box svg{opacity:1;}
+  .check-item.done .ci-text{color:var(--ink-soft);}
+  .ci-text b{display:block;font-size:16px;color:var(--ink);margin-bottom:1px;}.ci-text span{font-size:14px;color:var(--ink-soft);}
+  .progress{font-size:13px;color:var(--ink-soft);margin:14px 2px 0;}
+  .reflect{background:#f1ece0;border-radius:12px;padding:22px 24px;}
+  .reflect ol{margin:0;padding-left:20px;}.reflect li{margin-bottom:10px;font-size:16px;}
+  .stem{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--leaf);margin-top:14px;}
+  .tool{background:var(--ink);color:#f3ece0;border-radius:14px;padding:30px 30px 28px;}
+  .tool .badge{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#c9a86a;font-weight:700;}
+  .tool h2{color:#fff;margin:6px 0 8px;}.tool p{color:#d8cdbb;font-size:15.5px;}
+  .tool .cta{display:inline-block;margin-top:6px;background:var(--gold);color:#1f1300;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:999px;font-size:15px;}
+  .nav-foot{display:flex;justify-content:space-between;gap:16px;padding:30px 0 0;}
+  .nav-foot a{flex:1;max-width:340px;text-decoration:none;border:1px solid var(--rule);border-radius:10px;padding:15px 18px;background:var(--surface);color:var(--ink);}
+  .nav-foot .dir{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .nav-foot .lab{font-family:var(--serif);font-size:17px;display:block;margin-top:3px;}.nav-foot .next{text-align:right;}
+  footer{background:var(--ink);color:#cdbfa9;text-align:center;font-size:13px;padding:40px 24px;}
+  footer .tag{font-family:var(--serif);font-style:italic;font-size:16px;color:#9c8e78;margin-bottom:8px;}
+  @media(max-width:720px){.hero h1{font-size:34px;}.six,.lens-grid,.evidence,.twocol{grid-template-columns:1fr;}.nav-foot{flex-direction:column;}.compare td.l,.compare td.r{width:auto;}}
+</style></head><body>
+<div class="topbar"><div class="wrap">
+  <div class="crumbs"><a href="./index.html">Nishkam Hub</a><span>›</span><a href="./mlt-index.html">Middle Leadership</a><span>›</span>Session 4</div>
+  <div>Middle Leadership Development Programme</div></div></div>
+<nav class="session-strip"><div class="wrap"><span class="lbl">Five areas</span>
+      <a class="" href="./mlt-session-1-what-is-a-middle-leader.html">1 · What is a Middle Leader?</a>
+      <a class="" href="./mlt-session-2-leading-from-the-middle.html">2 · Leading from the Middle</a>
+      <a class="" href="./mlt-session-3-leading-when-it-is-hard.html">3 · Leading When It Is Hard</a>
+      <a class="here" href="./mlt-session-4-developing-others.html">4 · Developing Others</a>
+      <a class="" href="./mlt-session-5-staff-morale.html">5 · Staff Morale</a>
+</div></nav>
+<header class="hero"><div class="eyebrow">Session 4 · Self-study</div><h1>Developing <em>others</em></h1><p class="lede">Your success is measured by the growth of your team. This area moves from managing to developing — coaching, adult learning, and the art of the stretch opportunity.</p><p class="pull">“When people know that we care about them and believe in them, they are more open to feedback and more likely to grow.”</p></header>
+<main>
+<section><div class="sec-eyebrow">The shift</div><h2>The developer lens</h2><p class="sec-intro">Middle leadership is not just about managing; it is about growing people. Developing others means seeing potential, creating opportunities, and supporting progress. It is a shift from doing to enabling.</p><table class="compare"><tr><th>Manager lens</th><th class="r">Developer lens</th></tr><tr><td class="l">“Are they meeting expectations?”</td><td class="r">“How can I help them exceed expectations?”</td></tr><tr><td class="l">“They need to improve.”</td><td class="r">“What support or feedback will help them improve?”</td></tr><tr><td class="l">“I’ll handle this myself.”</td><td class="r">“Who could I coach or involve to build capacity?”</td></tr><tr><td class="l">“They’re not ready yet.”</td><td class="r">“What would help them get ready?”</td></tr></table></section>
+<section><div class="sec-eyebrow">How development works</div><h2>Coaching: asking, not telling</h2><p class="sec-intro">Effective development usually starts with coaching, not instructing. Coaching builds ownership, reflection, and confidence — the ingredients of sustainable growth.</p><div class="evidence"><div class="ev"><b>Jim Knight (Impact Cycle)</b> — coaching is a partnership built on trust: identify a goal collaboratively, learn new strategies together, then reflect and refine through dialogue.</div><div class="ev"><b>Costa & Garmston (Cognitive Coaching)</b> — questions that promote metacognition make people more self-directed: ‘what led you to that decision?’, ‘what might you try next time?’</div><div class="ev"><b>Knowles (Adult Learning)</b> — adults learn best when involved in diagnosing their own needs and solving real problems — so coaching is responsive, relevant, and respects autonomy.</div><div class="ev"><b>Cognitive science</b> — adults learn when they see relevance, experience modelling, and engage in spaced practice; design development that is sequenced, revisited, and embedded.</div></div><p><span style="font-weight:600;color:var(—leaf)">Coaching starters:</span> ‘What do you think went well?’ · ‘What would you do differently next time?’ · ‘What support would help you move forward?’ · ‘What’s one small change you could try?’</p></section>
+<section><div class="sec-eyebrow">Grow capacity</div><h2>Spotting and stretching potential</h2><p class="sec-intro">Great leaders notice potential and create stretch opportunities — not random extra tasks, but intentional development aligned to a person’s strengths and goals.</p><ul class="biglist"><li>Delegate a real responsibility.</li><li>Ask someone to lead a meeting, CPD session, or project.</li><li>Suggest CPD, peer observation, or joint planning.</li><li>Give feedback that nudges growth, then follow up with recognition.</li></ul><div class="evidence"><div class="ev"><b>Daniel Pink (Drive)</b> — autonomy, mastery and purpose drive professional growth — good stretch taps all three.</div><div class="ev"><b>Bandura (self-efficacy)</b> — success in a stretch task grows confidence and capacity, creating a virtuous cycle.</div><div class="ev"><b>Viviane Robinson</b> — leaders who actively promote and take part in teacher learning have the greatest impact on pupil outcomes.</div><div class="ev"><b>The best stretch is</b> — aligned to strengths and goals, supported with coaching and feedback, and followed up with reflection and recognition.</div></div></section>
+<section><div class="sec-eyebrow">Check yourself</div><h2>Self-assessment: developing others</h2><p class="sec-intro">Tick what is already part of how you lead. For you only.</p><div class="checklist" data-checklist><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Coaching by default</b><span>I ask before I tell, and use questions that build ownership.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Belief</b><span>I show people I believe in their potential, especially when challenging them.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Stretch</b><span>I create real opportunities matched to people’s strengths and goals.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Support</b><span>I coach and give feedback before and after a stretch task, not just at the end.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Recognition</b><span>I follow up growth with reflection and genuine recognition.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Capacity</b><span>I build the team’s capacity rather than absorbing everything myself.</span></span></div></div><p class="progress" data-progress>0 of 6 ticked</p></section>
+<section><div class="sec-eyebrow">Reflect</div><h2>Make a stretch map</h2><div class="reflect"><ol><li>Who in your team has grown most in the last 6–12 months — and what contributed to it?</li><li>Who is ready for more right now? What could they lead or try, and what support would they need?</li><li>Where are the missed opportunities — potential you have noticed but not yet acted on?</li></ol><p class="stem">“One person I will support more intentionally this term is…”</p></div></section>
+<section><div class="tool"><p class="badge">Practice · AI scenario tool</p><h2>Try it on a real situation</h2><p>Work through a true-to-life situation, write how you would handle it, and get specific, kind feedback against this session’s ideas and the Nishkam lens — then try it a different way.</p><a class="cta" href="./mlt-scenario-tool.html?s=4">Open the scenario tool →</a></div></section>
+<div class="nav-foot"><a href="./mlt-session-3-leading-when-it-is-hard.html" class="prev"><span class="dir">← Previous</span><span class="lab">3 · Leading When It Is Hard</span></a><a href="./mlt-session-5-staff-morale.html" class="next"><span class="dir">Next area →</span><span class="lab">5 · Staff Morale</span></a></div>
+</main>
+<footer><div class="tag">Leading with service, clarity and care</div><div>Nishkam Middle Leadership Development Programme</div></footer>
+<script>
+  document.querySelectorAll('[data-checklist]').forEach(function(cl){
+    var prog=cl.parentNode.querySelector('[data-progress]')||cl.nextElementSibling;
+    var items=cl.querySelectorAll('.check-item');
+    items.forEach(function(it){it.addEventListener('click',function(){it.classList.toggle('done');
+      var d=cl.querySelectorAll('.check-item.done').length; if(prog) prog.textContent=d+' of '+items.length+' ticked';});});
+  });
+</script>
+</body></html>

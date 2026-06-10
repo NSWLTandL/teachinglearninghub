@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leading When It Is Hard — Nishkam Middle Leadership</title><style>
+  :root{--bg:#f7f2e8;--surface:#fffdf7;--ink:#1f2a37;--ink-soft:#4b5563;--rule:#d8cfb9;
+    --accent:#7a3b1d;--accent-soft:#c98e60;--leaf:#2f5d50;--gold:#b07d2b;
+    --serif:Georgia,"Cormorant Garamond","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;}
+  a{color:var(--accent);text-underline-offset:3px;}
+  .topbar{background:var(--ink);color:#f7f2e8;font-size:13px;}
+  .topbar .wrap{max-width:1040px;margin:0 auto;padding:11px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .topbar a{color:#e7d9c4;text-decoration:none;}.topbar .crumbs span{opacity:.5;margin:0 7px;}
+  .session-strip{background:var(--surface);border-bottom:1px solid var(--rule);}
+  .session-strip .wrap{max-width:1040px;margin:0 auto;padding:10px 24px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+  .session-strip .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-right:8px;}
+  .session-strip a{font-size:12.5px;text-decoration:none;color:var(--ink-soft);padding:4px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--bg);}
+  .session-strip a.here{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:600;}
+  .hero{max-width:1040px;margin:0 auto;padding:56px 24px 30px;}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1.1;margin:12px 0 14px;}
+  .hero h1 em{font-style:italic;color:var(--accent);}
+  .hero .lede{font-size:20px;color:var(--ink-soft);max-width:730px;margin:0;}
+  .hero .pull{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--leaf);border-left:3px solid var(--gold);padding:6px 0 6px 18px;margin:26px 0 0;max-width:760px;}
+  main{max-width:1040px;margin:0 auto;padding:0 24px 80px;}
+  section{padding:34px 0;border-top:1px solid var(--rule);}
+  .sec-eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;}
+  h2{font-family:var(--serif);font-weight:600;font-size:29px;margin:0 0 6px;}
+  .sec-intro{font-size:17px;color:var(--ink-soft);max-width:720px;margin:0 0 22px;}
+  p{margin:0 0 14px;}
+  .biglist{font-size:17px;max-width:760px;padding-left:20px;}.biglist li{margin-bottom:7px;}
+  .six{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .c-card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:20px 20px 18px;}
+  .c-card .c-name{font-family:var(--serif);font-size:21px;color:var(--ink);margin:0 0 4px;}
+  .c-card .c-name b{color:var(--accent);}
+  .c-card .c-what{font-size:14.5px;color:var(--ink-soft);margin:0 0 12px;}
+  .c-card .do{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf);font-weight:700;margin:0 0 5px;}
+  .c-card ul{margin:0;padding-left:18px;font-size:14.5px;}.c-card li{margin-bottom:4px;}
+  .lens{background:#f1ece0;border:1px solid var(--rule);border-left:4px solid var(--gold);border-radius:12px;padding:24px 26px;}
+  .lens h3{font-family:var(--serif);font-size:22px;margin:0 0 4px;color:var(--leaf);}
+  .lens .sub{font-size:14px;color:var(--ink-soft);margin:0 0 16px;}
+  .lens-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 26px;}
+  .lens-grid .item{font-size:15px;color:var(--ink-soft);}.lens-grid .item b{color:var(--ink);}
+  .evidence{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .ev{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;font-size:14.5px;}.ev b{color:var(--accent);}
+  .compare{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden;}
+  .compare th{text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:11px 16px;background:#efe7d6;color:var(--ink);}
+  .compare th.r{color:var(--leaf);}
+  .compare td{padding:11px 16px;font-size:14.5px;border-top:1px solid var(--rule);vertical-align:top;}
+  .compare td.l{color:var(--ink-soft);width:50%;}.compare td.r{color:var(--ink);width:50%;}
+  .twocol{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .tc{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;}
+  .tc h4{margin:0 0 10px;font-size:15px;}.tc.up h4{color:var(--leaf);}.tc.down h4{color:var(--accent);}
+  .tc ul{margin:0;padding-left:18px;font-size:14.5px;}.tc li{margin-bottom:5px;}
+  .starters{display:flex;flex-direction:column;gap:8px;}
+  .starter{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent-soft);border-radius:8px;padding:11px 16px;font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink);}
+  .planner{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:6px 22px;}
+  .pl-row{padding:14px 0;border-bottom:1px solid var(--rule);}.pl-row:last-child{border-bottom:none;}
+  .pl-row .pq{font-weight:600;font-size:15.5px;margin:0 0 3px;}
+  .pl-row .pg{font-size:14px;color:var(--ink-soft);margin:0;}
+  .checklist{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:8px 22px;}
+  .check-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);cursor:pointer;}
+  .check-item:last-child{border-bottom:none;}
+  .box{flex:none;width:22px;height:22px;border:2px solid var(--accent-soft);border-radius:6px;margin-top:2px;display:grid;place-items:center;transition:all .15s;}
+  .box svg{width:14px;height:14px;opacity:0;}
+  .check-item.done .box{background:var(--leaf);border-color:var(--leaf);}.check-item.done .box svg{opacity:1;}
+  .check-item.done .ci-text{color:var(--ink-soft);}
+  .ci-text b{display:block;font-size:16px;color:var(--ink);margin-bottom:1px;}.ci-text span{font-size:14px;color:var(--ink-soft);}
+  .progress{font-size:13px;color:var(--ink-soft);margin:14px 2px 0;}
+  .reflect{background:#f1ece0;border-radius:12px;padding:22px 24px;}
+  .reflect ol{margin:0;padding-left:20px;}.reflect li{margin-bottom:10px;font-size:16px;}
+  .stem{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--leaf);margin-top:14px;}
+  .tool{background:var(--ink);color:#f3ece0;border-radius:14px;padding:30px 30px 28px;}
+  .tool .badge{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#c9a86a;font-weight:700;}
+  .tool h2{color:#fff;margin:6px 0 8px;}.tool p{color:#d8cdbb;font-size:15.5px;}
+  .tool .cta{display:inline-block;margin-top:6px;background:var(--gold);color:#1f1300;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:999px;font-size:15px;}
+  .nav-foot{display:flex;justify-content:space-between;gap:16px;padding:30px 0 0;}
+  .nav-foot a{flex:1;max-width:340px;text-decoration:none;border:1px solid var(--rule);border-radius:10px;padding:15px 18px;background:var(--surface);color:var(--ink);}
+  .nav-foot .dir{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .nav-foot .lab{font-family:var(--serif);font-size:17px;display:block;margin-top:3px;}.nav-foot .next{text-align:right;}
+  footer{background:var(--ink);color:#cdbfa9;text-align:center;font-size:13px;padding:40px 24px;}
+  footer .tag{font-family:var(--serif);font-style:italic;font-size:16px;color:#9c8e78;margin-bottom:8px;}
+  @media(max-width:720px){.hero h1{font-size:34px;}.six,.lens-grid,.evidence,.twocol{grid-template-columns:1fr;}.nav-foot{flex-direction:column;}.compare td.l,.compare td.r{width:auto;}}
+</style></head><body>
+<div class="topbar"><div class="wrap">
+  <div class="crumbs"><a href="./index.html">Nishkam Hub</a><span>›</span><a href="./mlt-index.html">Middle Leadership</a><span>›</span>Session 3</div>
+  <div>Middle Leadership Development Programme</div></div></div>
+<nav class="session-strip"><div class="wrap"><span class="lbl">Five areas</span>
+      <a class="" href="./mlt-session-1-what-is-a-middle-leader.html">1 · What is a Middle Leader?</a>
+      <a class="" href="./mlt-session-2-leading-from-the-middle.html">2 · Leading from the Middle</a>
+      <a class="here" href="./mlt-session-3-leading-when-it-is-hard.html">3 · Leading When It Is Hard</a>
+      <a class="" href="./mlt-session-4-developing-others.html">4 · Developing Others</a>
+      <a class="" href="./mlt-session-5-staff-morale.html">5 · Staff Morale</a>
+</div></nav>
+<header class="hero"><div class="eyebrow">Session 3 · Self-study</div><h1>Leading <em>when it is hard</em></h1><p class="lede">The real test of leadership is the difficult conversation. This area is about the shift to a leader’s lens, and the craft of feedback and accountability that build trust rather than erode it.</p><p class="pull">“Avoiding difficult conversations erodes trust; having them with clarity builds it.”</p></header>
+<main>
+<section><div class="sec-eyebrow">The shift</div><h2>The leadership lens</h2><p class="sec-intro">Middle leadership is not just a bigger teaching role; it is a shift in how you see your work — a wider lens on people, systems, learning, and culture. Even tough moments are an opportunity to lead.</p><table class="compare"><tr><th>Teacher lens</th><th class="r">Leader lens</th></tr><tr><td class="l">“How can I make this lesson work?”</td><td class="r">“How can I help all lessons in my team work better?”</td></tr><tr><td class="l">“How am I supporting my pupils?”</td><td class="r">“How is my team supporting their pupils?”</td></tr><tr><td class="l">“How can I manage my workload?”</td><td class="r">“How can I support the team to manage theirs?”</td></tr><tr><td class="l">“Why are they not doing what’s expected?”</td><td class="r">“Have I been clear, consistent, and followed up fairly?”</td></tr><tr><td class="l">“What CPD do I need?”</td><td class="r">“What CPD will move the team forward?”</td></tr></table><p>Notice which lens you default to under pressure — and how you might shift it.</p></section>
+<section><div class="sec-eyebrow">Courage</div><h2>Difficult conversations that build trust</h2><p class="sec-intro">Difficult conversations are not optional. Avoiding them erodes trust; having them with clarity builds credibility.</p><div class="evidence"><div class="ev"><b>Doug Lemov</b> — ‘precise praise’ and a ‘warm-strict’ approach — high expectations held alongside strong relationships — let you give honest feedback that motivates rather than alienates.</div><div class="ev"><b>Patterson et al. (Crucial Conversations)</b> — the most effective leaders stay calm under pressure, focus on facts rather than personal judgements, and seek a shared purpose.</div><div class="ev"><b>Jim Knight</b> — accountability works when paired with empathy and a genuine belief in the other person’s potential.</div><div class="ev"><b>Stone & Heen (Thanks for the Feedback)</b> — people act on feedback when they trust the motive, it is specific not general, it targets behaviour not personality, and it offers a clear path forward.</div></div><p>The hardest part is the first step. A few well-chosen sentence starters help you strike a tone that is professional, respectful, and direct.</p><div class="starters"><div class="starter">I’ve noticed… and I wanted to talk about it.</div><div class="starter">Can we talk about something that might be a bit tricky?</div><div class="starter">I wanted to check in about… because it links to our shared expectations.</div><div class="starter">Help me understand how you’re feeling about…</div></div></section>
+<section><div class="sec-eyebrow">Prepare</div><h2>The conversation planner</h2><p class="sec-intro">Before a high-stakes conversation, think it through. Five questions to plan from.</p><div class="planner"><div class="pl-row"><p class="pq">What is the core outcome you need from this conversation?</p><p class="pg">Be clear on the purpose: raise a concern, clarify expectations, agree a plan, or address a pattern.</p></div><div class="pl-row"><p class="pq">How do you want the other person to leave feeling?</p><p class="pg">Aim for respectful, supported, and clear — not defensive or demoralised.</p></div><div class="pl-row"><p class="pq">What evidence will you bring?</p><p class="pg">Use specific, factual examples. Avoid generalisations and assumptions.</p></div><div class="pl-row"><p class="pq">What objections might come up, and how will you respond?</p><p class="pg">Plan calm, constructive replies that keep the conversation on track.</p></div><div class="pl-row"><p class="pq">What tone and body language will keep it calm?</p><p class="pg">Open posture, measured pace, neutral but firm language. Model the professionalism you expect.</p></div></div><p><span style="font-weight:600;color:var(—leaf)">Feedback that lands</span> is direct, constructive, and kind. A simple structure: what was seen (objective and specific), why it matters (link to learning and expectations), and what could change (clear and actionable).</p></section>
+<section><div class="sec-eyebrow">Check yourself</div><h2>Before a hard conversation</h2><p class="sec-intro">Run through this before you walk into the room. For you only.</p><div class="checklist" data-checklist><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Purpose</b><span>I am clear on the single outcome I need from this conversation.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Facts, not judgements</b><span>I have specific, factual examples — not generalisations.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Shared purpose</b><span>I can frame this around pupils and our shared expectations.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Opening</b><span>I have a sentence starter ready that is direct but warm.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Tone</b><span>I am calm, and I have planned for likely reactions.</span></span></div><div class="check-item"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span class="ci-text"><b>Follow-up</b><span>I know what good looks like next, and when I will check in.</span></span></div></div><p class="progress" data-progress>0 of 6 ticked</p></section>
+<section><div class="sec-eyebrow">Reflect</div><h2>Lead the moment</h2><div class="reflect"><ol><li>Where do you already think like a leader? Where do you still default to the classroom-teacher lens, and why?</li><li>What stops people from having difficult conversations — and what are the risks of not addressing things?</li><li>Think of one conversation you have been putting off. What is the first sentence you will use?</li></ol><p class="stem">“The conversation I will no longer avoid is…”</p></div></section>
+<section><div class="tool"><p class="badge">Practice · AI scenario tool</p><h2>Try it on a real situation</h2><p>Work through a true-to-life situation, write how you would handle it, and get specific, kind feedback against this session’s ideas and the Nishkam lens — then try it a different way.</p><a class="cta" href="./mlt-scenario-tool.html?s=3">Open the scenario tool →</a></div></section>
+<div class="nav-foot"><a href="./mlt-session-2-leading-from-the-middle.html" class="prev"><span class="dir">← Previous</span><span class="lab">2 · Leading from the Middle</span></a><a href="./mlt-session-4-developing-others.html" class="next"><span class="dir">Next area →</span><span class="lab">4 · Developing Others</span></a></div>
+</main>
+<footer><div class="tag">Leading with service, clarity and care</div><div>Nishkam Middle Leadership Development Programme</div></footer>
+<script>
+  document.querySelectorAll('[data-checklist]').forEach(function(cl){
+    var prog=cl.parentNode.querySelector('[data-progress]')||cl.nextElementSibling;
+    var items=cl.querySelectorAll('.check-item');
+    items.forEach(function(it){it.addEventListener('click',function(){it.classList.toggle('done');
+      var d=cl.querySelectorAll('.check-item.done').length; if(prog) prog.textContent=d+' of '+items.length+' ticked';});});
+  });
+</script>
+</body></html>
