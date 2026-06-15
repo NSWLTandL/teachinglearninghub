@@ -617,7 +617,13 @@
           </div>
         </div>
 
-        <a class="ai-cta" href="#">Live tool — coming soon</a>
+        <div class="ai-live" style="margin-top:18px;">
+          <div class="ai-eyebrow">Try it yourself</div>
+          <p style="color:rgba(255,255,255,0.78);margin:4px 0 10px;">Describe a real moment from your own classroom in a sentence or two, and get specific suggestions.</p>
+          <textarea id="aiScenario" rows="4" style="width:100%;box-sizing:border-box;border:none;border-radius:10px;padding:12px 14px;font-family:inherit;font-size:15px;line-height:1.5;color:#1f2a37;background:#fff;resize:vertical;" placeholder="For example: it is minute 8, two pupils keep talking after I have reminded them twice, and I am losing the rest of the class..."></textarea>
+          <button id="aiGo" class="ai-cta" style="border:none;cursor:pointer;margin-top:12px;">Get suggestions</button>
+          <div id="aiOut" style="margin-top:16px;"></div>
+        </div>
       </div>
     </section>
 
@@ -644,5 +650,29 @@
   <div>T&amp;L Excellence Programme · Pillar 1 · Module 1.4</div>
   <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./matrix.html">Matrix</a></div>
 </footer>
+<script>
+(function(){
+  var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";
+  var SYS = "You are an experienced teaching coach at Nishkam School West London, helping a teacher apply one specific classroom technique. The technique for this module is: the 30-second reflection - a brief, structured pause for pupils to self-assess against the virtues and reset their conduct. The teacher will describe a real classroom situation in their own words. Give practical, specific, encouraging advice on applying this technique to that situation. Structure the reply as: a short diagnosis of what is going on; then a heading 'What to do, in order' followed by a numbered list of concrete steps; then a heading 'Why this works' with one short paragraph; and where useful, one common pitfall to avoid. Where it fits naturally, hold pupils to the school's three classroom virtues by name - Peacefulness, Diligence and Determination - for example naming the virtue rather than only the behaviour. Do not force the virtues in where they do not belong. Keep the focus on clear, step-by-step, visible teaching and calm authority. Voice: plain, warm, British English, like a real colleague speaking. Short, concrete sentences. No jargon, no buzzwords, no 'X, not Y' constructions, no em dashes, no flattery, and do not open with 'Great'. Format the reply as simple HTML using only <p>, <strong>, <ol> and <li> tags.";
+  var btn=document.getElementById("aiGo"), ta=document.getElementById("aiScenario"), out=document.getElementById("aiOut");
+  if(!btn||!ta||!out) return;
+  function card(inner){ return '<div style="background:#fffdf7;color:#1f2a37;border-radius:12px;padding:16px 18px;line-height:1.55;">'+inner+'</div>'; }
+  btn.addEventListener("click", async function(){
+    var s=(ta.value||"").trim();
+    if(s.length<10){ out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Write a sentence or two first.</p>'; return; }
+    btn.disabled=true; var label=btn.textContent; btn.textContent="Thinking\u2026";
+    out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Thinking\u2026</p>';
+    try{
+      var r=await fetch(WORKER_URL+"/api/feedback",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({max_tokens:1000,system:SYS,messages:[{role:"user",content:s}]})});
+      if(!r.ok) throw new Error("api");
+      var data=await r.json();
+      var text=(data.content||[]).map(function(b){return b.text||"";}).join("\n").trim();
+      if(!text) throw new Error("empty");
+      out.innerHTML=card(text.replace(/```html|```/g,"").trim());
+    }catch(e){ out.innerHTML=card('<p style="margin:0;">The live tool could not be reached just now. Please try again in a moment.</p>'); }
+    finally{ btn.disabled=false; btn.textContent=label; }
+  });
+})();
+</script>
 </body>
 </html>
