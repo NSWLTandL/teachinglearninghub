@@ -137,7 +137,13 @@
     }
   };
 
-  var API_URL = "https://api.anthropic.com/v1/messages";
+  // === Backend (Cloudflare) ===
+  // Leave WORKER_URL blank to preview inside Claude. For the live site, paste your
+  // Cloudflare Worker URL, e.g. https://nswl-mlt.yourname.workers.dev
+  var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";
+  var API_URL = (WORKER_URL.indexOf("http") === 0)
+    ? (WORKER_URL.replace(/\/$/,"") + "/api/feedback")
+    : "https://api.anthropic.com/v1/messages";
 
   var s = (new URLSearchParams(location.search).get('s') || '1');
   if(!SESSIONS[s]) s = '1';
