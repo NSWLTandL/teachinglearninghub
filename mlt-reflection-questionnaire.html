@@ -363,10 +363,20 @@
   function bindBack(){
     var b=document.createElement('div'); b.className='footer-row';
     b.innerHTML='<span class="note">Shared cohort data. Refresh to pull the latest.</span>'+
-      '<span><span class="switch" id="refresh">Refresh</span> &nbsp; <span class="switch" id="toForm">← Back to the form</span></span>';
+      '<span><span class="switch" id="refresh">Refresh</span> &nbsp;·&nbsp; <span class="switch" id="clearAll" style="color:#9a3b2b;">Clear all responses</span> &nbsp;·&nbsp; <span class="switch" id="toForm">← Back to the form</span></span>';
     app.appendChild(b);
     document.getElementById('refresh').addEventListener('click', function(){ openLead(LEAD_SESSION_CODE); });
     document.getElementById('toForm').addEventListener('click', function(){ state={}; renderForm(); });
+    document.getElementById('clearAll').addEventListener('click', async function(){
+      if(!window.confirm("Delete ALL responses permanently? This cannot be undone.")) return;
+      if(useWorker()){
+        try{ await fetch(api("/api/reflection?code=")+encodeURIComponent(LEAD_SESSION_CODE), {method:"DELETE"}); }catch(e){}
+      } else {
+        try{ if(window.storage){ var res=await window.storage.list(STORE_PREFIX,true); var keys=(res&&res.keys)?res.keys:[]; for(var i=0;i<keys.length;i++){ var k=typeof keys[i]==='string'?keys[i]:keys[i].key; try{ await window.storage.delete(k,true); }catch(e){} } } }catch(e){}
+        MEM.length=0;
+      }
+      openLead(LEAD_SESSION_CODE);
+    });
   }
 
   // =================== UTIL + INIT ===================

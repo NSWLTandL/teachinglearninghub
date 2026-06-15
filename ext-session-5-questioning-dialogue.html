@@ -347,7 +347,7 @@
         resp.innerHTML = '<span class="spinner"></span>';
         btn.disabled = true; btn.textContent = 'Thinking...';
         try {
-          const r = await fetch("https://api.anthropic.com/v1/messages", {
+          const r = await fetch("https://nswl-mlt.w-milligan.workers.dev/api/feedback", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
