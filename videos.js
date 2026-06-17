@@ -24,7 +24,7 @@ window.NSWL_VIDEOS = {
     // { type:"mp4", src:"videos/1-1-reset.mp4", title:"Video 2 — Mid-lesson reset, Year 10 English", caption:"Strong position, name the virtue, wait, continue." }
   ],
   "1-2": [], "1-3": [], "1-4": [], "1-5": [], "1-6": [],
-  "1-7": [], "1-8": [], "1-9": [], "1-10": [],
+  "1-7": [], "1-8": [], "1-9": [],
   // Pillar 2 — Adaptive Teaching & Inclusion
   "2-1": [], "2-2": [], "2-3": [],
   // Pillar 3 — Instruction & Modelling
