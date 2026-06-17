@@ -284,12 +284,16 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
         <li><a href="./module-1-10-other-routines.html">1.10 Other Routines</a></li>
       </ol>
     </div>
-    <div class="ps-pillar ps-coming">
+    <div class="ps-pillar">
       <div class="ps-pillar-head">
         <span class="ps-num">Pillar 2</span>
-        <span class="ps-name">Adaptive Teaching & Inclusion</span>
+        <span class="ps-name">Adaptive Teaching &amp; Inclusion</span>
       </div>
-      <p class="ps-coming-note">Coming. SEND families to follow.</p>
+      <ol class="ps-modules">
+        <li><a href="./module-2-1-inclusive-classroom.html">2.1 The Inclusive Classroom</a></li>
+        <li><a href="./module-2-2-adaptive-teaching.html">2.2 Adaptive Teaching</a></li>
+        <li><a href="./module-2-3-send-intervention.html">2.3 SEND Intervention</a></li>
+      </ol>
     </div>
     <div class="ps-pillar">
       <div class="ps-pillar-head">
@@ -326,12 +330,16 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
         <li><a href="./module-5-3-think-pair-share.html">5.3 Think, Pair, Share</a></li>
       </ol>
     </div>
-    <div class="ps-pillar ps-coming">
+    <div class="ps-pillar">
       <div class="ps-pillar-head">
         <span class="ps-num">Pillar 6</span>
-        <span class="ps-name">Standards & Curriculum</span>
+        <span class="ps-name">Standards &amp; Curriculum</span>
       </div>
-      <p class="ps-coming-note">Coming. Primary-phase focus.</p>
+      <ol class="ps-modules">
+        <li><a href="./module-6-1-curriculum-delivery.html">6.1 Curriculum Delivery</a></li>
+        <li><a href="./module-6-2-book-look.html">6.2 Book Look</a></li>
+        <li><a href="./module-6-3-reading-for-pleasure.html">6.3 Reading for Pleasure</a></li>
+      </ol>
     </div>
   </div>
 </details>
@@ -631,13 +639,7 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
           </div>
         </div>
 
-        <div class="ai-live" style="margin-top:18px;">
-          <div class="ai-eyebrow">Try it yourself</div>
-          <p style="color:rgba(255,255,255,0.78);margin:4px 0 10px;">Describe a real moment from your own classroom in a sentence or two, and get specific suggestions.</p>
-          <textarea id="aiScenario" rows="4" style="width:100%;box-sizing:border-box;border:none;border-radius:10px;padding:12px 14px;font-family:inherit;font-size:15px;line-height:1.5;color:#1f2a37;background:#fff;resize:vertical;" placeholder="For example: it is minute 8, two pupils keep talking after I have reminded them twice, and I am losing the rest of the class..."></textarea>
-          <button id="aiGo" class="ai-cta" style="border:none;cursor:pointer;margin-top:12px;">Get suggestions</button>
-          <div id="aiOut" style="margin-top:16px;"></div>
-        </div>
+        <a class="ai-cta" href="#">Live tool — coming soon</a>
       </div>
     </section>
 
@@ -664,29 +666,5 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
   <div>T&amp;L Excellence Programme · Pillar 4 · Module 4.1</div>
   <div style="margin-top: 8px;"><a href="./index.html" style="color: rgba(255,255,255,0.9);">Hub</a> · <a href="./index.html" style="color: rgba(255,255,255,0.9);">Questioning</a></div>
 </footer>
-<script>
-(function(){
-  var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";
-  var SYS = "You are an experienced teaching coach at Nishkam School West London, helping a teacher apply one specific classroom technique. The technique for this module is: mini-whiteboards - getting a response from every pupil at once, reading the room, and acting on what the whiteboards show. The teacher will describe a real classroom situation in their own words. Give practical, specific, encouraging advice on applying this technique to that situation. Structure the reply as: a short diagnosis of what is going on; then a heading 'What to do, in order' followed by a numbered list of concrete steps; then a heading 'Why this works' with one short paragraph; and where useful, one common pitfall to avoid. Where it fits naturally, hold pupils to the school's three classroom virtues by name - Peacefulness, Diligence and Determination - for example naming the virtue rather than only the behaviour. Do not force the virtues in where they do not belong. Keep the focus on clear, step-by-step, visible teaching and calm authority. Voice: plain, warm, British English, like a real colleague speaking. Short, concrete sentences. No jargon, no buzzwords, no 'X, not Y' constructions, no em dashes, no flattery, and do not open with 'Great'. Format the reply as simple HTML using only <p>, <strong>, <ol> and <li> tags.";
-  var btn=document.getElementById("aiGo"), ta=document.getElementById("aiScenario"), out=document.getElementById("aiOut");
-  if(!btn||!ta||!out) return;
-  function card(inner){ return '<div style="background:#fffdf7;color:#1f2a37;border-radius:12px;padding:16px 18px;line-height:1.55;">'+inner+'</div>'; }
-  btn.addEventListener("click", async function(){
-    var s=(ta.value||"").trim();
-    if(s.length<10){ out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Write a sentence or two first.</p>'; return; }
-    btn.disabled=true; var label=btn.textContent; btn.textContent="Thinking\u2026";
-    out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Thinking\u2026</p>';
-    try{
-      var r=await fetch(WORKER_URL+"/api/feedback",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({max_tokens:1000,system:SYS,messages:[{role:"user",content:s}]})});
-      if(!r.ok) throw new Error("api");
-      var data=await r.json();
-      var text=(data.content||[]).map(function(b){return b.text||"";}).join("\n").trim();
-      if(!text) throw new Error("empty");
-      out.innerHTML=card(text.replace(/```html|```/g,"").trim());
-    }catch(e){ out.innerHTML=card('<p style="margin:0;">The live tool could not be reached just now. Please try again in a moment.</p>'); }
-    finally{ btn.disabled=false; btn.textContent=label; }
-  });
-})();
-</script>
 </body>
 </html>
