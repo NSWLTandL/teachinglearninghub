@@ -247,6 +247,19 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
   .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
   .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
 </style>
+<style id="video-style">
+#video .video-list { display:grid; gap:22px; margin-top:8px; }
+.video-frame, .video-embed { width:100%; background:#000; border-radius:12px; overflow:hidden; display:block; }
+.video-frame { aspect-ratio:16/9; }
+.video-embed { position:relative; aspect-ratio:16/9; }
+.video-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.video-title { font-weight:600; color:var(--ink); margin-top:10px; font-size:15px; }
+.video-caption { color:var(--ink-soft); font-size:14px; margin-top:3px; }
+.video-placeholder { border:2px dashed var(--rule); border-radius:12px; padding:46px 20px; text-align:center; color:var(--ink-soft); background:var(--surface); }
+.video-placeholder .icon { font-size:34px; opacity:.45; margin-bottom:10px; }
+.video-placeholder .label { font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
+.video-placeholder .desc { font-size:14px; margin-top:8px; opacity:.75; font-style:italic; }
+</style>
 </head>
 <body data-current="3-2">
 
@@ -375,6 +388,7 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
       <li><a href="#you-do">You Do — independent practice</a></li>
       <li><a href="#alt">The alternating principle</a></li>
       <li><a href="#pitfalls">Pitfalls</a></li>
+      <li><a href="#video">Video examples</a></li>
       <li><a href="#audit">Self-audit</a></li>
       <li><a href="#downloads">Downloads</a></li>
     </ol>
@@ -532,6 +546,13 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
       <div class="pitfall"><strong>Implicit transitions.</strong><span class="pf-cl">Risks WD1, YD1</span><p>The teacher moves from I Do to We Do to You Do without naming the mode change. Pupils do not know whether they are watching, participating, or working alone.</p></div>
 
       <div class="pitfall"><strong>Wiping the model before the You Do.</strong><span class="pf-cl">Risks YD3</span><p>The visualiser is cleared as soon as the model is finished. Pupils have no reference document during independent practice. The model stays visible until the You Do is complete.</p></div>
+    </section>
+
+    <section id="video">
+      <div class="section-eyebrow">Watch</div>
+      <h2>Video examples.</h2>
+      <p class="section-intro">Short exemplar clips of this practice in a real classroom. Watch first, then return to the steps above.</p>
+      <div class="video-list" data-module="3-2"></div>
     </section>
 
     <section id="audit">
@@ -704,5 +725,6 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
   }
 })();
 </script>
+<script src="./videos.js"></script>
 </body>
 </html>

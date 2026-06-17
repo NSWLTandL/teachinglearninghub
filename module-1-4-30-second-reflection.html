@@ -228,6 +228,19 @@
   .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
   .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
 </style>
+<style id="video-style">
+#video .video-list { display:grid; gap:22px; margin-top:8px; }
+.video-frame, .video-embed { width:100%; background:#000; border-radius:12px; overflow:hidden; display:block; }
+.video-frame { aspect-ratio:16/9; }
+.video-embed { position:relative; aspect-ratio:16/9; }
+.video-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.video-title { font-weight:600; color:var(--ink); margin-top:10px; font-size:15px; }
+.video-caption { color:var(--ink-soft); font-size:14px; margin-top:3px; }
+.video-placeholder { border:2px dashed var(--rule); border-radius:12px; padding:46px 20px; text-align:center; color:var(--ink-soft); background:var(--surface); }
+.video-placeholder .icon { font-size:34px; opacity:.45; margin-bottom:10px; }
+.video-placeholder .label { font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
+.video-placeholder .desc { font-size:14px; margin-top:8px; opacity:.75; font-style:italic; }
+</style>
 </head>
 <body data-current="1-4">
 
@@ -358,6 +371,7 @@
       <li><a href="#drill">The silence drill</a></li>
       <li><a href="#variations">When the silence collapses</a></li>
       <li><a href="#pitfalls">Pitfalls</a></li>
+      <li><a href="#video">Video examples</a></li>
       <li><a href="#audit">Self-audit</a></li>
       <li><a href="#ai-tool">AI scenario tester</a></li>
       <li><a href="#downloads">Downloads</a></li>
@@ -572,6 +586,13 @@
       <div class="pitfall"><strong>Performing the silence theatrically.</strong><span class="pf-cl">Risks LS5</span><p>The teacher closes their own eyes, breathes audibly, performs reverence. The Reflection is functional, not performative. Strong position, eyes ahead, neutral.</p></div>
     </section>
 
+    <section id="video">
+      <div class="section-eyebrow">Watch</div>
+      <h2>Video examples.</h2>
+      <p class="section-intro">Short exemplar clips of this practice in a real classroom. Watch first, then return to the steps above.</p>
+      <div class="video-list" data-module="1-4"></div>
+    </section>
+
     <section id="audit">
       <div class="section-eyebrow">07 · Self-audit · LS5</div>
       <h2>The single canonical item.</h2>
@@ -666,39 +687,51 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
 .rag-out { margin-top:12px; background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:14px 16px; line-height:1.55; font-size:14.5px; color:var(--ink); }
 .rag-out p { margin:0 0 8px; } .rag-out ol { margin:6px 0 0 18px; } .rag-out li { margin:0 0 5px; }
 .rag-done { color:#3c7a4c; font-weight:600; font-size:13.5px; }
+.rag-keep { margin-top:22px; background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:18px; }
+.rag-keep h3 { margin:0 0 4px; font-size:16px; color:var(--ink); }
+.rag-keep .rk-sub { margin:0 0 14px; font-size:13.5px; color:var(--ink-soft); }
+.rag-keep label { display:block; font-size:13px; font-weight:600; color:var(--ink); margin:0 0 6px; }
+.rag-keep textarea { width:100%; box-sizing:border-box; border:1px solid var(--rule); border-radius:8px; padding:10px 12px; font:inherit; font-size:14px; line-height:1.5; color:var(--ink); background:#fff; resize:vertical; }
+.rag-keep .rk-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
+.rag-keep .rk-btn { border:none; cursor:pointer; font:inherit; font-size:13px; font-weight:600; padding:9px 15px; border-radius:8px; }
+.rag-keep .rk-primary { background:var(--accent); color:#fff; }
+.rag-keep .rk-ghost { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+.rag-keep .rk-clear { background:transparent; color:var(--ink-soft); border:1px solid var(--rule); margin-left:auto; }
+.rag-keep .rk-saved { font-size:12.5px; color:var(--ink-soft); margin-top:10px; }
+@media print { .rag-getbtn, .rag-keep .rk-row, .pillar-spine, .topbar, nav.toc, .module-nav, #ai-tool .ai-tool { display:none !important; } }
 </style>
 <script id="rag-js">
 (function(){
   var WORKER="https://nswl-mlt.w-milligan.workers.dev";
   var pillar=((document.querySelector('.pillar-tag')||{}).textContent||'').trim();
   var modTitle=((document.querySelector('h1.title')||{}).textContent||'').trim();
+  var modCode=(document.body.getAttribute('data-current')||'').trim();
+  var KEY="nswl-audit-"+modCode;
   var LV=['red','amber','green'];
+  var store={ratings:{},guidance:{},notes:""};
+  try{ var raw=localStorage.getItem(KEY); if(raw){ var o=JSON.parse(raw); if(o){ store=o; store.ratings=store.ratings||{}; store.guidance=store.guidance||{}; } } }catch(e){}
+  var savedEl=null;
+  function markSaved(){ if(savedEl){ var d=new Date(); savedEl.textContent="Saved on this device · "+d.toLocaleDateString()+" "+d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}); } }
+  function save(){ try{ store.updated=new Date().toISOString(); localStorage.setItem(KEY, JSON.stringify(store)); }catch(e){} markSaved(); }
+  var rowsMeta=[];
   document.querySelectorAll('table.audit').forEach(function(t){
     t.querySelectorAll('tbody tr').forEach(function(tr){
       if(tr.classList.contains('rag-guidance')) return;
-      var rag=tr.querySelector('.rag'); var idc=tr.querySelector('td.id');
-      if(!rag||!idc) return;
+      var rag=tr.querySelector('.rag'); var idc=tr.querySelector('td.id'); if(!rag||!idc) return;
       var code=idc.textContent.trim();
       var tds=tr.querySelectorAll('td');
       var statement=tds.length>1?tds[1].textContent.trim():'';
       var spans=rag.querySelectorAll('span'); if(spans.length<3) return;
+      rowsMeta.push({code:code, statement:statement});
       var gtr=null;
-      function ensure(){
-        if(gtr) return gtr;
-        gtr=document.createElement('tr'); gtr.className='rag-guidance';
-        var td=document.createElement('td'); td.colSpan=tds.length;
-        var p=document.createElement('div'); p.className='rag-panel';
-        td.appendChild(p); gtr.appendChild(td);
-        tr.parentNode.insertBefore(gtr, tr.nextSibling); gtr._p=p; return gtr;
-      }
-      function pick(i){
-        for(var j=0;j<spans.length;j++){ spans[j].classList.toggle('sel', j===i); }
-        if(i===2){ if(gtr){ gtr._p.innerHTML='<span class="rag-done">On track. '+code+' is at green.</span>'; } return; }
-        var rating=LV[i]; var p=ensure()._p;
+      function ensure(){ if(gtr) return gtr; gtr=document.createElement('tr'); gtr.className='rag-guidance'; var td=document.createElement('td'); td.colSpan=tds.length; var p=document.createElement('div'); p.className='rag-panel'; td.appendChild(p); gtr.appendChild(td); tr.parentNode.insertBefore(gtr, tr.nextSibling); gtr._p=p; return gtr; }
+      function showGuidanceUI(rating, savedHtml){
+        var p=ensure()._p;
         p.innerHTML='<div class="rag-status">You rated <strong>'+code+'</strong> as '+rating+'. Here is how to move it towards green:</div><button class="rag-getbtn">Suggest how to reach green</button><div class="rag-out" style="display:none;"></div>';
         var btn=p.querySelector('.rag-getbtn'), out=p.querySelector('.rag-out');
+        if(savedHtml){ out.style.display='block'; out.innerHTML=savedHtml; btn.textContent='Suggest again'; }
         btn.addEventListener('click', async function(){
-          btn.disabled=true; var lab=btn.textContent; btn.textContent='Thinking...';
+          btn.disabled=true; btn.textContent='Thinking...';
           out.style.display='block'; out.innerHTML='<p style="margin:0;color:var(--ink-soft);">Thinking...</p>';
           var sys="You are an experienced teaching coach at Nishkam School West London. A colleague is self-auditing against the school's Teaching and Learning checklist for this module: "+modTitle+" ("+pillar+"). They have rated one checklist item as "+rating+", meaning it is not yet secure. Give brief, practical, encouraging guidance to move it to green. Structure the reply as: one short sentence describing what green looks like for this item; then a heading 'To reach green' followed by a numbered list of two to four concrete classroom actions; then, if useful, one short line naming a common pitfall to avoid. Where it fits naturally, refer to the school's three classroom virtues by name (Peacefulness, Diligence, Determination), but do not force them in. Voice: plain, warm, British English, short concrete sentences, no jargon, no buzzwords, no em dashes, and do not open with 'Great'. Format the reply as simple HTML using only <p>, <strong>, <ol> and <li> tags.";
           var user="Checklist item "+code+": \""+statement+"\". Current rating: "+rating+". How do I get this to green?";
@@ -706,20 +739,67 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
             var r=await fetch(WORKER+"/api/feedback",{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({max_tokens:700,system:sys,messages:[{role:'user',content:user}]})});
             if(!r.ok) throw 0; var d=await r.json();
             var text=(d.content||[]).map(function(b){return b.text||'';}).join('\n').trim();
-            if(!text) throw 0; out.innerHTML=text.replace(/```html|```/g,'').trim();
+            if(!text) throw 0; var html=text.replace(/```html|```/g,'').trim();
+            out.innerHTML=html; store.guidance[code]=html; save();
           }catch(e){ out.innerHTML='<p style="margin:0;">The guidance tool could not be reached just now. Please try again in a moment.</p>'; }
-          finally{ btn.disabled=false; btn.textContent=lab; }
+          finally{ btn.disabled=false; btn.textContent='Suggest again'; }
         });
+      }
+      function pick(i, fromRestore){
+        for(var j=0;j<spans.length;j++){ spans[j].classList.toggle('sel', j===i); }
+        store.ratings[code]=LV[i];
+        if(i===2){ if(gtr){ gtr._p.innerHTML='<span class="rag-done">On track. '+code+' is at green.</span>'; } delete store.guidance[code]; if(!fromRestore) save(); return; }
+        showGuidanceUI(LV[i], store.guidance[code]); if(!fromRestore) save();
       }
       for(var k=0;k<spans.length;k++){ (function(idx){
         spans[idx].setAttribute('role','button'); spans[idx].setAttribute('tabindex','0');
         spans[idx].title=LV[idx].charAt(0).toUpperCase()+LV[idx].slice(1);
-        spans[idx].addEventListener('click',function(){ pick(idx); });
-        spans[idx].addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(idx); } });
+        spans[idx].addEventListener('click',function(){ pick(idx,false); });
+        spans[idx].addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(idx,false); } });
       })(k); }
+      var sr=store.ratings[code]; if(sr){ var ri=LV.indexOf(sr); if(ri>=0) pick(ri, true); }
     });
   });
+  var auditSec=document.getElementById('audit');
+  if(auditSec){
+    var box=document.createElement('div'); box.className='rag-keep';
+    box.innerHTML='<h3>Keep your results</h3><p class="rk-sub">Your ratings, the guidance you generate, and your notes are saved on this device. Print or download them to keep alongside your booklet or bring to coaching. Nothing is sent anywhere.</p><label for="rkNotes">Your notes and next actions</label><textarea id="rkNotes" rows="3" placeholder="What will you work on first? Anything to raise in coaching?"></textarea><div class="rk-row"><button class="rk-btn rk-primary" id="rkPrint">Print / Save as PDF</button><button class="rk-btn rk-ghost" id="rkDl">Download summary</button><button class="rk-btn rk-clear" id="rkClear">Clear my ratings</button></div><div class="rk-saved" id="rkSaved"></div>';
+    auditSec.appendChild(box);
+    savedEl=box.querySelector('#rkSaved');
+    var notesEl=box.querySelector('#rkNotes'); notesEl.value=store.notes||"";
+    notesEl.addEventListener('input', function(){ store.notes=notesEl.value; save(); });
+    if(store.updated) markSaved();
+    function esc(s){ return (s||'').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+    function summaryHtml(){
+      var rows=rowsMeta.map(function(m){
+        var rt=store.ratings[m.code]||'not rated';
+        var g=store.guidance[m.code]?('<div style="margin-top:6px;padding:10px 12px;background:#faf5ea;border-radius:8px;font-size:13px;">'+store.guidance[m.code]+'</div>'):'';
+        var colour=rt==='green'?'#3c7a4c':(rt==='amber'?'#b07d2b':(rt==='red'?'#c0392b':'#888'));
+        return '<tr><td style="padding:8px 10px;border-bottom:1px solid #e6dcc8;font-weight:600;white-space:nowrap;vertical-align:top;">'+m.code+'</td><td style="padding:8px 10px;border-bottom:1px solid #e6dcc8;vertical-align:top;">'+esc(m.statement)+g+'</td><td style="padding:8px 10px;border-bottom:1px solid #e6dcc8;text-transform:capitalize;font-weight:600;color:'+colour+';vertical-align:top;white-space:nowrap;">'+rt+'</td></tr>';
+      }).join('');
+      var notes=store.notes?('<h2 style="font-size:15px;margin:22px 0 6px;">Notes and next actions</h2><p style="white-space:pre-wrap;margin:0;">'+esc(store.notes)+'</p>'):'';
+      var d=new Date();
+      return '<!doctype html><html><head><meta charset="utf-8"><title>Self-audit - '+esc(modTitle)+'</title><style>body{font-family:Georgia,serif;color:#1f2a37;max-width:760px;margin:32px auto;padding:0 20px;line-height:1.5;}h1{font-size:22px;margin:0 0 2px;}.meta{color:#666;font-size:13px;margin:0 0 18px;}table{width:100%;border-collapse:collapse;font-family:system-ui,Arial,sans-serif;font-size:14px;}th{text-align:left;padding:8px 10px;border-bottom:2px solid #1f2a37;font-size:12px;text-transform:uppercase;letter-spacing:.04em;}</style></head><body><h1>Self-audit summary</h1><p class="meta">'+esc(modTitle)+' · '+esc(pillar)+' · '+d.toLocaleDateString()+'</p><table><thead><tr><th>Item</th><th>Statement and guidance</th><th>Rating</th></tr></thead><tbody>'+rows+'</tbody></table>'+notes+'<p style="margin-top:24px;color:#666;font-size:12px;">Generated from the Teaching Excellence Programme self-audit. File alongside your '+esc(pillar)+' booklet.</p></body></html>';
+    }
+    function openSummary(forPrint){
+      var w=window.open('', '_blank'); if(!w){ return false; }
+      w.document.open(); w.document.write(summaryHtml()); w.document.close();
+      if(forPrint){ w.focus(); setTimeout(function(){ try{ w.print(); }catch(e){} }, 400); }
+      return true;
+    }
+    box.querySelector('#rkPrint').addEventListener('click', function(){ if(!openSummary(true)){ alert('Please allow pop-ups to print, or use Download summary instead.'); } });
+    box.querySelector('#rkDl').addEventListener('click', function(){
+      var blob=new Blob([summaryHtml()], {type:'text/html'}); var url=URL.createObjectURL(blob);
+      var a=document.createElement('a'); a.href=url; a.download='self-audit-'+modCode+'.html';
+      document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 500);
+    });
+    box.querySelector('#rkClear').addEventListener('click', function(){
+      if(!confirm('Clear your ratings, guidance and notes for this module on this device?')) return;
+      try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+    });
+  }
 })();
 </script>
+<script src="./videos.js"></script>
 </body>
 </html>
