@@ -648,5 +648,74 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
   <div>T&amp;L Excellence Programme · Pillar 5 · Module 5.1</div>
   <div style="margin-top: 8px;"><a href="./index.html" style="color: rgba(255,255,255,0.9);">Hub</a> · <a href="./index.html" style="color: rgba(255,255,255,0.9);">Questioning</a></div>
 </footer>
+<style id="rag-style">
+table.audit .rag { display:inline-flex; gap:6px; }
+table.audit .rag span { width:16px; height:16px; cursor:pointer; opacity:.5; transition:opacity .15s, transform .15s, box-shadow .15s; }
+table.audit .rag span:hover { opacity:.85; }
+table.audit .rag span.sel { opacity:1; transform:scale(1.18); box-shadow:0 0 0 2px rgba(31,42,55,.28); }
+table.audit .rag .r.sel { background:#d0664c; } table.audit .rag .a.sel { background:#dca828; } table.audit .rag .g.sel { background:#5da46f; }
+tr.rag-guidance > td { background:#faf5ea; border-top:none; }
+.rag-panel { padding:14px 4px 16px; }
+.rag-status { font-size:13.5px; color:var(--ink-soft); margin-bottom:10px; }
+.rag-getbtn { border:none; cursor:pointer; background:var(--accent); color:#fff; font:inherit; font-size:13px; font-weight:600; padding:9px 15px; border-radius:8px; }
+.rag-getbtn[disabled] { opacity:.6; cursor:default; }
+.rag-out { margin-top:12px; background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:14px 16px; line-height:1.55; font-size:14.5px; color:var(--ink); }
+.rag-out p { margin:0 0 8px; } .rag-out ol { margin:6px 0 0 18px; } .rag-out li { margin:0 0 5px; }
+.rag-done { color:#3c7a4c; font-weight:600; font-size:13.5px; }
+</style>
+<script id="rag-js">
+(function(){
+  var WORKER="https://nswl-mlt.w-milligan.workers.dev";
+  var pillar=((document.querySelector('.pillar-tag')||{}).textContent||'').trim();
+  var modTitle=((document.querySelector('h1.title')||{}).textContent||'').trim();
+  var LV=['red','amber','green'];
+  document.querySelectorAll('table.audit').forEach(function(t){
+    t.querySelectorAll('tbody tr').forEach(function(tr){
+      if(tr.classList.contains('rag-guidance')) return;
+      var rag=tr.querySelector('.rag'); var idc=tr.querySelector('td.id');
+      if(!rag||!idc) return;
+      var code=idc.textContent.trim();
+      var tds=tr.querySelectorAll('td');
+      var statement=tds.length>1?tds[1].textContent.trim():'';
+      var spans=rag.querySelectorAll('span'); if(spans.length<3) return;
+      var gtr=null;
+      function ensure(){
+        if(gtr) return gtr;
+        gtr=document.createElement('tr'); gtr.className='rag-guidance';
+        var td=document.createElement('td'); td.colSpan=tds.length;
+        var p=document.createElement('div'); p.className='rag-panel';
+        td.appendChild(p); gtr.appendChild(td);
+        tr.parentNode.insertBefore(gtr, tr.nextSibling); gtr._p=p; return gtr;
+      }
+      function pick(i){
+        for(var j=0;j<spans.length;j++){ spans[j].classList.toggle('sel', j===i); }
+        if(i===2){ if(gtr){ gtr._p.innerHTML='<span class="rag-done">On track. '+code+' is at green.</span>'; } return; }
+        var rating=LV[i]; var p=ensure()._p;
+        p.innerHTML='<div class="rag-status">You rated <strong>'+code+'</strong> as '+rating+'. Here is how to move it towards green:</div><button class="rag-getbtn">Suggest how to reach green</button><div class="rag-out" style="display:none;"></div>';
+        var btn=p.querySelector('.rag-getbtn'), out=p.querySelector('.rag-out');
+        btn.addEventListener('click', async function(){
+          btn.disabled=true; var lab=btn.textContent; btn.textContent='Thinking...';
+          out.style.display='block'; out.innerHTML='<p style="margin:0;color:var(--ink-soft);">Thinking...</p>';
+          var sys="You are an experienced teaching coach at Nishkam School West London. A colleague is self-auditing against the school's Teaching and Learning checklist for this module: "+modTitle+" ("+pillar+"). They have rated one checklist item as "+rating+", meaning it is not yet secure. Give brief, practical, encouraging guidance to move it to green. Structure the reply as: one short sentence describing what green looks like for this item; then a heading 'To reach green' followed by a numbered list of two to four concrete classroom actions; then, if useful, one short line naming a common pitfall to avoid. Where it fits naturally, refer to the school's three classroom virtues by name (Peacefulness, Diligence, Determination), but do not force them in. Voice: plain, warm, British English, short concrete sentences, no jargon, no buzzwords, no em dashes, and do not open with 'Great'. Format the reply as simple HTML using only <p>, <strong>, <ol> and <li> tags.";
+          var user="Checklist item "+code+": \""+statement+"\". Current rating: "+rating+". How do I get this to green?";
+          try{
+            var r=await fetch(WORKER+"/api/feedback",{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({max_tokens:700,system:sys,messages:[{role:'user',content:user}]})});
+            if(!r.ok) throw 0; var d=await r.json();
+            var text=(d.content||[]).map(function(b){return b.text||'';}).join('\n').trim();
+            if(!text) throw 0; out.innerHTML=text.replace(/```html|```/g,'').trim();
+          }catch(e){ out.innerHTML='<p style="margin:0;">The guidance tool could not be reached just now. Please try again in a moment.</p>'; }
+          finally{ btn.disabled=false; btn.textContent=lab; }
+        });
+      }
+      for(var k=0;k<spans.length;k++){ (function(idx){
+        spans[idx].setAttribute('role','button'); spans[idx].setAttribute('tabindex','0');
+        spans[idx].title=LV[idx].charAt(0).toUpperCase()+LV[idx].slice(1);
+        spans[idx].addEventListener('click',function(){ pick(idx); });
+        spans[idx].addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(idx); } });
+      })(k); }
+    });
+  });
+})();
+</script>
 </body>
 </html>
