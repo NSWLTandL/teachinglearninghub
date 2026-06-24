@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Foundations · Presence | T&amp;L Excellence Programme</title>
@@ -13,8 +14,8 @@
     --foundations: #5c4a7a;        /* Distinct strand colour — a deep slate plum */
     --foundations-soft: #8b78a8;
     --foundations-bg: #ece8f1;
-    --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --serif: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
+    --sans: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -142,6 +143,11 @@
   footer.unit-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 24px; text-align: center; font-size: 13px; margin-top: 80px; }
   footer.unit-footer a { color: rgba(255,255,255,0.9); }
   footer.unit-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+
+.ai-tool { background: linear-gradient(135deg, #2a2a2a 0%, #1f2a37 100%); color: #f5f2eb; padding: 26px; border-radius: 10px; margin: 22px 0; }
+.ai-eyebrow { color: var(--accent-soft, #b8893a); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; }
+.ai-cta { display: inline-block; margin-top: 14px; padding: 9px 16px; border: 1px solid var(--accent-soft, #b8893a); color: #f5f2eb; border-radius: 6px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor:pointer; }
+@media print { #ai-tool .ai-tool { display:none !important; } }
 </style>
 </head>
 <body>
@@ -388,6 +394,20 @@
       </div>
     </section>
 
+      <section id="ai-tool">
+      <div class="section-eyebrow">Coaching tool</div>
+      <h2>Try a real moment from your classroom.</h2>
+      <p class="section-intro">Describe a moment where your presence in the room was tested.</p>
+      <div class="ai-tool">
+        <div class="ai-eyebrow">Live tool</div>
+        <h3>Scenario tester</h3>
+        <div style="margin-top:14px;">
+          <textarea id="aiScenario" rows="4" style="width:100%;box-sizing:border-box;border:none;border-radius:10px;padding:12px 14px;font-family:inherit;font-size:15px;line-height:1.5;color:#1f2a37;background:#fff;resize:vertical;" placeholder="Describe what is happening, what you have tried, and what you want to achieve..."></textarea>
+          <button id="aiGo" class="ai-cta" style="border:none;cursor:pointer;margin-top:12px;">Get suggestions</button>
+          <div id="aiOut" style="margin-top:16px;"></div>
+        </div>
+      </div>
+    </section>
   </article>
 </div>
 
@@ -396,5 +416,29 @@
   <div>T&amp;L Excellence Programme · Foundations · Unit 2</div>
   <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./foundations.html">Foundations</a></div>
 </footer>
+<script>
+(function(){
+  var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";
+  var SYS = "You are an experienced teaching coach at Nishkam School West London, helping a teacher apply one specific classroom practice. The practice for this module is: classroom presence - using position, stance, stillness and scanning to project quiet authority. The teacher will describe a real classroom situation. Give practical, specific, encouraging advice on applying this practice to their situation. Structure the reply as: a short diagnosis of what is going on; then a heading 'What to do, in order' with a numbered list of concrete steps; then a heading 'Why this works' in one short paragraph; and where useful, one common pitfall to avoid. Where it fits naturally, hold pupils to the school's three classroom virtues by name - Peacefulness, Diligence and Determination. Do not force them in. Voice: plain, warm, British English, like a real colleague speaking. Short, concrete sentences. No jargon, no buzzwords, no 'X, not Y' constructions, no em dashes, no flattery, and do not open with 'Great'. Format the reply as simple HTML using only <p>, <strong>, <ol> and <li> tags.";
+  var btn=document.getElementById("aiGo"), ta=document.getElementById("aiScenario"), out=document.getElementById("aiOut");
+  if(!btn||!ta||!out) return;
+  function card(inner){ return '<div style="background:#fffdf7;color:#1f2a37;border-radius:12px;padding:16px 18px;line-height:1.55;border:1px solid #e6dcc8;">'+inner+'</div>'; }
+  btn.addEventListener("click", async function(){
+    var s=(ta.value||"").trim();
+    if(s.length<10){ out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Write a sentence or two first.</p>'; return; }
+    btn.disabled=true; var label=btn.textContent; btn.textContent="Thinking\u2026";
+    out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Thinking\u2026</p>';
+    try{
+      var r=await fetch(WORKER_URL+"/api/feedback",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({max_tokens:1000,system:SYS,messages:[{role:"user",content:s}]})});
+      if(!r.ok) throw new Error("api");
+      var data=await r.json();
+      var text=(data.content||[]).map(function(b){return b.text||"";}).join("\n").trim();
+      if(!text) throw new Error("empty");
+      out.innerHTML=card(text.replace(/```html|```/g,"").trim());
+    }catch(e){ out.innerHTML=card('<p style="margin:0;">The live tool could not be reached just now. Please try again in a moment.</p>'); }
+    finally{ btn.disabled=false; btn.textContent=label; }
+  });
+})();
+</script>
 </body>
 </html>

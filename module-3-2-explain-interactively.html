@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Module 3.2 — Explain Interactively | T&amp;L Excellence Programme</title>
@@ -12,8 +13,8 @@
   --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
   --highlight: #fff4dd; --practice: #eef3ec; --practice-rule: #b6c8b1; --practice-ink: #2d6a3e;
   --pause: #faf3e3; --pause-ink: #8a6611;
-  --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
+  --sans: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -574,6 +575,21 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
       </table>
     </section>
 
+    <section id="ai-tool">
+      <div class="section-eyebrow">AI scenario tester</div>
+      <h2>Try a real moment from your classroom.</h2>
+      <p class="section-intro">Describe a modelled example you want pupils to follow.</p>
+      <div class="ai-tool">
+        <div class="ai-eyebrow">Live tool</div>
+        <h3>Scenario tester</h3>
+        <div style="margin-top:14px;">
+          <textarea id="aiScenario" rows="4" style="width:100%;box-sizing:border-box;border:none;border-radius:10px;padding:12px 14px;font-family:inherit;font-size:15px;line-height:1.5;color:#1f2a37;background:#fff;resize:vertical;" placeholder="Describe what is happening, what you have tried, and what you want to achieve..."></textarea>
+          <button id="aiGo" class="ai-cta" style="border:none;cursor:pointer;margin-top:12px;">Get suggestions</button>
+          <div id="aiOut" style="margin-top:16px;"></div>
+        </div>
+      </div>
+    </section>
+
     <section id="downloads">
       <div class="section-eyebrow">06 · Downloads</div>
       <h2>Module materials.</h2>
@@ -703,7 +719,7 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
       }).join('');
       var notes=store.notes?('<h2 style="font-size:15px;margin:22px 0 6px;">Notes and next actions</h2><p style="white-space:pre-wrap;margin:0;">'+esc(store.notes)+'</p>'):'';
       var d=new Date();
-      return '<!doctype html><html><head><meta charset="utf-8"><title>Self-audit - '+esc(modTitle)+'</title><style>body{font-family:Georgia,serif;color:#1f2a37;max-width:760px;margin:32px auto;padding:0 20px;line-height:1.5;}h1{font-size:22px;margin:0 0 2px;}.meta{color:#666;font-size:13px;margin:0 0 18px;}table{width:100%;border-collapse:collapse;font-family:system-ui,Arial,sans-serif;font-size:14px;}th{text-align:left;padding:8px 10px;border-bottom:2px solid #1f2a37;font-size:12px;text-transform:uppercase;letter-spacing:.04em;}</style></head><body><h1>Self-audit summary</h1><p class="meta">'+esc(modTitle)+' · '+esc(pillar)+' · '+d.toLocaleDateString()+'</p><table><thead><tr><th>Item</th><th>Statement and guidance</th><th>Rating</th></tr></thead><tbody>'+rows+'</tbody></table>'+notes+'<p style="margin-top:24px;color:#666;font-size:12px;">Generated from the Teaching Excellence Programme self-audit. File alongside your '+esc(pillar)+' booklet.</p></body></html>';
+      return '<!doctype html><html><head><meta charset="utf-8"><title>Self-audit - '+esc(modTitle)+'</title><style>body{font-family: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;color:#1f2a37;max-width:760px;margin:32px auto;padding:0 20px;line-height:1.5;}h1{font-size:22px;margin:0 0 2px;}.meta{color:#666;font-size:13px;margin:0 0 18px;}table{width:100%;border-collapse:collapse;font-family: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;font-size:14px;}th{text-align:left;padding:8px 10px;border-bottom:2px solid #1f2a37;font-size:12px;text-transform:uppercase;letter-spacing:.04em;}</style></head><body><h1>Self-audit summary</h1><p class="meta">'+esc(modTitle)+' · '+esc(pillar)+' · '+d.toLocaleDateString()+'</p><table><thead><tr><th>Item</th><th>Statement and guidance</th><th>Rating</th></tr></thead><tbody>'+rows+'</tbody></table>'+notes+'<p style="margin-top:24px;color:#666;font-size:12px;">Generated from the Teaching Excellence Programme self-audit. File alongside your '+esc(pillar)+' booklet.</p></body></html>';
     }
     function openSummary(forPrint){
       var w=window.open('', '_blank'); if(!w){ return false; }
@@ -725,5 +741,28 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
 })();
 </script>
 <script src="./videos.js"></script>
+<script>
+(function(){
+  var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";
+  var SYS = "You are an experienced teaching coach at Nishkam School West London, helping a teacher apply one specific classroom practice. The practice for this module is: interactive explanation and modelling - I do, we do, you do, with checks for understanding along the way (WD and YD checklists). The teacher will describe a real classroom situation. Give practical, specific, encouraging advice on applying this practice to their situation. Structure the reply as: a short diagnosis of what is going on; then a heading 'What to do, in order' with a numbered list of concrete steps; then a heading 'Why this works' in one short paragraph; and where useful, one common pitfall to avoid. Where it fits naturally, hold pupils to the school's three classroom virtues by name - Peacefulness, Diligence and Determination. Do not force them in. Voice: plain, warm, British English, like a real colleague speaking. Short, concrete sentences. No jargon, no buzzwords, no 'X, not Y' constructions, no em dashes, no flattery, and do not open with 'Great'. Format the reply as simple HTML using only <p>, <strong>, <ol> and <li> tags.";
+  var btn=document.getElementById("aiGo"), ta=document.getElementById("aiScenario"), out=document.getElementById("aiOut");
+  if(!btn||!ta||!out) return;
+  function card(inner){ return '<div style="background:#fffdf7;color:#1f2a37;border-radius:12px;padding:16px 18px;line-height:1.55;border:1px solid #e6dcc8;">'+inner+'</div>'; }
+  btn.addEventListener("click", async function(){
+    var s=(ta.value||"").trim();
+    if(s.length<10){ out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Write a sentence or two first.</p>'; return; }
+    btn.disabled=true; var label=btn.textContent; btn.textContent="Thinking\u2026";
+    out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Thinking\u2026</p>';
+    try{
+      var r=await fetch(WORKER_URL+"/api/feedback",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({max_tokens:1000,system:SYS,messages:[{role:"user",content:s}]})});
+      if(!r.ok) throw new Error("api"); var data=await r.json();
+      var text=(data.content||[]).map(function(b){return b.text||"";}).join("\n").trim();
+      if(!text) throw new Error("empty");
+      out.innerHTML=card(text.replace(/```html|```/g,"").trim());
+    }catch(e){ out.innerHTML=card('<p style="margin:0;">The live tool could not be reached just now. Please try again in a moment.</p>'); }
+    finally{ btn.disabled=false; btn.textContent=label; }
+  });
+})();
+</script>
 </body>
 </html>

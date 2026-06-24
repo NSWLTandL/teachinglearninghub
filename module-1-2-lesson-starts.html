@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Module 1.2 — Lesson Starts | T&amp;L Excellence Programme</title>
@@ -19,8 +20,8 @@
     --practice: #eef3ec;
     --practice-rule: #b6c8b1;
     --practice-ink: #2d6a3e;
-    --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --serif: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
+    --sans: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
   }
 
   * { box-sizing: border-box; }
@@ -1368,38 +1369,16 @@
     <!-- AI TOOL -->
     <section id="ai-tool">
       <div class="section-eyebrow">06 · AI scenario tester</div>
-      <h2>A real lesson-start moment.</h2>
-      <p class="section-intro">The full live tool will accept any scenario you describe. The worked example below shows the shape of the response.</p>
-
+      <h2>Try a real moment from your classroom.</h2>
+      <p class="section-intro">Describe a lesson start that feels slow or scrappy.</p>
       <div class="ai-tool">
-        <div class="ai-eyebrow">Worked example</div>
+        <div class="ai-eyebrow">Live tool</div>
         <h3>Scenario tester</h3>
-
-        <div class="ai-demo">
-          <div class="label">Teacher submits</div>
-          <div class="scenario">"It's the [Year 9] lesson straight after lunch. The corridor is loud — three other classes are being released at the same time. Pupils are bunching at my door. I haven't had time to put the starter on the board because I was on duty. Two pupils have walked past me and sat down already. I can feel the lesson getting away from me before it's started."</div>
-
-          <div class="label">Tool responds</div>
-          <div class="response">
-            <p><strong>What's going wrong:</strong> Three stages have collapsed at once. The corridor presence (Stage 1) is compromised because you were on duty elsewhere. The greeting (Stage 2) cannot direct pupils to a task that isn't there. And pupils are seating themselves on their own terms, which means the 50% threshold (Stage 3) is being set by the pupils, not by you.</p>
-
-            <p><strong>Triage, in order:</strong></p>
-            <ol>
-              <li>Get to the threshold. Even now. The corridor presence cannot be recovered for this lesson, but the threshold can.</li>
-              <li>Hold the door. Slow the entry. "One at a time, please. Title's coming." This buys you forty-five seconds.</li>
-              <li>Use the slowed entry to put a one-word starter on the board. <em>"Recall: three things you learned last lesson."</em> That is enough. The starter does not have to be polished; it has to exist.</li>
-              <li>Move to strong position once the room is half-full. Do not skip this stage. The transition matters more than ever today, because the entry was disordered.</li>
-              <li>Deliver the ten-second line and the mantra at full strength. The disordered entry is not an excuse to deliver an apologetic mantra. Same words. Same weight.</li>
-              <li>Hold the thirty seconds. Especially today. The silence is what reasserts the lesson over the chaos that preceded it.</li>
-            </ol>
-
-            <p><strong>The longer-term fix:</strong> If the post-lunch corridor is consistently this loud, the issue is not your lesson start — it is the corridor system around it. Raise it with your phase leader. Daily corridor presence by a specific named adult during transitions is an issue for the whole school, not for one teacher.</p>
-
-            <p><strong>What not to do:</strong> Do not raise your voice at the noisy corridor. Do not skip the reflection because the lesson is "already late". Do not apologise to the class. Each of those moves teaches them that the routine bends under pressure — which is the opposite of the lesson the routine is meant to teach.</p>
-          </div>
+        <div style="margin-top:14px;">
+          <textarea id="aiScenario" rows="4" style="width:100%;box-sizing:border-box;border:none;border-radius:10px;padding:12px 14px;font-family:inherit;font-size:15px;line-height:1.5;color:#1f2a37;background:#fff;resize:vertical;" placeholder="Describe what is happening, what you have tried, and what you want to achieve..."></textarea>
+          <button id="aiGo" class="ai-cta" style="border:none;cursor:pointer;margin-top:12px;">Get suggestions</button>
+          <div id="aiOut" style="margin-top:16px;"></div>
         </div>
-
-        <a class="ai-cta" href="#">Live tool — coming soon</a>
       </div>
     </section>
 
@@ -1588,7 +1567,7 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
       }).join('');
       var notes=store.notes?('<h2 style="font-size:15px;margin:22px 0 6px;">Notes and next actions</h2><p style="white-space:pre-wrap;margin:0;">'+esc(store.notes)+'</p>'):'';
       var d=new Date();
-      return '<!doctype html><html><head><meta charset="utf-8"><title>Self-audit - '+esc(modTitle)+'</title><style>body{font-family:Georgia,serif;color:#1f2a37;max-width:760px;margin:32px auto;padding:0 20px;line-height:1.5;}h1{font-size:22px;margin:0 0 2px;}.meta{color:#666;font-size:13px;margin:0 0 18px;}table{width:100%;border-collapse:collapse;font-family:system-ui,Arial,sans-serif;font-size:14px;}th{text-align:left;padding:8px 10px;border-bottom:2px solid #1f2a37;font-size:12px;text-transform:uppercase;letter-spacing:.04em;}</style></head><body><h1>Self-audit summary</h1><p class="meta">'+esc(modTitle)+' · '+esc(pillar)+' · '+d.toLocaleDateString()+'</p><table><thead><tr><th>Item</th><th>Statement and guidance</th><th>Rating</th></tr></thead><tbody>'+rows+'</tbody></table>'+notes+'<p style="margin-top:24px;color:#666;font-size:12px;">Generated from the Teaching Excellence Programme self-audit. File alongside your '+esc(pillar)+' booklet.</p></body></html>';
+      return '<!doctype html><html><head><meta charset="utf-8"><title>Self-audit - '+esc(modTitle)+'</title><style>body{font-family: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;color:#1f2a37;max-width:760px;margin:32px auto;padding:0 20px;line-height:1.5;}h1{font-size:22px;margin:0 0 2px;}.meta{color:#666;font-size:13px;margin:0 0 18px;}table{width:100%;border-collapse:collapse;font-family: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;font-size:14px;}th{text-align:left;padding:8px 10px;border-bottom:2px solid #1f2a37;font-size:12px;text-transform:uppercase;letter-spacing:.04em;}</style></head><body><h1>Self-audit summary</h1><p class="meta">'+esc(modTitle)+' · '+esc(pillar)+' · '+d.toLocaleDateString()+'</p><table><thead><tr><th>Item</th><th>Statement and guidance</th><th>Rating</th></tr></thead><tbody>'+rows+'</tbody></table>'+notes+'<p style="margin-top:24px;color:#666;font-size:12px;">Generated from the Teaching Excellence Programme self-audit. File alongside your '+esc(pillar)+' booklet.</p></body></html>';
     }
     function openSummary(forPrint){
       var w=window.open('', '_blank'); if(!w){ return false; }
@@ -1610,5 +1589,29 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
 })();
 </script>
 <script src="./videos.js"></script>
+<script>
+(function(){
+  var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";
+  var SYS = "You are an experienced teaching coach at Nishkam School West London, helping a teacher apply one specific classroom practice. The practice for this module is: lesson starts - the routine for beginning a lesson so pupils enter calmly and begin work straight away (LS1 to LS10). The teacher will describe a real classroom situation. Give practical, specific, encouraging advice on applying this practice to their situation. Structure the reply as: a short diagnosis of what is going on; then a heading 'What to do, in order' with a numbered list of concrete steps; then a heading 'Why this works' in one short paragraph; and where useful, one common pitfall to avoid. Where it fits naturally, hold pupils to the school's three classroom virtues by name - Peacefulness, Diligence and Determination. Do not force them in. Voice: plain, warm, British English, like a real colleague speaking. Short, concrete sentences. No jargon, no buzzwords, no 'X, not Y' constructions, no em dashes, no flattery, and do not open with 'Great'. Format the reply as simple HTML using only <p>, <strong>, <ol> and <li> tags.";
+  var btn=document.getElementById("aiGo"), ta=document.getElementById("aiScenario"), out=document.getElementById("aiOut");
+  if(!btn||!ta||!out) return;
+  function card(inner){ return '<div style="background:#fffdf7;color:#1f2a37;border-radius:12px;padding:16px 18px;line-height:1.55;border:1px solid #e6dcc8;">'+inner+'</div>'; }
+  btn.addEventListener("click", async function(){
+    var s=(ta.value||"").trim();
+    if(s.length<10){ out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Write a sentence or two first.</p>'; return; }
+    btn.disabled=true; var label=btn.textContent; btn.textContent="Thinking\u2026";
+    out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Thinking\u2026</p>';
+    try{
+      var r=await fetch(WORKER_URL+"/api/feedback",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({max_tokens:1000,system:SYS,messages:[{role:"user",content:s}]})});
+      if(!r.ok) throw new Error("api");
+      var data=await r.json();
+      var text=(data.content||[]).map(function(b){return b.text||"";}).join("\n").trim();
+      if(!text) throw new Error("empty");
+      out.innerHTML=card(text.replace(/```html|```/g,"").trim());
+    }catch(e){ out.innerHTML=card('<p style="margin:0;">The live tool could not be reached just now. Please try again in a moment.</p>'); }
+    finally{ btn.disabled=false; btn.textContent=label; }
+  });
+})();
+</script>
 </body>
 </html>
