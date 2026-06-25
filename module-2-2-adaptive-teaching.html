@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Module 4.1 — Mini-Whiteboards | T&amp;L Excellence Programme</title>
@@ -12,8 +13,8 @@
   --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
   --highlight: #fff4dd; --practice: #eef3ec; --practice-rule: #b6c8b1; --practice-ink: #2d6a3e;
   --pause: #faf3e3; --pause-ink: #8a6611;
-  --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
+  --sans: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -328,6 +329,7 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
       <ol class="ps-modules">
         <li><a href="./module-4-1-mini-whiteboards.html">4.1 Mini-Whiteboards</a></li>
         <li><a href="./module-4-2-circulating-checking-support.html">4.2 Circulating &amp; Checking Support</a></li>
+        <li><a href="./module-4-3-explicit-vocabulary.html">4.3 Explicit Vocabulary Teaching</a></li>
       </ol>
     </div>
     <div class="ps-pillar">
@@ -387,7 +389,6 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
       <li><a href="#video">Video examples</a></li>
       <li><a href="#audit">Self-audit</a></li>
       <li><a href="#ai-tool">AI scenario tester</a></li>
-      <li><a href="#downloads">Downloads</a></li>
     </ol>
   </nav>
 
@@ -477,17 +478,6 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
           <button id="aiGo" class="ai-cta" style="border:none;cursor:pointer;margin-top:12px;">Get suggestions</button>
           <div id="aiOut" style="margin-top:16px;"></div>
         </div>
-      </div>
-    </section>
-
-    <section id="downloads">
-      <div class="section-eyebrow">07 · Downloads</div>
-      <h2>Pillar 2 materials.</h2>
-      <p class="section-intro">The booklet and facilitator deck cover the whole of Pillar 2.</p>
-      <div class="downloads">
-        <a class="download-card" href="./Pillar2-Adaptive-Teaching-and-Inclusion-booklet.docx" download><div class="type">CPD Booklet</div><div class="name">Pillar 2 Booklet</div><div class="size">.docx · printable</div></a>
-        <a class="download-card" href="./Pillar2-Adaptive-Teaching-and-Inclusion-facilitator-deck.pptx" download><div class="type">Slide Deck</div><div class="name">Pillar 2 Facilitator Deck</div><div class="size">.pptx · facilitator session</div></a>
-        <a class="download-card" href="./all-materials.html"><div class="type">All materials</div><div class="name">Every pillar</div><div class="size">booklets &amp; decks</div></a>
       </div>
     </section>
 
@@ -633,7 +623,7 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
       }).join('');
       var notes=store.notes?('<h2 style="font-size:15px;margin:22px 0 6px;">Notes and next actions</h2><p style="white-space:pre-wrap;margin:0;">'+esc(store.notes)+'</p>'):'';
       var d=new Date();
-      return '<!doctype html><html><head><meta charset="utf-8"><title>Self-audit - '+esc(modTitle)+'</title><style>body{font-family:Georgia,serif;color:#1f2a37;max-width:760px;margin:32px auto;padding:0 20px;line-height:1.5;}h1{font-size:22px;margin:0 0 2px;}.meta{color:#666;font-size:13px;margin:0 0 18px;}table{width:100%;border-collapse:collapse;font-family:system-ui,Arial,sans-serif;font-size:14px;}th{text-align:left;padding:8px 10px;border-bottom:2px solid #1f2a37;font-size:12px;text-transform:uppercase;letter-spacing:.04em;}</style></head><body><h1>Self-audit summary</h1><p class="meta">'+esc(modTitle)+' · '+esc(pillar)+' · '+d.toLocaleDateString()+'</p><table><thead><tr><th>Item</th><th>Statement and guidance</th><th>Rating</th></tr></thead><tbody>'+rows+'</tbody></table>'+notes+'<p style="margin-top:24px;color:#666;font-size:12px;">Generated from the Teaching Excellence Programme self-audit. File alongside your '+esc(pillar)+' booklet.</p></body></html>';
+      return '<!doctype html><html><head><meta charset="utf-8"><title>Self-audit - '+esc(modTitle)+'</title><style>body{font-family: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;color:#1f2a37;max-width:760px;margin:32px auto;padding:0 20px;line-height:1.5;}h1{font-size:22px;margin:0 0 2px;}.meta{color:#666;font-size:13px;margin:0 0 18px;}table{width:100%;border-collapse:collapse;font-family: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;font-size:14px;}th{text-align:left;padding:8px 10px;border-bottom:2px solid #1f2a37;font-size:12px;text-transform:uppercase;letter-spacing:.04em;}</style></head><body><h1>Self-audit summary</h1><p class="meta">'+esc(modTitle)+' · '+esc(pillar)+' · '+d.toLocaleDateString()+'</p><table><thead><tr><th>Item</th><th>Statement and guidance</th><th>Rating</th></tr></thead><tbody>'+rows+'</tbody></table>'+notes+'<p style="margin-top:24px;color:#666;font-size:12px;">Generated from the Teaching Excellence Programme self-audit. File alongside your '+esc(pillar)+' booklet.</p></body></html>';
     }
     function openSummary(forPrint){
       var w=window.open('', '_blank'); if(!w){ return false; }

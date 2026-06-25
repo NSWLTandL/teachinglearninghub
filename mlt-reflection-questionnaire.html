@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reflection & feedback — Nishkam Middle Leadership</title>
@@ -8,8 +9,8 @@
   :root{
     --bg:#f7f2e8; --surface:#fffdf7; --ink:#1f2a37; --ink-soft:#4b5563; --rule:#d8cfb9;
     --accent:#7a3b1d; --accent-soft:#c98e60; --leaf:#2f5d50; --gold:#b07d2b;
-    --serif:Georgia,"Cormorant Garamond","Times New Roman",serif;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
+    --sans: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
   }
   *{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;}
@@ -103,15 +104,7 @@
 
 <script>
   // =================== CONFIG ===================
-  // === Backend (Cloudflare) ===
-  // Leave WORKER_URL blank to preview inside Claude (temporary in-session storage).
-  // For the live site, paste your Cloudflare Worker URL, e.g. https://nswl-mlt.yourname.workers.dev
-  var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";
-  function useWorker(){ return WORKER_URL.indexOf("http") === 0; }
-  function api(path){ return WORKER_URL.replace(/\/$/,"") + path; }
-
-  // Preview-only fallback (ignored once WORKER_URL is set — the real lead code lives in the Worker).
-  var LEAD_CODE = "nishkam-lead";
+  var LEAD_CODE = "nishkam-lead";   // change this to whatever the programme lead should use
   var STORE_PREFIX = "mlt-q:resp:";
   var SESSIONS = [
     "Session 1: What is a Middle Leader?",
@@ -167,28 +160,12 @@
 
   // =================== STORAGE ===================
   async function saveResponse(resp){
-    if(useWorker()){
-      try{ var r = await fetch(api("/api/reflection"), {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(resp)}); return r.ok; }
-      catch(e){ return false; }
-    }
-    // preview fallback (inside Claude)
     var id = Date.now().toString(36) + Math.random().toString(36).slice(2,7);
     try{ if(window.storage){ await window.storage.set(STORE_PREFIX+id, JSON.stringify(resp), true); return true; } }
     catch(e){}
     MEM.push(resp); return false;
   }
-  // returns { auth: bool, responses: [...] }
-  async function loadAll(code){
-    if(useWorker()){
-      try{
-        var r = await fetch(api("/api/reflection?code=") + encodeURIComponent(code||""));
-        if(r.status === 401) return {auth:false, responses:[]};
-        var d = await r.json();
-        return {auth:true, responses:(d && d.responses) ? d.responses : []};
-      }catch(e){ return {auth:true, responses:[]}; }
-    }
-    // preview fallback
-    if(code !== LEAD_CODE) return {auth:false, responses:[]};
+  async function loadAll(){
     try{
       if(window.storage){
         var res = await window.storage.list(STORE_PREFIX, true);
@@ -196,12 +173,12 @@
         var out=[];
         for(var i=0;i<keys.length;i++){
           var k = typeof keys[i]==='string' ? keys[i] : keys[i].key;
-          try{ var g=await window.storage.get(k, true); if(g && g.value) out.push(JSON.parse(g.value)); }catch(e){}
+          try{ var r=await window.storage.get(k, true); if(r && r.value) out.push(JSON.parse(r.value)); }catch(e){}
         }
-        return {auth:true, responses:out};
+        return out;
       }
     }catch(e){}
-    return {auth:true, responses:MEM.slice()};
+    return MEM.slice();
   }
 
   // =================== PARTICIPANT FORM ===================
@@ -298,15 +275,9 @@
   }
 
   // =================== PROGRAMME LEAD DASHBOARD ===================
-  var LEAD_SESSION_CODE = "";
-  async function openLead(code){
-    LEAD_SESSION_CODE = code;
+  async function renderLead(){
     app.innerHTML = '<div class="loading"><div class="spinner"></div>Gathering responses…</div>';
-    var res = await loadAll(code);
-    if(!res.auth){ window.alert("That code wasn't recognised."); renderForm(); return; }
-    renderLead(res.responses);
-  }
-  function renderLead(all){
+    var all = await loadAll();
     var html = '<div class="lead-bar"><span>Programme lead — cohort results</span><span><b>'+all.length+'</b> response'+(all.length===1?'':'s')+'</span></div>';
     if(!all.length){ html += '<p class="muted" style="margin-top:18px;">No responses yet. They\'ll appear here as participants submit.</p>'; app.innerHTML=html; bindBack(); return; }
 
@@ -363,20 +334,10 @@
   function bindBack(){
     var b=document.createElement('div'); b.className='footer-row';
     b.innerHTML='<span class="note">Shared cohort data. Refresh to pull the latest.</span>'+
-      '<span><span class="switch" id="refresh">Refresh</span> &nbsp;·&nbsp; <span class="switch" id="clearAll" style="color:#9a3b2b;">Clear all responses</span> &nbsp;·&nbsp; <span class="switch" id="toForm">← Back to the form</span></span>';
+      '<span><span class="switch" id="refresh">Refresh</span> &nbsp; <span class="switch" id="toForm">← Back to the form</span></span>';
     app.appendChild(b);
-    document.getElementById('refresh').addEventListener('click', function(){ openLead(LEAD_SESSION_CODE); });
+    document.getElementById('refresh').addEventListener('click', renderLead);
     document.getElementById('toForm').addEventListener('click', function(){ state={}; renderForm(); });
-    document.getElementById('clearAll').addEventListener('click', async function(){
-      if(!window.confirm("Delete ALL responses permanently? This cannot be undone.")) return;
-      if(useWorker()){
-        try{ await fetch(api("/api/reflection?code=")+encodeURIComponent(LEAD_SESSION_CODE), {method:"DELETE"}); }catch(e){}
-      } else {
-        try{ if(window.storage){ var res=await window.storage.list(STORE_PREFIX,true); var keys=(res&&res.keys)?res.keys:[]; for(var i=0;i<keys.length;i++){ var k=typeof keys[i]==='string'?keys[i]:keys[i].key; try{ await window.storage.delete(k,true); }catch(e){} } } }catch(e){}
-        MEM.length=0;
-      }
-      openLead(LEAD_SESSION_CODE);
-    });
   }
 
   // =================== UTIL + INIT ===================
@@ -385,7 +346,8 @@
   document.getElementById('leadLink').addEventListener('click', function(){
     var code = window.prompt("Programme lead access code:");
     if(code===null) return;
-    openLead(code);
+    if(code===LEAD_CODE) renderLead();
+    else window.alert("That code wasn't recognised.");
   });
   renderForm();
 </script>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Teaching Excellence Programme | Nishkam School West London</title>
@@ -12,8 +13,8 @@
   --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
   --highlight: #fff4dd; --practice: #eef3ec; --practice-rule: #b6c8b1; --practice-ink: #2d6a3e;
   --pause: #faf3e3; --pause-ink: #8a6611;
-  --serif: Georgia, "Cormorant Garamond", "Times New Roman", serif;
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
+  --sans: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -262,14 +263,14 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
   .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 14px; }
   .lp-card { display: block; padding: 18px 20px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; text-decoration: none; color: var(--ink); transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s; }
   .lp-card:hover { transform: translateY(-2px); border-color: var(--accent-soft); box-shadow: 0 6px 18px rgba(122,59,29,0.08); text-decoration: none; }
-  .lp-card .c-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
-  .lp-card .c-name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-top: 5px; line-height: 1.25; }
-  .lp-card .c-desc { font-size: 13px; color: var(--ink-soft); margin-top: 6px; line-height: 1.45; }
+  .lp-card .c-tag { display: block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .lp-card .c-name { display: block; font-family: var(--serif); font-size: 17px; font-weight: 600; margin-top: 5px; line-height: 1.25; }
+  .lp-card .c-desc { display: block; font-size: 13px; color: var(--ink-soft); margin-top: 6px; line-height: 1.45; }
   .lp-card.deferred { opacity: 0.55; pointer-events: none; background: transparent; border-style: dashed; }
-  .lp-card.deferred .c-tag { color: var(--ink-soft); }
+  .lp-card.deferred .c-tag { display: block; color: var(--ink-soft); }
 
   .strand-card { border-left: 4px solid var(--foundations, #5c4a7a); }
-  .strand-card .c-tag { color: var(--foundations, #5c4a7a); }
+  .strand-card .c-tag { display: block; color: var(--foundations, #5c4a7a); }
 
   .big-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 8px; }
   .big-tile { display: block; padding: 30px 30px 28px; border-radius: 14px; text-decoration: none; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); transition: transform 0.15s, box-shadow 0.15s; position: relative; overflow: hidden; }
@@ -345,11 +346,11 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
       </div>
     </div>
     <div class="pillar-block">
-      <div class="pillar-block-head"><span class="pn">Pillar 4</span><span class="nm">Checking for Understanding</span><span class="st">2 built</span></div>
+      <div class="pillar-block-head"><span class="pn">Pillar 4</span><span class="nm">Checking for Understanding</span><span class="st">3 built</span></div>
       <div class="card-grid">
         <a class="lp-card" href="./module-4-1-mini-whiteboards.html"><span class="c-tag">4.1</span><span class="c-name">Mini-Whiteboards</span><span class="c-desc">A response from every pupil at once.</span></a>
         <a class="lp-card" href="./module-4-2-circulating-checking-support.html"><span class="c-tag">4.2</span><span class="c-name">Circulating &amp; Checking Support</span><span class="c-desc">Set, Settle, Sweep, Stop — and live marking.</span></a>
-        <span class="lp-card deferred"><span class="c-tag">4.3 · Primary</span><span class="c-name">Explicit Vocabulary Teaching</span><span class="c-desc">Primary phase. Deferred for now.</span></span>
+        <a class="lp-card" href="./module-4-3-explicit-vocabulary.html"><span class="c-tag">4.3</span><span class="c-name">Explicit Vocabulary Teaching</span><span class="c-desc">Teaching a key word so every pupil can say, define and use it.</span></a>
       </div>
     </div>
     <div class="pillar-block">

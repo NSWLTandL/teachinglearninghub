@@ -30,7 +30,7 @@ window.NSWL_VIDEOS = {
   // Pillar 3 — Instruction & Modelling
   "3-1": [], "3-2": [], "3-3": [], "3-4": [], "3-5": [],
   // Pillar 4 — Checking for Understanding
-  "4-1": [], "4-2": [],
+  "4-1": [], "4-2": [], "4-3": [],
   // Pillar 5 — Questioning & Classroom Dialogue
   "5-1": [], "5-2": [], "5-3": [],
   // Pillar 6 — Standards & Curriculum
