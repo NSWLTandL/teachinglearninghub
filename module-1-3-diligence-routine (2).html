@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module 1.3 — The Diligence Routine | T&amp;L Excellence Programme</title>
+<meta name="description" content="The Diligence Routine at Nishkam School — the five-beat in-lesson sequence that returns a class from independent work to attention. Anchors checklist items BFL7, BFL3, BFL4, BFL4, BFL5 and outcome item BFL2." />
+<style>
+  :root {
+    --bg: #f7f2e8; --surface: #fffdf7; --ink: #1f2a37; --ink-soft: #4b5563;
+    --rule: #d8cfb9; --accent: #7a3b1d; --accent-soft: #c98e60; --gold: #b8893a;
+    --highlight: #fff4dd; --practice: #eef3ec; --practice-rule: #b6c8b1; --practice-ink: #2d6a3e;
+    --serif: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
+    --sans: 'Century Gothic', 'CenturyGothic', 'Jost', 'Avenir Next', 'URW Gothic', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .topbar { background: var(--ink); color: #fff; padding: 14px 24px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
+  .topbar a { color: #fff; opacity: 0.85; text-decoration: none; }
+  .topbar .crumbs span { opacity: 0.55; margin: 0 8px; }
+
+  .hero { padding: 64px 24px 48px; border-bottom: 1px solid var(--rule); background: radial-gradient(circle at 85% 20%, rgba(184, 137, 58, 0.10), transparent 50%), var(--bg); }
+  .hero-inner { max-width: 1080px; margin: 0 auto; }
+  .pillar-tag { display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; font-weight: 600; }
+  .module-number { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 18px; margin-bottom: 8px; }
+  h1.title { font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); line-height: 1.1; margin: 0 0 20px; font-weight: 600; letter-spacing: -0.01em; }
+  h1.title em { font-style: italic; color: var(--accent); }
+  .lede { font-size: 20px; color: var(--ink-soft); max-width: 720px; margin: 0 0 32px; line-height: 1.5; }
+
+  .checklist-strip { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 22px; margin: 24px 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .checklist-strip .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-right: 8px; }
+  .checklist-strip a.cl-tag { font-family: var(--serif); font-weight: 700; font-size: 13px; background: var(--highlight); color: var(--accent); padding: 5px 11px; border-radius: 100px; text-decoration: none; border: 1px solid transparent; transition: border-color 0.15s; }
+  .checklist-strip a.cl-tag:hover { border-color: var(--accent); }
+  .checklist-strip a.cl-tag.outcome { background: transparent; border: 1px solid var(--gold); color: var(--gold); font-style: italic; }
+  .checklist-strip .secondary { font-size: 11px; color: var(--ink-soft); font-style: italic; margin-left: 8px; }
+
+  .meta-row { display: flex; flex-wrap: wrap; gap: 24px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .meta { display: flex; flex-direction: column; gap: 4px; }
+  .meta .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+  .meta .value { font-weight: 600; font-size: 15px; }
+  .audience-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+  .tag { background: var(--surface); border: 1px solid var(--rule); padding: 4px 12px; border-radius: 100px; font-size: 12px; color: var(--ink-soft); }
+
+  .layout { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 240px 1fr; gap: 56px; padding: 56px 24px 80px; }
+  @media (max-width: 880px) { .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 20px 60px; } }
+
+  nav.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; line-height: 1.5; }
+  nav.toc h4 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 14px; font-weight: 600; }
+  nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+  nav.toc li { counter-increment: toc; padding: 6px 0; padding-left: 12px; }
+  nav.toc li::before { content: counter(toc, decimal-leading-zero) "  "; color: var(--accent-soft); }
+  nav.toc a { color: var(--ink); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  @media (max-width: 880px) { nav.toc { display: none; } }
+
+  article > section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  article h2 { font-family: var(--serif); font-size: 32px; margin: 0 0 8px; font-weight: 600; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
+  .section-intro { font-size: 18px; color: var(--ink-soft); margin: 0 0 28px; max-width: 660px; }
+  article p { margin: 0 0 16px; }
+  article ol { padding-left: 22px; margin: 0 0 18px; }
+
+  blockquote.pull { margin: 32px 0; padding: 28px 32px; border-left: 4px solid var(--accent); background: var(--surface); font-family: var(--serif); font-size: 22px; line-height: 1.4; color: var(--ink); font-style: italic; }
+  blockquote.pull cite { display: block; font-family: var(--sans); font-style: normal; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-top: 16px; }
+
+  /* THE SIGNATURE: rhythm strip — five beats horizontally */
+  .rhythm { margin: 32px 0; padding: 28px 4px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .rhythm-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+  .rhythm-track::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 7%;
+    right: 7%;
+    height: 6px;
+    background: repeating-linear-gradient(to right, var(--accent) 0, var(--accent) 14px, transparent 14px, transparent 24px);
+    transform: translateY(-50%);
+    z-index: 0;
+    opacity: 0.4;
+  }
+  .beat { position: relative; z-index: 1; text-align: center; padding: 0 8px; }
+  .beat-circle { width: 64px; height: 64px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-weight: 700; color: var(--accent); font-family: var(--serif); font-size: 22px; box-shadow: 0 2px 0 var(--accent); }
+  .beat-label { font-size: 13px; letter-spacing: 0.05em; color: var(--ink); line-height: 1.3; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
+  .beat-duration { font-size: 11px; color: var(--accent); font-family: var(--serif); font-style: italic; }
+  .beat-cl { font-size: 10px; color: var(--ink-soft); margin-top: 6px; font-weight: 600; }
+  @media (max-width: 700px) { .rhythm-track { grid-template-columns: repeat(2, 1fr); gap: 16px; } .rhythm-track::before { display: none; } }
+
+  /* Stage cards */
+  .stage { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 28px 32px; margin: 24px 0; scroll-margin-top: 24px; }
+  .stage-header { display: flex; align-items: flex-start; gap: 16px; border-bottom: 1px solid var(--rule); padding-bottom: 16px; margin-bottom: 20px; }
+  .stage-number { width: 48px; height: 48px; flex-shrink: 0; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 18px; align-self: center; font-family: var(--serif); }
+  .stage-title-block { flex: 1; }
+  .stage-title-block h3 { margin: 0; font-family: var(--serif); font-size: 22px; font-weight: 600; }
+  .stage-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .stage-time { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 14px; flex-shrink: 0; align-self: center; }
+
+  .stage-checklist { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px dashed var(--rule); }
+  .stage-checklist .label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-right: 4px; align-self: center; }
+  .cl-pill { background: var(--highlight); color: var(--accent); font-family: var(--serif); font-weight: 700; font-size: 12px; padding: 3px 10px; border-radius: 100px; }
+  .cl-pill.secondary { background: transparent; border: 1px solid var(--accent-soft); color: var(--accent-soft); font-style: italic; }
+
+  .technique { background: var(--highlight); border-left: 3px solid var(--accent); padding: 14px 18px; margin: 14px 0; border-radius: 0 6px 6px 0; }
+  .technique .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 6px; }
+
+  .script { margin: 14px 0; padding: 14px 18px; background: #fafaf6; border: 1px solid var(--rule); border-radius: 6px; font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--ink); }
+  .script .label { display: block; font-family: var(--sans); font-style: normal; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-bottom: 6px; }
+
+  .practice { background: var(--practice); border: 1px solid var(--practice-rule); border-radius: 6px; padding: 16px 20px; margin: 18px 0; }
+  .practice .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--practice-ink); font-weight: 700; margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .practice .timer { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 13px; text-transform: none; letter-spacing: 0; }
+  .practice ol { padding-left: 22px; margin: 0; }
+  .practice ol li { margin-bottom: 4px; font-size: 15px; }
+  .coach-prompt { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--practice-rule); font-size: 14px; color: var(--ink-soft); }
+  .coach-prompt strong { color: var(--practice-ink); }
+
+  .remediation { background: var(--highlight); border: 1px solid var(--gold); border-radius: 6px; padding: 14px 18px; margin: 18px 0 0; font-size: 14px; }
+  .remediation .label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  .remediation p { margin: 0; color: var(--ink); font-style: italic; }
+  .principle { background: var(--highlight); border: 1px solid var(--gold); border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; padding: 16px 18px; margin: 16px 0; }
+  .principle .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 8px; }
+  .principle p { margin: 0 0 9px; color: var(--ink); font-size: 15px; }
+  .principle p:last-child { margin-bottom: 0; }
+  .principle .ex { font-style: italic; color: var(--ink-soft); }
+
+  .end-to-end { background: linear-gradient(135deg, var(--practice) 0%, #d6e3d3 100%); border: 2px solid var(--practice-ink); border-radius: 12px; padding: 32px; margin: 32px 0; }
+  .end-to-end .marquee { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--practice-ink); font-weight: 700; margin-bottom: 8px; }
+  .end-to-end h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 28px; font-weight: 600; }
+
+  .pitfall { border-left: 4px solid #c25b3f; background: #fbeee5; padding: 16px 22px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+  .pitfall strong { color: #8b3a2e; }
+  .pf-cl { display: inline-block; font-family: var(--serif); font-weight: 700; font-size: 11px; color: #8b3a2e; background: #fff; padding: 2px 8px; border-radius: 100px; margin-left: 8px; vertical-align: middle; }
+
+  table.audit { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--surface); border-radius: 10px; overflow: hidden; font-size: 14px; }
+  table.audit th, table.audit td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  table.audit th { background: var(--ink); color: #fff; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  table.audit tr:last-child td { border-bottom: none; }
+  table.audit tr.outcome-row td { background: #faf3e3; }
+  table.audit tr.outcome-row .id { color: var(--gold); }
+  table.audit .id { font-family: var(--serif); font-weight: 700; color: var(--accent); white-space: nowrap; }
+  table.audit .rag { display: inline-flex; gap: 4px; }
+  table.audit .rag span { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--rule); }
+  .rag .r { background: #e8c0b6; } .rag .a { background: #f3dfa8; } .rag .g { background: #b8d4ba; }
+
+  .audit-section-divider { background: var(--gold); color: #fff; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 8px 14px; margin: 0; border-radius: 0; }
+
+  .ai-tool { background: linear-gradient(135deg, #2a2a2a 0%, #1f2a37 100%); color: #f5f2eb; padding: 32px; border-radius: 12px; margin: 24px 0; }
+  .ai-tool h3 { color: #fff; margin: 0 0 8px; font-family: var(--serif); }
+  .ai-tool .ai-eyebrow { color: var(--accent-soft); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; }
+  .ai-tool p { color: rgba(255,255,255,0.75); }
+  .ai-demo { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 20px; margin-top: 20px; }
+  .ai-demo .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 6px; font-weight: 600; }
+  .ai-demo .scenario { font-style: italic; color: rgba(255,255,255,0.85); padding: 12px 14px; background: rgba(0,0,0,0.2); border-radius: 6px; margin-bottom: 16px; font-family: var(--serif); font-size: 15px; }
+  .ai-demo .response { font-size: 15px; line-height: 1.6; }
+  .ai-demo .response strong { color: var(--accent-soft); }
+  .ai-demo .response ol { margin: 8px 0; padding-left: 20px; }
+  .ai-cta { display: inline-block; margin-top: 16px; padding: 10px 18px; border: 1px solid var(--accent-soft); color: var(--accent-soft); border-radius: 6px; text-decoration: none; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; cursor: not-allowed; opacity: 0.7; }
+
+  .downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 700px) { .downloads { grid-template-columns: 1fr; } }
+  .download-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--surface); text-decoration: none; color: var(--ink); transition: all 0.2s; display: block; }
+  .download-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .download-card .type { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .download-card .name { font-weight: 600; margin-top: 6px; font-size: 16px; font-family: var(--serif); }
+  .download-card .size { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+
+  footer.module-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 24px; text-align: center; font-size: 13px; }
+  footer.module-footer a { color: rgba(255,255,255,0.9); }
+  footer.module-footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+
+  .module-nav { display: flex; justify-content: space-between; gap: 16px; padding: 32px 0; border-top: 1px solid var(--rule); margin-top: 40px; }
+  .module-nav a { text-decoration: none; flex: 1; max-width: 320px; padding: 16px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); transition: border-color 0.2s; }
+  .module-nav a:hover { border-color: var(--accent); }
+  .module-nav .dir { font-size: 11px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+  .module-nav .label { display: block; margin-top: 4px; font-family: var(--serif); font-size: 17px; color: var(--ink); }
+  .module-nav .next { text-align: right; }
+
+/* ====== shared six-pillar nav spine ====== */
+.pillar-spine { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.pillar-spine-summary {
+  list-style: none; cursor: pointer; padding: 14px 24px;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  max-width: 1080px; margin: 0 auto;
+}
+.pillar-spine-summary::-webkit-details-marker { display: none; }
+.pillar-spine-summary::marker { content: ""; }
+.pillar-spine-summary .ps-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.pillar-spine-summary .ps-current {
+  font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 15px;
+}
+.pillar-spine-summary .ps-current strong { font-style: normal; color: var(--accent); font-weight: 600; }
+.pillar-spine-summary .ps-toggle {
+  margin-left: auto; color: var(--accent); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.06em;
+}
+.pillar-spine-summary .ps-toggle::after { content: " ↓"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle::after { content: " ↑"; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-show { display: none; }
+.pillar-spine .pillar-spine-summary .ps-toggle .ps-hide { display: none; }
+.pillar-spine[open] .pillar-spine-summary .ps-toggle .ps-hide { display: inline; }
+
+.pillar-spine-grid {
+  max-width: 1080px; margin: 0 auto; padding: 4px 24px 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px;
+}
+@media (max-width: 880px) { .pillar-spine-grid { grid-template-columns: 1fr; padding-bottom: 18px; } }
+
+.ps-pillar { border-top: 1px solid var(--rule); padding: 14px 0 4px; }
+.ps-pillar-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.ps-num {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700;
+}
+.ps-name {
+  font-family: var(--serif); font-size: 16px; color: var(--ink); font-weight: 600;
+  line-height: 1.25;
+}
+.ps-modules { list-style: none; padding: 0; margin: 0; }
+.ps-modules li { padding: 2px 0; font-size: 13.5px; line-height: 1.5; }
+.ps-modules a { color: var(--ink); text-decoration: none; }
+.ps-modules a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ps-modules a.ps-current { color: var(--accent); font-weight: 700; }
+.ps-modules a.ps-current::before { content: "● "; color: var(--accent); font-size: 10px; vertical-align: 2px; }
+
+.ps-pillar.ps-coming .ps-num,
+.ps-pillar.ps-coming .ps-name { color: var(--ink-soft); }
+.ps-pillar.ps-coming .ps-name { opacity: 0.7; }
+.ps-pillar.ps-coming .ps-coming-note {
+  font-size: 12.5px; color: var(--ink-soft); font-style: italic;
+  margin: 4px 0 0; opacity: 0.75;
+}
+.ps-pending { color: var(--ink-soft); opacity: 0.65; display: flex; align-items: baseline; gap: 8px; }
+.ps-pending .ps-tag {
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 1px 7px; border-radius: 100px; font-style: normal; font-weight: 600;
+}
+  .ps-pending .ps-tag.ps-tag-deferred {
+  color: var(--ink-soft); border-color: var(--rule);
+}
+/* ====== /shared six-pillar nav spine ====== */
+
+  .download-card.download-soon { opacity: 0.6; cursor: default; position: relative; }
+  .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
+  .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+</style>
+</head>
+<body data-current="1-3">
+
+<div class="topbar">
+  <div class="crumbs">
+    <a href="./index.html">T&amp;L Hub</a><span>›</span>
+    <a href="./tl-programme.html">T&amp;L Excellence</a><span>›</span>
+    <a href="./index.html">Behaviour for Learning</a><span>›</span>
+    Module 1.3
+  </div>
+  <div>Module 1.3 of 10</div>
+</div>
+
+<details class="pillar-spine">
+  <summary class="pillar-spine-summary">
+    <span class="ps-label">Six pillars</span>
+    <span class="ps-current">You are here: <strong>Pillar 1 · 1.3 Diligence Routine</strong></span>
+    <span class="ps-toggle"><span class="ps-show">Show all modules</span><span class="ps-hide">Hide</span></span>
+  </summary>
+  <div class="pillar-spine-grid">
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 1</span>
+        <span class="ps-name">Behaviour & Climate</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-1-1-language-of-virtues.html">1.1 Language of Virtues</a></li>
+        <li><a href="./module-1-2-lesson-starts.html">1.2 Lesson Starts</a></li>
+        <li><a class="ps-current" href="./module-1-3-diligence-routine.html">1.3 Diligence Routine</a></li>
+        <li><a href="./module-1-4-30-second-reflection.html">1.4 30-Second Reflection</a></li>
+        <li><a href="./module-1-5-bfl-in-class.html">1.5 Behaviour for Learning in Class</a></li>
+        <li><a href="./module-1-6-pre-lesson-strategies.html">1.6 Pre-Lesson Strategies</a></li>
+        <li><a href="./module-1-7-in-lesson-strategies.html">1.7 In-Lesson Strategies</a></li>
+        <li><a href="./module-1-8-direct-intervention.html">1.8 Direct Intervention</a></li>
+        <li><a href="./module-1-9-lesson-endings.html">1.9 Lesson Endings</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 2</span>
+        <span class="ps-name">Adaptive Teaching &amp; Inclusion</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-2-1-inclusive-classroom.html">2.1 The Inclusive Classroom</a></li>
+        <li><a href="./module-2-2-adaptive-teaching.html">2.2 Adaptive Teaching</a></li>
+        <li><a href="./module-2-3-send-intervention.html">2.3 SEND Intervention</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 3</span>
+        <span class="ps-name">Instruction & Modelling</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-3-1-explain-clearly.html">3.1 Explain Clearly</a></li>
+        <li><a href="./module-3-2-explain-interactively.html">3.2 Explain Interactively</a></li>
+        <li><a href="./module-3-3-explain-with-visuals.html">3.3 Explain with Visuals</a></li>
+        <li><a href="./module-3-4-explain-with-examples.html">3.4 Explain with Examples</a></li>
+        <li><a href="./module-3-5-economy-of-language.html">3.5 Economy of Language</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 4</span>
+        <span class="ps-name">Checking for Understanding</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-4-1-mini-whiteboards.html">4.1 Mini-Whiteboards</a></li>
+        <li><a href="./module-4-2-circulating-checking-support.html">4.2 Circulating &amp; Checking Support</a></li>
+        <li><a href="./module-4-3-explicit-vocabulary.html">4.3 Explicit Vocabulary Teaching</a></li>
+        <li class="ps-pending ps-deferred"><span>4.3 Explicit Vocabulary Teaching</span><span class="ps-tag ps-tag-deferred">primary</span></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 5</span>
+        <span class="ps-name">Questioning & Classroom Dialogue</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-5-1-cold-calling.html">5.1 Cold-Calling</a></li>
+        <li><a href="./module-5-2-probing-questions.html">5.2 Probing Questions</a></li>
+        <li><a href="./module-5-3-think-pair-share.html">5.3 Think, Pair, Share</a></li>
+      </ol>
+    </div>
+    <div class="ps-pillar">
+      <div class="ps-pillar-head">
+        <span class="ps-num">Pillar 6</span>
+        <span class="ps-name">Standards &amp; Curriculum</span>
+      </div>
+      <ol class="ps-modules">
+        <li><a href="./module-6-1-curriculum-delivery.html">6.1 Curriculum Delivery</a></li>
+        <li><a href="./module-6-2-book-look.html">6.2 Book Look</a></li>
+        <li><a href="./module-6-3-reading-for-pleasure.html">6.3 Reading for Pleasure</a></li>
+      </ol>
+    </div>
+  </div>
+</details>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="pillar-tag">Pillar 1 · Behaviour for Learning</span>
+    <div class="module-number">Module 1.3</div>
+    <h1 class="title">The Diligence <em>Routine</em>.</h1>
+    <p class="lede">A five-beat sequence the teacher uses to return a class from independent work to attention. Run consistently, in the same form, by every teacher in the school.</p>
+
+    <div class="checklist-strip"><span class="label">Checklist coverage</span> <a href="#audit" class="cl-tag">BFL3</a> <a href="#audit" class="cl-tag">BFL4</a> <a href="#audit" class="cl-tag">BFL5</a> <a href="#audit" class="cl-tag">BFL7</a></div>
+
+    <div class="meta-row">
+      <div class="meta"><span class="label">Time</span><span class="value">60 minutes</span></div>
+      <div class="meta"><span class="label">Format</span><span class="value">Independent · Coaching · Department</span></div>
+      <div class="meta"><span class="label">Audience</span><div class="audience-tags"><span class="tag">New teachers</span><span class="tag">All staff</span><span class="tag">External CPD</span></div></div>
+      <div class="meta"><span class="label">Prerequisite</span><span class="value">Module 1.1 — The Language of Virtues</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h4>In this module</h4>
+    <ol>
+      <li><a href="#why">Why this matters</a></li>
+      <li><a href="#rhythm">The five-beat rhythm</a></li>
+      <li><a href="#beat-1">1 · Trigger</a></li>
+      <li><a href="#beat-2">2 · Pause</a></li>
+      <li><a href="#beat-3">3 · Scan</a></li>
+      <li><a href="#beat-4">4 · Instruct</a></li>
+      <li><a href="#beat-5">5 · Release</a></li>
+      <li><a href="#end-to-end">End-to-end practice</a></li>
+      <li><a href="#pitfalls">Pitfalls</a></li>
+      <li><a href="#audit">Self-audit</a></li>
+      <li><a href="#ai-tool">AI scenario tester</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="why">
+      <div class="section-eyebrow">01 · Why this matters</div>
+      <h2>The Diligence Routine in context.</h2>
+      <p class="section-intro">The Diligence Routine is the in-lesson sequence the teacher uses to move a class from independent work back to attention. It is run many times in every lesson — before a new instruction, before a worked example, before a transition to new content, before a check for understanding.</p>
+
+      <p>The routine builds on the language of virtues established in Module 1.1 and the lesson-start sequence in Module 1.2. It is built around a single set phrase, "Show me diligence. Thank you.", whose key word is diligence, and a short calibrated sequence of five beats that follow it. Pupils are taught the meaning of diligence in their first weeks at Nishkam — pens down, arms folded, eyes on the teacher — so that by the time the phrase is used in a lesson, the response it cues is already established. The teacher does not need to explain the meaning each time; adding the definition to the phrase tends to weaken the routine, because it implies that the phrase alone is insufficient.</p>
+
+      <p>Consistency is the central principle. Every teacher in the school runs the same five beats in the same order, with the same calibrated pauses between them. By Year 8, pupils have rehearsed this rhythm thousands of times and respond to it automatically. The routine works because pupils recognise the sequence, not because they are afraid of the consequences of ignoring it; this depends on every teacher delivering the routine in the same form, every time it is used.</p>
+
+      <p>Module 1.3 sits alongside Modules 1.1 and 1.2 in the daily operation of a Nishkam classroom. Module 1.1 supplies the vocabulary; Module 1.2 establishes the daily ritual; Module 1.3 covers the in-lesson routine that runs throughout. When the Diligence Routine is securely embedded, the warning ladder in Module 1.8 becomes a rarely-used last resort rather than a regularly-deployed tool.</p>
+    </section>
+
+    <section id="rhythm">
+      <div class="section-eyebrow">02 · The five-beat rhythm</div>
+      <h2>The full routine.</h2>
+      <p class="section-intro">The routine consists of five beats run in sequence: trigger, pause, scan, instruct, release. End to end it takes approximately fifteen seconds, the majority of which is silence rather than speech.</p>
+
+      <div class="rhythm">
+        <div class="rhythm-track">
+          <a href="#beat-1" class="beat" style="text-decoration: none;">
+            <div class="beat-circle">1</div>
+            <div class="beat-label">Trigger</div>
+            <div class="beat-duration">0:00</div>
+            <div class="beat-cl">BFL7</div>
+          </a>
+          <a href="#beat-2" class="beat" style="text-decoration: none;">
+            <div class="beat-circle">2</div>
+            <div class="beat-label">Pause</div>
+            <div class="beat-duration">3 sec</div>
+            <div class="beat-cl">BFL3</div>
+          </a>
+          <a href="#beat-3" class="beat" style="text-decoration: none;">
+            <div class="beat-circle">3</div>
+            <div class="beat-label">Scan</div>
+            <div class="beat-duration">3 sec</div>
+            <div class="beat-cl">BFL3</div>
+          </a>
+          <a href="#beat-4" class="beat" style="text-decoration: none;">
+            <div class="beat-circle">4</div>
+            <div class="beat-label">Instruct</div>
+            <div class="beat-duration">5 sec</div>
+            <div class="beat-cl">BFL4 · BFL4</div>
+          </a>
+          <a href="#beat-5" class="beat" style="text-decoration: none;">
+            <div class="beat-circle">5</div>
+            <div class="beat-label">Release</div>
+            <div class="beat-duration">2 sec</div>
+            <div class="beat-cl">BFL5</div>
+          </a>
+        </div>
+      </div>
+
+      <p>The dashes between beats represent silence — the time the teacher leaves for pupils to respond to what has just been done. Pause durations are not optional. They are calibrated to the working speed of an attentive secondary class, and shortening them tends to break the routine. The most common cause of routine failure is the teacher filling the pause with speech or gesture before the pupils have finished responding to the previous beat.</p>
+    </section>
+
+    <!-- BEAT 1: TRIGGER -->
+    <section id="beat-1"><div class="stage">
+      <div class="stage-header"><div class="stage-number">1</div><div class="stage-title-block"><div class="stage-tag">Trigger</div><h3>The set phrase, spoken from a strong position.</h3></div><div class="stage-time">0:00</div></div>
+      <div class="stage-checklist"><span class="label">Checklist</span><span class="cl-pill">BFL7</span></div>
+
+      <p>The routine begins with one set phrase, "Show me diligence. Thank you.", spoken at normal volume from a strong position in the room. The key word is diligence, and pupils have been taught its meaning since Year 7: pens down, arms folded, eyes on the teacher. The teacher does not restate the meaning, because saying the phrase and the definition together teaches the class that the phrase alone is insufficient — which is the lesson the routine is designed not to teach. The phrase is fixed: the same five words, in the same order, every time.</p>
+
+      <div class="technique"><div class="label">The technique</div>The teacher stands in a strong position, delivers the phrase at normal volume, and then stops speaking. The phrase is fixed: it is not lengthened, not qualified, and not followed with extra instruction. Once the phrase has been delivered, the routine has begun and the next beat is silence.</div>
+      <div class="script"><span class="label">Scripted language</span>"Show me diligence. Thank you."</div>
+
+      <div class="principle"><div class="label">Expected compliance</div>
+        <p>The phrase ends with "thank you" rather than "please", and the difference matters. "Please" asks the class for permission, and permission can be withheld. "Thank you" treats the response as already granted, because at Nishkam compliance with a fair instruction is expected rather than negotiated.</p>
+        <p>This is the principle of expected compliance, and it belongs in every direct instruction the teacher gives, not only in this routine. The teacher thanks the class for the action as it is asked for, before it is complete: <span class="ex">"Thank you for facing this way." "Thank you for putting that away."</span> The thanks comes first, and the action follows it.</p>
+        <p>On behaviour in particular, this keeps the instruction calm. "Please" can sound like the opening of a negotiation, and a pupil who is testing the boundary will hear the gap. "Thank you" closes that gap without raising the voice. It stays warm: the teacher is assuming the best of the pupil, who will of course do as asked.</p>
+        <p>Colleagues are trained to make this swap deliberately, replacing "please" with "thank you" across their instructions. It is a small change in wording that does a great deal of work in the climate of the room.</p>
+      </div>
+
+      <div class="practice">
+        <div class="label"><span>Deliberate practice</span><span class="timer">60 seconds · in pairs</span></div>
+        <ol>
+          <li>The teacher stands in a strong position and waits two seconds before speaking. The silence before the phrase is part of the trigger.</li>
+          <li>The teacher delivers the phrase at normal volume and then stops speaking.</li>
+          <li>Run five repetitions. After each, the partner reports whether the phrase was weighted or rushed, and whether anything followed it.</li>
+        </ol>
+        <div class="coach-prompt"><strong>Coach prompt:</strong> Was the phrase delivered at normal volume, or did it rise to fill the room? Did the teacher stop after the phrase, or did they qualify it ("…pens down, please, eyes on me…")?</div>
+      </div>
+
+      <div class="remediation"><div class="label">If you have failed BFL7</div><p>The fix is almost always vocal. Record the trigger phrase delivered once, then five times in succession. The recording reveals whether delivery is consistent in volume and weight across repetitions.</p></div>
+    </div></section>
+
+    <!-- BEAT 2: PAUSE -->
+    <section id="beat-2"><div class="stage">
+      <div class="stage-header"><div class="stage-number">2</div><div class="stage-title-block"><div class="stage-tag">Pause</div><h3>Three seconds of silence while the room responds.</h3></div><div class="stage-time">+0:01 → +0:04</div></div>
+      <div class="stage-checklist"><span class="label">Checklist</span><span class="cl-pill">BFL3</span></div>
+
+      <p>After the trigger phrase, the teacher says nothing for three seconds. This is the active part of the routine: pupils close pens, fold arms, and turn their eyes to the front. The pause is the time given for them to do so. If the teacher fills the silence, the routine collapses — pupils receive a second instruction before they have completed the first, and the trigger phrase loses its weight in subsequent uses.</p>
+
+      <p>Three seconds is longer than it feels in the moment. It is calibrated to the working speed of an attentive class and is not negotiable.</p>
+
+      <div class="technique"><div class="label">The technique</div>The teacher's mouth is closed, hands are still, and body is still. The teacher does not nod, gesture, or reissue the phrase. An internal three-count is acceptable while the routine is being established. The pause is the instruction at this stage of the sequence.</div>
+
+      <div class="practice">
+        <div class="label"><span>Deliberate practice</span><span class="timer">90 seconds · in pairs</span></div>
+        <ol>
+          <li>One colleague delivers the trigger phrase; the other times the silence on a watch.</li>
+          <li>The teacher holds three full seconds without speaking, gesturing, or moving.</li>
+          <li>Run five repetitions. The timer reports whether the pause shrank as the routine repeated, or held its full duration each time.</li>
+        </ol>
+        <div class="coach-prompt"><strong>Coach prompt:</strong> Did the teacher hold the full three seconds? When the pause was shortened, what filled it — a word, a gesture, a tightening of the body?</div>
+      </div>
+
+      <div class="remediation"><div class="label">If you have failed BFL3 (pause half)</div><p>This is the foundation skill of the routine. Arrange for a coaching partner to time the pause in real lessons across one week. The data alone resolves most cases.</p></div>
+    </div></section>
+
+    <!-- BEAT 3: SCAN -->
+    <section id="beat-3"><div class="stage">
+      <div class="stage-header"><div class="stage-number">3</div><div class="stage-title-block"><div class="stage-tag">Scan</div><h3>A visible scan of the room, with three or four explicit eye-meets.</h3></div><div class="stage-time">+0:04 → +0:07</div></div>
+      <div class="stage-checklist"><span class="label">Checklist</span><span class="cl-pill">BFL3</span></div>
+
+      <p>After the silent pause, the teacher visibly scans the room — corner to corner, with three or four explicit eye-meets including any pupils who are not yet compliant. The scan tells the class that compliance is being measured, and the eye-meet is the correction in cases where compliance has not yet occurred. A second instruction is not required at this point. Without the scan, the routine reduces to a request, and pupils learn over time that intermittent compliance is acceptable.</p>
+
+      <div class="technique"><div class="label">The technique</div>The scan uses visible head movement, not eye flicks alone. Three or four explicit fixations are made across the room, including the back row and the corners. Where a pupil is not yet compliant, the teacher holds gaze for half a second; in most cases this resolves the issue without a second word.</div>
+
+      <div class="practice">
+        <div class="label"><span>Deliberate practice</span><span class="timer">60 seconds · in trios</span></div>
+        <ol>
+          <li>Two colleagues stand at opposite corners of the room as pupils.</li>
+          <li>The teacher delivers the trigger, holds the pause, then scans — visibly meeting the eyes of each pupil in turn.</li>
+          <li>The pupils report whether they felt seen, and whether the scan covered the whole room or only the part nearest the teacher.</li>
+        </ol>
+        <div class="coach-prompt"><strong>Coach prompt:</strong> Could the pupils tell when they were being looked at? Did the teacher scan the whole room, or only the part nearest to them?</div>
+      </div>
+
+      <div class="remediation"><div class="label">If you have failed BFL3 (scan half)</div><p>Rehearse the scan in front of a mirror. The head movement should be deliberate enough to be visible to an observer at the back of the room.</p></div>
+    </div></section>
+
+    <!-- BEAT 4: INSTRUCT -->
+    <section id="beat-4"><div class="stage">
+      <div class="stage-header"><div class="stage-number">4</div><div class="stage-title-block"><div class="stage-tag">Instruct</div><h3>The instruction, delivered in performance order, in three steps or fewer.</h3></div><div class="stage-time">+0:07 → +0:12</div></div>
+      <div class="stage-checklist"><span class="label">Checklist</span><span class="cl-pill">BFL4</span><span class="cl-pill">BFL4</span></div>
+
+      <p>At this point in the sequence — and not before — the teacher gives the instruction. It is delivered in performance order: pupils hear it in the sequence in which they will perform it. It contains no more than three steps, which corresponds to the working memory limit of an attentive secondary class. Four steps reaches the threshold of forgetting and produces partial compliance.</p>
+
+      <div class="technique"><div class="label">The technique</div>Steps are sequenced in the order pupils will perform them. The same connective vocabulary is used in every lesson — "first... then... finally." Where a class finds the sequence hard, the teacher anchors the steps tactilely by counting them off on the fingers as they are spoken.</div>
+      <div class="script"><span class="label">Scripted language — example</span>"First, turn to page 47. Then, read the first paragraph silently. Finally, write the date and title in your book."</div>
+
+      <div class="practice">
+        <div class="label"><span>Deliberate practice</span><span class="timer">2 minutes · in pairs</span></div>
+        <ol>
+          <li>One colleague is the teacher; the other holds a stopwatch and a pen.</li>
+          <li>The teacher delivers a three-step instruction in performance order.</li>
+          <li>The pupil writes down what they heard. The pair compare the written version against the original — were the three steps preserved, and were they in performance order?</li>
+          <li>Repeat with three different scenarios: starter task, transition between activities, end-of-lesson pack-up.</li>
+        </ol>
+        <div class="coach-prompt"><strong>Coach prompt:</strong> Did the instruction contain more than three steps? Were they in performance order, or in the order they occurred to the teacher?</div>
+      </div>
+
+      <div class="remediation"><div class="label">If you have failed BFL4 or BFL4</div><p>The teacher plans their three highest-frequency instructions in writing before the lesson. The instructions are written out word for word, in performance order, on a sticky note on the lectern. For the first week, the teacher reads from the note as the instruction is delivered.</p></div>
+    </div></section>
+
+    <!-- BEAT 5: RELEASE -->
+    <section id="beat-5"><div class="stage">
+      <div class="stage-header"><div class="stage-number">5</div><div class="stage-title-block"><div class="stage-tag">Release</div><h3>The release word that begins pupil action.</h3></div><div class="stage-time">+0:12 → +0:14</div></div>
+      <div class="stage-checklist"><span class="label">Checklist</span><span class="cl-pill">BFL5</span></div>
+
+      <p>The instruction ends with a single trigger word that releases the class to act: "go". Pupils begin only on the trigger. They have been taught since Year 7 that no instruction is live until the release word arrives, which protects the silence between the trigger and the release as a working part of the routine rather than a gap to be filled.</p>
+
+      <p>The pause between the last step of the instruction and "go" carries weight in the sequence: it tells pupils that the instruction is complete and the release is incoming. Where this pause is shortened, pupils begin acting at random points during the instruction rather than at a single moment afterwards.</p>
+
+      <div class="technique"><div class="label">The technique</div>The teacher holds a one-second pause after the final step, then says "go" at normal volume. A second scan follows the release word, which gives the teacher information about whether the instruction was followed first time.</div>
+      <div class="script"><span class="label">Scripted language</span>"...write the date and title in your book. — Pause. — Go."</div>
+
+      <div class="practice">
+        <div class="label"><span>Deliberate practice</span><span class="timer">90 seconds · in pairs</span></div>
+        <ol>
+          <li>The teacher delivers a three-step instruction, holds the one-second pause, then says "go".</li>
+          <li>The pupil reports the moment they began acting in their head — was it on "go", or earlier?</li>
+          <li>Repeat. The aim is for the pupil to begin exactly on "go", neither before nor after.</li>
+        </ol>
+        <div class="coach-prompt"><strong>Coach prompt:</strong> Was the pause before "go" actually held? Did the teacher say "go" with the same weight as the trigger phrase, or did it slip into the end of the instruction?</div>
+      </div>
+
+      <div class="remediation"><div class="label">If you have failed BFL5</div><p>The most common failure is omitting the release word entirely; the teacher gives the instruction and pupils have to guess when to begin. The fix is to add the trigger word back into the sequence. The release word is a routine step, not an optional one.</p></div>
+    </div></section>
+
+    <section id="end-to-end">
+      <div class="section-eyebrow">03 · End-to-end practice</div>
+      <h2>Running the full rhythm.</h2>
+      <p class="section-intro">The routine is short enough to be rehearsed many times in succession within a single deliberate practice session. Repetition is what produces the automaticity the routine depends on for its effect.</p>
+
+      <div class="end-to-end">
+        <div class="marquee">FEATURED PRACTICE · 5 MINUTES · IN TRIOS</div>
+        <h3>Ten repetitions in five minutes.</h3>
+        <p>Trios consist of one teacher and two pupils. The trio runs the full five-beat routine ten times in succession, with a different instruction each time. By the tenth repetition, the rhythm should be automatic.</p>
+
+        <ol style="margin-top: 12px;">
+          <li><strong>Set:</strong> the trio agrees ten plausible mid-lesson instructions in advance — a mixture of starter calls, transitions between activities, transitions back from talk to silence, and end-of-lesson pack-ups.</li>
+          <li><strong>Run:</strong> the teacher executes the full routine — trigger, pause, scan, instruct, release — ten times, with one of the agreed instructions each time. There is no stopping between repetitions.</li>
+          <li><strong>Score:</strong> the pupils hold a tally. For each repetition, they mark whether each of the five beats landed cleanly. The total is out of fifty marks per teacher.</li>
+          <li><strong>Rotate:</strong> roles are swapped and the activity repeats. The second teacher's score is typically higher than the first's by repetitions six to ten, which is the effect of having observed the previous round.</li>
+        </ol>
+
+        <div class="coach-prompt" style="border-top: 1px dashed var(--practice-rule); margin-top: 16px; padding-top: 12px;"><strong>Coach prompt:</strong> Of the fifty possible marks, how many landed? Which beat had the lowest hit rate — pause, scan, or release? That is the beat to drill before the next lesson.</div>
+      </div>
+    </section>
+
+    <section id="pitfalls">
+      <div class="section-eyebrow">04 · Common pitfalls</div>
+      <h2>Where the routine breaks.</h2>
+      <p class="section-intro">Each pitfall below is tagged with the checklist item it puts at risk. The diagnostic value of the pitfall list lies in pairing the failure mode with the specific item that will fall to amber or red as a consequence.</p>
+
+      <div class="pitfall"><strong>Filling the pause.</strong><span class="pf-cl">Risks BFL3</span><p>The teacher delivers the trigger phrase and immediately follows it with elaboration ("…pens down, please, eyes on me"). Each addition undermines the phrase, because pupils learn that the phrase alone is insufficient to begin the routine. The correct action is to deliver the phrase and hold the silence.</p></div>
+
+      <div class="pitfall"><strong>Rising volume on the trigger.</strong><span class="pf-cl">Risks BFL7</span><p>The trigger phrase is delivered louder on each successive use. Volume escalation teaches pupils that the routine bends under pressure and that compliance is required only when the teacher is sufficiently insistent. The trigger phrase is delivered at the same volume every time it is used.</p></div>
+
+      <div class="pitfall"><strong>Skipping the scan.</strong><span class="pf-cl">Risks BFL3</span><p>The teacher delivers the trigger and pause, then moves directly to the instruction without a scan. Without the scan, the routine functions as a request rather than a check, and pupils learn over time that intermittent compliance is acceptable.</p></div>
+
+      <div class="pitfall"><strong>Four-step instructions.</strong><span class="pf-cl">Risks BFL4</span><p>The teacher delivers an instruction with four or more steps ("turn to page 47, read the first paragraph, write the date and title, and answer question one"). Working memory will not hold four steps reliably. The correct action is to split the instruction into two routines, or to trim it to three steps.</p></div>
+
+      <div class="pitfall"><strong>Wrong-order instructions.</strong><span class="pf-cl">Risks BFL4</span><p>The teacher delivers steps in a sequence other than performance order ("answer question one once you have written the date and title and read the paragraph"). The cognitive cost of reordering steps in real time is high, and partial compliance is the typical result. Performance order is used every time.</p></div>
+
+      <div class="pitfall"><strong>Implied release.</strong><span class="pf-cl">Risks BFL5</span><p>The teacher delivers the instruction and adopts an expectant posture without saying "go". Pupils begin acting at random points. The correct action is to add the explicit release word back into the routine; the release is a routine step rather than something pupils are expected to infer.</p></div>
+
+      <div class="pitfall"><strong>Using "diligence" when a different routine is needed.</strong><span class="pf-cl">Risks BFL7</span><p>The diligence routine is for transitions to attention. Where the room needs calm rather than focus, the appropriate cue is peacefulness (Module 1.1). Where it needs a full stop and reset, the appropriate move is the warning ladder (Module 1.8). Diligence is not a substitute for either.</p></div>
+    </section>
+
+
+    <section id="audit">
+      <div class="section-eyebrow">05 · Self-audit · BFL7, BFL3, BFL4, BFL4, BFL5</div>
+      <h2>The canonical checklist.</h2>
+      <p class="section-intro">This audit mirrors the streamlined Behaviour for Learning checklist for the items this module owns. The IDs are the IDs the monitoring platform uses. RAG ratings are recorded after deliberate practice and again after live observation.</p>
+
+      <table class="audit">
+        <thead><tr><th style="width: 10%;">ID</th><th style="width: 56%;">Statement</th><th style="width: 14%;">RAG</th><th style="width: 20%;">Date</th></tr></thead>
+        <tbody>
+        <tr><td class="id">BFL3</td><td>Teacher pauses to allow pupils to comply, scans the room to ensure 100% attention before giving instructions.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+        <tr><td class="id">BFL4</td><td>Teacher provides clear instructions (no more than 3 steps).</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+        <tr><td class="id">BFL5</td><td>When the teacher gives an instruction, the pupils follow this first time.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+        <tr><td class="id">BFL7</td><td>When required, the 'Peacefulness' and 'Diligence' mantras are used, and the teacher returns to a strong position.</td><td><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <div class="audit-section-divider">OUTCOME ITEM — DOWNSTREAM SIGNAL</div>
+      <table class="audit" style="margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;">
+        <tbody>
+          <tr class="outcome-row"><td class="id" style="width: 12%;">BFL2</td><td style="width: 52%;">Pupils focused on the task throughout.</td><td style="width: 16%;"><div class="rag"><span class="r"></span><span class="a"></span><span class="g"></span></div></td><td style="width: 20%;">—</td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size: 14px; color: var(--ink-soft); margin-top: 16px;">BFL2 is the downstream signal that the routine is producing its intended effect on pupil focus. A teacher can score green on every action item and still find BFL2 amber, which is diagnostic information about an aspect of the classroom the routine alone does not control. The action items describe what the teacher does; the outcome item describes what is observed in the room afterwards.</p>
+    </section>
+
+    <section id="ai-tool">
+      <div class="section-eyebrow">06 · AI scenario tester</div>
+      <h2>Try a real moment from your classroom.</h2>
+      <p class="section-intro">Describe a moment where attention or following instructions breaks down.</p>
+      <div class="ai-tool">
+        <div class="ai-eyebrow">Live tool</div>
+        <h3>Scenario tester</h3>
+        <div style="margin-top:14px;">
+          <textarea id="aiScenario" rows="4" style="width:100%;box-sizing:border-box;border:none;border-radius:10px;padding:12px 14px;font-family:inherit;font-size:15px;line-height:1.5;color:#1f2a37;background:#fff;resize:vertical;" placeholder="Describe what is happening, what you have tried, and what you want to achieve..."></textarea>
+          <button id="aiGo" class="ai-cta" style="border:none;cursor:pointer;margin-top:12px;">Get suggestions</button>
+          <div id="aiOut" style="margin-top:16px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="./module-1-2-lesson-starts.html" class="prev"><span class="dir">← Previous module</span><span class="label">1.2 · Lesson Starts</span></a>
+      <a href="./module-1-4-30-second-reflection.html" class="next"><span class="dir">Next module →</span><span class="label">1.4 · The 30-Second Reflection</span></a>
+    </nav>
+  </article>
+</div>
+
+<footer class="module-footer">
+  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div>T&amp;L Excellence Programme · Pillar 1 · Module 1.3</div>
+  <div style="margin-top: 8px;"><a href="./index.html">Hub</a> · <a href="./tl-programme.html">T&amp;L Excellence</a> · <a href="./matrix.html">Matrix</a></div>
+</footer>
+<style id="rag-style">
+table.audit .rag { display:inline-flex; gap:6px; }
+table.audit .rag span { width:16px; height:16px; cursor:pointer; opacity:.5; transition:opacity .15s, transform .15s, box-shadow .15s; }
+table.audit .rag span:hover { opacity:.85; }
+table.audit .rag span.sel { opacity:1; transform:scale(1.18); box-shadow:0 0 0 2px rgba(31,42,55,.28); }
+table.audit .rag .r.sel { background:#d0664c; } table.audit .rag .a.sel { background:#dca828; } table.audit .rag .g.sel { background:#5da46f; }
+tr.rag-guidance > td { background:#faf5ea; border-top:none; }
+.rag-panel { padding:14px 4px 16px; }
+.rag-status { font-size:13.5px; color:var(--ink-soft); margin-bottom:10px; }
+.rag-getbtn { border:none; cursor:pointer; background:var(--accent); color:#fff; font:inherit; font-size:13px; font-weight:600; padding:9px 15px; border-radius:8px; }
+.rag-getbtn[disabled] { opacity:.6; cursor:default; }
+.rag-out { margin-top:12px; background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:14px 16px; line-height:1.55; font-size:14.5px; color:var(--ink); }
+.rag-out p { margin:0 0 8px; } .rag-out ol { margin:6px 0 0 18px; } .rag-out li { margin:0 0 5px; }
+.rag-done { color:#3c7a4c; font-weight:600; font-size:13.5px; }
+.rag-keep { margin-top:22px; background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:18px; }
+.rag-keep h3 { margin:0 0 4px; font-size:16px; color:var(--ink); }
+.rag-keep .rk-sub { margin:0 0 14px; font-size:13.5px; color:var(--ink-soft); }
+.rag-keep label { display:block; font-size:13px; font-weight:600; color:var(--ink); margin:0 0 6px; }
+.rag-keep textarea { width:100%; box-sizing:border-box; border:1px solid var(--rule); border-radius:8px; padding:10px 12px; font:inherit; font-size:14px; line-height:1.5; color:var(--ink); background:#fff; resize:vertical; }
+.rag-keep .rk-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
+.rag-keep .rk-btn { border:none; cursor:pointer; font:inherit; font-size:13px; font-weight:600; padding:9px 15px; border-radius:8px; }
+.rag-keep .rk-primary { background:var(--accent); color:#fff; }
+.rag-keep .rk-ghost { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+.rag-keep .rk-clear { background:transparent; color:var(--ink-soft); border:1px solid var(--rule); margin-left:auto; }
+.rag-keep .rk-saved { font-size:12.5px; color:var(--ink-soft); margin-top:10px; }
+@media print { .rag-getbtn, .rag-keep .rk-row, .pillar-spine, .topbar, nav.toc, .module-nav, #ai-tool .ai-tool { display:none !important; } }
+</style>
+<script id="rag-js">
+(function(){
+  var WORKER="https://nswl-mlt.w-milligan.workers.dev";
+  var pillar=((document.querySelector('.pillar-tag')||{}).textContent||'').trim();
+  var modTitle=((document.querySelector('h1.title')||{}).textContent||'').trim();
+  var modCode=(document.body.getAttribute('data-current')||'').trim();
+  var KEY="nswl-audit-"+modCode;
+  var LV=['red','amber','green'];
+  var store={ratings:{},guidance:{},notes:""};
+  try{ var raw=localStorage.getItem(KEY); if(raw){ var o=JSON.parse(raw); if(o){ store=o; store.ratings=store.ratings||{}; store.guidance=store.guidance||{}; } } }catch(e){}
+  var savedEl=null;
+  function markSaved(){ if(savedEl){ var d=new Date(); savedEl.textContent="Saved on this device · "+d.toLocaleDateString()+" "+d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}); } }
+  function save(){ try{ store.updated=new Date().toISOString(); localStorage.setItem(KEY, JSON.stringify(store)); }catch(e){} markSaved(); }
+  var rowsMeta=[];
+  document.querySelectorAll('table.audit').forEach(function(t){
+    t.querySelectorAll('tbody tr').forEach(function(tr){
+      if(tr.classList.contains('rag-guidance')) return;
+      var rag=tr.querySelector('.rag'); if(!rag) return;
+      var tds=tr.querySelectorAll('td');
+      var idc=tr.querySelector('td.id');
+      var code=idc?idc.textContent.trim():'';
+      var statement='';
+      if(idc){ statement=tds.length>1?tds[1].textContent.trim():''; }
+      else { for(var ci=0;ci<tds.length;ci++){ if(!tds[ci].querySelector('.rag')){ statement=tds[ci].textContent.trim(); break; } } }
+      var key=code||('q:'+statement.slice(0,80)); if(!key) return;
+      var label=code||'this item';
+      var spans=rag.querySelectorAll('span'); if(spans.length<3) return;
+      rowsMeta.push({code:code, statement:statement, key:key});
+      var gtr=null;
+      function ensure(){ if(gtr) return gtr; gtr=document.createElement('tr'); gtr.className='rag-guidance'; var td=document.createElement('td'); td.colSpan=tds.length; var p=document.createElement('div'); p.className='rag-panel'; td.appendChild(p); gtr.appendChild(td); tr.parentNode.insertBefore(gtr, tr.nextSibling); gtr._p=p; return gtr; }
+      function showGuidanceUI(rating, savedHtml){
+        var p=ensure()._p;
+        p.innerHTML='<div class="rag-status">You rated <strong>'+label+'</strong> as '+rating+'. Here is how to move it towards green:</div><button class="rag-getbtn">Suggest how to reach green</button><div class="rag-out" style="display:none;"></div>';
+        var btn=p.querySelector('.rag-getbtn'), out=p.querySelector('.rag-out');
+        if(savedHtml){ out.style.display='block'; out.innerHTML=savedHtml; btn.textContent='Suggest again'; }
+        btn.addEventListener('click', async function(){
+          btn.disabled=true; btn.textContent='Thinking...';
+          out.style.display='block'; out.innerHTML='<p style="margin:0;color:var(--ink-soft);">Thinking...</p>';
+          var sys="You are an experienced teaching coach at Nishkam School West London. A colleague is self-auditing against the school's Teaching and Learning checklist for this module: "+modTitle+" ("+pillar+"). They have rated one checklist item as "+rating+", meaning it is not yet secure. Give brief, practical, encouraging guidance to move it to green. Structure the reply as: one short sentence describing what green looks like for this item; then a heading 'To reach green' followed by a numbered list of two to four concrete classroom actions; then, if useful, one short line naming a common pitfall to avoid. Where it fits naturally, refer to the school's three classroom virtues by name (Peacefulness, Diligence, Determination), but do not force them in. Voice: plain, warm, British English, short concrete sentences, no jargon, no buzzwords, no em dashes, and do not open with 'Great'. Format the reply as simple HTML using only <p>, <strong>, <ol> and <li> tags.";
+          var user=(code?("Checklist item "+code+": "):"Self-audit item: ")+"\""+statement+"\". Current rating: "+rating+". How do I get this to green?";
+          try{
+            var r=await fetch(WORKER+"/api/feedback",{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({max_tokens:700,system:sys,messages:[{role:'user',content:user}]})});
+            if(!r.ok) throw 0; var d=await r.json();
+            var text=(d.content||[]).map(function(b){return b.text||'';}).join('\n').trim();
+            if(!text) throw 0; var html=text.replace(/```html|```/g,'').trim();
+            out.innerHTML=html; store.guidance[key]=html; save();
+          }catch(e){ out.innerHTML='<p style="margin:0;">The guidance tool could not be reached just now. Please try again in a moment.</p>'; }
+          finally{ btn.disabled=false; btn.textContent='Suggest again'; }
+        });
+      }
+      function pick(i, fromRestore){
+        for(var j=0;j<spans.length;j++){ spans[j].classList.toggle('sel', j===i); }
+        store.ratings[key]=LV[i];
+        if(i===2){ if(gtr){ gtr._p.innerHTML='<span class="rag-done">On track. '+(code||'This item')+' is at green.</span>'; } delete store.guidance[key]; if(!fromRestore) save(); return; }
+        showGuidanceUI(LV[i], store.guidance[key]); if(!fromRestore) save();
+      }
+      for(var k=0;k<spans.length;k++){ (function(idx){
+        spans[idx].setAttribute('role','button'); spans[idx].setAttribute('tabindex','0');
+        spans[idx].title=LV[idx].charAt(0).toUpperCase()+LV[idx].slice(1);
+        spans[idx].addEventListener('click',function(){ pick(idx,false); });
+        spans[idx].addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(idx,false); } });
+      })(k); }
+      var sr=store.ratings[key]; if(sr){ var ri=LV.indexOf(sr); if(ri>=0) pick(ri, true); }
+    });
+  });
+  var auditSec=document.getElementById('audit');
+  if(auditSec){
+    var box=document.createElement('div'); box.className='rag-keep';
+    box.innerHTML='<h3>Keep your results</h3><p class="rk-sub">Your ratings, the guidance you generate, and your notes are saved on this device. Print or download them to keep alongside your booklet or bring to coaching. Nothing is sent anywhere.</p><label for="rkNotes">Your notes and next actions</label><textarea id="rkNotes" rows="3" placeholder="What will you work on first? Anything to raise in coaching?"></textarea><div class="rk-row"><button class="rk-btn rk-primary" id="rkPrint">Print / Save as PDF</button><button class="rk-btn rk-ghost" id="rkDl">Download summary</button><button class="rk-btn rk-clear" id="rkClear">Clear my ratings</button></div><div class="rk-saved" id="rkSaved"></div>';
+    auditSec.appendChild(box);
+    savedEl=box.querySelector('#rkSaved');
+    var notesEl=box.querySelector('#rkNotes'); notesEl.value=store.notes||"";
+    notesEl.addEventListener('input', function(){ store.notes=notesEl.value; save(); });
+    if(store.updated) markSaved();
+    function esc(s){ return (s||'').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+    function summaryHtml(){
+      var rows=rowsMeta.map(function(m){
+        var rt=store.ratings[m.key]||'not rated';
+        var g=store.guidance[m.key]?('<div style="margin-top:6px;padding:10px 12px;background:#faf5ea;border-radius:8px;font-size:13px;">'+store.guidance[m.key]+'</div>'):'';
+        var colour=rt==='green'?'#3c7a4c':(rt==='amber'?'#b07d2b':(rt==='red'?'#c0392b':'#888'));
+        return '<tr><td style="padding:8px 10px;border-bottom:1px solid #e6dcc8;font-weight:600;white-space:nowrap;vertical-align:top;">'+m.code+'</td><td style="padding:8px 10px;border-bottom:1px solid #e6dcc8;vertical-align:top;">'+esc(m.statement)+g+'</td><td style="padding:8px 10px;border-bottom:1px solid #e6dcc8;text-transform:capitalize;font-weight:600;color:'+colour+';vertical-align:top;white-space:nowrap;">'+rt+'</td></tr>';
+      }).join('');
+      var notes=store.notes?('<h2 style="font-size:15px;margin:22px 0 6px;">Notes and next actions</h2><p style="white-space:pre-wrap;margin:0;">'+esc(store.notes)+'</p>'):'';
+      var d=new Date();
+      return '<!doctype html><html><head><meta charset="utf-8"><title>Self-audit - '+esc(modTitle)+'</title><style>body{font-family: "Century Gothic", "CenturyGothic", "Jost", "Avenir Next", "URW Gothic", sans-serif;color:#1f2a37;max-width:760px;margin:32px auto;padding:0 20px;line-height:1.5;}h1{font-size:22px;margin:0 0 2px;}.meta{color:#666;font-size:13px;margin:0 0 18px;}table{width:100%;border-collapse:collapse;font-family: "Century Gothic", "CenturyGothic", "Jost", "Avenir Next", "URW Gothic", sans-serif;font-size:14px;}th{text-align:left;padding:8px 10px;border-bottom:2px solid #1f2a37;font-size:12px;text-transform:uppercase;letter-spacing:.04em;}</style></head><body><h1>Self-audit summary</h1><p class="meta">'+esc(modTitle)+' · '+esc(pillar)+' · '+d.toLocaleDateString()+'</p><table><thead><tr><th>Item</th><th>Statement and guidance</th><th>Rating</th></tr></thead><tbody>'+rows+'</tbody></table>'+notes+'<p style="margin-top:24px;color:#666;font-size:12px;">Generated from the Teaching Excellence Programme self-audit. File alongside your '+esc(pillar)+' booklet.</p></body></html>';
+    }
+    function openSummary(forPrint){
+      var w=window.open('', '_blank'); if(!w){ return false; }
+      w.document.open(); w.document.write(summaryHtml()); w.document.close();
+      if(forPrint){ w.focus(); setTimeout(function(){ try{ w.print(); }catch(e){} }, 400); }
+      return true;
+    }
+    box.querySelector('#rkPrint').addEventListener('click', function(){ if(!openSummary(true)){ alert('Please allow pop-ups to print, or use Download summary instead.'); } });
+    box.querySelector('#rkDl').addEventListener('click', function(){
+      var blob=new Blob([summaryHtml()], {type:'text/html'}); var url=URL.createObjectURL(blob);
+      var a=document.createElement('a'); a.href=url; a.download='self-audit-'+modCode+'.html';
+      document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 500);
+    });
+    box.querySelector('#rkClear').addEventListener('click', function(){
+      if(!confirm('Clear your ratings, guidance and notes for this module on this device?')) return;
+      try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+    });
+  }
+})();
+</script>
+<script>
+(function(){
+  var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";
+  var SYS = "You are an experienced teaching coach at Nishkam School West London, helping a teacher apply one specific classroom practice. The practice for this module is: the attention and diligence routine - gaining full attention, giving clear instructions in three steps or fewer, and pupils following first time (BFL3, BFL4, BFL5, BFL7). The teacher will describe a real classroom situation. Give practical, specific, encouraging advice on applying this practice to their situation. Structure the reply as: a short diagnosis of what is going on; then a heading 'What to do, in order' with a numbered list of concrete steps; then a heading 'Why this works' in one short paragraph; and where useful, one common pitfall to avoid. Where it fits naturally, hold pupils to the school's three classroom virtues by name - Peacefulness, Diligence and Determination. Do not force them in. Voice: plain, warm, British English, like a real colleague speaking. Short, concrete sentences. No jargon, no buzzwords, no 'X, not Y' constructions, no em dashes, no flattery, and do not open with 'Great'. Format the reply as simple HTML using only <p>, <strong>, <ol> and <li> tags.";
+  var btn=document.getElementById("aiGo"), ta=document.getElementById("aiScenario"), out=document.getElementById("aiOut");
+  if(!btn||!ta||!out) return;
+  function card(inner){ return '<div style="background:#fffdf7;color:#1f2a37;border-radius:12px;padding:16px 18px;line-height:1.55;border:1px solid #e6dcc8;">'+inner+'</div>'; }
+  btn.addEventListener("click", async function(){
+    var s=(ta.value||"").trim();
+    if(s.length<10){ out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Write a sentence or two first.</p>'; return; }
+    btn.disabled=true; var label=btn.textContent; btn.textContent="Thinking\u2026";
+    out.innerHTML='<p style="color:#fff;opacity:.85;margin:0;">Thinking\u2026</p>';
+    try{
+      var r=await fetch(WORKER_URL+"/api/feedback",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({max_tokens:1000,system:SYS,messages:[{role:"user",content:s}]})});
+      if(!r.ok) throw new Error("api");
+      var data=await r.json();
+      var text=(data.content||[]).map(function(b){return b.text||"";}).join("\n").trim();
+      if(!text) throw new Error("empty");
+      out.innerHTML=card(text.replace(/```html|```/g,"").trim());
+    }catch(e){ out.innerHTML=card('<p style="margin:0;">The live tool could not be reached just now. Please try again in a moment.</p>'); }
+    finally{ btn.disabled=false; btn.textContent=label; }
+  });
+})();
+</script>
+</body>
+</html>
