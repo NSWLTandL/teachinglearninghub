@@ -570,18 +570,6 @@
   .linked-card .title { font-family: var(--serif); font-size: 17px; }
   .linked-card .desc { font-size: 13px; color: var(--ink-soft); }
 
-  /* Video placeholder */
-  .video-placeholder {
-    background: #2a2a2a;
-    border-radius: 10px;
-    padding: 60px 24px;
-    text-align: center;
-    color: rgba(255,255,255,0.7);
-    margin: 16px 0;
-  }
-  .video-placeholder .icon { font-size: 36px; opacity: 0.5; margin-bottom: 12px; }
-  .video-placeholder .label { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
-  .video-placeholder .desc { font-size: 14px; margin-top: 8px; opacity: 0.7; font-style: italic; }
 
   /* Footer */
   footer.module-footer {
@@ -680,19 +668,6 @@
   .download-card.download-soon { opacity: 0.6; cursor: default; position: relative; }
   .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
   .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
-</style>
-<style id="video-style">
-#video .video-list { display:grid; gap:22px; margin-top:8px; }
-.video-frame, .video-embed { width:100%; background:#000; border-radius:12px; overflow:hidden; display:block; }
-.video-frame { aspect-ratio:16/9; }
-.video-embed { position:relative; aspect-ratio:16/9; }
-.video-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
-.video-title { font-weight:600; color:var(--ink); margin-top:10px; font-size:15px; }
-.video-caption { color:var(--ink-soft); font-size:14px; margin-top:3px; }
-.video-placeholder { border:2px dashed var(--rule); border-radius:12px; padding:46px 20px; text-align:center; color:var(--ink-soft); background:var(--surface); }
-.video-placeholder .icon { font-size:34px; opacity:.45; margin-bottom:10px; }
-.video-placeholder .label { font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
-.video-placeholder .desc { font-size:14px; margin-top:8px; opacity:.75; font-style:italic; }
 </style>
 </head>
 <body data-current="1-2">
@@ -844,7 +819,6 @@
       <li><a href="#stage-9">9 · Register &amp; circulate</a></li>
       <li><a href="#end-to-end">End-to-end practice</a></li>
       <li><a href="#pitfalls">Common pitfalls</a></li>
-      <li><a href="#video">Video examples</a></li>
       <li><a href="#audit">Self-audit checklist</a></li>
       <li><a href="#ai-tool">AI scenario tester</a></li>
       <li><a href="#linked">Linked modules</a></li>
@@ -1331,12 +1305,6 @@
     </section>
 
     <!-- SELF-AUDIT -->
-    <section id="video">
-      <div class="section-eyebrow">Watch</div>
-      <h2>Video examples.</h2>
-      <p class="section-intro">Short exemplar clips of this practice in a real classroom. Watch first, then return to the steps above.</p>
-      <div class="video-list" data-module="1-2"></div>
-    </section>
 
     <section id="audit">
       <div class="section-eyebrow">05 · Self-audit checklist</div>
@@ -1565,7 +1533,6 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
   }
 })();
 </script>
-<script src="./videos.js"></script>
 <script>
 (function(){
   var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";

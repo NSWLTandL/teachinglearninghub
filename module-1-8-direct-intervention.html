@@ -226,19 +226,6 @@ p { margin: 0 0 18px; line-height: 1.65; }
   .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
   .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
 </style>
-<style id="video-style">
-#video .video-list { display:grid; gap:22px; margin-top:8px; }
-.video-frame, .video-embed { width:100%; background:#000; border-radius:12px; overflow:hidden; display:block; }
-.video-frame { aspect-ratio:16/9; }
-.video-embed { position:relative; aspect-ratio:16/9; }
-.video-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
-.video-title { font-weight:600; color:var(--ink); margin-top:10px; font-size:15px; }
-.video-caption { color:var(--ink-soft); font-size:14px; margin-top:3px; }
-.video-placeholder { border:2px dashed var(--rule); border-radius:12px; padding:46px 20px; text-align:center; color:var(--ink-soft); background:var(--surface); }
-.video-placeholder .icon { font-size:34px; opacity:.45; margin-bottom:10px; }
-.video-placeholder .label { font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
-.video-placeholder .desc { font-size:14px; margin-top:8px; opacity:.75; font-style:italic; }
-</style>
 </head>
 <body data-current="1-8">
 
@@ -358,7 +345,6 @@ p { margin: 0 0 18px; line-height: 1.65; }
       <li><a href="#step-5">5 · Escalation off-classroom</a></li>
       <li><a href="#delivery">Delivering the technique</a></li>
       <li><a href="#pitfalls">Pitfalls</a></li>
-      <li><a href="#video">Video examples</a></li>
       <li><a href="#audit">Self-audit</a></li>
       <li><a href="#ai-tool">AI scenario tester</a></li>
     </ol>
@@ -600,12 +586,6 @@ p { margin: 0 0 18px; line-height: 1.65; }
       <div class="pitfall"><strong>Failure to record the warnings.</strong><span class="pf-cl">Risks BFL2</span><p>The teacher delivers Step 1 verbally but does not record the warning in the lesson tracker. On the next breach there is no record of the previous warning, the pupil claims this is the first time the issue has come up, and the warning ladder restarts from Step 1. The recording is part of the technique; an unrecorded warning is half a warning.</p></div>
     </section>
 
-    <section id="video">
-      <div class="section-eyebrow">Watch</div>
-      <h2>Video examples.</h2>
-      <p class="section-intro">Short exemplar clips of this practice in a real classroom. Watch first, then return to the steps above.</p>
-      <div class="video-list" data-module="1-8"></div>
-    </section>
 
     <section id="audit">
       <div class="section-eyebrow">05 · Self-audit · BFL6, BFL2</div>
@@ -783,7 +763,6 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
   }
 })();
 </script>
-<script src="./videos.js"></script>
 <script>
 (function(){
   var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";

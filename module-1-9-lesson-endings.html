@@ -236,19 +236,6 @@
   .download-card.download-soon:hover { transform: none; border-color: var(--rule); box-shadow: none; }
   .dl-soon { margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
 </style>
-<style id="video-style">
-#video .video-list { display:grid; gap:22px; margin-top:8px; }
-.video-frame, .video-embed { width:100%; background:#000; border-radius:12px; overflow:hidden; display:block; }
-.video-frame { aspect-ratio:16/9; }
-.video-embed { position:relative; aspect-ratio:16/9; }
-.video-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
-.video-title { font-weight:600; color:var(--ink); margin-top:10px; font-size:15px; }
-.video-caption { color:var(--ink-soft); font-size:14px; margin-top:3px; }
-.video-placeholder { border:2px dashed var(--rule); border-radius:12px; padding:46px 20px; text-align:center; color:var(--ink-soft); background:var(--surface); }
-.video-placeholder .icon { font-size:34px; opacity:.45; margin-bottom:10px; }
-.video-placeholder .label { font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
-.video-placeholder .desc { font-size:14px; margin-top:8px; opacity:.75; font-style:italic; }
-</style>
 </head>
 <body data-current="1-9">
 
@@ -388,7 +375,6 @@
       <li><a href="#stage-6">6 · Corridor handover</a></li>
       <li><a href="#end-to-end">End-to-end</a></li>
       <li><a href="#pitfalls">Pitfalls</a></li>
-      <li><a href="#video">Video examples</a></li>
       <li><a href="#audit">Self-audit</a></li>
       <li><a href="#ai-tool">AI scenario tester</a></li>
     </ol>
@@ -585,12 +571,6 @@
       <div class="pitfall"><strong>Homework as the final word.</strong><span class="pf-cl">Risks LE3</span><p>"Don't forget your homework's due Tuesday." The lesson closes on logistics rather than on a virtue. Move homework reminders to before the pack-up call.</p></div>
     </section>
 
-    <section id="video">
-      <div class="section-eyebrow">Watch</div>
-      <h2>Video examples.</h2>
-      <p class="section-intro">Short exemplar clips of this practice in a real classroom. Watch first, then return to the steps above.</p>
-      <div class="video-list" data-module="1-9"></div>
-    </section>
 
     <section id="audit">
       <div class="section-eyebrow">05 · Self-audit · LE1–LE6</div>
@@ -766,7 +746,6 @@ tr.rag-guidance > td { background:#faf5ea; border-top:none; }
   }
 })();
 </script>
-<script src="./videos.js"></script>
 <script>
 (function(){
   var WORKER_URL = "https://nswl-mlt.w-milligan.workers.dev";
