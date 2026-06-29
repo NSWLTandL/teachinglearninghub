@@ -106,6 +106,8 @@
   // =================== CONFIG ===================
   var LEAD_CODE = "nishkam-lead";   // change this to whatever the programme lead should use
   var STORE_PREFIX = "mlt-q:resp:";
+  // Reflection storage Worker (deploy nswl-reflect, then put its URL here). No trailing slash.
+  var STORE_URL = "https://nswl-reflect.w-milligan.workers.dev";
   var SESSIONS = [
     "Session 1: What is a Middle Leader?",
     "Session 2: Leading from the Middle",
@@ -160,12 +162,20 @@
 
   // =================== STORAGE ===================
   async function saveResponse(resp){
+    try{
+      var rr = await fetch(STORE_URL + "/submit", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(resp)});
+      if(rr.ok){ return true; }
+    }catch(e){}
     var id = Date.now().toString(36) + Math.random().toString(36).slice(2,7);
     try{ if(window.storage){ await window.storage.set(STORE_PREFIX+id, JSON.stringify(resp), true); return true; } }
     catch(e){}
     MEM.push(resp); return false;
   }
   async function loadAll(){
+    try{
+      var rr = await fetch(STORE_URL + "/list", {method:"GET"});
+      if(rr.ok){ var d = await rr.json(); if(d && Array.isArray(d.responses)) return d.responses; }
+    }catch(e){}
     try{
       if(window.storage){
         var res = await window.storage.list(STORE_PREFIX, true);
@@ -179,6 +189,22 @@
       }
     }catch(e){}
     return MEM.slice();
+  }
+  async function clearAll(){
+    try{
+      await fetch(STORE_URL + "/clear", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({code: LEAD_CODE})});
+    }catch(e){}
+    try{
+      if(window.storage){
+        var res = await window.storage.list(STORE_PREFIX, true);
+        var keys = (res && res.keys) ? res.keys : [];
+        for(var i=0;i<keys.length;i++){
+          var k = typeof keys[i]==='string' ? keys[i] : keys[i].key;
+          try{ await window.storage.delete(k, true); }catch(e){}
+        }
+      }
+    }catch(e){}
+    MEM = [];
   }
 
   // =================== PARTICIPANT FORM ===================
@@ -279,7 +305,7 @@
     app.innerHTML = '<div class="loading"><div class="spinner"></div>Gathering responses…</div>';
     var all = await loadAll();
     var html = '<div class="lead-bar"><span>Programme lead — cohort results</span><span><b>'+all.length+'</b> response'+(all.length===1?'':'s')+'</span></div>';
-    if(!all.length){ html += '<p class="muted" style="margin-top:18px;">No responses yet. They\'ll appear here as participants submit.</p>'; app.innerHTML=html; bindBack(); return; }
+    if(!all.length){ html += '<p class="muted" style="margin-top:18px;">No responses yet. They\'ll appear here as participants submit.</p>'; app.innerHTML=html; bindBack(false); return; }
 
     // Q1 scale: average + distribution
     var nums = all.map(function(r){return r.q1;}).filter(function(v){return typeof v==='number';});
@@ -300,7 +326,7 @@
     html += choiceStat('q12', ["Excellent","Good","Needs improvement"]);
     html += textStat('q13');
     app.innerHTML = html;
-    bindBack();
+    bindBack(true);
 
     function textStat(id){
       var quotes = all.map(function(r){return r[id];}).filter(function(v){return v && String(v).trim();});
@@ -331,13 +357,20 @@
              '<span class="num">'+p[1]+'</span></div>';
     }).join('');
   }
-  function bindBack(){
+  function bindBack(hasData){
     var b=document.createElement('div'); b.className='footer-row';
     b.innerHTML='<span class="note">Shared cohort data. Refresh to pull the latest.</span>'+
-      '<span><span class="switch" id="refresh">Refresh</span> &nbsp; <span class="switch" id="toForm">← Back to the form</span></span>';
+      '<span>'+(hasData?'<span class="switch" id="clearAll" style="color:#b3261e;">Clear all results</span> &nbsp; ':'')+'<span class="switch" id="refresh">Refresh</span> &nbsp; <span class="switch" id="toForm">← Back to the form</span></span>';
     app.appendChild(b);
     document.getElementById('refresh').addEventListener('click', renderLead);
     document.getElementById('toForm').addEventListener('click', function(){ state={}; renderForm(); });
+    var ca=document.getElementById('clearAll');
+    if(ca) ca.addEventListener('click', async function(){
+      if(!window.confirm('Delete all cohort responses permanently? This cannot be undone.')) return;
+      app.innerHTML='<div class="loading"><div class="spinner"></div>Clearing…</div>';
+      await clearAll();
+      renderLead();
+    });
   }
 
   // =================== UTIL + INIT ===================
