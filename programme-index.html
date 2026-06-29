@@ -244,6 +244,15 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
 }
 /* ====== /shared six-pillar nav spine ====== */
 
+  /* pillar quick-nav */
+  .pillar-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 30px; }
+  .pillar-nav a { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--rule); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; text-decoration: none; transition: transform .12s ease, box-shadow .12s ease; }
+  .pillar-nav a:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(31,42,55,0.08); }
+  .pillar-nav .pn { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .pillar-nav .nm { font-size: 15px; color: var(--ink); font-weight: 600; line-height: 1.25; }
+  .pillar-block { scroll-margin-top: 20px; }
+  @media (max-width: 680px){ .pillar-nav { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px){ .pillar-nav { grid-template-columns: 1fr; } }
 </style>
 
 <style>
@@ -313,7 +322,15 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
     <div class="section-eyebrow">The programme</div>
     <h2>Six pillars of classroom practice.</h2>
     <p class="section-intro">The Teaching Excellence Programme is organised into six pillars. Each module maps to the school's Teaching &amp; Learning checklist and is built for direct instruction: step-by-step, visible, and clear.</p>
-    <div class="pillar-block">
+    <nav class="pillar-nav" aria-label="Jump to a pillar">
+      <a href="#pillar-1"><span class="pn">Pillar 1</span><span class="nm">Behaviour &amp; Climate</span></a>
+      <a href="#pillar-2"><span class="pn">Pillar 2</span><span class="nm">Adaptive Teaching &amp; Inclusion</span></a>
+      <a href="#pillar-3"><span class="pn">Pillar 3</span><span class="nm">Instruction &amp; Modelling</span></a>
+      <a href="#pillar-4"><span class="pn">Pillar 4</span><span class="nm">Checking for Understanding</span></a>
+      <a href="#pillar-5"><span class="pn">Pillar 5</span><span class="nm">Questioning &amp; Classroom Dialogue</span></a>
+      <a href="#pillar-6"><span class="pn">Pillar 6</span><span class="nm">Standards &amp; Curriculum</span></a>
+    </nav>
+    <div class="pillar-block" id="pillar-1">
       <div class="pillar-block-head"><span class="pn">Pillar 1</span><span class="nm">Behaviour &amp; Climate</span><span class="st">9 built</span></div>
       <div class="card-grid">
         <a class="lp-card" href="./module-1-1-language-of-virtues.html"><span class="c-tag">1.1</span><span class="c-name">Language of Virtues</span><span class="c-desc">The shared moral vocabulary of the classroom.</span></a>
@@ -327,7 +344,7 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
         <a class="lp-card" href="./module-1-9-lesson-endings.html"><span class="c-tag">1.9</span><span class="c-name">Lesson Endings</span><span class="c-desc">Closing a lesson with the standard intact.</span></a>
       </div>
     </div>
-    <div class="pillar-block">
+    <div class="pillar-block" id="pillar-2">
       <div class="pillar-block-head"><span class="pn">Pillar 2</span><span class="nm">Adaptive Teaching &amp; Inclusion</span><span class="st">3 built</span></div>
       <div class="card-grid">
         <a class="lp-card" href="./module-2-1-inclusive-classroom.html"><span class="c-tag">2.1</span><span class="c-name">The Inclusive Classroom</span><span class="c-desc">The calm, predictable room every adaptation rests on.</span></a>
@@ -335,7 +352,7 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
         <a class="lp-card" href="./module-2-3-send-intervention.html"><span class="c-tag">2.3</span><span class="c-name">SEND Intervention</span><span class="c-desc">A purposeful session, with a loop to the teacher.</span></a>
       </div>
     </div>
-    <div class="pillar-block">
+    <div class="pillar-block" id="pillar-3">
       <div class="pillar-block-head"><span class="pn">Pillar 3</span><span class="nm">Instruction &amp; Modelling</span><span class="st">5 built</span></div>
       <div class="card-grid">
         <a class="lp-card" href="./module-3-1-explain-clearly.html"><span class="c-tag">3.1</span><span class="c-name">Explain Clearly</span><span class="c-desc">Structuring an explanation so it can be followed.</span></a>
@@ -345,7 +362,7 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
         <a class="lp-card" href="./module-3-5-economy-of-language.html"><span class="c-tag">3.5</span><span class="c-name">Economy of Language</span><span class="c-desc">Saying only the words that need saying.</span></a>
       </div>
     </div>
-    <div class="pillar-block">
+    <div class="pillar-block" id="pillar-4">
       <div class="pillar-block-head"><span class="pn">Pillar 4</span><span class="nm">Checking for Understanding</span><span class="st">3 built</span></div>
       <div class="card-grid">
         <a class="lp-card" href="./module-4-1-mini-whiteboards.html"><span class="c-tag">4.1</span><span class="c-name">Mini-Whiteboards</span><span class="c-desc">A response from every pupil at once.</span></a>
@@ -353,7 +370,7 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
         <a class="lp-card" href="./module-4-3-explicit-vocabulary.html"><span class="c-tag">4.3</span><span class="c-name">Explicit Vocabulary Teaching</span><span class="c-desc">Teaching a key word so every pupil can say, define and use it.</span></a>
       </div>
     </div>
-    <div class="pillar-block">
+    <div class="pillar-block" id="pillar-5">
       <div class="pillar-block-head"><span class="pn">Pillar 5</span><span class="nm">Questioning &amp; Classroom Dialogue</span><span class="st">3 built</span></div>
       <div class="card-grid">
         <a class="lp-card" href="./module-5-1-cold-calling.html"><span class="c-tag">5.1</span><span class="c-name">Cold-Calling</span><span class="c-desc">Every pupil expects to be asked.</span></a>
@@ -361,7 +378,7 @@ footer.module-footer .mantra { font-family: var(--serif); font-style: italic; fo
         <a class="lp-card" href="./module-5-3-think-pair-share.html"><span class="c-tag">5.3</span><span class="c-name">Think, Pair, Share</span><span class="c-desc">Rehearsing an answer before giving it.</span></a>
       </div>
     </div>
-    <div class="pillar-block">
+    <div class="pillar-block" id="pillar-6">
       <div class="pillar-block-head"><span class="pn">Pillar 6</span><span class="nm">Standards &amp; Curriculum</span><span class="st">3 built</span></div>
       <div class="card-grid">
         <a class="lp-card" href="./module-6-1-curriculum-delivery.html"><span class="c-tag">6.1</span><span class="c-name">Curriculum Delivery</span><span class="c-desc">The scheme of learning, enacted in sequence.</span></a>
