@@ -42,6 +42,63 @@ h1 em { font-style: italic; color: var(--accent); }
 footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 36px 24px; text-align: center; font-size: 13px; }
 footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Questrial&display=swap">
+<style id="nsw-house">
+/* ===== Nishkam house style — presentation overlay (Essay Coach family) ===== */
+:root{
+  --bg:#FFFFFF;
+  --surface:#FFFFFF;
+  --ink:#2E2E2E;
+  --ink-soft:#5C6A6A;
+  --rule:#E3E8E8;
+  --accent:#006F69;         /* NSW teal */
+  --accent-soft:#7AACAC;    /* mist */
+  --gold:#8A6A1F;           /* caution/outcome only */
+  --highlight:#E6F0EF;      /* teal wash */
+  --practice:#E6F0EF;
+  --practice-rule:#7AACAC;
+  --practice-ink:#00524E;
+  --pause:#FAF6EA;
+  --pause-ink:#8A6A1F;
+  --serif:"Century Gothic","Questrial","Didact Gothic","URW Gothic","Apple Gothic",Futura,sans-serif;
+  --sans:"Century Gothic","Questrial","Didact Gothic","URW Gothic","Apple Gothic",Futura,sans-serif;
+}
+html,body{ background:#FFFFFF; }
+/* headings: house slate + tight tracking. More-specific existing rules
+   (e.g. .ai-tool h3 {color:#fff}) keep their colour by specificity. */
+h1,h2,h3,h4{ color:#3E5858; letter-spacing:-0.015em; }
+h1.title em, article h2 em, .lp-hero h1 em { color:var(--accent); }
+a{ color:var(--accent); }
+
+/* flat: no shadows anywhere, no gradients on the panels that used them */
+*{ box-shadow:none !important; }
+.hero,.lp-hero{ background:#FFFFFF !important; }
+.end-to-end{ background:var(--practice) !important; }
+.ai-tool{ background:#3E5858 !important; }
+
+/* square corners on generic containers & chips … */
+.checklist-strip,.checklist-strip a.cl-tag,.checklist-strip span.cl-tag,
+.step-card,.stage,.technique,.script,.practice,.remediation,.end-to-end,
+.pitfall,.pf-cl,table.audit,.audit-section-divider,.download-card,.ai-tool,
+.ai-demo,.ai-cta,.module-nav a,.long-quote,blockquote.pull,.pillar-tag,
+.cl-tag,.cl-pill,.tag,.ps-tag,.eyebrow,.big-tile,.lp-card,.orient,
+.beat .beat-cl,.checklist-strip{ border-radius:0 !important; }
+
+/* … but KEEP the RAG dots and the numbered motif circles round */
+.rag span, table.audit .rag span,
+.beat-circle, .stage-number, .step-num, .cycle-arrow{ border-radius:50% !important; }
+
+/* pillar tag reads as a bordered small-caps chip on white */
+.pillar-tag,.lp-hero .eyebrow{ background:#FFFFFF !important; border:1px solid var(--accent) !important; color:var(--accent) !important; }
+
+/* neutralise hard-coded warm colours the variable swap can't reach.
+   pitfalls are genuine warnings -> house caution pair (no red). */
+.pitfall{ border-left-color:var(--gold) !important; background:var(--pause) !important; }
+.pitfall strong{ color:var(--gold) !important; }
+.pf-cl{ color:var(--gold) !important; background:#FFFFFF !important; }
+.script{ background:#FAFAFA !important; }
+</style>
+
 </head>
 <body>
 
@@ -183,7 +240,7 @@ footer .mantra { font-family: var(--serif); font-style: italic; font-size: 16px;
 </div>
 
 <footer>
-  <div class="mantra">Man Neeva, Mat Uchi</div>
+  <div class="mantra">ਮਨ ਨੀਵਾਂ ਮੱਤ ਉੱਚੀ │ Man neeva, mat uchi │ To be humble, to be wise</div>
   <div>Nishkam School West London</div>
   <div style="margin-top: 8px;"><span style="color: rgba(255,255,255,0.5);">A Nishkam Schools professional development programme</span></div>
 </footer>
