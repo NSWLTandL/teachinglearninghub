@@ -49,24 +49,81 @@
   a.back{color:var(--accent);font-size:14px;text-decoration:none;}
   @media(max-width:600px){h1{font-size:30px;}.scen-text{font-size:19px;}}
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Questrial&display=swap">
+<style id="nsw-house">
+/* ===== Nishkam house style — presentation overlay (Essay Coach family) ===== */
+:root{
+  --bg:#FFFFFF;
+  --surface:#FFFFFF;
+  --ink:#2E2E2E;
+  --ink-soft:#5C6A6A;
+  --rule:#E3E8E8;
+  --accent:#006F69;         /* NSW teal */
+  --accent-soft:#7AACAC;    /* mist */
+  --gold:#8A6A1F;           /* caution/outcome only */
+  --highlight:#E6F0EF;      /* teal wash */
+  --practice:#E6F0EF;
+  --practice-rule:#7AACAC;
+  --practice-ink:#00524E;
+  --pause:#FAF6EA;
+  --pause-ink:#8A6A1F;
+  --serif:"Century Gothic","Questrial","Didact Gothic","URW Gothic","Apple Gothic",Futura,sans-serif;
+  --sans:"Century Gothic","Questrial","Didact Gothic","URW Gothic","Apple Gothic",Futura,sans-serif;
+}
+html,body{ background:#FFFFFF; }
+/* headings: house slate + tight tracking. More-specific existing rules
+   (e.g. .ai-tool h3 {color:#fff}) keep their colour by specificity. */
+h1,h2,h3,h4{ color:#3E5858; letter-spacing:-0.015em; }
+h1.title em, article h2 em, .lp-hero h1 em { color:var(--accent); }
+a{ color:var(--accent); }
+
+/* flat: no shadows anywhere, no gradients on the panels that used them */
+*{ box-shadow:none !important; }
+.hero,.lp-hero{ background:#FFFFFF !important; }
+.end-to-end{ background:var(--practice) !important; }
+.ai-tool{ background:#3E5858 !important; }
+
+/* square corners on generic containers & chips … */
+.checklist-strip,.checklist-strip a.cl-tag,.checklist-strip span.cl-tag,
+.step-card,.stage,.technique,.script,.practice,.remediation,.end-to-end,
+.pitfall,.pf-cl,table.audit,.audit-section-divider,.download-card,.ai-tool,
+.ai-demo,.ai-cta,.module-nav a,.long-quote,blockquote.pull,.pillar-tag,
+.cl-tag,.cl-pill,.tag,.ps-tag,.eyebrow,.big-tile,.lp-card,.orient,
+.beat .beat-cl,.checklist-strip{ border-radius:0 !important; }
+
+/* … but KEEP the RAG dots and the numbered motif circles round */
+.rag span, table.audit .rag span,
+.beat-circle, .stage-number, .step-num, .cycle-arrow{ border-radius:50% !important; }
+
+/* pillar tag reads as a bordered small-caps chip on white */
+.pillar-tag,.lp-hero .eyebrow{ background:#FFFFFF !important; border:1px solid var(--accent) !important; color:var(--accent) !important; }
+
+/* neutralise hard-coded warm colours the variable swap can't reach.
+   pitfalls are genuine warnings -> house caution pair (no red). */
+.pitfall{ border-left-color:var(--gold) !important; background:var(--pause) !important; }
+.pitfall strong{ color:var(--gold) !important; }
+.pf-cl{ color:var(--gold) !important; background:#FFFFFF !important; }
+.script{ background:#FAFAFA !important; }
+</style>
+
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <div class="crumbs"><a href="./index.html">Nishkam Hub</a><span>\u203a</span><a id="crumbSession" href="#">Session</a><span>\u203a</span>Scenario practice</div>
+  <div class="crumbs"><a href="./index.html">Nishkam Hub</a><span>›</span><a id="crumbSession" href="#">Session</a><span>›</span>Scenario practice</div>
   <div>Middle Leadership Development Programme</div>
 </div></div>
 
 <div class="wrap-main">
   <div class="eyebrow" id="eyebrow">Practice</div>
   <h1>Try it on a <em>real situation</em></h1>
-  <p class="lede">Read the situation, write how you would handle it, and you'll get specific, supportive feedback against this session's ideas and the Nishkam lens. No scores, nothing saved \u2014 a place to think a conversation through before you have it.</p>
+  <p class="lede">Read the situation, write how you would handle it, and you'll get specific, supportive feedback against this session's ideas and the Nishkam lens. No scores, nothing saved — a place to think a conversation through before you have it.</p>
 
   <div class="card">
     <div class="scen-label"><span id="sessTag">The situation</span><span class="count" id="count"></span></div>
     <p class="scen-text" id="scenText"></p>
     <p class="scen-prompt" id="scenPrompt"></p>
     <label class="q" for="resp">How would you handle this? Write what you'd do or say.</label>
-    <textarea id="resp" placeholder="For example: I'd speak to them privately, and I'd open with\u2026"></textarea>
+    <textarea id="resp" placeholder="For example: I'd speak to them privately, and I'd open with…"></textarea>
     <div class="row">
       <button class="btn-primary" id="getFb">Get feedback</button>
       <button class="btn-ghost" id="newScen">Try a different situation</button>
@@ -75,7 +132,7 @@
     <div id="out"></div>
   </div>
 
-  <p style="margin-top:24px;"><a class="back" id="backLink" href="#">\u2190 Back to the session</a></p>
+  <p style="margin-top:24px;"><a class="back" id="backLink" href="#">← Back to the session</a></p>
   <p class="note"><b>For the live site:</b> this tool calls Claude to generate its feedback, which works inside Claude. To run it on the public site, route the request through a small proxy that holds the API key (a single serverless function) and point <code>API_URL</code> at it.</p>
 </div>
 
