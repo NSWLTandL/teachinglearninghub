@@ -133,7 +133,6 @@ a{ color:var(--accent); }
   </div>
 
   <p style="margin-top:24px;"><a class="back" id="backLink" href="#">← Back to the session</a></p>
-  <p class="note"><b>For the live site:</b> this tool calls Claude to generate its feedback, which works inside Claude. To run it on the public site, route the request through a small proxy that holds the API key (a single serverless function) and point <code>API_URL</code> at it.</p>
 </div>
 
 <script>
@@ -195,7 +194,7 @@ a{ color:var(--accent); }
     }
   };
 
-  var API_URL = "https://api.anthropic.com/v1/messages";
+  var API_URL = "https://nswl-mlt.w-milligan.workers.dev/api/feedback";
 
   var s = (new URLSearchParams(location.search).get('s') || '1');
   if(!SESSIONS[s]) s = '1';
@@ -244,7 +243,7 @@ a{ color:var(--accent); }
       '  "principle": "the one idea from this session it connects to most, in 2-5 words"\n}';
     try{
       var res=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,messages:[{role:"user",content:prompt}]})});
+        body:JSON.stringify({max_tokens:1000,messages:[{role:"user",content:prompt}]})});
       if(!res.ok) throw new Error("HTTP "+res.status);
       var data=await res.json();
       var raw=(data.content||[]).map(function(b){return b.text||"";}).join("").trim();
